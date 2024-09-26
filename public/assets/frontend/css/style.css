@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Franklin Gothic Book';
+    src: url('/assets/frontend/fonts/FranklinGothicBookRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply the font globally or to specific elements */
+body {
+    @apply font-franklin;
+}
