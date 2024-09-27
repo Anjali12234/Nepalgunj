@@ -31,10 +31,10 @@
                             class='w-12' />
                     </a>
                 </li>
-                @foreach ($sharedCategory->take(5) as $category)
+                @foreach ($sharedMenus->take(5) as $sharedMenu)
                     <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'>
-                        <a href=""
-                            class='text-neutral-800 hover:text-[#007bff] block font-semibold text-[15px]'>{{ $category->title_en }}</a>
+                        <a href="{{ App\helpers\HelperMenu::getFrontUrl($sharedMenu) }}"
+                            class='text-neutral-800 hover:text-[#007bff] block font-semibold text-[15px]'> {{ $sharedMenu->title }}</a>
                     </li>
                 @endforeach
 

@@ -13,6 +13,6 @@
 
 
 </form> --}}
-<a href="" class="btn bg-gray-400 text-white h-7 px-1">Remove</a>
+{{-- <a href="" class="btn bg-gray-400 text-white h-7 px-1">Remove</a> --}}
 
 </div>

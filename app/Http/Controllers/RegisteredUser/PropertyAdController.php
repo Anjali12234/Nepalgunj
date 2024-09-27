@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\RegisteredUser;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PropertyList\StoreProperyListRequest;
 use App\Http\Requests\PropertyList\UpdateProperyListRequest;
@@ -10,7 +11,7 @@ use App\Models\PropertyList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-class PropertyAdController extends Controller
+class PropertyAdController extends BaseController
 {
     public function index()
     {
@@ -79,10 +80,6 @@ class PropertyAdController extends Controller
         $propertyList->delete();
         return back();
     }
-    
-    public function __construct()
-    {
-        $setting = MainCategory::orderBy('position')->get();
-        view()->share('sharedCategory', $setting);
-    }
+
+
 }

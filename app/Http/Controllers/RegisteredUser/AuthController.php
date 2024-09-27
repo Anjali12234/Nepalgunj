@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\RegisteredUser;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterdUser\StoreRegisteredUserRequest;
 use App\Models\MainCategory;
@@ -13,7 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Notification;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     public function login()
     {
@@ -73,11 +74,7 @@ class AuthController extends Controller
         return redirect(route('welcome'));
     }
 
-    public function __construct()
-    {
-        $setting = MainCategory::orderBy('position')->get();
-        view()->share('sharedCategory', $setting);
-    }
+
 
 
 }
