@@ -27,6 +27,7 @@ class EducationList extends Model
         'program',
         'email',
         'facebook_url',
+        'website_url',
         'map_url',
         'whats_app_no',
         'reference_no',

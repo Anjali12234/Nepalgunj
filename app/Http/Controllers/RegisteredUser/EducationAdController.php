@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\RegisteredUser;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EducationList\StoreEducationListRequest;
 use App\Http\Requests\EducationList\UpdateEducationListRequest;
@@ -11,7 +12,7 @@ use App\Models\MainCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-class EducationAdController extends Controller
+class EducationAdController extends BaseController
 {
     public function index()
     {
@@ -81,9 +82,5 @@ class EducationAdController extends Controller
         return back();
     }
 
-    public function __construct()
-    {
-        $setting = MainCategory::orderBy('position')->get();
-        view()->share('sharedCategory', $setting);
-    }
+
 }

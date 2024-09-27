@@ -21,6 +21,7 @@ class StoreEducationListRequest extends FormRequest
             'affiliated' => ['nullable','string'],
             'description' => ['required','string'],
             'program' => ['nullable','string'],
+            'website_url' => ['nullable','string'],
             'email' => ['nullable','string'],
             'facebook_url' => ['required','string'],
             'map_url' => ['required','string'],
