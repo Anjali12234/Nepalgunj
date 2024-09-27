@@ -72,6 +72,8 @@
 
                             <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url" type="text"
                                 class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url" type="text"
+                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url" name="facebook_url"
                                 type="text" class="text-sm font-semibold" />

@@ -86,6 +86,8 @@
 
                             <x-frontend.forms.input-type-field :value="old('facebook_url', $educationList->facebook_url)" label="Facebook Url" id="facebook_url" name="facebook_url"
                                 type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('website_url', $educationList->website_url)" label="Website Url" id="website_url" name="website_url"
+                                type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('whats_app_no', $educationList->whats_app_no)" label="Whats App" id="whats_app_no" name="whats_app_no"
                                 type="number" class="text-sm font-semibold" />
 

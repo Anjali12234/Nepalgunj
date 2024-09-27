@@ -14,11 +14,11 @@
             </div>
             <!-- Tabs for Residential and Commercial -->
             <div class="flex space-x-1">
-                @foreach ($subCategories as $subCategory)
+                @foreach ($propertyCategories as $propertyCategory)
                     <a
-                        href="{{ route('properties', ['subCategorySlug' => $subCategory->slug, 'is_rent' => request('is_rent')]) }}">
+                        href="">
                         <button
-                            class="bg-neutral-800 text-white px-4 py-2 focus:outline-none">{{ $subCategory->title_en }}</button>
+                            class="bg-neutral-800 text-white px-4 py-2 focus:outline-none">{{ $propertyCategory->title_en }}</button>
                     </a>
                 @endforeach
             </div>
@@ -155,7 +155,7 @@
 
                                 <div class="p-2 border-2  border-t-slate-500">
                                     <h4 class="text-xs font-bold text-gray-500 uppercase">
-                                        {{ $propertyList->subCategory->title_en }}</h4>
+                                        {{ $propertyList->propertyCategory->title_en }}</h4>
                                     <p class="text-lg font-semibold"> {{ Str::words($propertyList->title, 5) }}</p>
                                     <p class="text-lg text-blue-600 font-bold">{{ $propertyList->rate }} Rs/Month</p>
                                     <div class="flex items-center gap-6">
@@ -183,7 +183,7 @@
                             <div class="col-span-1">
                                 <h4 class="text-xs font-bold text-blue-500 uppercase mb-1">For
                                     {{ $propertyList->is_rent == 1 ? 'Rent' : 'Sale' }} •
-                                    {{ $propertyList->subCategory->title_en }} •
+                                    {{ $propertyList->propertyCategory->title_en }} •
                                 </h4>
                             </div>
                             <div class="col-span-1 flex justify-end items-center">

@@ -37,6 +37,7 @@ class MenuController extends Controller
         return back();
     }
 
+
     public function edit(Menu $menu)
     {
         $mainMenus = Menu::with('menus')->whereNull('menu_id')->get();

@@ -52,9 +52,12 @@
                         </span>
                     </div>
                     <div class="form-group col-md-6">
+
                         <label for="slug"> Slug</label>
                         <input class="form-control" id="slug" name="slug" type="text" value="{{ old('slug') }}"
                             placeholder=" slug" />
+                        Slug For Static Menus: @foreach(config('fixMenus') as $fixMenu) {{$fixMenu}} , @endforeach
+
                         <span class="text-warning">
                             @error('slug')
                                 {{ $message }}

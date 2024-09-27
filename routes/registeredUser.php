@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisteredUser\EducationAdController;
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
 use App\Http\Controllers\RegisteredUser\PropertyAdController;
 use App\Http\Controllers\RegisteredUser\RegisteredUserDetailController;
+use App\Http\Controllers\RegisteredUser\TestimonialController;
 
 Route::get('dashboard', DashboardController::class)->name('dashboard');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
@@ -34,5 +35,7 @@ Route::prefix('education')->group(function () {
     Route::get('educationCategory/{educationCategory:slug}', [EducationAdController::class, 'create'])->name('educationCategory.create');
     Route::post('educationList/{educationCategory:slug}', [EducationAdController::class, 'store'])->name('educationList.store');
     Route::resource('/educationList', EducationAdController::class)->except('store','create');
+    Route::resource('education-list/{educationList:slug}/testimonials', TestimonialController::class)->names('educationList.testimonials');
+
 
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\RegisteredUser;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterdUser\StoreRegisteredUserDetailRequest;
 use App\Models\MainCategory;
@@ -10,7 +11,7 @@ use App\Models\RegisteredUserDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RegisteredUserDetailController extends Controller
+class RegisteredUserDetailController extends BaseController
 {
 
     public function index()
@@ -88,10 +89,6 @@ class RegisteredUserDetailController extends Controller
         return back();
     }
 
-    public function __construct()
-    {
-        $setting = MainCategory::orderBy('position')->get();
-        view()->share('sharedCategory', $setting);
-    }
+
 }
 
