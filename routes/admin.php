@@ -10,6 +10,9 @@ use App\Http\Controllers\Admin\NewsCategoryController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PropertyCategoryController;
 use App\Http\Controllers\Admin\RegisteredUserController;
+use App\Http\Controllers\Admin\RolePermisson\PermissionController;
+use App\Http\Controllers\Admin\RolePermisson\RoleController;
+use App\Http\Controllers\Admin\RolePermisson\UserController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthController;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +39,8 @@ Route::prefix('registerdUser')->group(function () {
     Route::resource('registeredUser', RegisteredUserController::class);
     Route::put('registeredUser/{registeredUser}/updateStatus', [RegisteredUserController::class, 'updateStatus'])->name('registeredUser.updateStatus');
 });
+
+
+Route::resource('permission', PermissionController::class);
+Route::resource('role', RoleController::class);
+Route::resource('user', UserController::class);
