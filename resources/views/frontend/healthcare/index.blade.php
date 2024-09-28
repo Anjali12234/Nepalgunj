@@ -186,7 +186,8 @@
 
             </div>
             <div class="justify-center items-center text-center mt-4">
-                <a href="{{ route('healthcare.listPage') }}" class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+                <a href="{{ route('healthcare.listPage') }}"
+                    class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
                 </a>
             </div>
 
@@ -279,7 +280,8 @@
 
             </div>
             <div class="justify-center items-center text-center mt-4">
-                <a href="{{ route('healthcare.listPage') }}" class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+                <a href="{{ route('healthcare.hospitalListPage') }}"
+                    class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
                 </a>
             </div>
 
@@ -372,8 +374,8 @@
 
             </div>
             <div class="justify-center items-center text-center">
-                <button class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
-                </button>
+                <a href="{{ route('healthcare.pharmacyListPage') }}" class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+                </a>
             </div>
 
             <!-- End Grid -->
@@ -466,15 +468,16 @@
                 <!-- End Card -->
 
             </div>
-            <div class="justify-center items-center text-center mt-4">
-                <a href="{{ route('healthcare.listPage') }}" class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+            <div class="justify-center items-center text-center mt-4 mb-10">
+                <a href="{{ route('healthcare.medicalListPage') }}"
+                    class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
                 </a>
             </div>
-
+            <x-frontend.PropertiesFooter.properties-footer />
             <!-- End Grid -->
         </div>
 
-        <x-frontend.PropertiesFooter.properties-footer/>
+
     </div>
 
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('rate');
             $table->longText('description');
             $table->string('slug');
-            $table->string('map_url');
+            $table->longText('map_url');
             $table->string('address');
             $table->string('position');
             $table->string('is_rent');

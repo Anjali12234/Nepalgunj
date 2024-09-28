@@ -21,7 +21,7 @@ class StoreProperyListRequest extends FormRequest
             'description' => ['required','string'],
             'address' => ['required','string'],
             'is_rent' => ['required'],
-            'map_url' => ['required','string'],
+            'map_url' => ['required'],
             'bed_room' => ['nullable','numeric'],
             'bathroom' => ['nullable','numeric'],
             'internet' => ['nullable','string'],

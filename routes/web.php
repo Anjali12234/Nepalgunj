@@ -11,14 +11,18 @@ use Illuminate\Support\Facades\Route;
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'index')->name('welcome');
     Route::get('/postAd', 'postAd')->name('postAd');
-    Route::get('/properties/{propertyCategorySlug?}', 'propertyCategory')->name('properties');
+    Route::get('/properties/{propertyCategorySlug?}', 'properties')->name('properties');
+    Route::get('propertyList/{propertyList:slug}', 'propertyDetails')->name('propertyDetails');
+    Route::get('vehicles', 'vehicles')->name('vehicles');
+    Route::get('healthCare','healthcareIndex')->name('healthcareIndex');
+    Route::get('education','educationIndexPage')->name('education.IndexPage');
+
 });
-Route::get('detail/{slug}', [FrontendController::class, 'staticMenus'])->name('static');
+// Route::get('detail/{slug}', [FrontendController::class, 'staticMenus'])->name('static');
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login', [AuthController::class, 'handleLogin'])->name('handle-login');
 
-// Route::get('')
 
 Route::prefix('registeredUser')
     ->as('registeredUser.')
@@ -31,9 +35,5 @@ Route::prefix('registeredUser')
 
 Route::prefix('file')->as('file.')->controller(FileController::class)->group(function () {
     Route::delete('{file}/delete', 'destroy')->name('destroy');
-});
-
-Route::prefix('properties')->group(function () {
-
 });
 
