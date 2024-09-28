@@ -2,7 +2,7 @@
     <div class="brand-logo">
         <a href="{{ route('admin.dashboard') }}">
             {{-- <h5>{{ setting()?->name_ne }}</h5> --}}
-            <img src="{{ setting()->logo1 ?? '' }}" alt=""  />
+            <img src="{{ setting()->logo1 ?? '' }}" alt="" />
 
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
@@ -70,6 +70,21 @@
                         <span class="micon bi bi-calendar4-week"></span><span class="mtext">Menu</span>
                     </a>
                 </li>
+
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-archive"></span><span class="mtext"> Role and Permission </span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('admin.permission.index') }}">Premission</a></li>
+                        <li><a href="{{ route('admin.role.index') }}">Role</a></li>
+
+                        <li><a href=" {{ route('admin.user.index') }}">User</a></li>
+
+
+
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon bi bi-archive"></span><span class="mtext"> UI Elements </span>
@@ -119,7 +134,8 @@
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon bi bi-file-earmark-text"></span><span class="mtext">Additional Pages</span>
+                        <span class="micon bi bi-file-earmark-text"></span><span class="mtext">Additional
+                            Pages</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="video-player.html">Video Player</a></li>
