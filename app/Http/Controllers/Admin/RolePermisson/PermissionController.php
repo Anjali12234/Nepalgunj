@@ -21,9 +21,7 @@ class PermissionController extends Controller
         $this->middleware('permission:permission delete', ['only' => ['destroy']]);
         $this->middleware('permission:permission view', ['only' => ['index']]);
     }
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
         $permissions=Permission::latest()->paginate(10);
