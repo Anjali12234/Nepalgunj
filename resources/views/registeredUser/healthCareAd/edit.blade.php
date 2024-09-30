@@ -48,7 +48,8 @@
             </ol>
         </div>
         <div class="mt-6 mx-5 mb-10">
-            <h1 class="font-bold text-xl text-purple-950">Add the complete detail of {{ $healthCareList->healthCareCategory->title_en }}</h1>
+            <h1 class="font-bold text-xl text-purple-950">Add the complete detail of
+                {{ $healthCareList->healthCareCategory->title_en }}</h1>
             @include('error')
             @if ($healthCareList->healthCareCategory->type == 'hospital')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
@@ -64,6 +65,8 @@
 
                             <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="OPD Schedules"
                                 id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
@@ -83,6 +86,9 @@
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
                             <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
@@ -111,12 +117,16 @@
 
                             <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Doctor Name" id="name"
                                 name="name" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('department', $healthCareList->department)" label="Department" id="department" name="department"
-                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('department', $healthCareList->department)" label="Department" id="department"
+                                name="department" type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('n_m_c_no', $healthCareList->n_m_c_no)" label="NMC No" id="n_m_c_no" name="n_m_c_no"
-                                type="number" class="text-sm font-semibold" />
+
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+
+                            <x-frontend.forms.input-type-field :value="old('n_m_c_no', $healthCareList->n_m_c_no)" label="NMC No" id="n_m_c_no"
+                                name="n_m_c_no" type="number" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('qualification', $healthCareList->qualification)" label="Qualification" id="qualification"
                                 name="qualification" type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="OPD Schedule" id="o_p_d_schedule"
@@ -137,6 +147,8 @@
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" />
 
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
                                 name="facebook_url" type="text" class="text-sm font-semibold" />
@@ -144,7 +156,8 @@
                                 name="whats_app_no" type="number" class="text-sm font-semibold" />
 
                             <x-frontend.forms.file-component label="Image Of Doctor" id="files" name="files[]"
-                                type="file" class="text-sm font-semibold" multiple="multiple" {{-- placeholder="Per Month" --}} />
+                                type="file" class="text-sm font-semibold" multiple="multiple"
+                                {{-- placeholder="Per Month" --}} />
                         </div>
                         <div class="col-span-4 flex justify-center mt-8">
                             <button type="submit"
@@ -168,6 +181,8 @@
                             <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="Opening Time"
                                 id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
@@ -189,6 +204,8 @@
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
                                 name="facebook_url" type="text" class="text-sm font-semibold" />
@@ -221,6 +238,8 @@
                             <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="Opening Time"
                                 id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
@@ -241,6 +260,8 @@
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
                             <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"

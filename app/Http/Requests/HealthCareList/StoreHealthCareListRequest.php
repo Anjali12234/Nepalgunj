@@ -18,6 +18,8 @@ class StoreHealthCareListRequest extends FormRequest
             'department' => ['nullable','string'],
             'n_m_c_no' => ['nullable','numeric'],
             'qualification' => ['nullable','string'],
+            'email' => ['nullable','string'],
+
             'o_p_d_schedule' => ['nullable','string'],
             'details' => ['required','string'],
             'youtube_link' => ['required','string'],
@@ -25,6 +27,7 @@ class StoreHealthCareListRequest extends FormRequest
             'map_url' => ['required','string'],
             'twitter_url' => ['nullable','string'],
             'facebook_url' => ['required','string'],
+            'website_url' => ['nullable','string'],
             'whats_app_no' => ['required','numeric'],
             'image' => ['nullable','image'],
             'name' => ['required','string'],

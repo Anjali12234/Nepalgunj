@@ -2,7 +2,6 @@
 @extends('registeredUser.Ad.ad')
 
 @section('main-container')
-
     <div class="sm:pl-20 sm:pr-30 ">
         <div class="mx-5  mt-14">
             <ol class="flex items-center whitespace-nowrap">
@@ -52,6 +51,8 @@
 
                             <x-frontend.forms.input-type-field label="Contact No" id="contact_number" name="contact_number"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Email" id="email" name="email" type="email"
+                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component label="OPD Schedules" id="o_p_d_schedule"
                                 name="o_p_d_schedule" class="text-sm font-semibold" />
@@ -70,6 +71,8 @@
                             <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url" type="text"
                                 class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
+                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
@@ -96,50 +99,48 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field label="Doctor Name" id="name"
-                                name="name" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Department" id="department"
-                                name="department" type="text" class="text-sm font-semibold"
-                                 />
+                            <x-frontend.forms.input-type-field label="Doctor Name" id="name" name="name"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field label="Department" id="department" name="department"
+                                type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field label="Contact No" id="contact_number"
-                                name="contact_number" type="text" class="text-sm font-semibold"
-                                 />
+                                name="contact_number" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field label="Email" id="email" name="email"
+                                type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+
                             <x-frontend.forms.input-type-field label="NMC No" id="n_m_c_no" name="n_m_c_no"
-                                type="number" class="text-sm font-semibold"  />
+                                type="number" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field label="Qualification" id="qualification"
-                                name="qualification" type="text" class="text-sm font-semibold"
-                                 />
+                                name="qualification" type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field label="OPD Schedule" id="o_p_d_schedule"
-                                name="o_p_d_schedule" type="text" class="text-sm font-semibold"
-                                 />
-                            <x-frontend.forms.input-type-field label="Clinic Address" id="address"
-                                name="address" type="text" class="text-sm font-semibold"
-                                 />
+                                name="o_p_d_schedule" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field label="Clinic Address" id="address" name="address"
+                                type="text" class="text-sm font-semibold" />
 
                             <x-frontend.forms.text-area-component label="Details" id="editor" name="details"
                                 class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link"
-                                name="youtube_link" type="text" class="text-sm font-semibold"
-                                 />
+                            <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link" name="youtube_link"
+                                type="text" class="text-sm font-semibold" />
 
                             <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url"
-                                type="text" class="text-sm font-semibold"  />
-                            <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url"
-                                name="twitter_url" type="text" class="text-sm font-semibold"
-                                 />
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
+                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
-                            <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url"
-                                name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Whats App" id="whats_app_no"
-                                name="whats_app_no" type="number" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url" name="facebook_url"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field label="Whats App" id="whats_app_no" name="whats_app_no"
+                                type="number" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.file-component label="Image Of Doctor" id="files"
-                            name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
-                            {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.file-component label="Image Of Doctor" id="files" name="files[]"
+                                type="file" class="text-sm font-semibold" multiple="multiple"
+                                {{-- placeholder="Per Month" --}} />
                         </div>
                         <div class="col-span-4 flex justify-center mt-8">
                             <button type="submit"
@@ -148,7 +149,7 @@
                     </div>
 
                 </form>
-                @elseif ($healthCareCategory->type == 'medical')
+            @elseif ($healthCareCategory->type == 'medical')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.store', $healthCareCategory) }}"
                     method="POST" enctype="multipart/form-data">
                     @csrf
@@ -159,8 +160,11 @@
                                 type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number" name="contact_number"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number"
+                                name="contact_number" type="text" class="text-sm font-semibold"
+                                {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Email" id="email" name="email"
+                                type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component label="Opening Time" id="o_p_d_schedule"
                                 name="o_p_d_schedule" class="text-sm font-semibold" />
@@ -176,9 +180,11 @@
                             <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link" name="youtube_link"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url" type="text"
-                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url"
+                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
+                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
@@ -198,7 +204,7 @@
                     </div>
 
                 </form>
-                @elseif ($healthCareCategory->type == 'pharmacy')
+            @elseif ($healthCareCategory->type == 'pharmacy')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.store', $healthCareCategory) }}"
                     method="POST" enctype="multipart/form-data">
                     @csrf
@@ -209,8 +215,11 @@
                                 type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number" name="contact_number"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number"
+                                name="contact_number" type="text" class="text-sm font-semibold"
+                                {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Email" id="email" name="email"
+                                type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component label="Opening Time" id="o_p_d_schedule"
                                 name="o_p_d_schedule" class="text-sm font-semibold" />
@@ -226,9 +235,11 @@
                             <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link" name="youtube_link"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url" type="text"
-                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url"
+                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
+                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EducationCategory;
+use App\Models\EducationList;
 use App\Models\HealthCareCategory;
+use App\Models\HealthCareList;
 use App\Models\MainCategory;
 use App\Models\Menu;
 use App\Models\News;
@@ -67,7 +70,6 @@ class FrontendController extends BaseController
         return view('frontend.property.properties', compact('properties', 'propertyCategories', 'search', 'newsLists'));
     }
 
-
     public function propertyDetails(PropertyList $propertyList)
     {
         $propertyCategoryId = $propertyList->propertyCategory->id;
@@ -86,6 +88,7 @@ class FrontendController extends BaseController
     {
         return "Hello " . $registeredUser->name;
     }
+
     public function newsDetail(News $newsList )
     {
         $newsCategoryId = $newsList->newsCategory->id;
@@ -95,90 +98,43 @@ class FrontendController extends BaseController
             ->get();
         return view('frontend.news.detail',compact('newsList','relatedNews'));
     }
+
     public function healthcareIndex()
     {
         $healthCares = HealthCareCategory::with('healthCareLists')->get();
         return view('frontend.healthcare.index',compact('healthCares'));
     }
-    public function listPage()
+
+    public function listPage(HealthCareCategory $healthCare)
     {
-        return view('frontend.healthcare.listPage');
-    }
-    public function doctorDetailPage()
-    {
-        return view('frontend.healthcare.detailpage');
-    }
-    public function medicalListPage()
-    {
-        return view('frontend.healthcare.medicalList');
+        $healthCare->load('healthCareLists');
+        return view('frontend.healthcare.listPage',compact('healthCare'));
     }
 
-    public function medicalDetailPage()
+    public function detailPage(HealthCareList $healthCareList)
     {
-        return view('frontend.healthcare.mdeicalDetail');
+        return view('frontend.healthcare.detailpage',compact('healthCareList'));
     }
-    public function hospitalListPage()
-    {
-        return view('frontend.healthcare.hospitalListPage');
-    }
-    public function hospitalDetailPage()
-    {
-        return view('frontend.healthcare.hospitalDetailpage');
-    }
-    public function pharmacyListPage()
-    {
-        return view('frontend.healthcare.pharmacyList');
-    }
-    public function pharmacyDetailPage()
-    {
-        return view('frontend.healthcare.pharmacyDetail');
-    }
+
 
     public function educationIndexPage()
     {
-        return view('frontend.education.index');
-    }
-    public function campusListPage()
-    {
-        return view('frontend.education.campusList');
-    }
-    public function campusDetailPage()
-    {
-        return view('frontend.education.campusDetail');
-    }
-    public function collegeListPage()
-    {
-        return view('frontend.education.collegeList');
-    }
-    public function collegeDetailPage()
-    {
-        return view('frontend.education.collegeDetail');
-    }
-    public function schoolListPage()
-    {
-        return view('frontend.education.schoolList');
-    }
-    public function schoolDetailPage()
-    {
-        return view('frontend.education.schoolDetail');
-    }
-    public function consultancyListPage()
-    {
-        return view('frontend.education.consultancyList');
-    }
-    public function consultancyDetailPage()
-    {
-        return view('frontend.education.consultancyDetail');
-    }
-    public function instituteListPage()
-    {
-        return view('frontend.education.instituteList');
-    }
-    public function instituteDetailPage()
-    {
-        return view('frontend.education.instituteDetail');
+        $educationCategories = EducationCategory::with('educationLists')->get();
+
+        return view('frontend.education.index',compact('educationCategories'));
     }
 
+    public function educationDetailPage(EducationList $educationList)
+    {
+       $educationList->load('testimonials');
+        return view('frontend.education.detailPage',compact('educationList'));
+    }
+
+    public function educationlistPage(EducationCategory $educationCategory)
+    {
+        $educationCategory->load('educationLists');
+        return view('frontend.education.listPage',compact('educationCategory'));
+    }
 
     // public function staticMenus($slug)
     // {

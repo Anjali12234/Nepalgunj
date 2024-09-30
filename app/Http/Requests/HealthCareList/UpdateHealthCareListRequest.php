@@ -28,6 +28,8 @@ class UpdateHealthCareListRequest extends FormRequest
             'whats_app_no' => ['required','numeric'],
             'image' => ['nullable','image'],
             'name' => ['required','string'],
+            'email' => ['nullable','string'],
+            'website_url' => ['nullable','string'],
             'contact_number' => ['required','string'],
             'files' => ['nullable', 'array'],
             'files.*' => ['mimes:png,jpg,jpeg,jfif,webp'],

@@ -44,7 +44,7 @@
                                                     </td>
                                                     <td
                                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                            
+
                                                         {{ Str::words($educationList->name, 5) }}
                                                     </td>
                                                     <td
@@ -64,20 +64,18 @@
 
                                                         </a>
                                                         <a type="button"
-                                                        href="{{ route('registeredUser.educationList.testimonials.create', $educationList) }}"
-                                                        class="relative inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 group">
+                                                            href="{{ route('registeredUser.educationList.testimonials.create', $educationList) }}"
+                                                            class="relative inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 group">
 
-                                                        <!-- Icon -->
-                                                        <i class="ti ti-plus text-2xl font-bold text-neutral-800"></i>
+                                                            <!-- Icon -->
+                                                            <i class="ti ti-plus text-2xl font-bold text-neutral-800"></i>
 
-                                                        <!-- Tooltip -->
-                                                        <div class="absolute hidden group-hover:block bg-[#333] text-white font-semibold px-3 py-[6px] text-[13px] rounded shadow-lg -top-10 left-1/2 transform -translate-x-1/2">
-                                                            Add your best student!
-                                                        </div>
-                                                    </a>
-
-
-
+                                                            <!-- Tooltip -->
+                                                            <div
+                                                                class="absolute hidden group-hover:block bg-[#333] text-white font-semibold px-3 py-[6px] text-[13px] rounded shadow-lg -top-10 left-1/2 transform -translate-x-1/2">
+                                                                Add your best student!
+                                                            </div>
+                                                        </a>
                                                         <form
                                                             action="{{ route('registeredUser.educationList.destroy', $educationList) }}"
                                                             method="post" style="display: inline" method="post"
