@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('facebook_url');
             $table->string('website_url');
-            $table->string('map_url');
+            $table->longText('map_url');
             $table->string('whats_app_no');
             $table->string('reference_no')->nullable();
             $table->string('slug');

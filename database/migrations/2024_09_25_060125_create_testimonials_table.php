@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('post');
             $table->string('passed_year');
             $table->string('image');
-            $table->string('description');
+            $table->longText('description');
            $table->softDeletes();
             $table->timestamps();
         });

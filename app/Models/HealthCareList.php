@@ -37,6 +37,8 @@ class HealthCareList extends Model
         'status',
         'name',
         'contact_number',
+        'email',
+        'website_url'
     ];
 
     public function healthCareCategory()
