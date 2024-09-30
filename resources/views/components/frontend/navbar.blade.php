@@ -3,7 +3,8 @@
         <div class="text-black font-medium text-left px-2 py-4 block">
             @foreach ($sharedCategory as $mainCategory)
             @foreach ($mainCategory->propertyCategories as $propertyCategory)
-                <p class="text-xs lg:text-sm whitespace-nowrap">{{ $propertyCategory->title_en }}</p>
+            <a href="{{ route('properties', ['propertyCategorySlug' => $propertyCategory->slug, 'is_rent' => request('is_rent')]) }}">
+                    <p class="text-xs lg:text-sm whitespace-nowrap">{{ $propertyCategory->title_en }}</p></a>
             @endforeach
         @endforeach
         </div>

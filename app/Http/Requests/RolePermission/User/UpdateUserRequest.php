@@ -3,6 +3,7 @@
 namespace App\Http\Requests\RolePermission\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -24,7 +25,9 @@ class UpdateUserRequest extends FormRequest
         return [
 
                 'name' => ['required','string','max:255'],
-                'email' => ['required','email','unique:users'],
+                'email' => ['required','email'],
+            // 'email' => ['nullable','string',Rule::unique('users', 'slug')->ignore($this->users)],
+
                 'password' => ['required','string','min:5','same:confirm_password'],
                 'confirm_password' => ['required'],
                 'role' => ['required','array','exists:roles','name'],

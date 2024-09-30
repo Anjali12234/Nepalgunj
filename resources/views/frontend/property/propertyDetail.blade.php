@@ -34,21 +34,27 @@
                                 <p>None</p>
                             </div>
                         </div>
-                        <div class="p-4 flex items-center">
-                            <div class="w-10 h-10 bg-gray-300 rounded-full mr-3">
-                                <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->image }}"
-                                    alt="">
+                        {{-- <a href="{{ route('registeredUsers', $propertyList->registeredUser->name) }}"> --}}
+                            <div class="p-4 flex items-center">
+                                <div class="w-10 h-10 bg-gray-300 rounded-full mr-3">
+                                    <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->image }}" alt="">
+                                </div>
+                                <p class="font-semibold">{{ $propertyList?->registeredUser?->username }}</p>
                             </div>
-                            <p class="font-semibold">{{ $propertyList?->registeredUser?->username }}</p>
-                        </div>
+                        {{-- </a> --}}
+
+
                         <div class="p-4 space-y-2">
                             <button id="callNowBtn" class="w-full bg-blue-500 text-white py-2 rounded">Call Now</button>
                             <p id="phoneNumber" class="text-center font-bold text-blue-600 hidden">
                                 {{ $propertyList->registeredUser->phone_no }}</p>
-                            <button class="w-full bg-green-500 text-white py-2 rounded">WhatsApp Now</button>
-                            <button href="{{ $propertyList?->registeredUser?->email }}"
-                                class="w-full bg-red-500 text-white py-2 rounded">Email Now</button>
+                            <!-- WhatsApp button with wa.me URL -->
+                            <a href="https://wa.me/{{ $propertyList->registeredUser->phone_no }}" class="w-full bg-green-500 text-white py-2 rounded block text-center">WhatsApp Now</a>
+                            <!-- Email button using mailto -->
+                            <a href="mailto:{{ $propertyList?->registeredUser?->email }}" class="w-full bg-red-500 text-white py-2 rounded block text-center">Email Now</a>
                         </div>
+
+
                     </div>
                 </div>
 
@@ -223,18 +229,52 @@
             <h3 class="text-xl">Similar Properties</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 mb-4">
                 <!-- Card 1 -->
-                @foreach ($relatedProperties as $propertyList)
-                  <a href="{{ route('propertyDetails', $propertyList) }}"> <div class="border overflow-hidden bg-white relative">
-                        <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
-                            class="w-full h-48 object-cover" src="image-url-1" alt="Property 1">
+                @forelse ($relatedProperties as $propertyList)
+                    <a href="{{ route('propertyDetails', $propertyList) }}">
+                        <div class="border overflow-hidden bg-white relative">
+                            <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
+                                class="w-full h-48 object-cover" src="image-url-1" alt="Property 1">
                             @if ($propertyList->is_featured == 1)
-                            <span
-                            class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
+                                <span
+                                    class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
                             @endif
+                            <div class="p-4">
+                                <p class="text-sm text-blue-600">{{ $propertyList->propertyCategory->title_en }}</p>
+                                <h3 class="text-xl font-bold">{{ Str::words($propertyList->title, 5) }}</h3>
+                                <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }} <span
+                                        class="text-sm font-light">Rs/Month</span></p>
+                            </div>
+                            <div class="px-4 pb-4 flex justify-between text-gray-500">
+                                <p class="text-xs"><i class="ti ti-location"></i>{{ $propertyList->address }}</p>
+                                <p class="text-xs">Updated {{ $propertyList->updated_at->diffForHumans() }}</p>
+                            </div>
+                        </div>
+                    </a>
+                @empty
+                    <p>No data found</p>
+                @endforelse
+
+            </div>
+
+        </div>
+        <div class="mb-4 mt-4">
+            <h3 class="text-xl">More ads from <span class="font-bold text-2xl">
+                    {{ $propertyList?->registeredUser?->username }} PROPERTIES</span> </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 mb-4">
+                <!-- Card 1 -->
+                @forelse ($relatedPropertiesList as $propertyList)
+                <a href="{{ route('propertyDetails', $propertyList) }}">
+                <div class="border overflow-hidden bg-white relative">
+                        <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
+                        class="w-full h-48 object-cover" src="image-url-1" alt="Property 1">
+                    @if ($propertyList->is_featured == 1)
+                        <span
+                            class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
+                    @endif
                         <div class="p-4">
                             <p class="text-sm text-blue-600">{{ $propertyList->propertyCategory->title_en }}</p>
-                            <h3 class="text-xl font-bold">{{ $propertyList->title }}</h3>
-                            <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }} <span
+                            <h3 class="text-xl font-bold">{{ Str::words($propertyList->title, 5) }}</h3>
+                            <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }}<span
                                     class="text-sm font-light">Rs/Month</span></p>
                         </div>
                         <div class="px-4 pb-4 flex justify-between text-gray-500">
@@ -243,81 +283,10 @@
                         </div>
                     </div>
                 </a>
-                @endforeach
+                @empty
+                    <p>No data found!!</p>
+                @endforelse
 
-            </div>
-
-        </div>
-        <div class="mb-4 mt-4">
-            <h3 class="text-xl">More ads from <span class="font-bold text-2xl"> ARON PROPERTIES</span> </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 mb-4">
-                <!-- Card 1 -->
-                <div class="border overflow-hidden bg-white relative">
-                    <img src="https://www.qatarliving.com/_next/image?url=https%3A%2F%2Fwww.qatarliving.com%2Fq%2Fs3%2Ffiles%2Fstyles%2Fvehicle_listing_v3%2Fs3%2Fvehicles%2F2024%2F09%2F03%2F5095206%2FIS100.jpeg&w=384&q=75"
-                        class="w-full h-48 object-cover" src="image-url-1" alt="Property 1">
-                    <span
-                        class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
-                    <div class="p-4">
-                        <p class="text-sm text-blue-600">VILLA</p>
-                        <h3 class="text-xl font-bold">5 BHK STAND ALONE VILLA</h3>
-                        <p class="text-lg font-bold text-gray-900">10,500 <span
-                                class="text-sm font-light">QAR/Month</span></p>
-                    </div>
-                    <div class="px-4 pb-4 flex justify-between text-gray-500">
-                        <p class="text-xs"><i class="ti ti-location"></i> WAKRAH</p>
-                        <p class="text-xs">25 minutes ago</p>
-                    </div>
-                </div>
-
-                <!-- Card 2 (Featured) -->
-                <div class="border  overflow-hidden bg-white relative">
-                    <img src="https://www.qatarliving.com/_next/image?url=https%3A%2F%2Fwww.qatarliving.com%2Fq%2Fs3%2Ffiles%2Fstyles%2Fvehicle_listing_v3%2Fs3%2Fvehicles%2F2024%2F09%2F03%2F5095206%2FIS100.jpeg&w=384&q=75"
-                        class="w-full h-48 object-cover" src="image-url-2" alt="Property 2">
-                    <span
-                        class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
-                    <div class="p-4">
-                        <p class="text-sm text-blue-600">VILLA</p>
-                        <h3 class="text-xl font-bold">Two Storey 5-BHK Luxury Villa Compound</h3>
-                        <p class="text-lg font-bold text-gray-900">10,500 <span
-                                class="text-sm font-light">QAR/Month</span></p>
-                    </div>
-                    <div class="px-4 pb-4 flex justify-between text-gray-500">
-                        <p class="text-xs"><i class="ti ti-location"></i> AL HILAL</p>
-                        <p class="text-xs">6 minutes ago</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="border  overflow-hidden bg-white">
-                    <img src="https://www.qatarliving.com/_next/image?url=https%3A%2F%2Fwww.qatarliving.com%2Fq%2Fs3%2Ffiles%2Fstyles%2Fvehicle_listing_v3%2Fs3%2Fvehicles%2F2024%2F09%2F03%2F5095206%2FIS100.jpeg&w=384&q=75"
-                        class="w-full h-48 object-cover" src="image-url-3" alt="Property 3">
-                    <div class="p-4">
-                        <p class="text-sm text-blue-600">VILLA</p>
-                        <h3 class="text-xl font-bold">4 Bed | Maid room | Without A/C</h3>
-                        <p class="text-lg font-bold text-gray-900">8,000 <span
-                                class="text-sm font-light">QAR/Month</span></p>
-                    </div>
-                    <div class="px-4 pb-4 flex justify-between text-gray-500">
-                        <p class="text-xs"><i class="ti ti-location"></i> AL HILAL</p>
-                        <p class="text-xs">1 hour ago</p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="border  overflow-hidden bg-white">
-                    <img src="https://www.qatarliving.com/_next/image?url=https%3A%2F%2Fwww.qatarliving.com%2Fq%2Fs3%2Ffiles%2Fstyles%2Fvehicle_listing_v3%2Fs3%2Fvehicles%2F2024%2F09%2F03%2F5095206%2FIS100.jpeg&w=384&q=75"
-                        class="w-full h-48 object-cover" src="image-url-4" alt="Property 4">
-                    <div class="p-4">
-                        <p class="text-sm text-blue-600">VILLA</p>
-                        <h3 class="text-xl font-bold">AFFORDABLE COMPOUND VILLA | 03 BEDROOMS | 01 MONTH FREE</h3>
-                        <p class="text-lg font-bold text-gray-900">9,000 <span
-                                class="text-sm font-light">QAR/Month</span></p>
-                    </div>
-                    <div class="px-4 pb-4 flex justify-between text-gray-500">
-                        <p class="text-xs"><i class="ti ti-location"></i> AL GHARRAFA</p>
-                        <p class="text-xs">1 hour ago</p>
-                    </div>
-                </div>
             </div>
 
         </div>

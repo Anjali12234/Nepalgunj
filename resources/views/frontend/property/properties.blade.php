@@ -101,13 +101,14 @@
             <div class="space-y-2">
                 <!-- Article Item -->
                 @foreach ($newsLists->take(8) as $newsList)
-                    <div class="bg-white  shadow-md p-4 overflow-hidden">
-                        <img src="{{ $newsList->image ?? '' }}"
-                            alt="News Image" class="w-full h-40 object-cover ">
-                        <div class="p-4 ">
-                            <h3 class="text-sm font-medium"> {{ $newsList->title ?? '' }}</h3>
+                    <a href="{{ route('newsDetail', $newsList) }}">
+                        <div class="bg-white  shadow-md p-4 overflow-hidden">
+                            <img src="{{ $newsList->image ?? '' }}" alt="News Image" class="w-full h-40 object-cover ">
+                            <div class="p-4 ">
+                                <h3 class="text-sm font-medium"> {{ $newsList->title ?? '' }}</h3>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
                 <!-- Add more articles here -->
 
@@ -123,7 +124,7 @@
                 <h3 class="text-lg font-bold text-black ">{{ $properties->count() }} Ads found for
                     {{ $search }}</h3>
             @else
-                @foreach ($properties as $propertyList)
+                @forelse ($properties as $propertyList)
                     @if ($propertyList->is_featured == 1)
                         <div class="bg-white shadow-md overflow-hidden">
 
@@ -154,7 +155,9 @@
                             </a>
                         </div>
                     @endif
-                @endforeach
+                @empty
+                    <p>No data found!!</p>
+                @endforelse
 
             @endif
             @forelse ($properties as $propertyList)
@@ -178,7 +181,7 @@
                                 </h4>
                             </div>
                         </div>
-                        <p class="text-lg font-semibold">{{ $propertyList->title }}</p>
+                        <p class="text-lg font-semibold">{{ Str::words($propertyList->title, 5) }}</p>
                         <div class="flex items-center space-x-4 mt-2 justify-end mr-8">
                             <a href="{{ route('propertyDetails', $propertyList) }}"> <button
                                     class="bg-neutral-800 text-white py-1 px-3 rounded text-sm">Contact</button></a>
