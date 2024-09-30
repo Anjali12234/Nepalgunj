@@ -44,7 +44,8 @@
                                                     </td>
                                                     <td
                                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                                        {{ $educationList->name }}
+                            
+                                                        {{ Str::words($educationList->name, 5) }}
                                                     </td>
                                                     <td
                                                         class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">

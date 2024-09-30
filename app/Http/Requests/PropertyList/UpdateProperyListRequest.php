@@ -21,7 +21,7 @@ class UpdateProperyListRequest extends FormRequest
             'description' => ['required','string'],
             'address' => ['required','string'],
             'is_rent' => ['required'],
-            'map_url' => ['required','string'],
+            'map_url' => ['required'],
             'bed_room' => ['nullable','numeric'],
             'bathroom' => ['nullable','numeric'],
             'internet' => ['nullable','string'],
@@ -35,7 +35,7 @@ class UpdateProperyListRequest extends FormRequest
                 Rule::unique('property_lists', 'slug')->ignore($this->propertyList)
             ],
 
-            'files' => ['required', 'array'],
+            'files' => ['nullable', 'array'],
             'files.*' => ['mimes:png,jpg,jpeg,jfif,webp'],
         ];
     }

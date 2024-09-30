@@ -19,20 +19,21 @@
 
                         </div>
                         @foreach ($newsLists->skip(1)->take(2) as $newsList)
-                            <div class="flex items-center space-x-4 mb-4 mt-8">
-                                <img src="{{ $newsList->image ?? '' }}"
-                                    alt="Scam websites" class="w-54 h-32">
+                            <a href="{{ route('newsDetail', $newsList) }}">
+                                <div class="flex items-center space-x-4 mb-4 mt-8">
+                                    <img src="{{ $newsList->image ?? '' }}" alt="Scam websites" class="w-54 h-32">
 
-                                <div>
-                                    <p class="text-fuchsia-600 text-xs font-bold">NEWS</p>
-                                    <h3 class="text-lg font-semibold">
-                                        {{ $newsList->title ?? '' }}
-                                    </h3>
-                                    <p class="text-sm mr-20">
-                                        {!! Str::words(strip_tags($newsList->details ?? ''), 50, '...') !!}
-                                    </p>
+                                    <div>
+                                        <p class="text-fuchsia-600 text-xs font-bold">NEWS</p>
+                                        <h3 class="text-lg font-semibold">
+                                            {{ $newsList->title ?? '' }}
+                                        </h3>
+                                        <p class="text-sm mr-20">
+                                            {!! Str::words(strip_tags($newsList->details ?? ''), 50, '...') !!}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                             <hr>
                         @endforeach
 
@@ -95,73 +96,89 @@
 
         {{-- Qatar --}}
 
-        <div class="grid grid-cols-12 gap-4 mx-24 mb-4 overflow:hidden">
-            <div class="col-span-2 relative">
-                <h1
-                    class=" mt-8 text-2xl font-bold before:content-[''] before:block before:w-16 before:h-[2px] before:bg-black before:mb-2">
-                </h1>
-                <h1 class="text-2xl font-bold mb-4">Qatar</h1>
-            </div>
-
-            <div class="col-span-6 grid grid-cols-6 gap-2"> <!-- Reduced gap-4 to gap-2 -->
-                <div class="col-span-3">
-                    <div class="mt-4">
-                        <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY"
-                            alt="" class="w-80 h-48">
-                        <h1 class="text-xl font-bold">Events this week September 1-7</h1>
-                    </div>
-                    <div class="mt-4">
-                        <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/08/29/Smartphone_babysitter_Qatar_Living.png?itok=bmVmKE0c"
-                            alt="" class="w-80 h-48">
-                        <h1 class="text-xl font-bold">Events this week September 1-7</h1>
-                    </div>
-                </div>
-                <div class="col-span-2">
-                    <div class="mt-4">
-                        <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/08/17/Geocaching_Qatar_Living.jpeg?itok=JLeQkSYv"
-                            alt="" class="w-32 h-16">
-                        <h1 class="text-xs font-semibold">Want to join a global Treasure Hunt? Let’s explore Geocaching
+        @foreach ($newsCategories as $newsCategory)
+            @if ($newsCategory->status == 1)
+                <div class="grid grid-cols-12 gap-4 mx-24 mb-4 overflow:hidden">
+                    <div class="col-span-2 relative">
+                        <h1
+                            class=" mt-8 text-2xl font-bold before:content-[''] before:block before:w-16 before:h-[2px] before:bg-black before:mb-2">
                         </h1>
+                        <h1 class="text-2xl font-bold mb-4">{{ $newsCategory->title }}</h1>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-span-4 mt-2"> <!-- Added mt-2 to decrease vertical gap -->
-                <div class="mt-4 flex gap-4 mb-4">
-                    <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
-                        alt="" class="w-40 h-24">
-                    <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained This
-                        Summer
-                    </p>
-                </div>
-                <hr>
-                <div class="mt-4 flex gap-4 mb-4">
-                    <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
-                        alt="" class="w-40 h-24">
-                    <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained This
-                        Summer
-                    </p>
-                </div>
-                <hr>
-                <div class="mt-4 flex gap-4 mb-4">
-                    <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
-                        alt="" class="w-40 h-24">
-                    <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained This
-                        Summer
-                    </p>
-                </div>
-                <hr>
-                <div class="mt-4 flex gap-4 mb-4">
-                    <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
-                        alt="" class="w-40 h-24">
-                    <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained This
-                        Summer
-                    </p>
-                </div>
-                <hr>
-            </div>
+                    <div class="col-span-6 grid grid-cols-6 gap-2"> <!-- Reduced gap-4 to gap-2 -->
+                        <div class="col-span-3">
+                            @foreach ($newsCategory->newsLists->take(2) as $newsList)
+                                @if ($newsList->status == 1)
+                                <a href="{{ route('newsDetail', $newsList) }}">
+                                    <div class="mt-4">
+                                        <img src="{{ $newsList->image ?? '' }}"
+                                            alt="" class="w-80 h-48">
+                                        <h1 class="text-xl font-bold">{{ $newsList->title ?? '' }}</h1>
+                                    </div>
+                                </a>
+                                @endif
+                            @endforeach
 
-        </div>
+                        </div>
+                        <div class="col-span-2">
+                            @foreach ($newsCategory->newsLists->skip(1)->take(2) as $newsList)
+                                @if ($newsList->status == 1)
+                                <a href="{{ route('newsDetail', $newsList) }}">
+                                    <div class="mt-4">
+                                        <img src="{{ $newsList->image ?? '' }}"
+                                            alt="" class="w-32 h-16">
+                                        <h1 class="text-xs font-semibold">{{ $newsList->title ?? '' }}
+                                        </h1>
+                                    </div>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="col-span-4 mt-2"> <!-- Added mt-2 to decrease vertical gap -->
+                        <div class="mt-4 flex gap-4 mb-4">
+                            <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
+                                alt="" class="w-40 h-24">
+                            <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained
+                                This
+                                Summer
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="mt-4 flex gap-4 mb-4">
+                            <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
+                                alt="" class="w-40 h-24">
+                            <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained
+                                This
+                                Summer
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="mt-4 flex gap-4 mb-4">
+                            <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
+                                alt="" class="w-40 h-24">
+                            <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained
+                                This
+                                Summer
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="mt-4 flex gap-4 mb-4">
+                            <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/07/14/Copy%20of%20SINGLE%20IMAGE%20ARTICLE%20COVER%20(18).png?itok=pdXexM1b"
+                                alt="" class="w-40 h-24">
+                            <p class="text-sm font-semibold mr-20">9 Indoor Activities to Keep You Active & Entertained
+                                This
+                                Summer
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                </div>
+            @endif
+        @endforeach
 
         {{-- mustread --}}
         <div class="bg-gray-100 p-4  mx-24 mb-4 h-24">

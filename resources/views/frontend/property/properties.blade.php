@@ -1,7 +1,5 @@
 <x-guest-layout>
     <div class="bg-slate-100">
-
-
         <div class="bg-sky-700 mx-16 font-mono">
             <!-- Toggle for For Rent and For Sale -->
             <div class="flex justify-center mb-4">
@@ -16,7 +14,7 @@
             <div class="flex space-x-1">
                 @foreach ($propertyCategories as $propertyCategory)
                     <a
-                        href="">
+                        href="{{ route('properties', ['propertyCategorySlug' => $propertyCategory->slug, 'is_rent' => request('is_rent')]) }}">
                         <button
                             class="bg-neutral-800 text-white px-4 py-2 focus:outline-none">{{ $propertyCategory->title_en }}</button>
                     </a>
@@ -102,23 +100,18 @@
             <h2 class="text-xl font-semibold mb-4">News & Articles</h2>
             <div class="space-y-2">
                 <!-- Article Item -->
-                <div class="bg-white  shadow-md p-4 overflow-hidden">
-                    <img src="https://www.qatarliving.com/_next/image?url=https%3A%2F%2Fwww.qatarliving.com%2Fq%2Fs3%2Ffiles%2Fstyles%2Flisting_ratio_3_2%2Fs3%2Fpost%2F2024%2F08%2F25%2FArticle%2520Artwork.jpg&w=384&q=75"
-                        alt="News Image" class="w-full h-40 object-cover ">
-                    <div class="p-4 ">
-                        <h3 class="text-sm font-medium">The Commercial Avenue and Al Saif Gallery Sign Long-Term Lease
-                            Agreement</h3>
-                    </div>
-                </div>
+                @foreach ($newsLists->take(8) as $newsList)
+                    <a href="{{ route('newsDetail', $newsList) }}">
+                        <div class="bg-white  shadow-md p-4 overflow-hidden">
+                            <img src="{{ $newsList->image ?? '' }}" alt="News Image" class="w-full h-40 object-cover ">
+                            <div class="p-4 ">
+                                <h3 class="text-sm font-medium"> {{ $newsList->title ?? '' }}</h3>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
                 <!-- Add more articles here -->
-                <div class="bg-white  shadow-md overflow-hidden">
-                    <img src="https://www.qatarliving.com/_next/image?url=https%3A%2F%2Fwww.qatarliving.com%2Fq%2Fs3%2Ffiles%2Fstyles%2Flisting_ratio_3_2%2Fs3%2Fpost%2F2024%2F08%2F25%2FArticle%2520Artwork.jpg&w=384&q=75"
-                        alt="News Image" class="w-full h-40 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-sm font-medium">The Commercial Avenue and Al Saif Gallery Sign Long-Term Lease
-                            Agreement</h3>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -131,13 +124,7 @@
                 <h3 class="text-lg font-bold text-black ">{{ $properties->count() }} Ads found for
                     {{ $search }}</h3>
             @else
-                {{-- <div>
-                    <h1 class="text-black">
-                        hlelo
-                    </h1>
-                </div> --}}
-
-                @foreach ($properties as $propertyList)
+                @forelse ($properties as $propertyList)
                     @if ($propertyList->is_featured == 1)
                         <div class="bg-white shadow-md overflow-hidden">
 
@@ -162,13 +149,15 @@
                                         <p class="text-xs text-gray-400">{{ $propertyList->registeredUser->username }}
                                         </p>
                                         <p class="text-xs text-gray-400">
-                                            {{ $propertyList->registeredUser->updated_at->diffForHumans() }}</p>
+                                            {{ $propertyList->updated_at->diffForHumans() }}</p>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     @endif
-                @endforeach
+                @empty
+                    <p>No data found!!</p>
+                @endforelse
 
             @endif
             @forelse ($properties as $propertyList)
@@ -192,9 +181,10 @@
                                 </h4>
                             </div>
                         </div>
-                        <p class="text-lg font-semibold">{{ $propertyList->title }}</p>
+                        <p class="text-lg font-semibold">{{ Str::words($propertyList->title, 5) }}</p>
                         <div class="flex items-center space-x-4 mt-2 justify-end mr-8">
-                          <a href="{{ route('propertyDetails', $propertyList) }}">  <button class="bg-neutral-800 text-white py-1 px-3 rounded text-sm">Contact</button></a>
+                            <a href="{{ route('propertyDetails', $propertyList) }}"> <button
+                                    class="bg-neutral-800 text-white py-1 px-3 rounded text-sm">Contact</button></a>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 mt-4 gap-4 mb-2">
                             <div class="col-span-1">
@@ -215,7 +205,7 @@
                                 <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->image }} h-50 w-50"
                                     alt="" class="ml-56 mt-2">
                                 <p class="text-xs  text-gray-400 mt-1">Updated
-                                    {{ $propertyList->registeredUser->updated_at->diffForHumans() }} by
+                                    {{ $propertyList->updated_at->diffForHumans() }} by
                                     {{ $propertyList->registeredUser->username }} </p>
                             </div>
                         </div>
@@ -249,7 +239,7 @@
             buttonToDeactivate.classList.add('text-blue-700');
             buttonToDeactivate.classList.remove('bg-blue-700', 'text-white');
             window.location.href =
-                `{{ route('properties', ['subCategorySlug' => request('subCategorySlug')]) }}?is_rent=${filterValue}`;
+                `{{ route('properties', ['propertyCategorySlug' => request('propertyCategorySlug')]) }}?is_rent=${filterValue}`;
         }
 
         forRentButton.addEventListener('click', function() {

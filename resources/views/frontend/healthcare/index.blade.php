@@ -2,7 +2,7 @@
     <div class="mx-24 mt-4 font-mono">
 
 
-        <x-frontend.healthcare.healthcare-navbar />
+        {{-- <x-frontend.healthcare.healthcare-navbar /> --}}
 
         <div class="px-4 lg:px-6 py-10">
             <div data-hs-carousel='{"loadingClasses": "opacity-0" }' class="relative">
@@ -113,80 +113,39 @@
 
             <!-- Grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach ($healthCares as $healthCare)
                 <!-- Card -->
-                <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
-                    href="#">
-                    <div class="aspect-w-16 aspect-h-10">
-                        <img class="w-full object-cover rounded-xl"
-                            src="https://images.unsplash.com/photo-1657299171054-e679f630a776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
-                            alt="Blog Image">
-                    </div>
-                    <h3 class="mt-5 text-xl text-gray-800 hover:text-gray-400">
-                        Atlassian powers sales and support at scale with Preline.
-                    </h3>
-                    <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 ">
-                        Learn more
-                        <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="m9 18 6-6-6-6" />
-                        </svg>
-                    </p>
-                </a>
-                <!-- End Card -->
-
-
-                <!-- Card -->
-                <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
-                    href="#">
-                    <div class="aspect-w-16 aspect-h-10">
-                        <img class="w-full object-cover rounded-xl"
-                            src="https://images.unsplash.com/photo-1657299171054-e679f630a776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
-                            alt="Blog Image">
-                    </div>
-                    <h3 class="mt-5 text-xl text-gray-800  hover:text-gray-400">
-                        Atlassian powers sales and support at scale with Preline.
-                    </h3>
-                    <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 ">
-                        Learn more
-                        <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="m9 18 6-6-6-6" />
-                        </svg>
-                    </p>
-                </a>
-                <!-- End Card -->
-
-
-                <!-- Card -->
-                <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
-                    href="#">
-                    <div class="aspect-w-16 aspect-h-10">
-                        <img class="w-full object-cover rounded-xl"
-                            src="https://images.unsplash.com/photo-1657299171054-e679f630a776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
-                            alt="Blog Image">
-                    </div>
-                    <h3 class="mt-5 text-xl text-gray-800  hover:text-gray-400">
-                        Atlassian powers sales and support at scale with Preline.
-                    </h3>
-                    <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800">
-                        Learn more
-                        <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="m9 18 6-6-6-6" />
-                        </svg>
-                    </p>
-                </a>
-                <!-- End Card -->
-
+                    @if ($healthCare->type == 'doctor')
+                        @forelse ($healthCare->healthCareLists as $healthCareList)
+                            <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
+                                href="{{ route('healthcare.doctorDetailPage',$healthCareList) }}">
+                                <div class="aspect-w-16 aspect-h-10">
+                                    <img class="w-full object-cover rounded-xl"
+                                        src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                                        alt="Blog Image">
+                                </div>
+                                <h3 class="mt-5 text-xl text-gray-800 hover:text-gray-400">
+                                    {{ $healthCareList->name }}
+                                </h3>
+                                <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 ">
+                                    Learn more
+                                    <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m9 18 6-6-6-6" />
+                                    </svg>
+                                </p>
+                            </a>
+                        @empty
+                            <p>No doctors found!!</p>
+                        @endforelse
+                    @endif
+                @endforeach
             </div>
             <div class="justify-center items-center text-center mt-4">
-                <a href="{{ route('healthcare.listPage') }}" class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+                <a href="{{ route('healthcare.listPage') }}"
+                    class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
                 </a>
             </div>
 
@@ -279,7 +238,8 @@
 
             </div>
             <div class="justify-center items-center text-center mt-4">
-                <a href="{{ route('healthcare.listPage') }}" class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+                <a href="{{ route('healthcare.hospitalListPage') }}"
+                    class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
                 </a>
             </div>
 
@@ -372,8 +332,9 @@
 
             </div>
             <div class="justify-center items-center text-center">
-                <button class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
-                </button>
+                <a href="{{ route('healthcare.pharmacyListPage') }}"
+                    class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+                </a>
             </div>
 
             <!-- End Grid -->
@@ -466,15 +427,16 @@
                 <!-- End Card -->
 
             </div>
-            <div class="justify-center items-center text-center mt-4">
-                <a href="{{ route('healthcare.listPage') }}" class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
+            <div class="justify-center items-center text-center mt-4 mb-10">
+                <a href="{{ route('healthcare.medicalListPage') }}"
+                    class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View More
                 </a>
             </div>
-
+            <x-frontend.PropertiesFooter.properties-footer />
             <!-- End Grid -->
         </div>
 
-        <x-frontend.PropertiesFooter.properties-footer/>
+
     </div>
 
 
