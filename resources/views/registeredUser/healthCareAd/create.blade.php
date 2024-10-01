@@ -45,41 +45,41 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field label="Hospital Name" id="name" name="name"
-                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('name')" label="Hospital Name" id="name"
+                                name="name" type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number" name="contact_number"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Email" id="email" name="email" type="email"
-                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number"
+                                name="contact_number" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component label="OPD Schedules" id="o_p_d_schedule"
-                                name="o_p_d_schedule" class="text-sm font-semibold" />
+                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule')" label="OPD Schedules"
+                                id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="Hospital Address" id="address" name="address"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('address')" label="Hospital Address" id="address"
+                                name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component label="Details" id="editor" name="details"
-                                class="text-sm font-semibold" />
+                            <x-frontend.forms.text-area-component :value="old('details')" label="Details" id="editor"
+                                name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link" name="youtube_link"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('youtube_link')" label="YouTub Link" id="youtube_link"
+                                name="youtube_link" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url" type="text"
-                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url"
+                                name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('twitter_url')" label="Twitter Url" id="twitter_url"
+                                name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
-                            <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url" name="facebook_url"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Whats App" id="whats_app_no" name="whats_app_no"
-                                type="number" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url"
+                                name="facebook_url" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no"
+                                name="whats_app_no" type="number" class="text-sm font-semibold" />
 
                             <x-frontend.forms.file-component label="Hospital Image Of All Side" id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
@@ -99,44 +99,44 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field label="Doctor Name" id="name" name="name"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Department" id="department" name="department"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('name')" label="Doctor Name" id="name"
+                                name="name" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('department')" label="Department" id="department"
+                                name="department" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Email" id="email" name="email"
-                                type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="NMC No" id="n_m_c_no" name="n_m_c_no"
-                                type="number" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Qualification" id="qualification"
+                            <x-frontend.forms.input-type-field :value="old('n_m_c_no')" label="NMC No" id="n_m_c_no"
+                                name="n_m_c_no" type="number" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('qualification')" label="Qualification" id="qualification"
                                 name="qualification" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="OPD Schedule" id="o_p_d_schedule"
+                            <x-frontend.forms.input-type-field :value="old('o_p_d_schedule')" label="OPD Schedule" id="o_p_d_schedule"
                                 name="o_p_d_schedule" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Clinic Address" id="address" name="address"
-                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('address')" label="Clinic Address" id="address"
+                                name="address" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.text-area-component label="Details" id="editor" name="details"
-                                class="text-sm font-semibold" />
+                            <x-frontend.forms.text-area-component :value="old('details')" label="Details" id="editor"
+                                name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link" name="youtube_link"
-                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('youtube_link')" label="YouTub Link" id="youtube_link"
+                                name="youtube_link" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url"
+                                name="map_url" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('twitter_url')" label="Twitter Url" id="twitter_url"
+                                name="twitter_url" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
-                            <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url" name="facebook_url"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Whats App" id="whats_app_no" name="whats_app_no"
-                                type="number" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url"
+                                name="facebook_url" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no"
+                                name="whats_app_no" type="number" class="text-sm font-semibold" />
 
                             <x-frontend.forms.file-component label="Image Of Doctor" id="files" name="files[]"
                                 type="file" class="text-sm font-semibold" multiple="multiple"
@@ -156,42 +156,43 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field label="Medical Name" id="name" name="name"
-                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('name')" label="Medical Name" id="name"
+                                name="name" type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Email" id="email" name="email"
-                                type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component label="Opening Time" id="o_p_d_schedule"
-                                name="o_p_d_schedule" class="text-sm font-semibold" />
+                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule')" label="Opening Time"
+                                id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="Medical Address" id="address" name="address"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('address')" label="Medical Address" id="address"
+                                name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component label="Details" id="editor" name="details"
-                                class="text-sm font-semibold" />
+                            <x-frontend.forms.text-area-component :value="old('details')" label="Details" id="editor"
+                                name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link" name="youtube_link"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('youtube_link')" label="YouTub Link" id="youtube_link"
+                                name="youtube_link" type="text" class="text-sm font-semibold"
+                                {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url"
+                                name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('twitter_url')" label="Twitter Url" id="twitter_url"
+                                name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
-                            <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url" name="facebook_url"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Whats App" id="whats_app_no" name="whats_app_no"
-                                type="number" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url"
+                                name="facebook_url" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no"
+                                name="whats_app_no" type="number" class="text-sm font-semibold" />
 
                             <x-frontend.forms.file-component label="Medical Image Of All Side" id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
@@ -211,42 +212,43 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field label="Pharmacy Name" id="name" name="name"
-                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('name')" label="Pharmacy Name" id="name"
+                                name="name" type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Email" id="email" name="email"
-                                type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email"
+                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component label="Opening Time" id="o_p_d_schedule"
-                                name="o_p_d_schedule" class="text-sm font-semibold" />
+                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule')" label="Opening Time"
+                                id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="Pharmacy Address" id="address" name="address"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('address')" label="Pharmacy Address" id="address"
+                                name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component label="Details" id="editor" name="details"
-                                class="text-sm font-semibold" />
+                            <x-frontend.forms.text-area-component :value="old('details')" label="Details" id="editor"
+                                name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field label="YouTub Link" id="youtube_link" name="youtube_link"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('youtube_link')" label="YouTub Link" id="youtube_link"
+                                name="youtube_link" type="text" class="text-sm font-semibold"
+                                {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Twitter Url" id="twitter_url" name="twitter_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url"
+                                name="map_url" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('twitter_url')" label="Twitter Url" id="twitter_url"
+                                name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url"
+                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
-                            <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url" name="facebook_url"
-                                type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Whats App" id="whats_app_no" name="whats_app_no"
-                                type="number" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url"
+                                name="facebook_url" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no"
+                                name="whats_app_no" type="number" class="text-sm font-semibold" />
 
                             <x-frontend.forms.file-component label="Pharmacy Image Of All Side" id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"

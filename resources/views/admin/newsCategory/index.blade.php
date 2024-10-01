@@ -68,6 +68,7 @@
                             <th class="table-plus datatable-nosort">S.No</th>
                             <th>Title</th>
                             <th>Slug</th>
+                            <th>Status</th>
                             <th class="datatable-nosort">Action</th>
                         </tr>
                     </thead>
@@ -78,6 +79,16 @@
 
                                 <td>{{ $newsCategory->title }}</td>
                                 <td>{{ $newsCategory->slug }}</td>
+                                <td>
+
+                                    <form action="{{ route('admin.newsCategory.updateStatus',$newsCategory) }}" method="post" style="display: inline">
+                                        @csrf
+                                        @method('put')
+                                        <button type="submit" style="border: none; background: none;">
+                                            <i class="fa fa-{{ $newsCategory->status == 1 ? 'toggle-on text-success' : 'toggle-off text-danger' }} fa-2x"></i>
+                                        </button>
+                                    </form>
+                                </td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"

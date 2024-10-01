@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('position');
             $table->longText('details');
             $table->string('image');
+            $table->string('publisher');
+            $table->string('publish_date');
             $table->boolean('status')->default(0);
             $table->softDeletes();
             $table->timestamps();

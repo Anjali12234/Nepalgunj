@@ -26,6 +26,8 @@ class UpdateEducationListRequest extends FormRequest
             'facebook_url' => ['required','string'],
             'map_url' => ['required','string'],
             'whats_app_no' => ['required','numeric'],
+            'youtube_url' => ['nullable','string'],
+            'tiktok_url' => ['required','string'],
             'files' => ['nullable', 'array'],
             'files.*' => ['mimes:png,jpg,jpeg,jfif,webp'],
 

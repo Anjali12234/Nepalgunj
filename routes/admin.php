@@ -22,6 +22,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('setting', SettingController::class);
 Route::resource('mainCategory', MainCategoryController::class);
 Route::resource('newsCategory', NewsCategoryController::class);
+Route::put('newsCategory/{newsCategory}/updateStatus', [NewsCategoryController::class, 'updateStatus'])->name('newsCategory.updateStatus');
 Route::resource('newsList', NewsController::class);
 Route::put('newsList/{newsList}/updateStatus', [NewsController::class, 'updateStatus'])->name('newsList.updateStatus');
 Route::resource('menu', MenuController::class);

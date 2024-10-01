@@ -83,7 +83,10 @@
 
                             <x-frontend.forms.input-type-field :value="old('map_url', $educationList->map_url)" label="Map Url" id="map_url" name="map_url" type="text"
                                 class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
+                                <x-frontend.forms.input-type-field :value="old('tiktok_url', $educationList->tiktok_url)" label="TikTok Url" id="tiktok_url" name="tiktok_url"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('youtube_url', $educationList->youtube_url)" label="Youtube Url" id="youtube_url" name="youtube_url"
+                                type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('facebook_url', $educationList->facebook_url)" label="Facebook Url" id="facebook_url" name="facebook_url"
                                 type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('website_url', $educationList->website_url)" label="Website Url" id="website_url" name="website_url"

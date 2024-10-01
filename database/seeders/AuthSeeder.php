@@ -20,7 +20,7 @@ class AuthSeeder extends Seeder
             $user = User::factory()->create([
                 'name' => 'Super Admin',
                 'email' => 'admin@admin.com',
-                'password' => bcrypt('password'),
+                'password' => 'password',
             ]);
 
             // Assign the Super Admin role to the user

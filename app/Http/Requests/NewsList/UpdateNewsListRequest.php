@@ -18,6 +18,8 @@ class UpdateNewsListRequest extends FormRequest
         return [
             'news_category_id' => ['required', 'string'],
             'title' => ['required', 'string'],
+            'publisher' => ['required', 'string'],
+            'publish_date' => ['required'],
             'position' => ['nullable','string'],
             'slug' => ['nullable','string',Rule::unique('news', 'slug')->ignore($this->newsList)],
             'status' => ['nullable','boolean'],

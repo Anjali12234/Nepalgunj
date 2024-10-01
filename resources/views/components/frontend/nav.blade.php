@@ -5,10 +5,10 @@ class='font-mono flex shadow-md pt-3 px-4 sm:pl-20 sm:pr-32 bg-white min-h-[70px
 style="">
 <div class='flex flex-wrap items-center justify-between md:gap-0 w-full'>
     <a href="{{ route('welcome') }}">
-        <img src="{{ asset('assets/frontend/static/logo.png') }}" alt="logo" class="w-36  hidden lg:block" />
+        <img src="{{ setting()->logo1 ?? '' }}" alt="logo" class="w-36  hidden lg:block" />
     </a>
     <a href="{{ route('welcome') }}">
-        <img src="{{ asset('assets/frontend/static/logo.png') }}" alt="logo" class="w-24 block lg:hidden" />
+        <img src="{{ setting()->logo1 ?? '' }}" alt="logo" class="w-24 block lg:hidden" />
     </a>
 
 
@@ -36,13 +36,9 @@ style="">
                 <a href="{{ route('properties') }}"
                     class='hover:text-[#007bff] text-[#007bff] block font-semibold text-[15px]'>Properties</a>
             </li>
-            <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href="
-                {{-- {{ route('vehicles') }} --}}
-                 "
-                    class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Vehicles</a>
-            </li>
+
             <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('healthcareIndex') }}'
-                    class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health Care</a>
+                    class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health Cares</a>
             </li>
             <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('education.IndexPage') }}'
                     class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Educations</a>
@@ -50,7 +46,11 @@ style="">
             <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='javascript:void(0)'
                     class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Jobs</a>
             </li>
-
+            <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href="
+                {{-- {{ route('vehicles') }} --}}
+                 "
+                    class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Vehicles</a>
+            </li>
             <li class='group max-lg:border-b max-lg:py-3 relative'>
                 <a href='javascript:void(0)'
                     class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold lg:hover:fill-[#007bff] block'>More<svg

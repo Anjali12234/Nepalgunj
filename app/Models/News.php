@@ -21,6 +21,8 @@ class News extends Model
         'position',
         'image',
         'details',
+        'publisher',
+        'publish_date',
         'status',
     ];
 

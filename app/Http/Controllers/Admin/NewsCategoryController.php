@@ -41,4 +41,13 @@ class NewsCategoryController extends Controller
         Alert::success('News Category deleted successfully');
         return back();
     }
+
+    public function updateStatus(NewsCategory $newsCategory)
+    {
+        $newsCategory->update([
+            'status' => !$newsCategory->status
+        ]);
+        alert('News Category updated successfully');
+        return back();
+    }
 }

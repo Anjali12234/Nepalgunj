@@ -30,23 +30,37 @@ class EducationAdController extends BaseController
 
     public function store(StoreEducationListRequest $request, EducationCategory $educationCategory)
     {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        $map_url = "https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&center={$latitude},{$longitude}&zoom=15";
+
         $educationList = EducationList::create(
             $request->validated() + [
                 'education_category_id' => $educationCategory->id,
                 'registered_user_id' => Auth::guard('registered-user')->user()->id,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'map_url' => $map_url,
             ]
         );
-        foreach ($request->validated(['files']) as $file) {
-            $educationList->files()->create([
-                'file_name' => $file->getClientOriginalName(),
-                'file' => $file->store('educationLists/' . Str::slug($request->input('name'), '_'), 'public'),
-                'size' => $file->getSize(),
-                'extension' => $file->getClientOriginalExtension()
-            ]);
+
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $educationList->files()->create([
+                    'file_name' => $file->getClientOriginalName(),
+                    'file' => $file->store('educationLists/' . Str::slug($request->input('name'), '_'), 'public'),
+                    'size' => $file->getSize(),
+                    'extension' => $file->getClientOriginalExtension()
+                ]);
+            }
         }
-        alert("form submitted");
+
+        alert("Form submitted successfully");
+
         return back();
     }
+
 
     public function edit(EducationList $educationList)
     {

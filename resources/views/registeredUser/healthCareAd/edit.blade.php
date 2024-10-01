@@ -82,7 +82,7 @@
                             <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
@@ -142,7 +142,7 @@
                             <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" />
@@ -199,7 +199,7 @@
                                 name="youtube_link" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
@@ -256,7 +256,7 @@
                                 name="youtube_link" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
