@@ -76,7 +76,7 @@
                         <span class="micon bi bi-archive"></span><span class="mtext"> Role and Permission </span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="{{ route('admin.permission.index') }}">Premission</a></li>
+                        {{-- <li><a href="{{ route('admin.permission.index') }}">Premission</a></li> --}}
                         <li><a href="{{ route('admin.role.index') }}">Role</a></li>
 
                         <li><a href=" {{ route('admin.user.index') }}">User</a></li>

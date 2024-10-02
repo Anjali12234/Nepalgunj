@@ -10,17 +10,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class RegisteredUser extends Authenticatable
 {
     use  HasFactory, Notifiable, SoftDeletes;
-
+    use HasRoles;
 
     protected $fillable = [
         'username',
         'email',
         'password',
         'phone_no',
+        'category',
         'gender',
         'remarks',
         'avatar',
@@ -28,7 +30,9 @@ class RegisteredUser extends Authenticatable
         'is_active',
 
     ];
-
+    protected $casts = [
+        'category' => 'array',
+    ];
 
     protected $hidden = [
         'password',
@@ -45,7 +49,7 @@ class RegisteredUser extends Authenticatable
         ];
     }
 
-  
+
 
     public function registeredUserDetail(): HasOne
     {

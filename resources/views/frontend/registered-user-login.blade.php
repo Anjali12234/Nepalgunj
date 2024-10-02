@@ -1,6 +1,6 @@
 @extends('frontend.register')
 @section('login')
-<div class="hidden md:block">
+<div class="">
     @include('error')
     <form class="ml-4 md:mx-0 font-[sans-serif] my-3" action="{{ route('registeredUser.handle-login') }}" method="POST"
         enctype="multipart/form-data">

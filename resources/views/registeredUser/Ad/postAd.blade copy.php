@@ -6,7 +6,7 @@
             <div class="w-2/3 mt-10">
                 <nav class="flex gap-x-14 ml-4" aria-label="Tabs" role="tablist">
                     <div>
-                        @if (is_array($registeredUser->category) && in_array(propertyCategories()->first()->mainCategory->title_en, $registeredUser->category))
+
 
 
                         <button type="button" class="active text-blue-900 text-xl font-semibold" id="unstyled-tabs-item-1"
@@ -28,11 +28,9 @@
                             </svg>
                             Properties
                         </button>
-                        @endif
+
                     </div>
                     <div>
-                        @if (is_array($registeredUser->category) && in_array(healthCareCategories()->first()->mainCategory->title_en, $registeredUser->category))
-
                         <button type="button" class="text-green-900 text-xl font-semibold" id="unstyled-tabs-item-2"
                             aria-selected="false" data-hs-tab="#unstyled-tabs-2" aria-controls="unstyled-tabs-2"
                             role="tab">
@@ -48,10 +46,8 @@
                             </svg>
                             Health
                         </button>
-                        @endif
                     </div>
                     <div>
-                        @if (is_array($registeredUser->category) && in_array(educationCategories()->first()->mainCategory->title_en, $registeredUser->category))
 
                         <button type="button" class="text-red-900 text-xl font-semibold" id="unstyled-tabs-item-3"
                             aria-selected="false" data-hs-tab="#unstyled-tabs-3" aria-controls="unstyled-tabs-3"
@@ -65,9 +61,10 @@
                             </svg>
                             Education
                         </button>
-                        @endif
                     </div>
+
                 </nav>
+
                 <div class="mt-3">
                     <div id="unstyled-tabs-1" role="tabpanel" aria-labelledby="unstyled-tabs-item-1">
                         <ul>
@@ -118,4 +115,6 @@
             </div>
         </div>
     </div>
+
+
 </x-guest-layout>

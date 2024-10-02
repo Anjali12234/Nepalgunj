@@ -13,6 +13,7 @@ use App\Notifications\UserRegisterNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Notification;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends BaseController
 {
@@ -43,7 +44,9 @@ class AuthController extends BaseController
 
     public function register()
     {
-        return view('frontend.registered-user-register');
+        $categories = MainCategory::pluck('title_en', 'id')->toArray();
+
+        return view('frontend.registered-user-register',compact('categories'));
     }
 
     public function store(StoreRegisteredUserRequest $request)

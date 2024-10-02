@@ -24,6 +24,9 @@ class StoreRegisteredUserRequest extends FormRequest
             'd_o_b' => ['required', 'date'],
             'is_active' => ['nullable','boolean'],
             'avatar' => ['nullable','image'],
+            // 'main_category_id' => ['required', 'string'],
+
+            'category' =>  ['required', 'array'],
 
         ];
     }
