@@ -17,6 +17,14 @@ if (!function_exists('setting')) {
         });
     }
 }
+if (!function_exists('registeredUser')) {
+    function registeredUser()
+    {
+        return Cache::rememberForever('registeredUser', function () {
+            return Auth::guard('registered-user')->user(); // Corrected the call here
+        });
+    }
+}
 if (!function_exists('propertyCategories')) {
     function propertyCategories()
     {
