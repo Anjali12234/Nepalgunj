@@ -10,6 +10,7 @@
         id="email"
         name="email"
         type="email"
+        labelClass="w-36"
         />
 
 
@@ -18,6 +19,7 @@
         id="password"
         name="password"
         type="text"
+        labelClass="w-36"
         />
 
 

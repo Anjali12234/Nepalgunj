@@ -49,8 +49,8 @@
                         @foreach ($educationCategories as $key => $educationCategory)
                             <tr>
                                 <td class="table-plus">{{ $loop->iteration }}</td>
-                                <td>{{ $educationCategory->mainCategory?->title_ne }}</td>
-                                <td>{{ $educationCategory->title_ne }}</td>
+                                <td>{{ $educationCategory->mainCategory?->title_en }}</td>
+                                <td>{{ $educationCategory->title_en }}</td>
                                 <td>{{ $educationCategory->slug }}</td>
                                 <td>
                                     <div class="dropdown">

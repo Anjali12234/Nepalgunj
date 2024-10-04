@@ -1,12 +1,11 @@
 @extends('backend.layouts.master')
-
 @section('container')
 <div class="min-height-200px">
     <div class="page-header">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="title">
-                    <h4>Main Category</h4>
+                    <h4>Hospitality Category</h4>
                 </div>
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb">
@@ -14,14 +13,14 @@
                             <a href="{{ route('admin.dashboard') }}">Home</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                          Main  Category List
+                            Hospitality Category List
                         </li>
                     </ol>
                 </nav>
             </div>
             <div class="col-md-6 col-sm-12 text-right">
                 <div class="dropdown">
-                    <a class="btn btn-primary " href="{{ route('admin.mainCategory.create') }}" role="button">
+                    <a class="btn btn-primary " href="{{ route('admin.hospitalityCategory.create') }}" role="button">
                         Add
                     </a>
 
@@ -31,7 +30,7 @@
     </div>
     <div class="pd-20 card-box mb-30">
         <div class="pd-20">
-            <h4 class="text-blue h4">Main Category List</h4>
+            <h4 class="text-blue h4">Hospitality Category List</h4>
 
         </div>
         <div class="pb-20">
@@ -39,24 +38,19 @@
                 <thead>
                     <tr>
                         <th class="table-plus datatable-nosort">S.No</th>
-                        {{-- <th>Image</th> --}}
+                        <th>Main Category</th>
                         <th>Title</th>
                         <th>Slug</th>
                         <th class="datatable-nosort">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($mainCategories as $key => $mainCategory)
+                    @foreach ($hospitalityCategories as $key => $hospitalityCategory)
                         <tr>
                             <td class="table-plus">{{ $loop->iteration }}</td>
-                            {{-- <td>
-                                <img class="rounded-circle" src="{{ $mainCategory->image }}" alt="Property mainCategory Image"
-                                    width="100" height="100">
-                            </td> --}}
-
-
-                            <td>{{ $mainCategory->title_en }}</td>
-                            <td>{{ $mainCategory->slug }}</td>
+                            <td>{{ $hospitalityCategory->mainCategory?->title_en }}</td>
+                            <td>{{ $hospitalityCategory->title_en }}</td>
+                            <td>{{ $hospitalityCategory->slug }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
@@ -65,10 +59,10 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.mainCategory.edit', $mainCategory) }}"><i
+                                            href="{{ route('admin.hospitalityCategory.edit', $hospitalityCategory) }}"><i
                                                 class="dw dw-edit2"></i> Edit</a>
 
-                                        <form action="{{ route('admin.mainCategory.destroy', $mainCategory) }}" method="post"
+                                        <form action="{{ route('admin.hospitalityCategory.destroy', $hospitalityCategory) }}" method="post"
                                             style="display: inline">
                                             @csrf
                                             @method('DELETE')
@@ -85,7 +79,7 @@
 
                 </tbody>
             </table>
-            {{ $mainCategories->links() }}
+            {{ $hospitalityCategories->links() }}
         </div>
     </div>
 

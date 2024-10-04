@@ -68,10 +68,10 @@
                         <label>Type</label>
                         <select class="custom-select2 form-control" name="type" style="width: 100%; height: 38px">
                             <option value="">Choose type</option>
-                            <option value="hospital">Hospital</option>
-                            <option value="doctor">Doctor</option>
-                            <option value="medical">Medical</option>
-                            <option value="pharmacy">Pharmacy</option>
+                            <option value="Hospital" {{ old('type', $healthCare->type) == 'Hospital' ? 'selected' : '' }}>Hospital</option>
+                            <option value="Doctor" {{ old('type', $healthCare->type) == 'Doctor' ? 'selected' : '' }}>Doctor</option>
+                            <option value="Medical" {{ old('type', $healthCare->type) == 'Medical' ? 'selected' : '' }}>Medical</option>
+                            <option value="Pharmacy" {{ old('type', $healthCare->type) == 'Pharmacy' ? 'selected' : '' }}>Pharmacy</option>
                         </select>
                         <span class="text-warning">
                             @error('type')
@@ -80,9 +80,10 @@
                         </span>
                     </div>
 
+
                 </div>
                 <div class="col-md-12 row">
-                    <div class="form-group col-md-6">
+                 <div class="form-group col-md-6">
                         <label for="title_en">English Title</label>
                         <input class="form-control" id="title_en" name="title_en"
                             value="{{ old('title_en', $healthCare->title_en) }}" type="text" />
@@ -92,7 +93,7 @@
                             @enderror
                         </span>
                     </div>
-                    <div class="form-group col-md-6">
+                     {{--   <div class="form-group col-md-6">
                         <label for="title_ne">Nepali Title</label>
                         <input class="form-control" id="title_ne" name="title_ne" type="text"
                             value="{{ old('title_ne', $healthCare->title_ne) }}" placeholder="Nepali title" />
@@ -101,20 +102,7 @@
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
-
-                </div>
-                <div class="col-md-12 row">
-                    <div class="form-group col-md-6">
-                        <label for="icon">Icon</label>
-                        <input class="form-control" id="icon" name="icon" type="text"
-                            value="{{ old('icon', $healthCare->icon) }}" placeholder="Icon Url" />
-                        <span class="text-warning">
-                            @error('icon')
-                                {{ $message }}
-                            @enderror
-                        </span>
-                    </div>
+                    </div> --}}
                     <div class="form-group col-md-6">
                         <label for="slug">Slug</label>
                         <input class="form-control" id="slug" name="slug" type="text"
@@ -125,6 +113,20 @@
                             @enderror
                         </span>
                     </div>
+
+                </div>
+                <div class="col-md-12 row">
+                    {{-- <div class="form-group col-md-6">
+                        <label for="icon">Icon</label>
+                        <input class="form-control" id="icon" name="icon" type="text"
+                            value="{{ old('icon', $healthCare->icon) }}" placeholder="Icon Url" />
+                        <span class="text-warning">
+                            @error('icon')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div> --}}
+
 
                 </div>
                 <div class="form-group col-md-6">

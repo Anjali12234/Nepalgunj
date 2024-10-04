@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Requests\HealthCareCategory;
-
+namespace App\Http\Requests\HospitalityCategory;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateHealthCareCategoryRequest extends FormRequest
+class UpdateHospitalityCategoryRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -22,9 +21,9 @@ class UpdateHealthCareCategoryRequest extends FormRequest
             'position' => ['required','string'],
             'type' => ['required'],
             'slug' => [
-                'nullable',
+                'required',
                 'string',
-                Rule::unique('health_care_categories', 'slug')->ignore($this->healthCare)],
+                Rule::unique('hospitality_categories', 'slug')->ignore($this->hospitalityCategory)],
             'status' => ['nullable','boolean'],
             'icon' =>['nullable','string'],
 

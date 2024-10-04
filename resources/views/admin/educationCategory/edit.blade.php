@@ -67,13 +67,13 @@
                     <div class="form-group col-md-6">
                         <label>Type</label>
                         <select class="custom-select2 form-control" name="type"
-                            style="width: 100%; height: 38px">
-                            <option value="">Choose type</option>
-                            <option value="college">College</option>
-                            <option value="campus">Campus</option>
-                            <option value="school">School</option>
-                            <option value="institute">Institute</option>
-                        </select>
+                        style="width: 100%; height: 38px">
+                        <option value="">Choose type</option>
+                        <option value="College" {{ old('type', $educationCategory->type) == 'College' ? 'selected' : '' }}>College</option>
+                        <option value="Campus" {{ old('type', $educationCategory->type) == 'Campus' ? 'selected' : '' }}>Campus</option>
+                        <option value="School" {{ old('type', $educationCategory->type) == 'School' ? 'selected' : '' }}>School</option>
+                        <option value="Institute" {{ old('type', $educationCategory->type) == 'Institute' ? 'selected' : '' }}>Institute</option>
+                    </select>
                         <span class="text-warning">
                             @error('type')
                                 {{ $message }}
@@ -93,28 +93,6 @@
                             @enderror
                         </span>
                     </div>
-                    {{-- <div class="form-group col-md-6">
-                        <label for="title_ne">Nepali Title</label>
-                        <input class="form-control" id="title_ne" name="title_ne" type="text"
-                            value="{{ old('title_ne',$educationCategory->title_ne) }}" placeholder="Nepali title" />
-                        <span class="text-warning">
-                            @error('title_ne')
-                                {{ $message }}
-                            @enderror
-                        </span>
-                    </div> --}}
-                    <div class="form-group col-md-6">
-                        <label for="icon">Icon</label>
-                        <input class="form-control" id="icon" name="icon" type="text"
-                            value="{{ old('icon',$educationCategory->icon) }}" placeholder="Icon Url" />
-                        <span class="text-warning">
-                            @error('icon')
-                                {{ $message }}
-                            @enderror
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-12 row">
                     <div class="form-group col-md-6">
                         <label for="slug">Slug</label>
                         <input class="form-control" id="slug" name="slug" type="text"
@@ -125,6 +103,29 @@
                             @enderror
                         </span>
                     </div>
+                    {{-- <div class="form-group col-md-6">
+                        <label for="title_ne">Nepali Title</label>
+                        <input class="form-control" id="title_ne" name="title_ne" type="text"
+                            value="{{ old('title_ne',$educationCategory->title_ne) }}" placeholder="Nepali title" />
+                        <span class="text-warning">
+                            @error('title_ne')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div> --}}
+                    {{-- <div class="form-group col-md-6">
+                        <label for="icon">Icon</label>
+                        <input class="form-control" id="icon" name="icon" type="text"
+                            value="{{ old('icon',$educationCategory->icon) }}" placeholder="Icon Url" />
+                        <span class="text-warning">
+                            @error('icon')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div> --}}
+                </div>
+                <div class="col-md-12 row">
+
                     <div class="form-group col-md-6">
                         <label for="position">Position</label>
                         <input class="form-control" id="position" name="position" type="text"

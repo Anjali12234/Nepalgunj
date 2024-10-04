@@ -40,4 +40,14 @@
         </li>
     </a>
     @endif
+    @if (is_array(registeredUser()->category) && in_array(hospitalityCategories()->first()->mainCategory->title_en, registeredUser()->category))
+
+    <a href="{{ route('registeredUser.hospitalityList.index') }}">
+        <li
+            class="bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-neutral-800 focus:bg-neutral-800 focus:text-white py-1 px-4 flex items-center gap-28">
+            Hospitality
+            <p class="ml-auto">0</p>
+        </li>
+    </a>
+    @endif
 </ul>

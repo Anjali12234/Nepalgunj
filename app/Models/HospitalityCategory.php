@@ -3,13 +3,11 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
 
-class HealthCareCategory extends Model
+class HospitalityCategory extends Model
 {
     use HasFactory, SoftDeletes, Sluggable;
 
@@ -30,9 +28,9 @@ class HealthCareCategory extends Model
         return $this->belongsTo(MainCategory::class);
     }
 
-    public function healthCareLists()
+    public function hospitalityLists()
     {
-        return $this->hasMany(HealthCareList::class);
+        return $this->hasMany(HospitalityList::class);
     }
 
 
@@ -49,10 +47,9 @@ class HealthCareCategory extends Model
     {
         parent::boot();
 
-        static::creating(function ($hospitalCategory) {
-            $hospitalCategory->position = static::max('position') + 1;
-            $hospitalCategory->title_en = $hospitalCategory->type;
-
+        static::creating(function ($hospitalityCategory) {
+            $hospitalityCategory->position = static::max('position') + 1;
+            $hospitalityCategory->title_en = $hospitalityCategory->type;
         });
     }
 }

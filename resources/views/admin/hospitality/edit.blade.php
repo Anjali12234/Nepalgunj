@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="title">
-                        <h4>Hospital Category</h4>
+                        <h4>Hospitality Care Category</h4>
                     </div>
                     <nav aria-label="breadcrumb" role="navigation">
                         <ol class="breadcrumb">
@@ -14,14 +14,14 @@
                                 <a href="{{ route('admin.dashboard') }}">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Hospital Category List
+                                Hospitality Care Category List
                             </li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-md-6 col-sm-12 text-right">
                     <div class="dropdown">
-                        <a class="btn btn-primary " href="{{ route('admin.healthCare.index') }}" role="button">
+                        <a class="btn btn-primary " href="{{ route('admin.hospitalityCategory.index') }}" role="button">
                             Back
                         </a>
 
@@ -39,17 +39,21 @@
                     </ul>
                 </div>
             @endif
-            <form method="post" action="{{ route('admin.healthCare.store') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('admin.hospitalityCategory.update', $hospitalityCategory) }}" enctype="multipart/form-data">
                 @csrf
-
+                @method('PUT')
                 <div class="col-md-12 row">
                     <div class="form-group col-md-6">
                         <label>Main Category</label>
                         <select class="custom-select2 form-control" name="main_category_id"
                             style="width: 100%; height: 38px">
                             <option value="">Choose Main Category</option>
-                            @foreach ($mainCategories as $mainCategory)
-                                <option value="{{ $mainCategory->id }}">{{ $mainCategory->title_en }}</option>
+                            @foreach ($mainCategories as $maincategory)
+                                <option value="{{ $maincategory->id }}"
+                                    {{ old('mian_category_id', $hospitalityCategory->main_category_id) == $maincategory->id ? 'selected' : '' }}>
+                                    {{ $maincategory->title_en }}
+
+                                </option>
                             @endforeach
 
 
@@ -65,10 +69,10 @@
                         <select class="custom-select2 form-control" name="type"
                             style="width: 100%; height: 38px">
                             <option value="">Choose type</option>
-                            <option value="Hospital">Hospital</option>
-                            <option value="Doctor">Doctor</option>
-                            <option value="Medical">Medical</option>
-                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Star-Hotels">Star Hotels</option>
+                            <option value="hotels">Hotels</option>
+                            <option value="resturant">Resturant</option>
+                            <option value="cafe">Cafe</option>
                         </select>
                         <span class="text-warning">
                             @error('type')
@@ -76,38 +80,63 @@
                             @enderror
                         </span>
                     </div>
-                    {{-- <div class="form-group col-md-6">
+
+                </div>
+                <div class="col-md-12 row">
+                    <div class="form-group col-md-6">
                         <label for="title_en">English Title</label>
-                        <input class="form-control" id="title_en" name="title_en" value="{{ old('title_en') }}"
-                            type="text" />
+                        <input class="form-control" id="title_en" name="title_en"
+                            value="{{ old('title_en', $hospitalityCategory->title_en) }}" type="text" />
                         <span class="text-warning">
                             @error('title_en')
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div> --}}
-                </div>
-                <div class="col-md-12 row">
+                    </div>
                     {{-- <div class="form-group col-md-6">
                         <label for="title_ne">Nepali Title</label>
                         <input class="form-control" id="title_ne" name="title_ne" type="text"
-                            value="{{ old('title_ne') }}" placeholder="Nepali title" />
+                            value="{{ old('title_ne', $hospitalityCategory->title_ne) }}" placeholder="Nepali title" />
                         <span class="text-warning">
                             @error('title_ne')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div> --}}
+
+                </div>
+                <div class="col-md-12 row">
                     {{-- <div class="form-group col-md-6">
                         <label for="icon">Icon</label>
                         <input class="form-control" id="icon" name="icon" type="text"
-                            value="{{ old('icon') }}" placeholder="Icon Url" />
+                            value="{{ old('icon', $hospitalityCategory->icon) }}" placeholder="Icon Url" />
                         <span class="text-warning">
                             @error('icon')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div> --}}
+                    <div class="form-group col-md-6">
+                        <label for="slug">Slug</label>
+                        <input class="form-control" id="slug" name="slug" type="text"
+                            value="{{ old('slug', $hospitalityCategory->slug) }}" placeholder="Slug" />
+                        <span class="text-warning">
+                            @error('slug')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="position">Position</label>
+                    <input class="form-control" id="position" name="position" type="text"
+                        value="{{ old('position', $hospitalityCategory->position) }}" placeholder="position" />
+                    <span class="text-warning">
+                        @error('position')
+                            {{ $message }}
+                        @enderror
+                    </span>
                 </div>
 
                 <div>

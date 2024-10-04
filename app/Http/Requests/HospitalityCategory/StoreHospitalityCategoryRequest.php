@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\EducationCategory;
+namespace App\Http\Requests\HospitalityCategory;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreEducationCategoryRequest extends FormRequest
+class StoreHospitalityCategoryRequest extends FormRequest
 {
     public function authorize(): bool
     {

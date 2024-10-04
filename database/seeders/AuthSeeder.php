@@ -1,6 +1,8 @@
 <?php
+
 namespace Database\Seeders;
 
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -60,6 +62,7 @@ class AuthSeeder extends Seeder
             ]);
 
 
+
             $superAdminRole->syncPermissions($permissions);
 
 
@@ -69,6 +72,23 @@ class AuthSeeder extends Seeder
             $superAdminRole = Role::firstOrCreate(['name' => 'superadmin']);
             $superAdminRole->syncPermissions($permissions);
             $user->assignRole($superAdminRole);
+        }
+        if (Setting::count() === 0) {
+            Setting::create([
+                'name_ne' => 'Nepalgunj',
+                'name_en' => 'Nepalgunj@admin.com',
+                'address_ne' => 'Nepalgunj',
+                'address_en' => 'Nepalgunj',
+                'logo1' => null,
+                'instagram_url' => null,
+                'facebook_url' => null,
+                'twitter_url' => null,
+                'youtube_url' => null,
+                'map_url' => null,
+                'phone_number' => '9874569854',
+                'email' => 'nepalgunj@gmail.com',
+                'logo2' => null,
+            ]);
         }
     }
 }

@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 row">
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="title_ne">Nepali Title</label>
                         <input class="form-control" id="title_ne" name="title_ne" type="text"
                             value="{{ old('title_ne') }}" placeholder="Nepali title" />
@@ -81,8 +81,8 @@
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
-                    <div class="form-group col-md-6">
+                    </div> --}}
+                    {{-- <div class="form-group col-md-6">
                         <label for="icon">Icon</label>
                         <input class="form-control" id="icon" name="icon" type="text"
                             value="{{ old('icon') }}" placeholder="Icon Url" />
@@ -91,7 +91,7 @@
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div>

@@ -51,7 +51,7 @@
             <h1 class="font-bold text-xl text-purple-950">Add the complete detail of
                 {{ $healthCareList->healthCareCategory->title_en }}</h1>
             @include('error')
-            @if ($healthCareList->healthCareCategory->type == 'hospital')
+            @if ($healthCareList->healthCareCategory->type == 'Hospital')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -107,7 +107,7 @@
                     </div>
 
                 </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'doctor')
+            @elseif ($healthCareList->healthCareCategory->type == 'Doctor')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -166,7 +166,7 @@
                     </div>
 
                 </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'medical')
+            @elseif ($healthCareList->healthCareCategory->type == 'Medical')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -223,7 +223,7 @@
                     </div>
 
                 </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'pharmacy')
+            @elseif ($healthCareList->healthCareCategory->type == 'Pharmacy')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')

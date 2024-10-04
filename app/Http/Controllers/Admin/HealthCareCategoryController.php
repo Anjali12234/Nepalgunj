@@ -46,7 +46,7 @@ class HealthCareCategoryController extends Controller
     public function destroy(HealthCareCategory $healthCare)
     {
         $healthCare->delete();
-        Alert::success('HealthCareCategory $healthCare deleted successfully');
+        Alert::success('HealthCareCategory deleted successfully');
         return back();
     }
 }

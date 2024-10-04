@@ -1,7 +1,8 @@
-@props(['label', 'name', 'type', 'id' => '', 'value' => '', 'options' => [], 'class' => ''])
+  
+    @props(['label', 'name', 'type', 'id' => '', 'value' => '', 'options' => [], 'class' => '', 'labelClass' => '' ])
 
 <div class="block lg:flex items-center mb-3">
-    <label for="{{ $id }}" class="text-gray-900 w-48 {{ $class }} flex items-center">
+    <label for="{{ $id }}" class="text-gray-900  {{ $labelClass }} flex items-center">
         <span>{{ $label }}</span>
         <span class="text-xl text-gray-400 ml-1">*</span>
     </label>
@@ -11,7 +12,7 @@
             "dropdownClasses": "mt-2 z-50 w-80 md:w-96 max-h-48 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
             "optionClasses": "py-2 px-4 w-80 md:w-96 text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50",
             "mode": "tags",
-            "wrapperClasses": "relative ps-0.5 pe-9 min-h-[46px] flex items-center flex-wrap text-nowrap w-80 md:w-96 border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500",
+            "wrapperClasses": "relative ps-0.5 pe-9 min-h-[46px] flex items-center flex-wrap text-nowrap w-90 md:w-96 border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500",
             "tagsItemTemplate": "<div class=\"flex flex-nowrap items-center relative z-10 bg-white border border-gray-200 rounded-full p-1 m-1 \"><div class=\"size-6 me-1\" data-icon></div><div class=\"whitespace-nowrap text-gray-800 \" data-title></div><div class=\"inline-flex shrink-0 justify-center items-center size-5 ms-2 rounded-full text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm cursor-pointer\" data-remove><svg class=\"shrink-0 size-3\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/></svg></div></div>",
             "tagsInputId": "{{ $id }}",
             "tagsInputClasses": "py-3 px-2 rounded-lg order-1 text-sm outline-none",

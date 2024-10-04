@@ -17,7 +17,7 @@ class StorePropertyCategoryRequest extends FormRequest
         return [
             'main_category_id' => ['nullable'],
             'title_en' => ['required','string'],
-            'title_ne' => ['required','string'],
+            'title_ne' => ['nullable','string'],
             'position' => ['nullable','string'],
             'slug' => [
                 'nullable',

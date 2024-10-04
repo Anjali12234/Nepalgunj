@@ -3,22 +3,22 @@
         @forelse ($educationCategories as $educationCategory)
             <div class="px-2 py-4 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-                    @if ($educationCategory->type == 'school' && !empty($educationCategory->educationLists))
+                    @if ($educationCategory->type == 'School' && !empty($educationCategory->educationLists))
                         <h2 class="text-2xl font-bold md:text-4xl md:leading-tight"> Featured
                             {{ $educationCategory->title_en }}</h2>
                         <p class="mt-1 text-gray-600">Explore our top schools, nurturing young minds and fostering
                             excellence in education.</p>
-                    @elseif ($educationCategory->type == 'college')
+                    @elseif ($educationCategory->type == 'College')
                         <h2 class="text-2xl font-bold md:text-4xl md:leading-tight"> Featured
                             {{ $educationCategory->title_en }}</h2>
                         <p class="mt-1 text-gray-600">Discover our leading colleges, preparing students for academic and
                             professional success.</p>
-                    @elseif ($educationCategory->type == 'campus')
+                    @elseif ($educationCategory->type == 'Campus')
                         <h2 class="text-2xl font-bold md:text-4xl md:leading-tight"> Featured
                             {{ $educationCategory->title_en }}</h2>
                         <p class="mt-1 text-gray-600">Explore our renowned campuses, shaping future leaders through
                             quality education and innovation.</p>
-                    @elseif ($educationCategory->type == 'institute')
+                    @elseif ($educationCategory->type == 'Institute')
                         <h2 class="text-2xl font-bold md:text-4xl md:leading-tight"> Featured
                             {{ $educationCategory->title_en }}</h2>
                         <p class="mt-1 text-gray-600">Learn more about our top institutes, offering specialized programs
@@ -29,7 +29,7 @@
                 <!-- Grid -->
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card 1 -->
-                    @if ($educationCategory->type == 'school')
+                    @if ($educationCategory->type == 'School')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                 href="{{ route('education.detailPage', $educationList) }}">
@@ -61,7 +61,7 @@
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card 1 -->
-                    @if ($educationCategory->type == 'college')
+                    @if ($educationCategory->type == 'College')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                 href="{{ route('education.detailPage', $educationList) }}">
@@ -93,7 +93,7 @@
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card 1 -->
-                    @if ($educationCategory->type == 'campus')
+                    @if ($educationCategory->type == 'Campus')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                 href="{{ route('education.detailPage', $educationList) }}">
@@ -124,7 +124,7 @@
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card 1 -->
-                    @if ($educationCategory->type == 'institute')
+                    @if ($educationCategory->type == 'Institute')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                 href="{{ route('education.detailPage', $educationList) }}">

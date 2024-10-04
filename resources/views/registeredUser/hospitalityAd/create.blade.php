@@ -2,7 +2,6 @@
 @extends('registeredUser.Ad.ad')
 
 @section('main-container')
-
     <div class="sm:pl-20 sm:pr-30 ">
         <div class="mx-5  mt-14">
             <ol class="flex items-center whitespace-nowrap">
@@ -20,7 +19,7 @@
                 <li class="inline-flex items-center">
                     <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
                         href="#">
-                        {{ $educationCategory?->mainCategory?->title_en }}
+                        {{ $hospitalityCategory?->mainCategory?->title_en }}
                         <svg class="shrink-0 mx-2 size-4 text-gray-400 dark:text-neutral-600"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -31,35 +30,33 @@
                 </li>
                 <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
                     aria-current="page">
-                    {{ $educationCategory->title_en }}
+                    {{ $hospitalityCategory->title_en }}
                 </li>
             </ol>
         </div>
         <div class="mt-6 mx-5 mb-10">
-            <h1 class="font-bold text-xl text-purple-950">Add the complete detail of {{ $educationCategory->title_en }}
+            <h1 class="font-bold text-xl text-purple-950">Add the complete detail of {{ $hospitalityCategory->title_en }}
             </h1>
             @include('error')
-
-                <form class="mt-8" action="{{ route('registeredUser.educationList.store', $educationCategory) }}"
+            <form class="mt-8" action="{{ route('registeredUser.hospitalityList.store', $hospitalityCategory) }}"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
-
-                            <x-frontend.forms.input-type-field :value="old('name')" label="{{ $educationCategory->title_en }} Name" id="name" name="name" labelClass="w-36"
+                            <x-frontend.forms.input-type-field :value="old('name')" label="{{ $hospitalityCategory->title_en }} Name" id="name" name="name" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" />
 
 
                             <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number" name="contact_number" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                                @if ($educationCategory->type == 'campus')
+                                @if ($hospitalityCategory->type == 'campus')
                                 <x-frontend.forms.input-type-field :value="old('affiliated')" label="Affiliated" id="affiliated" type="text" labelClass="w-36"
                                 name="affiliated" class="text-sm font-semibold" />
                                 @endif
                                 <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email" type="text" labelClass="w-36"
                                 name="email" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('address')" label="{{ $educationCategory->title_en }} Address" labelClass="w-36" id="address" name="address"
+                            <x-frontend.forms.input-type-field :value="old('address')" label="{{ $hospitalityCategory->title_en }} Address" labelClass="w-36" id="address" name="address"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component :value="old('description')" label="Description" id="editor" name="description" labelClass="w-36"
@@ -84,7 +81,7 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no" name="whats_app_no" labelClass="w-36"
                                 type="number" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.file-component label="{{ $educationCategory->title_en }} Image " id="files"
+                            <x-frontend.forms.file-component label="{{ $hospitalityCategory->title_en }} Image " id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
                         </div>

@@ -16,18 +16,9 @@ class StoreHealthCareCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => ['nullable'],
-            'title_en' => ['required','string'],
-            'title_ne' => ['required','string'],
-            'position' => ['nullable','string'],
-            'type' => ['nullable'],
-            'slug' => [
-                'nullable',
-                'string',
-                Rule::unique('health_care_categories', 'slug')
-            ],
-            'status' => ['nullable','boolean'],
-            'icon' =>['nullable','string'],
+            'main_category_id' => ['required'],
+            'type' => ['required'],
+
 
         ];
     }

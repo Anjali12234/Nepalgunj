@@ -2,6 +2,7 @@
 
 use App\Models\EducationCategory;
 use App\Models\HealthCareCategory;
+use App\Models\HospitalityCategory;
 use App\Models\PropertyCategory;
 use App\Models\PropertyList;
 use App\Models\RegisteredUser;
@@ -41,6 +42,12 @@ if (!function_exists('educationCategories')) {
     function educationCategories()
     {
         return EducationCategory::all();
+    }
+}
+if (!function_exists('hospitalityCategories')) {
+    function hospitalityCategories()
+    {
+        return HospitalityCategory::all();
     }
 }
 

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="title">
-                        <h4>Hospital Category</h4>
+                        <h4>Hospitality Category</h4>
                     </div>
                     <nav aria-label="breadcrumb" role="navigation">
                         <ol class="breadcrumb">
@@ -14,14 +14,14 @@
                                 <a href="{{ route('admin.dashboard') }}">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Hospital Category List
+                                Hospitality Category List
                             </li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-md-6 col-sm-12 text-right">
                     <div class="dropdown">
-                        <a class="btn btn-primary " href="{{ route('admin.healthCare.index') }}" role="button">
+                        <a class="btn btn-primary " href="{{ route('admin.hospitalityCategory.index') }}" role="button">
                             Back
                         </a>
 
@@ -39,7 +39,7 @@
                     </ul>
                 </div>
             @endif
-            <form method="post" action="{{ route('admin.healthCare.store') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('admin.hospitalityCategory.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="col-md-12 row">
@@ -65,10 +65,10 @@
                         <select class="custom-select2 form-control" name="type"
                             style="width: 100%; height: 38px">
                             <option value="">Choose type</option>
-                            <option value="Hospital">Hospital</option>
-                            <option value="Doctor">Doctor</option>
-                            <option value="Medical">Medical</option>
-                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Star Hotels">Star Hotels</option>
+                            <option value="Hotels">Hotels</option>
+                            <option value="Resturant">Resturant</option>
+                            <option value="Cafe">Cafe</option>
                         </select>
                         <span class="text-warning">
                             @error('type')
