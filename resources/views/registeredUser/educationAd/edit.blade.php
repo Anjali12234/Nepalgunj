@@ -57,38 +57,41 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field :value="old('name', $educationList->name)" label="{{ $educationList->educationCategory->title_en }} Name" id="name" name="name"
+                            <x-frontend.forms.input-type-field :value="old('name', $educationList->name)" labelClass="w-36" label="{{ $educationList->educationCategory->title_en }} Name" id="name" name="name"
                                 type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $educationList->contact_number)" label="Contact No" id="contact_number" name="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number', $educationList->contact_number)" labelClass="w-36" label="Contact No" id="contact_number" name="contact_number"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                                 @if ($educationList->educationCategory->type == 'campus')
-                                <x-frontend.forms.input-type-field :value="old('affiliated', $educationList->affiliated)" label="Affiliated" id="affiliated" type="text"
+                                <x-frontend.forms.input-type-field :value="old('affiliated', $educationList->affiliated)" labelClass="w-36" label="Affiliated" id="affiliated" type="text"
                                 name="affiliated" class="text-sm font-semibold" />
                                 @endif
-                                <x-frontend.forms.input-type-field :value="old('email', $educationList->email)" label="Email" id="email" type="text"
+                                <x-frontend.forms.input-type-field :value="old('email', $educationList->email)" labelClass="w-36" label="Email" id="email" type="text"
                                 name="email" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('address', $educationList->address)" label="{{ $educationList->educationCategory->title_en }} Address" id="address" name="address"
+                            <x-frontend.forms.input-type-field :value="old('address', $educationList->address)" labelClass="w-36" label="{{ $educationList->educationCategory->title_en }} Address" id="address" name="address"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('description', $educationList->description)" label="Description" id="editor" name="description"
+                            <x-frontend.forms.text-area-component :value="old('description', $educationList->description)" labelClass="w-36" label="Description" id="editor" name="description"
                                 class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field :value="old('program', $educationList->program)" label="Program" id="program" name="program"
+                            <x-frontend.forms.input-type-field :value="old('program', $educationList->program)" labelClass="w-36" label="Program" id="program" name="program"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $educationList->map_url)" label="Map Url" id="map_url" name="map_url" type="text"
+                            <x-frontend.forms.input-type-field :value="old('map_url', $educationList->map_url)" labelClass="w-36" label="Map Url" id="map_url" name="map_url" type="text"
                                 class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $educationList->facebook_url)" label="Facebook Url" id="facebook_url" name="facebook_url"
+                                <x-frontend.forms.input-type-field :value="old('tiktok_url', $educationList->tiktok_url)" labelClass="w-36" label="TikTok Url" id="tiktok_url" name="tiktok_url"
                                 type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('website_url', $educationList->website_url)" label="Website Url" id="website_url" name="website_url"
+                            <x-frontend.forms.input-type-field :value="old('youtube_url', $educationList->youtube_url)" labelClass="w-36" label="Youtube Url" id="youtube_url" name="youtube_url"
                                 type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $educationList->whats_app_no)" label="Whats App" id="whats_app_no" name="whats_app_no"
+                            <x-frontend.forms.input-type-field :value="old('facebook_url', $educationList->facebook_url)" labelClass="w-36" label="Facebook Url" id="facebook_url" name="facebook_url"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('website_url', $educationList->website_url)" labelClass="w-36" label="Website Url" id="website_url" name="website_url"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $educationList->whats_app_no)" labelClass="w-36" label="Whats App" id="whats_app_no" name="whats_app_no"
                                 type="number" class="text-sm font-semibold" />
 
                             <x-frontend.forms.file-component :value="old('name', $educationList->name)" label="{{ $educationList->educationCategory->title_en }} Image " id="files"

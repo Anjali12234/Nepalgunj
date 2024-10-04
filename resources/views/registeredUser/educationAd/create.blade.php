@@ -46,38 +46,42 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field label="{{ $educationCategory->title_en }} Name" id="name" name="name"
+                            <x-frontend.forms.input-type-field :value="old('name')" label="{{ $educationCategory->title_en }} Name" id="name" name="name" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field label="Contact No" id="contact_number" name="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number" name="contact_number" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                                 @if ($educationCategory->type == 'campus')
-                                <x-frontend.forms.input-type-field label="Affiliated" id="affiliated" type="text"
+                                <x-frontend.forms.input-type-field :value="old('affiliated')" label="Affiliated" id="affiliated" type="text" labelClass="w-36"
                                 name="affiliated" class="text-sm font-semibold" />
                                 @endif
-                                <x-frontend.forms.input-type-field label="Email" id="email" type="text"
+                                <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email" type="text" labelClass="w-36"
                                 name="email" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="{{ $educationCategory->title_en }} Address" id="address" name="address"
+                            <x-frontend.forms.input-type-field :value="old('address')" label="{{ $educationCategory->title_en }} Address" labelClass="w-36" id="address" name="address"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component label="Description" id="editor" name="description"
+                            <x-frontend.forms.text-area-component :value="old('description')" label="Description" id="editor" name="description" labelClass="w-36"
                                 class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field label="Program" id="program" name="program"
+                            <x-frontend.forms.input-type-field :value="old('program')" label="Program" id="program" name="program" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="Map Url" id="map_url" name="map_url" type="text"
-                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field label="Website Url" id="website_url" name="website_url" type="text"
+                            <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url" name="map_url" labelClass="w-36"
+                                class="text-sm font-semibold"  />
+                            <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url" name="website_url" type="text" labelClass="w-36"
                                 class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field label="Facebook Url" id="facebook_url" name="facebook_url"
+                            <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url" name="facebook_url" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Whats App" id="whats_app_no" name="whats_app_no"
+                            <x-frontend.forms.input-type-field :value="old('tiktok_url')" label="TikTok Url" id="tiktok_url" name="tiktok_url" labelClass="w-36"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('youtube_url')" label="Youtube Url" id="youtube_url" name="youtube_url" labelClass="w-36"
+                                type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no" name="whats_app_no" labelClass="w-36"
                                 type="number" class="text-sm font-semibold" />
 
                             <x-frontend.forms.file-component label="{{ $educationCategory->title_en }} Image " id="files"

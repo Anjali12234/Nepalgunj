@@ -24,6 +24,8 @@ class StoreEducationListRequest extends FormRequest
             'website_url' => ['nullable','string'],
             'email' => ['nullable','string'],
             'facebook_url' => ['required','string'],
+            'youtube_url' => ['nullable','string'],
+            'tiktok_url' => ['required','string'],
             'map_url' => ['required','string'],
             'whats_app_no' => ['required','numeric'],
             'files' => ['required', 'array'],

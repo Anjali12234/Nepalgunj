@@ -51,7 +51,7 @@
             <h1 class="font-bold text-xl text-purple-950">Add the complete detail of
                 {{ $healthCareList->healthCareCategory->title_en }}</h1>
             @include('error')
-            @if ($healthCareList->healthCareCategory->type == 'hospital')
+            @if ($healthCareList->healthCareCategory->type == 'Hospital')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -82,7 +82,7 @@
                             <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
@@ -107,7 +107,7 @@
                     </div>
 
                 </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'doctor')
+            @elseif ($healthCareList->healthCareCategory->type == 'Doctor')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -142,7 +142,7 @@
                             <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" />
@@ -166,7 +166,7 @@
                     </div>
 
                 </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'medical')
+            @elseif ($healthCareList->healthCareCategory->type == 'Medical')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -199,7 +199,7 @@
                                 name="youtube_link" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
@@ -223,7 +223,7 @@
                     </div>
 
                 </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'pharmacy')
+            @elseif ($healthCareList->healthCareCategory->type == 'Pharmacy')
                 <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -256,7 +256,7 @@
                                 name="youtube_link" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />

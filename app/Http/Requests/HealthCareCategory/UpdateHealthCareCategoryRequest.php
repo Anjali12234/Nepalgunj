@@ -16,11 +16,11 @@ class UpdateHealthCareCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => ['nullable'],
+            'main_category_id' => ['required'],
             'title_en' => ['required','string'],
-            'title_ne' => ['required','string'],
-            'position' => ['nullable','string'],
-            'type' => ['nullable'],
+            'title_ne' => ['nullable','string'],
+            'position' => ['required','string'],
+            'type' => ['required'],
             'slug' => [
                 'nullable',
                 'string',

@@ -32,7 +32,7 @@ class EducationCategory extends Model
     {
         return [
             'slug' => [
-                'source' => 'title_en'
+                'source' => 'type'
             ]
         ];
     }
@@ -48,6 +48,8 @@ class EducationCategory extends Model
 
         static::creating(function ($educationCategory) {
             $educationCategory->position = static::max('position') + 1;
+            $educationCategory->title_en = $educationCategory->type;
+
         });
     }
 }

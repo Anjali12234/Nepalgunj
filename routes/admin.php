@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationCategoryController;
 use App\Http\Controllers\Admin\HealthCareCategoryController;
+use App\Http\Controllers\Admin\HospitalityCategoryController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\NewsCategoryController;
@@ -22,6 +23,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('setting', SettingController::class);
 Route::resource('mainCategory', MainCategoryController::class);
 Route::resource('newsCategory', NewsCategoryController::class);
+Route::put('newsCategory/{newsCategory}/updateStatus', [NewsCategoryController::class, 'updateStatus'])->name('newsCategory.updateStatus');
 Route::resource('newsList', NewsController::class);
 Route::put('newsList/{newsList}/updateStatus', [NewsController::class, 'updateStatus'])->name('newsList.updateStatus');
 Route::resource('menu', MenuController::class);
@@ -31,6 +33,7 @@ Route::prefix('subCategory')->group(
         Route::resource('healthCare', HealthCareCategoryController::class);
         Route::resource('propertyCategory', PropertyCategoryController::class);
         Route::resource('educationCategory', EducationCategoryController::class);
+        Route::resource('hospitalityCategory', HospitalityCategoryController::class);
     }
 );
 

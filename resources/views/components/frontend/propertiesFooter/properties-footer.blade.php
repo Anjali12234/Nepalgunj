@@ -1,4 +1,5 @@
-<hr>
+<hr class="mt-8">
+
 <div class="grid grid-cols-1 mt-4 mb-4 gap-4 font-mono md:grid-cols-2">
     <!-- Left Side -->
     <div class="col-span-1">

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthController;
 use App\Http\Controllers\RegisteredUser\EducationAdController;
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
+use App\Http\Controllers\RegisteredUser\HospitalityAdController;
 use App\Http\Controllers\RegisteredUser\PropertyAdController;
 use App\Http\Controllers\RegisteredUser\RegisteredUserDetailController;
 use App\Http\Controllers\RegisteredUser\TestimonialController;
@@ -36,6 +37,14 @@ Route::prefix('education')->group(function () {
     Route::post('educationList/{educationCategory:slug}', [EducationAdController::class, 'store'])->name('educationList.store');
     Route::resource('/educationList', EducationAdController::class)->except('store','create');
     Route::resource('education-list/{educationList:slug}/testimonials', TestimonialController::class)->names('educationList.testimonials');
+
+
+});
+Route::prefix('hospitality')->group(function () {
+    Route::get('hospitalityCategory/{hospitalityCategory:slug}', [HospitalityAdController::class, 'create'])->name('hospitalityCategory.create');
+    Route::post('educationList/{hospitalityCategory:slug}', [HospitalityAdController::class, 'store'])->name('hospitalityList.store');
+    Route::resource('/hospitalityList', HospitalityAdController::class)->except('store','create');
+    // Route::resource('education-list/{hospitalityList:slug}/testimonials', TestimonialController::class)->names('hospitalityList.testimonials');
 
 
 });

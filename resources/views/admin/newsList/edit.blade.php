@@ -76,6 +76,30 @@
                 </div>
                 <div class="col-md-12 row">
 
+
+                    <div class="form-group col-md-6">
+                        <label for="publisher"> Pulisher</label>
+                        <input class="form-control" id="publisher" name="publisher" type="text"
+                            value="{{ old('publisher', $newsList->publisher) }}" placeholder=" publisher" />
+                        <span class="text-warning">
+                            @error('publisher')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="publish_date"> Publish Date</label>
+                        <input class="form-control" id="publish_date" name="publish_date" type="date"
+                            value="{{ old('publish_date', $newsList->publish_date) }}" placeholder=" publish_date" />
+                        <span class="text-warning">
+                            @error('publish_date')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-12 row">
+
                     <div class="form-group col-md-6">
                         <label for="slug">Slug</label>
                         <input class="form-control" id="slug" name="slug" type="text"

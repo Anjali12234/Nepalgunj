@@ -65,10 +65,10 @@
                         <select class="custom-select2 form-control" name="type"
                             style="width: 100%; height: 38px">
                             <option value="">Choose type</option>
-                            <option value="hospital">Hospital</option>
-                            <option value="doctor">Doctor</option>
-                            <option value="medical">Medical</option>
-                            <option value="pharmacy">Pharmacy</option>
+                            <option value="Hospital">Hospital</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Pharmacy">Pharmacy</option>
                         </select>
                         <span class="text-warning">
                             @error('type')
@@ -76,7 +76,7 @@
                             @enderror
                         </span>
                     </div>
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="title_en">English Title</label>
                         <input class="form-control" id="title_en" name="title_en" value="{{ old('title_en') }}"
                             type="text" />
@@ -85,10 +85,10 @@
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-12 row">
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="title_ne">Nepali Title</label>
                         <input class="form-control" id="title_ne" name="title_ne" type="text"
                             value="{{ old('title_ne') }}" placeholder="Nepali title" />
@@ -97,8 +97,8 @@
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
-                    <div class="form-group col-md-6">
+                    </div> --}}
+                    {{-- <div class="form-group col-md-6">
                         <label for="icon">Icon</label>
                         <input class="form-control" id="icon" name="icon" type="text"
                             value="{{ old('icon') }}" placeholder="Icon Url" />
@@ -107,7 +107,7 @@
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div>

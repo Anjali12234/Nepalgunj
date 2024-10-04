@@ -16,8 +16,10 @@ class RegisteredUserDetailController extends BaseController
 
     public function index()
     {
+        $categories = MainCategory::pluck('title_en', 'id')->toArray();
+
         $registeredUser = Auth::guard('registered-user')->user();
-        return view('registeredUser.profile',compact('registeredUser'));
+        return view('registeredUser.profile',compact('registeredUser','categories'));
     }
 
 

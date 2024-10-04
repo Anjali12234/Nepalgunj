@@ -19,6 +19,8 @@ class StoreNewsListRequest extends FormRequest
             'news_category_id' => ['required', 'string'],
             'title' => ['required', 'string'],
             'position' => ['nullable','string'],
+            'publisher' => ['required', 'string'],
+            'publish_date' => ['required'],
             'slug' => [
                 'nullable',
                 'string',

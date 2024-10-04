@@ -40,7 +40,7 @@ class HealthCareCategory extends Model
     {
         return [
             'slug' => [
-                'source' => 'title_en'
+                'source' => 'type'
             ]
         ];
     }
@@ -51,6 +51,8 @@ class HealthCareCategory extends Model
 
         static::creating(function ($hospitalCategory) {
             $hospitalCategory->position = static::max('position') + 1;
+            $hospitalCategory->title_en = $hospitalCategory->type;
+
         });
     }
 }

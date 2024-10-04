@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="col-md-12 row">
-                <div class="form-group col-md-6">
+                {{-- <div class="form-group col-md-6">
                     <label for="title_ne">Nepali Title</label>
                     <input class="form-control" id="title_ne" name="title_ne" type="text"
                         value="{{ old('title_ne') }}" placeholder="Nepali title" />
@@ -83,7 +83,7 @@
                             {{ $message }}
                         @enderror
                     </span>
-                </div>
+                </div> --}}
             </div>
 
             <div>
@@ -112,8 +112,8 @@
                     @foreach ($propertyCategories as $key => $propertyCategory)
                         <tr>
                             <td class="table-plus">{{ $loop->iteration }}</td>
-                            <td>{{ $propertyCategory->mainCategory?->title_ne }}</td>
-                            <td>{{ $propertyCategory->title_ne }}</td>
+                            <td>{{ $propertyCategory->mainCategory?->title_en }}</td>
+                            <td>{{ $propertyCategory->title_en }}</td>
                             <td>{{ $propertyCategory->slug }}</td>
                             <td>
                                 <div class="dropdown">

@@ -38,7 +38,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="name_ne">Nepali Name</label>
-                        <input class="form-control" id="name_ne" name="name_ne" value="{{ old('name_ne',$setting?->name_ne) }}" placeholder="Office Nme in Nepali "
+                        <input class="form-control" id="name_ne" name="name_ne" value="{{ old('name_ne',$setting?->name_ne) }}" placeholder="Office Name in Nepali "
                             type="text" />
                         <span class="text-warning">
                             @error('name_ne')
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="name_en">English Name</label>
-                        <input class="form-control" id="name_en" name="name_en" value="{{ old('name_en',$setting?->name_en) }}"  placeholder="Office Nme in English "
+                        <input class="form-control" id="name_en" name="name_en" value="{{ old('name_en',$setting?->name_en) }}"  placeholder="Office Name in English "
                             type="text" />
                         <span class="text-warning">
                             @error('name_en')

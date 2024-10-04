@@ -15,18 +15,18 @@ class UpdateEducationCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => ['nullable'],
-            'title_en' => ['required', 'string'],
-            'title_ne' => ['nullable', 'string'],
-            'position' => ['nullable', 'string'],
-            'type' => ['nullable'],
+          'main_category_id' => ['required'],
+            'title_en' => ['required','string'],
+            'title_ne' => ['nullable','string'],
+            'position' => ['required','string'],
+            'type' => ['required'],
             'slug' => [
-                'nullable',
+                'required',
                 'string',
-          ],
+                Rule::unique('education_categories', 'slug')->ignore($this->educationCategory)],
+            'status' => ['nullable','boolean'],
+            'icon' =>['nullable','string'],
 
-            'status' => ['nullable', 'boolean'],
-            'icon' => ['nullable', 'string'],
         ];
     }
 }

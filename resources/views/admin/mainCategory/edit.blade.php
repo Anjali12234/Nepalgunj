@@ -45,7 +45,7 @@
                 <div class="col-md-12 row">
 
 
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="title_ne">Nepali Title</label>
                         <input class="form-control" id="title_ne" name="title_ne" type="text"
                             value="{{ old('title_ne', $mainCategory->title_ne) }}" placeholder="Nepali title" />
@@ -54,7 +54,7 @@
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
+                    </div> --}}
                     <div class="form-group col-md-6">
                         <label for="title_en">English Title</label>
                         <input class="form-control" id="title_en" name="title_en"
@@ -65,17 +65,22 @@
                             @enderror
                         </span>
                     </div>
+                    <div class="form-group col-md-6">
+                        <label for="slug">Slug</label>
+                        <input class="form-control" id="slug" name="slug"
+                            value="{{ old('slug', $mainCategory->slug) }}" type="text" />
+                    </div>
                 </div>
                 <div class="col-md-12 row">
 
 
 
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="image">Image</label>
                         <img src="{{ $mainCategory->image }}" height="100" width="100" alt="">
                         <input class="form-control" id="image" name="image" type="file"
                             value="{{ old('image') }}" />
-                    </div>
+                    </div> --}}
                     <div class="form-group col-md-6">
                         <label for="position">Position</label>
                         <input class="form-control" id="position" name="position"
@@ -84,11 +89,7 @@
                 </div>
                 <div class="col-md-12 row">
 
-                    <div class="form-group col-md-6">
-                        <label for="slug">Slug</label>
-                        <input class="form-control" id="slug" name="slug"
-                            value="{{ old('slug', $mainCategory->slug) }}" type="text" />
-                    </div>
+
                 </div>
 
                 <div>

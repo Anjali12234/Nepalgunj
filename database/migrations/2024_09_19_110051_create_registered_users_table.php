@@ -12,6 +12,7 @@ return new class extends Migration
         Schema::create('registered_users', function (Blueprint $table) {
             $table->id();
             $table->string('username');
+            $table->longText('category');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

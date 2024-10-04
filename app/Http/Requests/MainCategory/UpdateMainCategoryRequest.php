@@ -17,7 +17,7 @@ class UpdateMainCategoryRequest extends FormRequest
     {
         return [
             'title_en' => ['required','string'],
-            'title_ne' => ['required','string'],
+            'title_ne' => ['nullable','string'],
             'position' => ['nullable','string'],
             'slug' => ['nullable','string',Rule::unique('main_categories', 'slug')->ignore($this->mainCategory)],
             'status' => ['nullable','boolean'],

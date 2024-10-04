@@ -39,7 +39,7 @@
                 <thead>
                     <tr>
                         <th class="table-plus datatable-nosort">S.No</th>
-                        <th>Image</th>
+                        {{-- <th>Image</th> --}}
                         <th>Title</th>
                         <th>Slug</th>
                         <th class="datatable-nosort">Action</th>
@@ -49,13 +49,13 @@
                     @foreach ($mainCategories as $key => $mainCategory)
                         <tr>
                             <td class="table-plus">{{ $loop->iteration }}</td>
-                            <td>
+                            {{-- <td>
                                 <img class="rounded-circle" src="{{ $mainCategory->image }}" alt="Property mainCategory Image"
                                     width="100" height="100">
-                            </td>
+                            </td> --}}
 
 
-                            <td>{{ $mainCategory->title_ne }}</td>
+                            <td>{{ $mainCategory->title_en }}</td>
                             <td>{{ $mainCategory->slug }}</td>
                             <td>
                                 <div class="dropdown">

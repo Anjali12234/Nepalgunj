@@ -21,14 +21,16 @@ class FrontendController extends BaseController
     {
         $newsLists = News::with('newsCategory')->latest()->get();
         $newsCategories = NewsCategory::with('newsLists')->latest()->get();
-        return view('frontend.index', compact('newsLists','newsCategories'));
+        return view('frontend.index', compact('newsLists', 'newsCategories'));
     }
 
     public function postAd()
     {
+
+        $registeredUser = auth('registered-user')->user();
         if (auth('registered-user')->check()) {
-            if (auth('registered-user')->user()->is_active == 1) {
-                return view('registeredUser.Ad.postAd');
+            if ($registeredUser->is_active == 1) {
+                return view('registeredUser.Ad.postAd', compact('registeredUser'));
             } else {
                 return view('authentication');
             }
@@ -89,31 +91,31 @@ class FrontendController extends BaseController
         return "Hello " . $registeredUser->name;
     }
 
-    public function newsDetail(News $newsList )
+    public function newsDetail(News $newsList)
     {
         $newsCategoryId = $newsList->newsCategory->id;
 
         $relatedNews = News::where('news_category_id', $newsCategoryId,)
             ->where('id', '!=', $newsList->id)
             ->get();
-        return view('frontend.news.detail',compact('newsList','relatedNews'));
+        return view('frontend.news.detail', compact('newsList', 'relatedNews'));
     }
 
     public function healthcareIndex()
     {
         $healthCares = HealthCareCategory::with('healthCareLists')->get();
-        return view('frontend.healthcare.index',compact('healthCares'));
+        return view('frontend.healthcare.index', compact('healthCares'));
     }
 
     public function listPage(HealthCareCategory $healthCare)
     {
         $healthCare->load('healthCareLists');
-        return view('frontend.healthcare.listPage',compact('healthCare'));
+        return view('frontend.healthcare.listPage', compact('healthCare'));
     }
 
     public function detailPage(HealthCareList $healthCareList)
     {
-        return view('frontend.healthcare.detailpage',compact('healthCareList'));
+        return view('frontend.healthcare.detailpage', compact('healthCareList'));
     }
 
 
@@ -121,19 +123,19 @@ class FrontendController extends BaseController
     {
         $educationCategories = EducationCategory::with('educationLists')->get();
 
-        return view('frontend.education.index',compact('educationCategories'));
+        return view('frontend.education.index', compact('educationCategories'));
     }
 
     public function educationDetailPage(EducationList $educationList)
     {
-       $educationList->load('testimonials');
-        return view('frontend.education.detailPage',compact('educationList'));
+        $educationList->load('testimonials');
+        return view('frontend.education.detailPage', compact('educationList'));
     }
 
     public function educationlistPage(EducationCategory $educationCategory)
     {
         $educationCategory->load('educationLists');
-        return view('frontend.education.listPage',compact('educationCategory'));
+        return view('frontend.education.listPage', compact('educationCategory'));
     }
 
     // public function staticMenus($slug)

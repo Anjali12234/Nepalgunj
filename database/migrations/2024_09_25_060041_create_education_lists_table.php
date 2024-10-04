@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('facebook_url');
             $table->string('website_url');
+            $table->string('tiktok_url');
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
+            $table->string('youtube_url');
             $table->longText('map_url');
             $table->string('whats_app_no');
             $table->string('reference_no')->nullable();

@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->boolean('status')->default(0);
             $table->string('name');
-            $table->string('name');
+            $table->string('contact_number');
             $table->string('email');
             $table->string('website_url');
             $table->softDeletes();

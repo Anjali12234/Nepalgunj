@@ -68,15 +68,15 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field :value="old('name', $testimonial->name)" label="Student Name" id="name" name="name" type="text"
+                            <x-frontend.forms.input-type-field :value="old('name', $testimonial->name)" labelClass="w-36" label="Student Name" id="name" name="name" type="text"
                                 class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field :value="old('post', $testimonial->post)" label="Post" id="post" name="post" type="text"
+                            <x-frontend.forms.input-type-field :value="old('post', $testimonial->post)" labelClass="w-36" label="Post" id="post" name="post" type="text"
                                 class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                         </div>
                         <div class="col-span-2">
-                            <x-frontend.forms.input-type-field :value="old('passed_year', $testimonial->passed_year)" label="Passed Year" id="passed_year" type="text"
+                            <x-frontend.forms.input-type-field :value="old('passed_year', $testimonial->passed_year)" labelClass="w-36" label="Passed Year" id="passed_year" type="text"
                                 name="passed_year" class="text-sm font-semibold" />
                                 <x-frontend.remove-button :value="$testimonial->image" />
 

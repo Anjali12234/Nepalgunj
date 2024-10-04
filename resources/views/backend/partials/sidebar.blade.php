@@ -1,5 +1,5 @@
 <div class="left-side-bar">
-    <div class="brand-logo">
+    <div class="brand-logo bg-white border-neutral-600">
         <a href="{{ route('admin.dashboard') }}">
             {{-- <h5>{{ setting()?->name_ne }}</h5> --}}
             <img src="{{ setting()->logo1 ?? '' }}" alt="" />
@@ -39,6 +39,7 @@
                         </li>
                         <li><a href="{{ route('admin.propertyCategory.index') }}">Property Category</a></li>
                         <li><a href="{{ route('admin.educationCategory.index') }}">Education Category</a></li>
+                        <li><a href="{{ route('admin.hospitalityCategory.index') }}">Hospitality Category</a></li>
                     </ul>
                 </li>
 
@@ -76,7 +77,7 @@
                         <span class="micon bi bi-archive"></span><span class="mtext"> Role and Permission </span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="{{ route('admin.permission.index') }}">Premission</a></li>
+                        {{-- <li><a href="{{ route('admin.permission.index') }}">Premission</a></li> --}}
                         <li><a href="{{ route('admin.role.index') }}">Role</a></li>
 
                         <li><a href=" {{ route('admin.user.index') }}">User</a></li>

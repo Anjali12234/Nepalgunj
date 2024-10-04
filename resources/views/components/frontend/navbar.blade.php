@@ -2,24 +2,31 @@
     <div class="lg:grid grid-cols-5 hidden gap-7 mr-4 ml-[18.5rem]">
         <div class="text-black font-medium text-left px-2 py-4 block">
             @foreach ($sharedCategory as $mainCategory)
-            @foreach ($mainCategory->propertyCategories as $propertyCategory)
-            <a href="{{ route('properties', ['propertyCategorySlug' => $propertyCategory->slug, 'is_rent' => request('is_rent')]) }}">
-                    <p class="text-xs lg:text-sm whitespace-nowrap">{{ $propertyCategory->title_en }}</p></a>
+                @foreach ($mainCategory->propertyCategories as $propertyCategory)
+                    <a
+                        href="{{ route('properties', ['propertyCategorySlug' => $propertyCategory->slug, 'is_rent' => request('is_rent')]) }}">
+                        <p class="text-xs lg:text-sm whitespace-nowrap">{{ $propertyCategory->title_en }}</p>
+                    </a>
+                @endforeach
             @endforeach
-        @endforeach
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
             @foreach ($sharedCategory as $mainCategory)
-            @foreach ($mainCategory->healthCareCategories as $healthCare)
-                <p class="text-xs lg:text-sm whitespace-nowrap">{{ $healthCare->title_en }}</p>
+                @foreach ($mainCategory->healthCareCategories as $healthCare)
+                    <a href="{{ route('healthCare', $healthCare) }}">
+                        <p class="text-xs lg:text-sm whitespace-nowrap">{{ $healthCare->title_en }}</p>
+                    </a>
+                @endforeach
             @endforeach
-        @endforeach
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Cars for sale</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Showrooms</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Car for rent</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Car for rentals</p>
+            @foreach ($sharedCategory as $mainCategory)
+                @foreach ($mainCategory->educationCategories as $educationCategory)
+                    <a href="{{ route('educationCategory', $educationCategory) }}">
+                        <p class="text-xs  lg:text-sm whitespace-nowrap">{{ $educationCategory->title_en }}</p>
+                    </a>
+                @endforeach
+            @endforeach
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
             <p class="text-xs  lg:text-sm whitespace-nowrap">Cars for sale</p>
