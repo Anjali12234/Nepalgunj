@@ -52,7 +52,7 @@
 
                             <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number" name="contact_number" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                                @if ($educationCategory->type == 'campus')
+                                @if ($educationCategory->type == 'Campus')
                                 <x-frontend.forms.input-type-field :value="old('affiliated')" label="Affiliated" id="affiliated" type="text" labelClass="w-36"
                                 name="affiliated" class="text-sm font-semibold" />
                                 @endif
