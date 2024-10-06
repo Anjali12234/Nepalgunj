@@ -1,21 +1,24 @@
 <ul class="space-y-3">
+   
+
     <a href="">
         <li
-        class="bg-indigo-400 mt-1 mb-1 text-black hover:bg-neutral-800 hover:text-white active:bg-neutral-800 focus:bg-neutral-800 focus:text-white py-2 rounded-md px-4 flex justify-center items-center gap-28">
+        class="block  hover:text-white hover:bg-neutral-800  py-2 px-4  justify-center items-center gap-28 rounded-md">
         Timeline
-    </li>
+            <p class="ml-auto"></p>
+        </li>
     </a>
-    <li class="mt-1 mb-1 rounded-md">
-        <a href="{{ route('registeredUser.profile.index') }}"
-            class="block {{ request()->routeIs('registeredUser.profile.index') ? 'bg-neutral-500 text-white' : 'bg-indigo-400 hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
-            Profile Edit
-        </a>
-    </li>
-
+    <a href="{{ route('registeredUser.profile.index') }}">
+        <li
+        class="block {{ request()->routeIs('registeredUser.profile.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
+        Profile Edit
+            <p class="ml-auto"></p>
+        </li>
+    </a>
     @if (is_array(registeredUser()->category) && in_array(propertyCategories()->first()->mainCategory->title_en, registeredUser()->category))
     <a href="{{ route('registeredUser.propertyList.index') }}">
         <li
-        class="block {{ request()->routeIs('registeredUser.propertyList.index') ? 'bg-neutral-500 text-white' : 'bg-indigo-400 hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
+        class="block {{ request()->routeIs('registeredUser.propertyList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
             Property List
             <p class="ml-auto">{{ getCounts()['propertyCount'] }}</p>
         </li>
@@ -25,7 +28,7 @@
 
     <a href="{{ route('registeredUser.healthCareList.index') }}">
         <li
-        class="block {{ request()->routeIs('registeredUser.healthCareList.index') ? 'bg-neutral-500 text-white' : 'bg-indigo-400 hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
+        class="block {{ request()->routeIs('registeredUser.healthCareList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
             Health Care
             <p class="ml-auto">0</p>
         </li>
@@ -35,7 +38,7 @@
 
     <a href="{{ route('registeredUser.educationList.index') }}">
         <li
-        class="block {{ request()->routeIs('registeredUser.educationList.index') ? 'bg-neutral-500 text-white' : 'bg-indigo-400 hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
+        class="block {{ request()->routeIs('registeredUser.educationList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
             Education
             <p class="ml-auto">0</p>
         </li>
@@ -45,7 +48,7 @@
 
     <a href="{{ route('registeredUser.hospitalityList.index') }}">
         <li
-        class="block {{ request()->routeIs('registeredUser.hospitalityList.index') ? 'bg-neutral-500 text-white' : 'bg-indigo-400 hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
+        class="block {{ request()->routeIs('registeredUser.hospitalityList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
             Hospitality
             <p class="ml-auto">0</p>
         </li>

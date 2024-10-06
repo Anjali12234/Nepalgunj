@@ -24,7 +24,7 @@ class StoreRegisteredUserDetailRequest extends FormRequest
             'citizenship_image_front' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
             'citizenship_image_back' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
             'ward_no' => ['nullable', 'integer'],
-            'avatar' => ['required', 'image'],
+            'avatar' => ['nullable', 'image'],
 
             // 'registeredUser.avatar' => ['required', 'image', 'mimes:png,jpg,jpeg'], // Fixed the assignment operator
         ];
