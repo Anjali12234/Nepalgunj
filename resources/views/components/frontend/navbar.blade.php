@@ -29,10 +29,13 @@
             @endforeach
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Cars for sale</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Showrooms</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Car for rent</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Car for rentals</p>
+            @foreach ($sharedCategory as $mainCategory)
+                @foreach ($mainCategory->hospitalityCategories as $hospitalityCategory)
+                    <a href="">
+                        <p class="text-xs  lg:text-sm whitespace-nowrap">{{ $hospitalityCategory->title_en }}</p>
+                    </a>
+                @endforeach
+            @endforeach
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
             <p class="text-xs  lg:text-sm whitespace-nowrap">Cars for sale</p>

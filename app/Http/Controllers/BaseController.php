@@ -12,7 +12,11 @@ class BaseController extends Controller
     public function __construct()
     {
         // $registeredUser = auth('registered-user')->user();
-        $setting = MainCategory::orderBy('position')->with('propertyCategories','healthCareCategories','educationCategories')->get();
+        $setting = MainCategory::orderBy('position')->with(
+            'propertyCategories',
+            'healthCareCategories',
+            'hospitalityCategories',
+            'educationCategories')->get();
         $sharedNews = NewsCategory::orderBy('position')->with('newsLists')->get();
         $sharedMenus = Menu::with([
             'menus' => function ($query) {

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\RegisteredUser;
 
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\HospitalityList\StoreHospitalityListRequest;
 use App\Models\HospitalityCategory;
 use App\Models\HospitalityList;
 use App\Models\MainCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class HospitalityAdController extends BaseController
 {
@@ -26,22 +28,33 @@ class HospitalityAdController extends BaseController
         return view('registeredUser.hospitalityAd.create', compact('hospitalityCategory'));
     }
 
-    public function store(Request $request)
+    public function store(StoreHospitalityListRequest $request, HospitalityCategory $hospitalityCategory)
     {
-        //
+        
+        $hospitalityList = HospitalityList::create(
+            $request->validated() + [
+                'hospitality_category_id' => $hospitalityCategory->id,
+                'registered_user_id' => Auth::guard('registered-user')->user()->id,
+               
+            ]
+        );
+
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $hospitalityList->files()->create([
+                    'file_name' => $file->getClientOriginalName(),
+                    'file' => $file->store('$hospitalityLists/' . Str::slug($request->input('name'), '_'), 'public'),
+                    'size' => $file->getSize(),
+                    'extension' => $file->getClientOriginalExtension()
+                ]);
+            }
+        }
+
+        alert("Form submitted successfully");
+
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(HospitalityList $hospitalityList)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(HospitalityList $hospitalityList)
     {
         //

@@ -86,7 +86,7 @@
                 </li>
 
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('healthcareIndex') }}'
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health Cares</a>
+                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a
                         href='{{ route('education.IndexPage') }}'
@@ -99,7 +99,7 @@
                         href="
                 {{-- {{ route('vehicles') }} --}}
                  "
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Vehicles</a>
+                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Constructions</a>
                 </li>
                 <li class='group max-lg:border-b max-lg:py-3 relative'>
                     <a href='javascript:void(0)'
@@ -114,19 +114,19 @@
                     <ul
                         class='absolute shadow-lg bg-white space-y-3 lg:top-12 max-lg:top-8 -left-6 min-w-[250px] z-50 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500'>
                         <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>About</a>
+                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>News</a>
                         </li>
                         <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Contact</a>
+                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Organizations</a>
                         </li>
                         <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Login</a>
+                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Showrooms</a>
                         </li>
                         <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Sign up</a>
+                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Other
+                                Business</a>
                         </li>
-                        <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Blog</a></li>
+
                     </ul>
                 </li>
 

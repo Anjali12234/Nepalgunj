@@ -25,7 +25,6 @@ class HospitalityList extends Model
         'details',
         'youtube_link',
         'map_url',
-        'twitter_url',
         'facebook_url',
         'whats_app_no',
         'image',
@@ -41,13 +40,8 @@ class HospitalityList extends Model
         'facilities',
         'price_per_night',
         'average_meal_price',
-        'services_offered',
-        'seating_capacity',
         'menu',
-        'parking_available',
-        'check_in_time',
-        'check_out_time',
-        'wifi_available',
+        'parking_available',       
         'delivery_available',
     ];
 
