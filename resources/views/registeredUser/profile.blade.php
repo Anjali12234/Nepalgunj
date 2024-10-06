@@ -21,38 +21,38 @@
             method="POST" enctype="multipart/form-data">
             @csrf
 
-            <x-frontend.forms.input-type-field :value="old('username', $registeredUser?->username)" label="Username" id="username" name="username" labelClass="w-60"
-                type="text" />
-            <x-frontend.forms.input-type-field :value="old('full_name', $registeredUser?->registeredUserDetail?->full_name)" label="Full Name" id="full_name" name="full_name" labelClass="w-60"
-                type="text" />
+            <x-frontend.forms.input-type-field :value="old('username', $registeredUser?->username)" label="Username" id="username" name="username"
+                labelClass="w-60" type="text" />
+            <x-frontend.forms.input-type-field :value="old('full_name', $registeredUser?->registeredUserDetail?->full_name)" label="Full Name" id="full_name" name="full_name"
+                labelClass="w-60" type="text" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->email" label="Email Address" id="email" name="email" labelClass="w-60"
-                type="email" />
-            <x-frontend.forms.input-type-field :value="$registeredUser?->phone_no" label="Phone No" id="phone_no" name="phone_no" labelClass="w-60"
-                type="text" />
-                <x-frontend.forms.select-type-field :value="$registeredUser?->gender" label="Gender" id="gender" name="gender"
-                    :options="['male' => 'Male', 'female' => 'Female', 'other' => 'Other']" labelClass="w-60" />
-                <x-frontend.forms.multiple-select-component :value="old('category[]')" label="Choose Your Ad Category" id="category" labelClass="w-60"
-                name="category[]" :options="$categories" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->email" label="Email Address" id="email" name="email"
+                labelClass="w-60" type="email" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->phone_no" label="Phone No" id="phone_no" name="phone_no"
+                labelClass="w-60" type="text" />
+            <x-frontend.forms.select-type-field :value="$registeredUser?->gender" label="Gender" id="gender" name="gender"
+                :options="['male' => 'Male', 'female' => 'Female', 'other' => 'Other']" labelClass="w-60" />
+            <x-frontend.forms.multiple-select-component :value="old('category', $registeredUser ?? [])" label="Choose Your Ad Category" id="category"
+                labelClass="w-60" name="category[]" :options="$categories" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->d_o_b" label="Date of Birth" id="d_o_b" name="d_o_b" labelClass="w-60"
-                type="date" />
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->address" label="Address" id="address" name="address" labelClass="w-60"
-                type="text" />
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->ward_no" label="Ward No" id="ward_no" name="ward_no" labelClass="w-60"
-                type="number" />
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->whats_app_number" label="Whats App Number" id="whats_app_number" labelClass="w-60"
-                name="whats_app_number" type="number" />
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->map_url" label="Map Url" id="map_url" name="map_url" labelClass="w-60"
-                type="text" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->d_o_b" label="Date of Birth" id="d_o_b" name="d_o_b"
+                labelClass="w-60" type="date" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->address" label="Address" id="address" name="address"
+                labelClass="w-60" type="text" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->ward_no" label="Ward No" id="ward_no" name="ward_no"
+                labelClass="w-60" type="number" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->whats_app_number" label="Whats App Number" id="whats_app_number"
+                labelClass="w-60" name="whats_app_number" type="number" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->map_url" label="Map Url" id="map_url" name="map_url"
+                labelClass="w-60" type="text" />
 
             <x-frontend.remove-button :value="$registeredUser?->registeredUserDetail?->avatar" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->avatar" label="Image" id="avatar" name="avatar" labelClass="w-60"
-                type="file" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->avatar" label="Image" id="avatar" name="avatar"
+                labelClass="w-60" type="file" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_no" label="Citizenship No" id="citizenship_no" labelClass="w-60"
-                name="citizenship_no" type="text" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_no" label="Citizenship No" id="citizenship_no"
+                labelClass="w-60" name="citizenship_no" type="text" />
             <x-frontend.remove-button :value="$registeredUser?->registeredUserDetail?->citizenship_image_front" />
 
             <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_image_front" label="Citizenship Image Front" labelClass="w-60"

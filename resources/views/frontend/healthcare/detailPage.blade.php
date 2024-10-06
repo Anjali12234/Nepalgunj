@@ -105,7 +105,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <x-frontend.PropertiesFooter.properties-footer />
+        <x-frontend.propertiesFooter.properties-footer />
     </div>
 </x-guest-layout>

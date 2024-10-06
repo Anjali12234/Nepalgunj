@@ -151,7 +151,7 @@
 
         </div>
 
-        <x-frontend.PropertiesFooter.properties-footer />
+        <x-frontend.propertiesFooter.properties-footer />
 
     </div>
 

@@ -9,11 +9,16 @@
                     <div
                         class="hs-carousel-body absolute top-0 bottom-0 left-0 flex flex-nowrap transition-transform duration-700 opacity-0">
                         <!-- Item 1 -->
+                        @foreach ($healthCares as $healthCare)
+                            @foreach ( $healthCare->healthCareLists as $healthCareList )
+                                
+                        
+                        
                         <div class="hs-carousel-slide">
                             <div class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
-                                style="background-image: url('https://images.unsplash.com/photo-1615615228002-890bb61cac6e?q=80&w=1920&auto=format&fit=crop');">
+                                style="background-image: url('{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}">
                                 <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
-                                    <span class="block text-white">Nike React</span>
+                                    <span class="block text-white">{{ $healthCareList->name }}</span>
                                     <span class="block text-white text-lg md:text-3xl">Rewriting sport's playbook for
                                         billions of athletes</span>
                                     <div class="mt-5">
@@ -25,10 +30,12 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+                        @endforeach
                         <!-- End Item 1 -->
 
                         <!-- Item 2 -->
-                        <div class="hs-carousel-slide">
+                        {{-- <div class="hs-carousel-slide">
                             <div class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
                                 style="background-image: url('https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=1920&auto=format&fit=crop');">
                                 <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
@@ -43,11 +50,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Item 2 -->
 
                         <!-- Item 3 -->
-                        <div class="hs-carousel-slide">
+                        {{-- <div class="hs-carousel-slide">
                             <div class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
                                 style="background-image: url('https://images.unsplash.com/photo-1629666451094-8908989cae90?q=80&w=1920&auto=format&fit=crop');">
                                 <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
@@ -61,7 +68,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Item 3 -->
                     </div>
                 </div>
@@ -100,16 +107,16 @@
                 <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
                     <h2 class="text-2xl font-bold md:text-4xl md:leading-tight"> Featured {{ $healthCare->title_en }}
                     </h2>
-                    @if ($healthCare->type == 'doctor')
+                    @if ($healthCare->type == 'Doctor')
                         <p class="mt-1 text-gray-600">Meet our top doctors, leading the way in medical excellence and
                             patient care.</p>
-                    @elseif ($healthCare->type == 'hospital')
+                    @elseif ($healthCare->type == 'Hospital')
                         <p class="mt-1 text-gray-600">Discover our top hospitals, setting the standard in medical
                             excellence and patient care.</p>
-                    @elseif ($healthCare->type == 'pharmacy')
+                    @elseif ($healthCare->type == 'Pharmacy')
                         <p class="mt-1 text-gray-600">Explore our leading pharmacies, committed to medical excellence
                             and patient care.</p>
-                    @elseif ($healthCare->type == 'medical')
+                    @elseif ($healthCare->type == 'Medical')
                         <p class="mt-1 text-gray-600">Learn more about our top medical services, pioneering excellence
                             in patient care.</p>
                     @endif
@@ -117,7 +124,7 @@
 
                 <!-- Grid Container -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    @if ($healthCare->type == 'doctor')
+                    @if ($healthCare->type == 'Doctor')
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
@@ -146,7 +153,7 @@
                     @endif
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    @if ($healthCare->type == 'hospital')
+                    @if ($healthCare->type == 'Hospital')
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
@@ -175,7 +182,7 @@
                     @endif
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    @if ($healthCare->type == 'medical')
+                    @if ($healthCare->type == 'Medical')
                         @forelse ($healthCare->healthCareLists as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
@@ -204,7 +211,7 @@
                     @endif
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    @if ($healthCare->type == 'pharmacy')
+                    @if ($healthCare->type == 'Pharmacy')
                         @forelse ($healthCare->healthCareLists as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
@@ -243,7 +250,7 @@
             @empty
             <p>No data found!!</p>
         @endforelse
-        <x-frontend.PropertiesFooter.properties-footer />
+        <x-frontend.propertiesFooter.properties-footer />
     </div>
 
 </x-guest-layout>

@@ -86,10 +86,10 @@ class FrontendController extends BaseController
         return view('frontend.property.propertyDetail', compact('propertyList', 'relatedProperties', 'relatedPropertiesList'));
     }
 
-    public function registeredUser(RegisteredUser $registeredUser)
-    {
-        return "Hello " . $registeredUser->name;
-    }
+    // public function registeredUser(RegisteredUser $registeredUser)
+    // {
+    //     return "Hello " . $registeredUser->name;
+    // }
 
     public function newsDetail(News $newsList)
     {

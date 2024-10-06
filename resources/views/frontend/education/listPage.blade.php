@@ -21,7 +21,7 @@
 
         <x-frontend.education.college-list-page :educationCategory="$educationCategory"/>
 
-        <x-frontend.PropertiesFooter.properties-footer/>
+        <x-frontend.propertiesFooter.properties-footer />
 
 
 {{-- Footer --}}
