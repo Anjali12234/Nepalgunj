@@ -163,7 +163,7 @@
         @empty
             <p>No data found !!</p>
         @endforelse
+        <x-frontend.propertiesFooter.properties-footer />
 
-        <x-frontend.PropertiesFooter.properties-footer />
     </div>
 </x-guest-layout>

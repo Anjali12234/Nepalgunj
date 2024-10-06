@@ -19,7 +19,7 @@
         class="hidden px-2 pt-1 pb-2 w-80 md:w-96 border-b-2 focus:border-[#333] outline-none {{ $class }} bg-white">
         <option value="">Choose</option>
         @foreach ($options as $optionValue => $optionLabel)
-            <option value="{{ $optionValue }}" {{ in_array($optionValue, (array) $value) ? 'selected' : '' }}>
+            <option value="{{ $optionLabel }}" {{ in_array($optionLabel, (array) $value) ? 'selected' : '' }}>
                 {{ $optionLabel }}
             </option>
         @endforeach

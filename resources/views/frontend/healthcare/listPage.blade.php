@@ -18,7 +18,7 @@
 
         <x-frontend.healthcare.list-page :healthCare="$healthCare" />
 
-        <x-frontend.PropertiesFooter.properties-footer/>
+        <x-frontend.propertiesFooter.properties-footer />
 
 
 
