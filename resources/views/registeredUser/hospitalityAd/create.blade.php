@@ -51,6 +51,7 @@
                         <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number" spanClass="text-gray-400"
                             name="contact_number" labelClass="w-36" type="text" class="text-sm font-semibold"
                             {{-- placeholder="Per Month" --}} />
+
                         @if ($hospitalityCategory->type == 'Star Hotels')
                             <x-frontend.forms.input-type-field :value="old('total_rooms')" label="Total Rooms" id="total_rooms"
                                 type="number" labelClass="w-36" name="total_rooms" class="text-sm font-semibold" />
@@ -71,13 +72,13 @@
 
                         @if ($hospitalityCategory->type != 'Star Hotels')
                             <x-frontend.forms.input-type-field :value="old('delivery_available')" label="Delivery Price"
-                                id="delivery_available" type="number" labelClass="w-36" name="delivery_available"
+                                id="delivery_available" type="text" labelClass="w-36" name="delivery_available"
                                 class="text-sm font-semibold" placeholder="Write the delivery cost if free write free" />
                         @endif
 
                         <x-frontend.forms.input-type-field :value="old('menu')" label="Best Menu" id="menu" type="text" spanClass="text-gray-400"
                             labelClass="w-36" name="menu" class="text-sm font-semibold" />
-                        <x-frontend.forms.select-type-field label="Parking" id="parking" name="parking" labelClass="w-36"
+                        <x-frontend.forms.select-type-field label="Parking" id="parking_available" name="parking_available" labelClass="w-36"
                             class="text-sm font-semibold" :options="['include' => 'Include', 'exclude' => 'Exclude']" />
 
                         <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email" type="text" spanClass="text-gray-400"
@@ -108,8 +109,8 @@
                             name="facebook_url" labelClass="w-36" type="text" class="text-sm font-semibold" />
                         <x-frontend.forms.input-type-field :value="old('tiktok_url')" label="TikTok Url" id="tiktok_url" spanClass="text-gray-400"
                             name="tiktok_url" labelClass="w-36" type="text" class="text-sm font-semibold" />
-                        <x-frontend.forms.input-type-field :value="old('youtube_url')" label="Youtube Url" id="youtube_url" spanClass="text-gray-400"
-                            name="youtube_url" labelClass="w-36" type="text" class="text-sm font-semibold" />
+                        <x-frontend.forms.input-type-field :value="old('youtube_link')" label="Youtube Url" id="youtube_link" spanClass="text-gray-400"
+                            name="youtube_link" labelClass="w-36" type="text" class="text-sm font-semibold" />
                         <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no" spanClass="text-gray-400"
                             name="whats_app_no" labelClass="w-36" type="number" class="text-sm font-semibold" />
 

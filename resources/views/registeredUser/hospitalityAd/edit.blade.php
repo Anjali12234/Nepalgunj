@@ -5,7 +5,7 @@
     <div class="bg-neutral-800 ">
         <div class="sm:pl-20 sm:pr-30 pb-5 ">
             <button class="text-white mt-8 text-xl font-bold">
-                <a href="{{ route('registeredUser.healthCareList.index') }}"><i class="ti ti-arrow-left"></i>Back</a>
+                <a href="{{ route('registeredUser.hospitalityList.index') }}"><i class="ti ti-arrow-left"></i>Back</a>
             </button>
             <p class="text-white mt-3 text-lg">Fill out the details below. The more information you fill out the greater
                 visibility your
@@ -30,7 +30,7 @@
                 <li class="inline-flex items-center">
                     <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
                         href="#">
-                        {{ $healthCareList->healthCareCategory->mainCategory->title_en }}
+                        {{ $hospitalityList->hospitalityCategory->mainCategory->title_en }}
 
                         <svg class="shrink-0 mx-2 size-4 text-gray-400 dark:text-neutral-600"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -42,63 +42,100 @@
                 </li>
                 <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
                     aria-current="page">
-                    {{ $healthCareList->healthCareCategory->title_en }}
+                    {{ $hospitalityList->hospitalityCategory->title_en }}
 
                 </li>
             </ol>
         </div>
         <div class="mt-6 mx-5 mb-10">
             <h1 class="font-bold text-xl text-purple-950">Add the complete detail of
-                {{ $healthCareList->healthCareCategory->title_en }}</h1>
+                {{ $hospitalityList->hospitalityCategory->title_en }}</h1>
             @include('error')
-            @if ($healthCareList->healthCareCategory->type == 'hospital')
-                <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
+                <form class="mt-8" action="{{ route('registeredUser.hospitalityList.update', $hospitalityList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
-
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Hospital Name" id="name"
-                                name="name" type="text" class="text-sm font-semibold" />
-
-
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
-                                name="contact_number" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
-                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="OPD Schedules"
-                                id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Hospital Address" id="address"
+                            <x-frontend.forms.input-type-field :value="old('name')"
+                                label="{{ $hospitalityList->hospitalityCategory->title_en }} Name" id="name" name="name" spanClass="text-gray-400"
+                                labelClass="w-36" type="text" class="text-sm font-semibold" />
+    
+    
+                            <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number" spanClass="text-gray-400"
+                                name="contact_number" labelClass="w-36" type="text" class="text-sm font-semibold"
+                                {{-- placeholder="Per Month" --}} />
+    
+                            @if ($hospitalityList->hospitalityCategory->type == 'Star Hotels')
+                                <x-frontend.forms.input-type-field :value="old('total_rooms')" label="Total Rooms" id="total_rooms"
+                                    type="number" labelClass="w-36" name="total_rooms" class="text-sm font-semibold" />
+                                <x-frontend.forms.input-type-field :value="old('room_types')" label="Room Type" id="room_types"
+                                    type="text" labelClass="w-36" name="room_types" class="text-sm font-semibold" />
+                                <x-frontend.forms.input-type-field :value="old('price_per_night')" label="Price per night"
+                                    id="price_per_night" type="text" labelClass="w-36" name="price_per_night"
+                                    class="text-sm font-semibold" />
+                                <x-frontend.forms.input-type-field :value="old('average_meal_price')" label="Average Meal Price"
+                                    id="average_meal_price" type="number" labelClass="w-36" name="average_meal_price"
+                                    class="text-sm font-semibold" />
+                            @endif
+                            @if ($hospitalityList->hospitalityCategory->type == 'Hotels')
+                                <x-frontend.forms.input-type-field :value="old('average_meal_price')" label="Average Meal Price"
+                                    id="average_meal_price" type="number" labelClass="w-36" name="average_meal_price"
+                                    class="text-sm font-semibold" />
+                            @endif
+    
+                            @if ($hospitalityList->hospitalityCategory->type != 'Star Hotels')
+                                <x-frontend.forms.input-type-field :value="old('delivery_available')" label="Delivery Price"
+                                    id="delivery_available" type="text" labelClass="w-36" name="delivery_available"
+                                    class="text-sm font-semibold" placeholder="Write the delivery cost." />
+                            @endif
+    
+                            <x-frontend.forms.input-type-field :value="old('menu')" label="Best Menu" id="menu" type="text" spanClass="text-gray-400"
+                                labelClass="w-36" name="menu" class="text-sm font-semibold" />
+                            <x-frontend.forms.select-type-field label="Parking" id="parking_available" name="parking_available" labelClass="w-36"
+                                class="text-sm font-semibold" :options="['include' => 'Include', 'exclude' => 'Exclude']" />
+    
+                            <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email" type="text" spanClass="text-gray-400"
+                                labelClass="w-36" name="email" class="text-sm font-semibold" />
+    
+                            <x-frontend.forms.input-type-field :value="old('address')"
+                                label="{{ $hospitalityList->hospitalityCategory->title_en }} Address" labelClass="w-36" id="address" spanClass="text-gray-400"
                                 name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
-                                name="details" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('opening_time')" label=" Opening Time" labelClass="w-36" spanClass="text-gray-400"
+                                id="opening_time" name="opening_time" type="text" class="text-sm font-semibold"
+                                {{-- placeholder="Per Month" --}} />
+    
+    
                         </div>
                         <div class="col-span-2">
-
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
-                                name="youtube_link" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
-                                name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
-                                name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
-                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
-                                name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
-                                name="whats_app_no" type="number" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component label="Hospital Image Of All Side" id="files"
-                                name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
+    
+                            <x-frontend.forms.input-type-field :value="old('facilities')" label="Facilities" id="facilities" spanClass="text-gray-400" 
+                                name="facilities" labelClass="w-36" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
+    
+                            <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url" spanClass="text-gray-400"
+                                name="map_url" labelClass="w-36" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url" spanClass="text-gray-400"
+                                name="website_url" type="text" labelClass="w-36" class="text-sm font-semibold"
+                                {{-- placeholder="Per Month" --}} />
+    
+                            <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url" spanClass="text-gray-400"
+                                name="facebook_url" labelClass="w-36" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('tiktok_url')" label="TikTok Url" id="tiktok_url" spanClass="text-gray-400"
+                                name="tiktok_url" labelClass="w-36" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('youtube_link')" label="Youtube Url" id="youtube_link" spanClass="text-gray-400"
+                                name="youtube_link" labelClass="w-36" type="text" class="text-sm font-semibold" />
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no" spanClass="text-gray-400"
+                                name="whats_app_no" labelClass="w-36" type="number" class="text-sm font-semibold" />
+    
+                            <x-frontend.forms.file-component label="{{ $hospitalityList->hospitalityCategory->title_en }} Image "
+                                id="files" name="files[]" type="file" class="text-sm font-semibold"
+                                multiple="multiple" {{-- placeholder="Per Month" --}} />
+                        </div>
+                        <div class="col-span-4 flex mt-8">
+                            <x-frontend.forms.text-area-component :value="old('details')" label="Description" id="editor"
+                                name="details" labelClass="w-36" class="text-sm font-semibold"
+                                placeholder="Write Brief description about your {{ $hospitalityList->hospitalityCategory->title_en }}" />
                         </div>
                         <div class="col-span-4 flex justify-center mt-8">
                             <button type="submit"
@@ -107,183 +144,9 @@
                     </div>
 
                 </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'doctor')
-                <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
-                    method="POST" enctype="multipart/form-data">
-                    @method('PUT')
-                    @csrf
-                    <div class="block md:grid grid-cols-4 pr-16">
-                        <div class="col-span-2 mr-6">
-
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Doctor Name" id="name"
-                                name="name" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('department', $healthCareList->department)" label="Department" id="department"
-                                name="department" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
-                                name="contact_number" type="text" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
-                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.input-type-field :value="old('n_m_c_no', $healthCareList->n_m_c_no)" label="NMC No" id="n_m_c_no"
-                                name="n_m_c_no" type="number" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('qualification', $healthCareList->qualification)" label="Qualification" id="qualification"
-                                name="qualification" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="OPD Schedule" id="o_p_d_schedule"
-                                name="o_p_d_schedule" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Clinic Address" id="address"
-                                name="address" type="text" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
-                                name="details" class="text-sm font-semibold" />
-                        </div>
-                        <div class="col-span-2">
-
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
-                                name="youtube_link" type="text" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
-                                name="map_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
-                                name="twitter_url" type="text" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
-                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
-                                name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
-                                name="whats_app_no" type="number" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component label="Image Of Doctor" id="files" name="files[]"
-                                type="file" class="text-sm font-semibold" multiple="multiple"
-                                {{-- placeholder="Per Month" --}} />
-                        </div>
-                        <div class="col-span-4 flex justify-center mt-8">
-                            <button type="submit"
-                                class="px-6 pt-1 pb-2 bg-[#333] hover:bg-[#444] text-sm font-semibold text-white">Submit</button>
-                        </div>
-                    </div>
-
-                </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'medical')
-                <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
-                    method="POST" enctype="multipart/form-data">
-                    @method('PUT')
-                    @csrf
-                    <div class="block md:grid grid-cols-4 pr-16">
-                        <div class="col-span-2 mr-6">
-
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Medical Name" id="name"
-                                name="name" type="text" class="text-sm font-semibold" />
-
-
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
-                                name="contact_number" type="text" class="text-sm font-semibold"
-                                {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
-                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="Opening Time"
-                                id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Medical Address" id="address"
-                                name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
-                                name="details" class="text-sm font-semibold" />
-                        </div>
-                        <div class="col-span-2">
-
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
-                                name="youtube_link" type="text" class="text-sm font-semibold"
-                                {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
-                                name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
-                                name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
-                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
-                                name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
-                                name="whats_app_no" type="number" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component label="Medical Image Of All Side" id="files"
-                                name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
-                                {{-- placeholder="Per Month" --}} />
-                        </div>
-                        <div class="col-span-4 flex justify-center mt-8">
-                            <button type="submit"
-                                class="px-6 pt-1 pb-2 bg-[#333] hover:bg-[#444] text-sm font-semibold text-white">Submit</button>
-                        </div>
-                    </div>
-
-                </form>
-            @elseif ($healthCareList->healthCareCategory->type == 'pharmacy')
-                <form class="mt-8" action="{{ route('registeredUser.healthCareList.update', $healthCareList) }}"
-                    method="POST" enctype="multipart/form-data">
-                    @method('PUT')
-                    @csrf
-                    <div class="block md:grid grid-cols-4 pr-16">
-                        <div class="col-span-2 mr-6">
-
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Pharmacy Name" id="name"
-                                name="name" type="text" class="text-sm font-semibold" />
-
-
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
-                                name="contact_number" type="text" class="text-sm font-semibold"
-                                {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
-                                name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="Opening Time"
-                                id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Pharmacy Address" id="address"
-                                name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
-                                name="details" class="text-sm font-semibold" />
-                        </div>
-                        <div class="col-span-2">
-
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
-                                name="youtube_link" type="text" class="text-sm font-semibold"
-                                {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
-                                name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
-                                name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
-                                name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
-                                name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
-                                name="whats_app_no" type="number" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component label="Pharmacy Image Of All Side" id="files"
-                                name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
-                                {{-- placeholder="Per Month" --}} />
-                        </div>
-                        <div class="col-span-4 flex justify-center mt-8">
-                            <button type="submit"
-                                class="px-6 pt-1 pb-2 bg-[#333] hover:bg-[#444] text-sm font-semibold text-white">Submit</button>
-                        </div>
-                    </div>
-
-                </form>
-            @endif
         </div>
         <div class="grid grid-cols-4 gap-2 ...">
-            @foreach ($healthCareList->files as $file)
+            @foreach ($hospitalityList->files as $file)
                 <div class="flex p-9">
                     <img src="{{ $file->file_url }}" height="200" width="200" alt="">
                     <form action="{{ route('file.destroy', $file) }}" method="post" style="display: inline;">

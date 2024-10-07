@@ -45,9 +45,9 @@ class HospitalityList extends Model
         'delivery_available',
     ];
 
-    public function healthCareCategory()
+    public function hospitalityCategory()
     {
-        return $this->belongsTo(HealthCareCategory::class);
+        return $this->belongsTo(HospitalityCategory::class);
     }
 
     public function registeredUser()
