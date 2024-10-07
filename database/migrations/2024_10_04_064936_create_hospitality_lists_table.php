@@ -38,8 +38,8 @@ return new class extends Migration
             $table->decimal('price_per_night', 8, 2)->nullable();  // Price per night for hotels
             $table->decimal('average_meal_price', 8, 2)->nullable();  // Avg meal price for restaurants
             $table->string('menu')->nullable();  // Store restaurant/cafe menu
-            $table->boolean('parking_available')->default(false)->nullable();
-            $table->boolean('delivery_available')->default(false)->nullable();  // For restaurants
+            $table->string('parking_available');
+            $table->string('delivery_available');  // For restaurants
             $table->timestamps();
         });
     }

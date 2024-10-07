@@ -3,6 +3,7 @@
 use App\Models\EducationCategory;
 use App\Models\HealthCareCategory;
 use App\Models\HospitalityCategory;
+use App\Models\JobCategory;
 use App\Models\PropertyCategory;
 use App\Models\PropertyList;
 use App\Models\RegisteredUser;
@@ -48,6 +49,12 @@ if (!function_exists('hospitalityCategories')) {
     function hospitalityCategories()
     {
         return HospitalityCategory::all();
+    }
+}
+if (!function_exists('jobCategories')) {
+    function jobCategories()
+    {
+        return JobCategory::all();
     }
 }
 

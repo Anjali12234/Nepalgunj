@@ -6,8 +6,7 @@
         @if (session('status'))
             <div class="mt-2 flex items-center justify-between p-1 leading-normal text-red-600 bg-red-100 rounded-lg"
                 role="alert">
-                <p>{{ session('status') }}</p> hello
-
+                <p>{{ session('status') }}</p> 
                 <svg onclick="return this.parentNode.remove();"
                     class="inline w-4 h-4 fill-current ml-2 hover:opacity-80 cursor-pointer"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

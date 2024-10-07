@@ -17,11 +17,9 @@ class RegisteredUserDetailController extends BaseController
     public function index()
     {
         $categories = MainCategory::pluck('title_en', 'id')->toArray();
-
         $registeredUser = Auth::guard('registered-user')->user();
         return view('registeredUser.profile',compact('registeredUser','categories'));
     }
-
 
     public function store(StoreRegisteredUserDetailRequest $request)
     {
@@ -33,7 +31,6 @@ class RegisteredUserDetailController extends BaseController
             if ($request->hasFile('citizenship_image_back') && $registeredUser?->registeredUserDetail?->citizenship_image_back) {
                 $this->deleteFile($registeredUser?->registeredUserDetail?->citizenship_image_back);
             }
-
             if ($request->hasFile('avatar') && $registeredUser?->avatar) {
                 $this->deleteFile($registeredUser?->avatar);
             }
@@ -47,14 +44,11 @@ class RegisteredUserDetailController extends BaseController
                 'phone_no' => $request->input('phone_no'),
                 'gender' => $request->input('gender'),
                 'd_o_b' => $request->input('d_o_b'),
-
+                'category' => $request->input('category'),
             ];
-
             $registeredUser->update($registeredUserUpdatedData);
-            return redirect()->back()->with('status', 'You have successfully addedd your detail. To add post wait until the your account is not vrified. For other information contact on the given contact on the site.');
-
-            // return back();
-        }
+            return redirect()->back()->with('status', 'You have successfully addedd your detail. To add post wait until the your account is not verified. For other information contact on the given contact on the site.');
+         }
     }
 
     public function destroyCitizenshipImageFront(RegisteredUserDetail $registeredUserDetail)
@@ -63,26 +57,25 @@ class RegisteredUserDetailController extends BaseController
             $this->deleteFile($registeredUserDetail?->citizenship_image_front);
         }
         return back();
-
     }
+
     public function destroyCitizenshipImageBack(RegisteredUserDetail $registeredUserDetail)
     {
-
         if ($registeredUserDetail->hasFile('citizenship_image_back') ) {
             $this->deleteFile($registeredUserDetail?->citizenship_image_back);
         }
         return back();
 
     }
+
     public function destroyCoverImage(RegisteredUserDetail $registeredUserDetail)
     {
-
         if ($registeredUserDetail->hasFile('cover_image')) {
             $this->deleteFile($registeredUserDetail?->cover_image);
         }
         return back();
-
     }
+
     public function destroyImage(RegisteredUser $registeredUser, RegisteredUserDetail $registeredUserDetail)
     {
         if ( $registeredUser?->registeredUserDetail?->image) {
@@ -90,7 +83,5 @@ class RegisteredUserDetailController extends BaseController
         }
         return back();
     }
-
-
 }
 

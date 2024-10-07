@@ -20,31 +20,38 @@ Route::get('readAllNotification', [RegisteredUserAuthController::class, 'readAll
 
 Route::resource('profile', RegisteredUserDetailController::class);
 
-
 Route::prefix('properties')->group(function () {
     Route::resource('/propertyList', PropertyAdController::class)->except('store','create');
     Route::get('propertyCategory/{propertyCategory:slug}', [PropertyAdController::class, 'create'])->name('propertyCategory.create');
     Route::post('propertyList/{propertyCategory:slug}', [PropertyAdController::class, 'store'])->name('propertyList.store');
 });
+
 Route::prefix('healthCare')->group(function () {
     Route::get('healthCareCategory/{healthCareCategory:slug}', [HeatlthAdController::class, 'create'])->name('healthCareCategory.create');
     Route::post('healthCareList/{healthCareCategory:slug}', [HeatlthAdController::class, 'store'])->name('healthCareList.store');
     Route::resource('/healthCareList', HeatlthAdController::class)->except('store','create');
 
 });
+
 Route::prefix('education')->group(function () {
     Route::get('educationCategory/{educationCategory:slug}', [EducationAdController::class, 'create'])->name('educationCategory.create');
     Route::post('educationList/{educationCategory:slug}', [EducationAdController::class, 'store'])->name('educationList.store');
     Route::resource('/educationList', EducationAdController::class)->except('store','create');
     Route::resource('education-list/{educationList:slug}/testimonials', TestimonialController::class)->names('educationList.testimonials');
 
-
 });
+
 Route::prefix('hospitality')->group(function () {
     Route::get('hospitalityCategory/{hospitalityCategory:slug}', [HospitalityAdController::class, 'create'])->name('hospitalityCategory.create');
     Route::post('educationList/{hospitalityCategory:slug}', [HospitalityAdController::class, 'store'])->name('hospitalityList.store');
     Route::resource('/hospitalityList', HospitalityAdController::class)->except('store','create');
     // Route::resource('education-list/{hospitalityList:slug}/testimonials', TestimonialController::class)->names('hospitalityList.testimonials');
 
+});
+Route::prefix('job')->group(function () {
+    Route::get('jobCategory/{jobCategory:slug}', [HospitalityAdController::class, 'create'])->name('jobCategory.create');
+    Route::post('educationList/{jobCategory:slug}', [HospitalityAdController::class, 'store'])->name('hospitalityList.store');
+    Route::resource('/hospitalityList', HospitalityAdController::class)->except('store','create');
+    // Route::resource('education-list/{hospitalityList:slug}/testimonials', TestimonialController::class)->names('hospitalityList.testimonials');
 
 });

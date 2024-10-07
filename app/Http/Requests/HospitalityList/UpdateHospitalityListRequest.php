@@ -3,26 +3,42 @@
 namespace App\Http\Requests\HospitalityList;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class UpdateHositalityListRequest extends FormRequest
+class UpdateHospitalityListRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+ 
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required','string'],
+            'address' => ['required','string'],
+            'contact_number' => ['required','string'],
+            'details' => ['required'],
+            'website_url' => ['nullable','string'],
+            'email' => ['nullable','string'],
+            'facebook_url' => ['required','string'],
+            'youtube_link' => ['nullable','string'],
+            'map_url' => ['required','string'],
+            'opening_time' => ['required','string'],
+            'total_rooms' => ['nullable','string'],
+            'room_types' => ['nullable','string'],
+            'facilities' => ['required','string'],
+            'price_per_night' => ['nullable','string'],
+            'average_meal_price' => ['nullable','string'],
+            'menu' => ['required','string'],
+            'parking_available' => ['nullable','string'],
+            'delivery_available' => ['required'],
+            'whats_app_no' => ['required','numeric'],
+            'files' => ['nullable', 'array'],
+            'files.*' => ['mimes:png,jpg,jpeg,jfif,webp'],
+
         ];
     }
 }

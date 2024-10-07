@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\RegisteredUser;
 
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\HospitalityCategory\UpdateHospitalityCategoryRequest;
 use App\Http\Requests\HospitalityList\StoreHospitalityListRequest;
+use App\Http\Requests\HospitalityList\UpdateHospitalityListRequest;
 use App\Models\HospitalityCategory;
 use App\Models\HospitalityList;
 use App\Models\MainCategory;
@@ -57,22 +59,37 @@ class HospitalityAdController extends BaseController
 
     public function edit(HospitalityList $hospitalityList)
     {
-        //
+        return view('registeredUser.hospitalityAd.edit', compact('hospitalityList'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, HospitalityList $hospitalityList)
+
+    public function update(UpdateHospitalityListRequest $request, HospitalityList $hospitalityList)
     {
-        //
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $hospitalityList->files()->create([
+                    'file_name' => $file->getClientOriginalName(),
+                    'file' => $file->store('HospitalityLists/' . Str::slug($request->input('name'), '_'), 'public'),
+                    'size' => $file->getSize(),
+                    'extension' => $file->getClientOriginalExtension()
+                ]);
+            }
+        }
+        $hospitalityList->update($request->validated());
+        alert("form updated");
+
+        return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(HospitalityList $hospitalityList)
     {
-        //
+        foreach ($hospitalityList->files as $file) {
+
+            $this->deleteFile($file->file);
+        }
+        $hospitalityList->delete();
+        return back();
     }
+
+  
 }
