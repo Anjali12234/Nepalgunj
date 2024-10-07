@@ -16,6 +16,7 @@ class BaseController extends Controller
             'propertyCategories',
             'healthCareCategories',
             'hospitalityCategories',
+            'jobCategories',
             'educationCategories')->get();
         $sharedNews = NewsCategory::orderBy('position')->with('newsLists')->get();
         $sharedMenus = Menu::with([

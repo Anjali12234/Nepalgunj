@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content px-5  md:px-7 col-span-3 mt-8 md:mt-0">
-        <h1 class="font-semibold text-3xl">Education Category List</h1>
+        <h1 class="font-semibold text-3xl">Education  List</h1>
         <div class="border-b border-gray-200 dark:border-neutral-700">
             <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
                 @foreach ($mainCategories as $mainCategory)

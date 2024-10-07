@@ -48,3 +48,10 @@ Route::prefix('hospitality')->group(function () {
     // Route::resource('education-list/{hospitalityList:slug}/testimonials', TestimonialController::class)->names('hospitalityList.testimonials');
 
 });
+Route::prefix('job')->group(function () {
+    Route::get('jobCategory/{jobCategory:slug}', [HospitalityAdController::class, 'create'])->name('jobCategory.create');
+    Route::post('educationList/{jobCategory:slug}', [HospitalityAdController::class, 'store'])->name('hospitalityList.store');
+    Route::resource('/hospitalityList', HospitalityAdController::class)->except('store','create');
+    // Route::resource('education-list/{hospitalityList:slug}/testimonials', TestimonialController::class)->names('hospitalityList.testimonials');
+
+});

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationCategoryController;
 use App\Http\Controllers\Admin\HealthCareCategoryController;
 use App\Http\Controllers\Admin\HospitalityCategoryController;
+use App\Http\Controllers\Admin\JobCategoryController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\NewsCategoryController;
@@ -34,6 +35,7 @@ Route::prefix('subCategory')->group(
         Route::resource('propertyCategory', PropertyCategoryController::class);
         Route::resource('educationCategory', EducationCategoryController::class);
         Route::resource('hospitalityCategory', HospitalityCategoryController::class);
+        Route::resource('jobCategory', JobCategoryController::class);
     }
 );
 

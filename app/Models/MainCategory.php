@@ -38,6 +38,10 @@ class MainCategory extends Model
     {
         return $this->hasMany(HospitalityCategory::class);
     }
+    public function jobCategories()
+    {
+        return $this->hasMany(JobCategory::class);
+    }
 
 
     protected function image(): Attribute

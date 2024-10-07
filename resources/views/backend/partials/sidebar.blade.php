@@ -40,6 +40,7 @@
                         <li><a href="{{ route('admin.propertyCategory.index') }}">Property Category</a></li>
                         <li><a href="{{ route('admin.educationCategory.index') }}">Education Category</a></li>
                         <li><a href="{{ route('admin.hospitalityCategory.index') }}">Hospitality Category</a></li>
+                        <li><a href="{{ route('admin.jobCategory.index') }}">Job Category</a></li>
                     </ul>
                 </li>
 
