@@ -19,7 +19,7 @@
     <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
 
 
-                <!-- Render the dynamic row content using a slot -->
+
                 {{ $slot }}
 
     </tbody>
