@@ -57,15 +57,15 @@
                     @csrf
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
-                            <x-frontend.forms.input-type-field :value="old('name')"
+                            <x-frontend.forms.input-type-field :value="old('name',$hospitalityList->name)"
                                 label="{{ $hospitalityList->hospitalityCategory->title_en }} Name" id="name" name="name" spanClass="text-gray-400"
                                 labelClass="w-36" type="text" class="text-sm font-semibold" />
-    
-    
+
+
                             <x-frontend.forms.input-type-field :value="old('contact_number')" label="Contact No" id="contact_number" spanClass="text-gray-400"
                                 name="contact_number" labelClass="w-36" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-    
+
                             @if ($hospitalityList->hospitalityCategory->type == 'Star Hotels')
                                 <x-frontend.forms.input-type-field :value="old('total_rooms')" label="Total Rooms" id="total_rooms"
                                     type="number" labelClass="w-36" name="total_rooms" class="text-sm font-semibold" />
@@ -83,42 +83,42 @@
                                     id="average_meal_price" type="number" labelClass="w-36" name="average_meal_price"
                                     class="text-sm font-semibold" />
                             @endif
-    
+
                             @if ($hospitalityList->hospitalityCategory->type != 'Star Hotels')
                                 <x-frontend.forms.input-type-field :value="old('delivery_available')" label="Delivery Price"
                                     id="delivery_available" type="text" labelClass="w-36" name="delivery_available"
                                     class="text-sm font-semibold" placeholder="Write the delivery cost." />
                             @endif
-    
+
                             <x-frontend.forms.input-type-field :value="old('menu')" label="Best Menu" id="menu" type="text" spanClass="text-gray-400"
                                 labelClass="w-36" name="menu" class="text-sm font-semibold" />
                             <x-frontend.forms.select-type-field label="Parking" id="parking_available" name="parking_available" labelClass="w-36"
                                 class="text-sm font-semibold" :options="['include' => 'Include', 'exclude' => 'Exclude']" />
-    
+
                             <x-frontend.forms.input-type-field :value="old('email')" label="Email" id="email" type="text" spanClass="text-gray-400"
                                 labelClass="w-36" name="email" class="text-sm font-semibold" />
-    
+
                             <x-frontend.forms.input-type-field :value="old('address')"
                                 label="{{ $hospitalityList->hospitalityCategory->title_en }} Address" labelClass="w-36" id="address" spanClass="text-gray-400"
                                 name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.input-type-field :value="old('opening_time')" label=" Opening Time" labelClass="w-36" spanClass="text-gray-400"
                                 id="opening_time" name="opening_time" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-    
-    
+
+
                         </div>
                         <div class="col-span-2">
-    
-                            <x-frontend.forms.input-type-field :value="old('facilities')" label="Facilities" id="facilities" spanClass="text-gray-400" 
+
+                            <x-frontend.forms.input-type-field :value="old('facilities')" label="Facilities" id="facilities" spanClass="text-gray-400"
                                 name="facilities" labelClass="w-36" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-    
+
                             <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url" spanClass="text-gray-400"
                                 name="map_url" labelClass="w-36" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url" spanClass="text-gray-400"
                                 name="website_url" type="text" labelClass="w-36" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-    
+
                             <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url" spanClass="text-gray-400"
                                 name="facebook_url" labelClass="w-36" type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('tiktok_url')" label="TikTok Url" id="tiktok_url" spanClass="text-gray-400"
@@ -127,7 +127,7 @@
                                 name="youtube_link" labelClass="w-36" type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no" spanClass="text-gray-400"
                                 name="whats_app_no" labelClass="w-36" type="number" class="text-sm font-semibold" />
-    
+
                             <x-frontend.forms.file-component label="{{ $hospitalityList->hospitalityCategory->title_en }} Image "
                                 id="files" name="files[]" type="file" class="text-sm font-semibold"
                                 multiple="multiple" {{-- placeholder="Per Month" --}} />
