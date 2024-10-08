@@ -17,6 +17,7 @@
             <p class="ml-auto"></p>
         </li>
     </a>
+    {{-- @dd(registeredUser()->category); --}}
     @if (is_array(registeredUser()->category) && in_array(propertyCategories()?->first()?->mainCategory?->title_en, registeredUser()->category))
     <a href="{{ route('registeredUser.propertyList.index') }}">
         <li

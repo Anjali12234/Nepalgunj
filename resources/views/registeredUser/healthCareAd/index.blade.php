@@ -84,7 +84,7 @@
                                         {{ Str::words($healthCareList->name, 5) }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $healthCareList->hospitalityCategory->title_en }}
+                                        {{ $healthCareList->hospitalityCategory?->title_en }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                         {{ $healthCareList->contact_number }}
