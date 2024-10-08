@@ -1,24 +1,24 @@
-
 @extends('registeredUser.layout.master')
 
 @section('content')
-    <div class="content px-5 md:px-7 col-span-3 md:mt-0">
-        <h1 class="font-semibold text-3xl mt-6">Health Care List</h1>
+    <div class="content px-5  md:px-7 col-span-3 mt-8 md:mt-0">
+        <h1 class="font-semibold text-3xl">Hospitality List</h1>
         <div class="border-b border-gray-200 dark:border-neutral-700">
+            <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
 
-            <nav class="relative mt-2 z-0 flex overflow-hidden dark:border-neutral-700" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
                 @foreach ($mainCategories as $mainCategory)
-                    @foreach ($mainCategory?->hospitalityCategories as $hospitalityCategory)
+                    @foreach ($mainCategory->hospitalityCategories as $hospitalityCategory)
                         <button type="button"
-                            class="tab-button hs-tab-active:border-b-blue-600 hs-tab-active:text-gray-100 dark:hs-tab-active:text-white relative
-                                   dark:hs-tab-active:border-b-blue-600 min-w-0 flex-1
-                                   bg-blue-100 hover:bg-green-200 focus:bg-blue-200 dark:bg-indigo-300 dark:hover:bg-gray-400
-                                   first:border-s-0  border-b-2 py-1 px-1 text-gray-500 hover:text-green-600
-                                   text-lg font-medium text-center overflow-hidden
-                                   focus:z-10 focus:outline-none focus:text-blue-600
-                                   disabled:opacity-50 disabled:pointer-events-none
-                                   dark:text-red-600 dark:hover:text-white"
-                            data-tab-target="#tab-content-{{ $mainCategory->id }}-{{ $hospitalityCategory->id }}">
+                            class="hs-tab-active:font-semibold text-lg
+                    hs-tab-active:border-blue-600 hs-tab-active:text-blue-600
+                    py-4 px-6 inline-flex items-center gap-x-2 border-b-2
+                    border-transparent  whitespace-nowrap
+                    text-gray-500 hover:text-blue-600 focus:outline-none
+                    focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none
+                    dark:text-neutral-400 dark:hover:text-blue-500 active"
+                            id="tab-{{ $hospitalityCategory->id }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}"
+                            data-hs-tab="#tab-content-{{ $hospitalityCategory->id }}"
+                            aria-controls="tab-content-{{ $hospitalityCategory->id }}" role="tab">
                             {{ $hospitalityCategory->title_en }}
                         </button>
                     @endforeach
@@ -26,8 +26,6 @@
             </nav>
 
         </div>
-
-        <!-- Table Header -->
         <div class="mt-3">
             <div class="flex flex-col">
                 <div class="-m-1.5 overflow-x-auto">
@@ -146,29 +144,8 @@
             //     @endforeach
             // };
 
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const target = this.dataset.tabTarget;
+    </div>
+    <div class="min-h-72">
 
-                    // Clear the table body
-                    tableBody.innerHTML = '';
-
-                    // Populate the new data in the table body
-                    if (tabData[target]) {
-                        tableBody.innerHTML = tabData[target].join('');
-                    }
-
-                    // Handle tab button active state
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-
-            // Trigger the first tab to load its content by default
-            tabButtons[0].click();
-        });
-    </script>
+    </div>
 @endsection
-

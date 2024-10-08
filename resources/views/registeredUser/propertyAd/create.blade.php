@@ -43,12 +43,12 @@
                     @csrf
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
-                            <x-frontend.forms.select-type-field label="Is Rent" id="is_rent" name="is_rent"
+                            <x-frontend.forms.select-type-field label="Is Rent" id="is_rent" name="is_rent" labelClass="w-36"
                                 class="text-sm font-semibold" :options="['1' => 'For Rent', '0' => 'For Sale']" />
 
-                            <x-frontend.forms.input-type-field label="Title" id="title" name="title" type="text"
+                            <x-frontend.forms.input-type-field label="Title" id="title" name="title" type="text" labelClass="w-36"
                                 class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Rate" id="rate" name="rate" type="text"
+                            <x-frontend.forms.input-type-field label="Rate" id="rate" name="rate" type="text" labelClass="w-36"
                                 class="text-sm font-semibold" placeholder="Per Month" />
 
 
@@ -57,12 +57,12 @@
                         <div class="col-span-2">
 
 
-                            <x-frontend.forms.input-type-field label="Square Feet" id="area" name="area"
+                            <x-frontend.forms.input-type-field label="Square Feet" id="area" name="area" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Address" id="address" name="address" type="text"
+                            <x-frontend.forms.input-type-field label="Address" id="address" name="address" type="text" labelClass="w-36"
                                 class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="Deposit" id="deposit" name="deposit" type="number"
+                            <x-frontend.forms.input-type-field label="Deposit" id="deposit" name="deposit" type="number" labelClass="w-36"
                                 class="text-sm font-semibold" />
 
 
@@ -71,11 +71,11 @@
                                 type="file" class="text-sm font-semibold" multiple="multiple" />
                         </div>
                         <div class="col-span-4">
-                            <x-frontend.forms.text-area-component label="Description" id="editor" name="description"
+                            <x-frontend.forms.text-area-component label="Description" id="editor" name="description" labelClass="w-36"
                                 class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.text-area-component label="Map Url" id="map_url" name="map_url"
+                            <x-frontend.forms.text-area-component label="Map Url" id="map_url" name="map_url" labelClass="w-36"
                                 class="text-sm font-semibold" />
                         </div>
 
@@ -87,26 +87,26 @@
                     </div>
 
                 </form>
-            @elseif ($propertyCategory->slug == 'house' || $propertyCategory->slug == 'flat' || $propertyCategory->slug == 'room')
+            @elseif ($propertyCategory->slug == 'house' || $propertyCategory->slug == 'flat' || $propertyCategory->slug == 'room') 
                 <form class="mt-8" action="{{ route('registeredUser.propertyList.store', $propertyCategory) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
-                            <x-frontend.forms.select-type-field label="Is Rent" id="is_rent" name="is_rent"
+                            <x-frontend.forms.select-type-field label="Is Rent" id="is_rent" name="is_rent" labelClass="w-36"
                                 class="text-sm font-semibold" :options="['1' => 'For Rent', '0' => 'For Sale']" />
 
-                            <x-frontend.forms.input-type-field label="Title" id="title" name="title" type="text"
+                            <x-frontend.forms.input-type-field label="Title" id="title" name="title" type="text" labelClass="w-36"
                                 class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Rate" id="rate" name="rate"
+                            <x-frontend.forms.input-type-field label="Rate" id="rate" name="rate" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" placeholder="Per Month" />
 
-                            <x-frontend.forms.input-type-field label="Bed Room" id="bed_room" name="bed_room"
+                            <x-frontend.forms.input-type-field label="Bed Room" id="bed_room" name="bed_room" labelClass="w-36"
                                 type="number" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="Bath Room" id="bathroom" name="bathroom"
+                            <x-frontend.forms.input-type-field label="Bath Room" id="bathroom" name="bathroom" labelClass="w-36"
                                 type="number" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Address" id="address" name="address"
+                            <x-frontend.forms.input-type-field label="Address" id="address" name="address" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" />
 
 
@@ -114,19 +114,19 @@
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.select-type-field label="Internet" id="internet" name="internet"
+                            <x-frontend.forms.select-type-field label="Internet" id="internet" name="internet" labelClass="w-36"
                                 class="text-sm font-semibold" :options="['include' => 'Include', 'exclude' => 'Exclude']" />
 
-                            <x-frontend.forms.select-type-field label="Parking" id="parking" name="parking"
+                            <x-frontend.forms.select-type-field label="Parking" id="parking" name="parking" labelClass="w-36"
                                 class="text-sm font-semibold" :options="['include' => 'Include', 'exclude' => 'Exclude']" />
 
 
-                            <x-frontend.forms.input-type-field label="Square Feet" id="area" name="area"
+                            <x-frontend.forms.input-type-field label="Square Feet" id="area" name="area" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field label="Kitchen Type" id="kitchen_type" name="kitchen_type"
+                            <x-frontend.forms.input-type-field label="Kitchen Type" id="kitchen_type" name="kitchen_type" labelClass="w-36"
                                 type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field label="Deposit" id="deposit" name="deposit"
+                            <x-frontend.forms.input-type-field label="Deposit" id="deposit" name="deposit" labelClass="w-36"
                                 type="number" class="text-sm font-semibold" />
 
 
@@ -135,10 +135,10 @@
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple" />
                         </div>
                         <div class="col-span-4">
-                            <x-frontend.forms.text-area-component label="Description" id="editor" name="description"
+                            <x-frontend.forms.text-area-component label="Description" id="editor" name="description" labelClass="w-36"
                                 class="text-sm font-semibold" />
 
-                            <x-frontend.forms.text-area-component label="Map Url" id="map_url" name="map_url"
+                            <x-frontend.forms.text-area-component label="Map Url" id="map_url" name="map_url" labelClass="w-36"
                                 class="text-sm font-semibold" />
 
                         </div>
@@ -157,37 +157,37 @@
             @csrf
             <div class="block md:grid grid-cols-4 pr-16">
                 <div class="col-span-2 mr-6">
-                    <x-frontend.forms.select-type-field label="Is Rent" id="is_rent" name="is_rent"
+                    <x-frontend.forms.select-type-field label="Is Rent" id="is_rent" name="is_rent" labelClass="w-36"
                         class="text-sm font-semibold" :options="['1' => 'For Rent', '0' => 'For Sale']" />
 
-                    <x-frontend.forms.input-type-field label="Title" id="title" name="title" type="text"
+                    <x-frontend.forms.input-type-field label="Title" id="title" name="title" type="text" labelClass="w-36"
                         class="text-sm font-semibold" />
-                    <x-frontend.forms.input-type-field label="Rate" id="rate" name="rate" type="text"
+                    <x-frontend.forms.input-type-field label="Rate" id="rate" name="rate" type="text" labelClass="w-36"
                         class="text-sm font-semibold" placeholder="Per Month" />
 
                 </div>
                 <div class="col-span-2">
 
 
-                    <x-frontend.forms.input-type-field label="Square Feet" id="area" name="area"
+                    <x-frontend.forms.input-type-field label="Square Feet" id="area" name="area" labelClass="w-36"
                         type="text" class="text-sm font-semibold" />
-                    <x-frontend.forms.input-type-field label="Address" id="address" name="address" type="text"
+                    <x-frontend.forms.input-type-field label="Address" id="address" name="address" type="text" labelClass="w-36"
                         class="text-sm font-semibold" />
 
-                    <x-frontend.forms.input-type-field label="Deposit" id="deposit" name="deposit" type="number"
+                    <x-frontend.forms.input-type-field label="Deposit" id="deposit" name="deposit" type="number" labelClass="w-36"
                         class="text-sm font-semibold" />
 
 
 
-                    <x-frontend.forms.file-component label="Godown Image Of All Side" id="files" name="files[]"
+                    <x-frontend.forms.file-component label="Godown Image Of All Side" id="files" name="files[]" labelClass="w-36"
                         type="file" class="text-sm font-semibold" multiple="multiple" />
                 </div>
                 <div class="col-span-4">
-                    <x-frontend.forms.text-area-component label="Description" id="editor" name="description"
+                    <x-frontend.forms.text-area-component label="Description" id="editor" name="description" labelClass="w-36"
                         class="text-sm font-semibold" />
 
 
-                    <x-frontend.forms.text-area-component label="Map Url" id="map_url" name="map_url"
+                    <x-frontend.forms.text-area-component label="Map Url" id="map_url" name="map_url" labelClass="w-36"
                         class="text-sm font-semibold" />
                 </div>
 

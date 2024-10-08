@@ -11,43 +11,37 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class HospitalityList extends Model
+class JobList extends Model
 {
     use HasFactory, SoftDeletes, Sluggable;
     use HasReferenceNumber;
 
     protected $fillable = [
-        'hospitality_category_id',
+        'job_category_id',
         'registered_user_id',
         'reference_no',
         'slug',
         'position',
         'details',
-        'youtube_link',
         'map_url',
         'facebook_url',
         'whats_app_no',
+        'website_url',
         'image',
         'status',
-        'website_url',
-        'opening_time',
         'address',
-        'name',
+        'job_name',
         'contact_number',
-        'email',
-        'total_rooms',
-        'room_types',
-        'facilities',
-        'price_per_night',
-        'average_meal_price',
-        'menu',
-        'parking_available',       
-        'delivery_available',
+        'job_type',
+        'years_of_experience',
+        'gender',
+        'salary_range',
+        'desired_skills_experience',
     ];
 
-    public function hospitalityCategory()
+    public function jobCategory()
     {
-        return $this->belongsTo(HospitalityCategory::class);
+        return $this->belongsTo(JobCategory::class);
     }
 
     public function registeredUser()
@@ -59,7 +53,7 @@ class HospitalityList extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'job_name'
             ]
         ];
     }
@@ -73,8 +67,8 @@ class HospitalityList extends Model
     {
         parent::boot();
 
-        static::creating(function ($hospitalityList) {
-            $hospitalityList->position = static::max('position') + 1;
+        static::creating(function ($jobList) {
+            $jobList->position = static::max('position') + 1;
         });
     }
 
@@ -82,12 +76,12 @@ class HospitalityList extends Model
     {
         return Attribute::make(
             get: fn(?string $value) => $value ? Storage::disk('public')->url($value) : null,
-            set: fn($value) => $value ? $value->store('hospitalityList', 'public') : null,
+            set: fn($value) => $value ? $value->store('jobList', 'public') : null,
         );
     }
     public function generateReferenceNumber()
     {
-        $name = strtoupper(Str::substr($this->name, 0, 3));
+        $name = strtoupper(Str::substr($this->job_name, 0, 3));
         $randomNumber = rand(1000, 9999);
         return $name . '-' . $randomNumber;
     }

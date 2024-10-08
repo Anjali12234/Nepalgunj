@@ -93,13 +93,13 @@
                         class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Educations</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='javascript:void(0)'
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Jobs</a>
+                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Hospitality</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a
                         href="
                 {{-- {{ route('vehicles') }} --}}
                  "
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Constructions</a>
+                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Jobs</a>
                 </li>
                 <li class='group max-lg:border-b max-lg:py-3 relative'>
                     <a href='javascript:void(0)'
@@ -121,6 +121,9 @@
                         </li>
                         <li class='border-b py-2 '><a href='javascript:void(0)'
                                 class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Showrooms</a>
+                        </li>
+                        <li class='border-b py-2 '><a href='javascript:void(0)'
+                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Constructions</a>
                         </li>
                         <li class='border-b py-2 '><a href='javascript:void(0)'
                                 class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Other
