@@ -13,7 +13,7 @@
 </head>
 
 
-<body>
+<body class="font-manrope">
     <x-frontend.nav />
 
 
