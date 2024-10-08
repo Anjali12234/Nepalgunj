@@ -9,7 +9,7 @@
                     <div class="md:col-span-2">
                         <div>
                             <img src="{{ $newsLists->first()->image ?? '' }}" alt="Qatar flags" class="w-full h-[400px] mb-4 object-cover">
-                            <h2 class="text-2xl font-bold mb-2">{{ $newsLists->first()->title ?? '' }}</h2>
+                            <h2 class="text-2xl font-bold mb-2">{{ Str::words($newsLists->first()?->title, 15) }}</h2>
                             <p class="text-gray-600 mb-4">
                                 {!! Str::words(strip_tags($newsLists->first()->details ?? ''), 50, '...') !!}
                             </p>
@@ -20,7 +20,8 @@
                                     <img src="{{ $newsList->image ?? '' }}" alt="Scam websites" class="w-44 h-32 object-fit">
                                     <div>
                                         <p class="text-fuchsia-600 text-xs font-bold">NEWS</p>
-                                        <h3 class="text-[18px] font-semibold">{{ $newsList->title ?? '' }}</h3>
+                                        <h3 class="text-[18px] font-semibold">
+                                            {{ Str::words($newsList->title, 15) }}</h3>
                                         <p class="text-[16px]">
                                             {!! Str::words(strip_tags($newsList->details ?? ''), 50, '...') !!}
                                         </p>
@@ -37,6 +38,36 @@
                     <!-- Sidebar News Items -->
                     <div class="space-y-6">
                       <!-- Assuming sidebar items are in an array -->
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY" alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                <h3 class="text-sm font-semibold">Events this week September 1-7</h3>
+                            </div>
+                            <hr>
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY" alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                <h3 class="text-sm font-semibold">Events this week September 1-7</h3>
+                            </div>
+                            <hr>
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY" alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                <h3 class="text-sm font-semibold">Events this week September 1-7</h3>
+                            </div>
+                            <hr>
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY" alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                <h3 class="text-sm font-semibold">Events this week September 1-7</h3>
+                            </div>
+                            <hr>
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY" alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                <h3 class="text-sm font-semibold">Events this week September 1-7</h3>
+                            </div>
+                            <hr>
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY" alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                <h3 class="text-sm font-semibold">Events this week September 1-7</h3>
+                            </div>
+                            <hr>
                             <div class="flex items-center space-x-4 mb-4">
                                 <img src="https://files.qatarliving.com/styles/image_h_medium_440x248/s3/post/2024/09/01/Events_Week_Qatar_Living.png?itok=yoLr4mkY" alt="Events this week September 1-7" class="w-44 h-24 object-cover">
                                 <h3 class="text-sm font-semibold">Events this week September 1-7</h3>
@@ -63,7 +94,7 @@
                                     <a href="{{ route('newsDetail', $newsList) }}">
                                         <div class="mt-4">
                                             <img src="{{ $newsList->image ?? '' }}" alt="" class="w-full h-40 object-cover">
-                                            <h1 class="text-xl font-bold mt-3">{{ $newsList->title ?? '' }}</h1>
+                                            <h1 class="text-xl font-bold mt-3">{{ Str::words($newsList->title, 15) }}</h1>
                                         </div>
                                     </a>
                                 @endif
@@ -76,7 +107,7 @@
                                     <a href="{{ route('newsDetail', $newsList) }}">
                                         <div class="mt-4 mb-4">
                                             <img src="{{ $newsList->image ?? '' }}" alt="" class="w-full h-24 object-cover">
-                                            <p class="text-sm font-semibold">{{ $newsList->title ?? '' }}</p>
+                                            <p class="text-sm font-semibold">{{ Str::words($newsList->title, 15) }}</p>
                                         </div>
                                     </a>
                                 @endif

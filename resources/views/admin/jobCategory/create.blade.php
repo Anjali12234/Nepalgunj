@@ -61,23 +61,20 @@
                         </span>
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Type</label>
-                        <select class="custom-select2 form-control" name="type"
-                            style="width: 100%; height: 38px">
-                            <option value="">Choose type</option>
-                            <option value="Full Time">Full Time</option>
-                            <option value="Part Time">Part Time</option>
-                            <option value="Contract Based">Contract Based</option>
-                        </select>
+                        <label for="title">Job Category</label>
+                        <input class="form-control" id="title" name="title"
+                            value="{{ old('title') }}" type="text" />
                         <span class="text-warning">
-                            @error('type')
+                            @error('title')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
-                  
+
+
+
                 </div>
-               
+
 
                 <div>
                     <button class="btn btn-danger" type="submit">Submit</button>

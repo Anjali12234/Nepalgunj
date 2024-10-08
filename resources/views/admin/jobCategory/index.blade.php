@@ -49,7 +49,7 @@
                         <tr>
                             <td class="table-plus">{{ $loop->iteration }}</td>
                             <td>{{ $jobCategory->mainCategory?->title_en }}</td>
-                            <td>{{ $jobCategory->title_en }}</td>
+                            <td>{{ $jobCategory->title }}</td>
                             <td>{{ $jobCategory->slug }}</td>
                             <td>
                                 <div class="dropdown">

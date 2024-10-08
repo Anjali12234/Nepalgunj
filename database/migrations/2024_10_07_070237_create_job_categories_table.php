@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('job_categories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('main_category_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->string('title_en');
+            $table->string('title');
             $table->string('slug');
-            $table->string('type')->nullable();
             $table->integer('position')->nullable();
             $table->boolean('status')->default(0);
             $table->softDeletes();

@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthCont
 use App\Http\Controllers\RegisteredUser\EducationAdController;
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
 use App\Http\Controllers\RegisteredUser\HospitalityAdController;
+use App\Http\Controllers\RegisteredUser\JobAdController;
 use App\Http\Controllers\RegisteredUser\PropertyAdController;
 use App\Http\Controllers\RegisteredUser\RegisteredUserDetailController;
 use App\Http\Controllers\RegisteredUser\TestimonialController;
@@ -49,9 +50,9 @@ Route::prefix('hospitality')->group(function () {
 
 });
 Route::prefix('job')->group(function () {
-    Route::get('jobCategory/{jobCategory:slug}', [HospitalityAdController::class, 'create'])->name('jobCategory.create');
-    Route::post('educationList/{jobCategory:slug}', [HospitalityAdController::class, 'store'])->name('hospitalityList.store');
-    Route::resource('/hospitalityList', HospitalityAdController::class)->except('store','create');
-    // Route::resource('education-list/{hospitalityList:slug}/testimonials', TestimonialController::class)->names('hospitalityList.testimonials');
+    Route::get('jobCategory/{jobCategory:slug}', [JobAdController::class, 'create'])->name('jobCategory.create');
+    Route::post('jobList/{jobCategory:slug}', [JobAdController::class, 'store'])->name('jobList.store');
+    Route::resource('/jobList', JobAdController::class)->except('store','create');
+    // Route::resource('education-list/{jobList:slug}/testimonials', TestimonialController::class)->names('jobList.testimonials');
 
 });

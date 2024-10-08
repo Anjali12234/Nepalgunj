@@ -1,8 +1,8 @@
 <div class="hidden lg:flex cursor-pointer">
-    <div class="lg:grid grid-cols-5 hidden gap-7 mr-4 ml-[18.5rem]">
+    <div class="lg:grid grid-cols-5 hidden gap-[2.75rem] mr-4 ml-[18.5rem]">
         <div class="text-black font-medium text-left px-2 py-4 block">
             @foreach ($sharedCategory as $mainCategory)
-                @foreach ($mainCategory->propertyCategories as $propertyCategory)
+                @foreach ($mainCategory->propertyCategories->take(4) as $propertyCategory)
                     <a
                         href="{{ route('properties', ['propertyCategorySlug' => $propertyCategory->slug, 'is_rent' => request('is_rent')]) }}">
                         <p class="text-xs lg:text-sm whitespace-nowrap">{{ $propertyCategory->title_en }}</p>
@@ -12,7 +12,7 @@
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
             @foreach ($sharedCategory as $mainCategory)
-                @foreach ($mainCategory->healthCareCategories as $healthCare)
+                @foreach ($mainCategory->healthCareCategories->take(4) as $healthCare)
                     <a href="{{ route('healthCare', $healthCare) }}">
                         <p class="text-xs lg:text-sm whitespace-nowrap">{{ $healthCare->title_en }}</p>
                     </a>
@@ -21,7 +21,7 @@
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
             @foreach ($sharedCategory as $mainCategory)
-                @foreach ($mainCategory->educationCategories as $educationCategory)
+                @foreach ($mainCategory->educationCategories->take(4) as $educationCategory)
                     <a href="{{ route('educationCategory', $educationCategory) }}">
                         <p class="text-xs  lg:text-sm whitespace-nowrap">{{ $educationCategory->title_en }}</p>
                     </a>
@@ -30,7 +30,7 @@
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
             @foreach ($sharedCategory as $mainCategory)
-                @foreach ($mainCategory->hospitalityCategories as $hospitalityCategory)
+                @foreach ($mainCategory->hospitalityCategories->take(4) as $hospitalityCategory)
                     <a href="">
                         <p class="text-xs  lg:text-sm whitespace-nowrap">{{ $hospitalityCategory->title_en }}</p>
                     </a>
@@ -38,11 +38,15 @@
             @endforeach
         </div>
         <div class="text-black font-medium text-left px-2 py-4">
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Cars for sale</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Showrooms</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Car for rent</p>
-            <p class="text-xs  lg:text-sm whitespace-nowrap">Car for rentals</p>
+            @foreach ($sharedCategory as $mainCategory)
+                @foreach ($mainCategory->jobCategories->take(4) as $jobCategory)
+                    <a href="">
+                        <p class="text-xs  lg:text-sm whitespace-nowrap">{{ $jobCategory->title }}</p>
+                    </a>
+                @endforeach
+            @endforeach
         </div>
+
         <!-- Repeat the same structure for the other columns -->
     </div>
 

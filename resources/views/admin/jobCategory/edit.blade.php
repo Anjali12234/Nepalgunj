@@ -51,7 +51,7 @@
                             <option value="">Choose Main Category</option>
                             @foreach ($mainCategories as $maincategory)
                                 <option value="{{ $maincategory->id }}"
-                                    {{ old('mian_category_id', $jobCategory->main_category_id) == $maincategory->id ? 'selected' : '' }}>
+                                    {{ old('main_category_id', $jobCategory->main_category_id) == $maincategory->id ? 'selected' : '' }}>
                                     {{ $maincategory->title_en }}
 
                                 </option>
@@ -65,31 +65,16 @@
                             @enderror
                         </span>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>Type</label>
-                        <select class="custom-select2 form-control" name="type"
-                            style="width: 100%; height: 38px">
-                          
-                            <option value="">Choose type</option>
-                            <option value="Full Time" {{ old('type', $jobCategory->type) == 'Full Time' ? 'selected' : '' }}>Full Time</option>
-                            <option value="Part Time" {{ old('type', $jobCategory->type) == 'Part Time' ? 'selected' : '' }}>Part Time</option>
-                            <option value="Contract Based" {{ old('type', $jobCategory->type) == 'Contract Based' ? 'selected' : '' }}>Contract Based</option>
-                        </select>
-                        <span class="text-warning">
-                            @error('type')
-                                {{ $message }}
-                            @enderror
-                        </span>
-                    </div>
+
 
                 </div>
                 <div class="col-md-12 row">
                     <div class="form-group col-md-6">
-                        <label for="title_en">English Title</label>
-                        <input class="form-control" id="title_en" name="title_en"
-                            value="{{ old('title_en', $jobCategory->title_en) }}" type="text" />
+                        <label for="title">English Title</label>
+                        <input class="form-control" id="title" name="title"
+                            value="{{ old('title', $jobCategory->title) }}" type="text" />
                         <span class="text-warning">
-                            @error('title_en')
+                            @error('title')
                                 {{ $message }}
                             @enderror
                         </span>

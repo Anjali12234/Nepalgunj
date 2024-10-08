@@ -25,7 +25,7 @@ class JobAdController extends BaseController
 
     public function create(JobCategory $jobCategory)
     {
-        return view('registeredUser.jobAd.create', compact('JobCategory'));
+        return view('registeredUser.jobAd.create', compact('jobCategory'));
     }
 
     public function store(StoreJobListRequest $request, JobCategory $jobCategory)
