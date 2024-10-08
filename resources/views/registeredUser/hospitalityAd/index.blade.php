@@ -54,7 +54,66 @@
                                     </tr>
                                 </thead>
                                 <tbody id="tab-content-body">
-                                    <!-- Table body content will be updated here -->
+                                    <x-frontend.forms.table-component :headers="[]" :data="$hospitalityCategory->hospitalityLists">
+
+                                        @foreach ($hospitalityCategory->hospitalityLists as $hospitalityList)
+
+                                            <tr>
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                                    {{ $hospitalityList->reference_no }}
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+
+                                                    {{ Str::words($hospitalityList->name, 5) }}
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                                    {{ $hospitalityList->educationCategory->title_en }}
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                                    {{ $hospitalityList->contact_number }}
+                                                </td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium ">
+                                                    <a type="button"
+                                                        href="{{ route('registeredUser.hospitalityList.edit', $hospitalityList) }}"
+                                                        class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400">
+                                                        <i class="ti ti-edit text-2xl font-bold text-neutral-800"></i>
+
+                                                    </a>
+                                                    <a type="button"
+                                                        href="{{ route('registeredUser.hospitalityList.testimonials.create', $hospitalityList) }}"
+                                                        class="relative inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 group">
+
+                                                        <!-- Icon -->
+                                                        <i class="ti ti-plus text-2xl font-bold text-neutral-800"></i>
+
+                                                        <!-- Tooltip -->
+                                                        <div
+                                                            class="absolute hidden group-hover:block bg-[#333] text-white font-semibold px-3 py-[6px] text-[13px] rounded shadow-lg -top-10 left-1/2 transform -translate-x-1/2">
+                                                            Add your best student!
+                                                        </div>
+                                                    </a>
+                                                    <form
+                                                        action="{{ route('registeredUser.hospitalityList.destroy', $hospitalityList) }}"
+                                                        method="post" style="display: inline" method="post"
+                                                        style="display: inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400"
+                                                            onclick="return confirm('Are You sure want to delete')">
+                                                            <i class="ti ti-trash text-2xl font-bold text-red-700"></i>
+                                                        </button>
+
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </x-frontend.forms.table-component>
                                 </tbody>
                             </table>
                         </div>
@@ -64,75 +123,5 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tableBody = document.getElementById('tab-content-body');
-
-            // Data for each tab (you might need to modify this part based on how your data is structured)
-            const tabData = {
-                @foreach ($mainCategories as $mainCategory)
-                    @foreach ($mainCategory->hospitalityCategories as $hospitalityCategory)
-                        "tab-content-{{ $mainCategory->id }}-{{ $hospitalityCategory->id }}": [
-                            @foreach ($hospitalityCategory->hospitalityLists as $hospitalityList)
-                                `<tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                        {{ $hospitalityList->reference_no }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                        {{ Str::words($hospitalityList->name, 5) }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $hospitalityList->hospitalityCategory->title_en }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $hospitalityList->contact_number }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                        <a href="{{ route('registeredUser.hospitalityList.edit', $hospitalityList) }}"
-                                           class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400">
-                                            <i class="ti ti-edit text-2xl font-bold text-neutral-800"></i>
-                                        </a>
-                                        <form action="{{ route('registeredUser.hospitalityList.destroy', $hospitalityList) }}" method="POST" style="display: inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400"
-                                                onclick="return confirm('Are you sure you want to delete?')">
-                                                <i class="ti ti-trash text-2xl font-bold text-red-700"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>`,
-                            @endforeach
-                        ],
-                    @endforeach
-                @endforeach
-            };
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const target = this.dataset.tabTarget;
-
-                    // Clear the table body
-                    tableBody.innerHTML = '';
-
-                    // Populate the new data in the table body
-                    if (tabData[target]) {
-                        tableBody.innerHTML = tabData[target].join('');
-                    }
-
-                    // Handle tab button active state
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-
-            // Trigger the first tab to load its content by default
-            tabButtons[0].click();
-        });
-    </script>
 @endsection
 
