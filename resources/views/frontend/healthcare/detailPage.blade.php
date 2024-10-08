@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="mx-4 md:mx-12 lg:mx-24 mt-4 font-mono">
+    <div class="mx-4 md:mx-12 lg:mx-24 mt-4 font-manrope">
         <!-- Navigation Bar -->
         <nav class="py-4">
             <div class="container mx-auto px-4 lg:px-6">
@@ -29,7 +29,7 @@
 
                     <!-- Doctor Info -->
                     <div class="md:ml-8 w-full md:w-1/2">
-                        <h1 class="text-2xl md:text-3xl font-semibold text-gray-800">{{ $healthCareList->name }}</h1>
+                        <h1 class="text-2xl md:text-3xl font-semibold font-mono text-gray-800">{{ $healthCareList->name }}</h1>
                         @if (!empty($healthCareList->department))
                             <p class="text-lg text-blue-600 mt-2">Department: {{ $healthCareList->department }}</p>
                         @endif
@@ -40,7 +40,7 @@
                         @if (!empty($healthCareList->n_m_c_no))
                             <p class="text-sm text-gray-500 mt-1">N.M.C No: {{ $healthCareList->n_m_c_no }}</p>
                         @endif
-                        <p class="text-sm text-gray-500 mt-1">OPD Schedule: {{ $healthCareList->o_p_d_schedule }}</p>
+                        <p class="text-[14px] text-gray-500 mt-1">OPD Schedule: {{ $healthCareList->o_p_d_schedule }}</p>
                         <p class="mt-4 text-gray-600">
                             Dr. John Doe is a highly experienced cardiologist with over 15 years of experience
                             in treating complex heart conditions. He specializes in interventional cardiology
