@@ -5,17 +5,17 @@
         <h1 class="font-semibold text-3xl">Education Category List</h1>
         <div class="border-b border-gray-200 dark:border-neutral-700">
             <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+
                 @foreach ($mainCategories as $mainCategory)
                     @foreach ($mainCategory->educationCategories as $educationCategory)
                         <button type="button"
                             class="hs-tab-active:font-semibold text-lg
-                            hs-tab-active:border-blue-600 hs-tab-active:text-blue-600
-                            py-4 px-6 inline-flex items-center gap-x-2 border-b-2
-                            border-transparent whitespace-nowrap
-                            text-gray-500 hover:text-blue-600 focus:outline-none
-                            focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none
-                            dark:text-neutral-400 dark:hover:text-blue-500
-                            {{ $loop->first ? 'active' : '' }}"
+                    hs-tab-active:border-blue-600 hs-tab-active:text-blue-600
+                    py-4 px-6 inline-flex items-center gap-x-2 border-b-2
+                    border-transparent  whitespace-nowrap
+                    text-gray-500 hover:text-blue-600 focus:outline-none
+                    focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none
+                    dark:text-neutral-400 dark:hover:text-blue-500 active"
                             id="tab-{{ $educationCategory->id }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}"
                             data-hs-tab="#tab-content-{{ $educationCategory->id }}"
                             aria-controls="tab-content-{{ $educationCategory->id }}" role="tab">
@@ -24,7 +24,6 @@
                     @endforeach
                 @endforeach
             </nav>
-
 
         </div>
         <div class="mt-3">
