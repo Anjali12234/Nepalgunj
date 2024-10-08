@@ -114,15 +114,12 @@
                 <div class="mt-3">
                     <div id="unstyled-tabs-1" role="tabpanel" aria-labelledby="unstyled-tabs-item-1">
                         <ul>
-                            @if (is_array($registeredUser->category) &&
-                                in_array(propertyCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                             @foreach (propertyCategories() as $propertyCategory)
                                 <a href="{{ route('registeredUser.propertyCategory.create', $propertyCategory) }}">
                                     <li class="text-blue-900 text-base lg:text-xl font-semibold">
                                         {{ $propertyCategory->title_en }}</li>
                                 </a>
                             @endforeach
-                            @endif
                         </ul>
                     </div>
                     <div id="unstyled-tabs-2" class="hidden" role="tabpanel" aria-labelledby="unstyled-tabs-item-2">

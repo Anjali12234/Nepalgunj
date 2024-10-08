@@ -16,9 +16,8 @@ class UpdateJobCategoryRequest extends FormRequest
     {
         return [
             'main_category_id' => ['required'],
-            'title_en' => ['required','string'],
+            'title' => ['required','string'],
             'position' => ['required','string'],
-            'type' => ['required'],
             'slug' => [
                 'required',
                 'string',

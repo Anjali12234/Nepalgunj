@@ -12,9 +12,8 @@ class JobCategory extends Model
     use HasFactory, SoftDeletes, Sluggable;
 
     protected $fillable = [
-        'title_en',
+        'title',
         'slug',
-        'type',
         'position',
         'status',
         'main_category_id'
@@ -36,7 +35,7 @@ class JobCategory extends Model
     {
         return [
             'slug' => [
-                'source' => 'type'
+                'source' => 'title'
             ]
         ];
     }
@@ -47,7 +46,6 @@ class JobCategory extends Model
 
         static::creating(function ($jobCategory) {
             $jobCategory->position = static::max('position') + 1;
-            $jobCategory->title_en = $jobCategory->type;
         });
     }
 }
