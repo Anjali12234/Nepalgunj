@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="mx-24 font-mono">
+    <div class="mx-24 font-manrope">
         <div class="grid grid-template-rows: repeat(1, minmax(0, 1fr)) grid-flow-col mt-4">
             <div class="grid grid-cols-12 gap-2">
                 <div class="col-span-12 md:col-span-3">
@@ -9,7 +9,7 @@
                         Properties,{{ $propertyList->propertyCategory->title_en }}
                     </p>
                     <div class="px-4 py-8 border border-dashed">
-                        <h1 class="text-2xl font-bold">{{ $propertyList->title }}</h1>
+                        <h1 class="text-2xl font-bold font-mono">{{ $propertyList->title }}</h1>
                         <p>Reference No: {{ $propertyList->reference_no }}</p>
                         <p class="text-xs text-gray-400">Updated {{ $propertyList->updated_at->diffForHumans() }}</p>
                     </div>
@@ -19,7 +19,7 @@
                     <div class="max-w-sm mx-auto bg-white  overflow-hidden mt-4">
                         <div class="bg-cyan-700 text-white p-4 flex justify-between items-center">
                             <div>
-                                <p class="text-2xl font-bold">{{ $propertyList->rate }}</p>
+                                <p class="text-2xl font-bold font-mono">{{ $propertyList->rate }}</p>
                                 <p class="text-[10px]">Rs/Month</p>
                             </div>
 
@@ -111,11 +111,11 @@
                                 <div class="max-w-4xl mx-auto bg-white overflow-hidden">
                                     <div class="p-6">
                                         <div class="flex justify-between items-start mb-4 border-b pb-2">
-                                            <h2 class="text-xl font-bold">DESCRIPTION</h2>
+                                            <h2 class="text-xl font-bold font-mono">DESCRIPTION</h2>
 
                                         </div>
 
-                                        <div class="space-y-3 text-sm">
+                                        <div class="space-y-3 text-[16px]">
                                             {!! $propertyList->description !!}
                                         </div>
                                     </div>
@@ -275,10 +275,10 @@
                             <p class="text-sm text-blue-600">{{ $propertyList->propertyCategory->title_en }}</p>
                             <h3 class="text-xl font-bold">{{ Str::words($propertyList->title, 5) }}</h3>
                             <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }}<span
-                                    class="text-sm font-light">Rs/Month</span></p>
+                                    class="text-xs font-light"> Rs/Month</span></p>
                         </div>
                         <div class="px-4 pb-4 flex justify-between text-gray-500">
-                            <p class="text-xs"><i class="ti ti-location"></i>{{ $propertyList->address }}</p>
+                            <p class="text-xs"><i class="ti ti-location"></i> {{ $propertyList->address }}</p>
                             <p class="text-xs">Updated {{ $propertyList->updated_at->diffForHumans() }}</p>
                         </div>
                     </div>
