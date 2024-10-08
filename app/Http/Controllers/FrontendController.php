@@ -19,8 +19,8 @@ class FrontendController extends BaseController
 {
     public function index()
     {
-        $newsLists = News::with('newsCategory')->latest()->get();
-        $newsCategories = NewsCategory::with('newsLists')->latest()->get();
+        $newsLists = News::with('newsCategory')->where('status',1)->latest()->get();
+        $newsCategories = NewsCategory::with('newsLists')->where('status',1)->latest()->get();
         return view('frontend.index', compact('newsLists', 'newsCategories'));
     }
 

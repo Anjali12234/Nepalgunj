@@ -49,8 +49,8 @@
                         @foreach ($newsLists as $key => $newsList)
                             <tr>
                                 <td class="table-plus">{{ $loop->iteration }}</td>
-                                <td>{{ $newsList->title }}</td>
-                                <td>{{ $newsList->slug }}</td>
+                                <td>{{ Str::words($newsList->title, 1) }}</td>
+                                <td>{{ Str::words($newsList->slug, 1) }}</td>
                                 <td>
 
                                     <form action="{{ route('admin.newsList.updateStatus',$newsList) }}" method="post" style="display: inline">
