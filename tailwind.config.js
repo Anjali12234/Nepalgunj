@@ -7,7 +7,11 @@ export default {
         "node_modules/preline/dist/*.js",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                manrope: ['Manrope', 'sans-serif'], // Add Manrope font here
+            },
+        },
     },
     plugins: [require("preline/plugin")],
 };

@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <div class="font-mono">
+    <div class="font-manrope">
         {{-- hero section --}}
         <div class=" mx-24 overflow-hidden">
 
@@ -36,7 +36,7 @@
                                 </div>
 
                                 <!-- Article Content -->
-                                <div class="text-gray-700 space-y-4">
+                                <div class="text-gray-700 space-y-4 tracking-wide ">
                                     {!! $newsList->details !!}
                                 </div>
                             </div>

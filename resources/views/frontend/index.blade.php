@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-frontend.navbar />
-    <div class="font-mono">
+    <div class="font-manrope">
         {{-- hero section --}}
         <div class="mx-4 md:mx-24 overflow-hidden">
             <div class="container mx-auto p-4">
@@ -17,11 +17,11 @@
                         @foreach ($newsLists->skip(1)->take(2) as $newsList)
                             <a href="{{ route('newsDetail', $newsList) }}">
                                 <div class="flex items-center space-x-4 mb-4 mt-8">
-                                    <img src="{{ $newsList->image ?? '' }}" alt="Scam websites" class="w-44 h-32 object-cover">
+                                    <img src="{{ $newsList->image ?? '' }}" alt="Scam websites" class="w-44 h-32 object-fit">
                                     <div>
                                         <p class="text-fuchsia-600 text-xs font-bold">NEWS</p>
-                                        <h3 class="text-lg font-semibold">{{ $newsList->title ?? '' }}</h3>
-                                        <p class="text-sm">
+                                        <h3 class="text-[18px] font-semibold">{{ $newsList->title ?? '' }}</h3>
+                                        <p class="text-[16px]">
                                             {!! Str::words(strip_tags($newsList->details ?? ''), 50, '...') !!}
                                         </p>
                                     </div>
