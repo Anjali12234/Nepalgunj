@@ -138,6 +138,18 @@ class FrontendController extends BaseController
         $educationCategory->load('educationLists');
         return view('frontend.education.listPage', compact('educationCategory'));
     }
+    public function hospitalityIndex()
+     {
+        return view ('frontend.hospitality.index');
+     }
+    public function hospitalityList()
+     {
+        return view ('frontend.hospitality.listPage');
+     }
+    public function hospitalityDetail()
+     {
+        return view ('frontend.hospitality.detailPage');
+     }
 
     // public function staticMenus($slug)
     // {
@@ -167,6 +179,7 @@ class FrontendController extends BaseController
     //             return response(view('errors.404'), 404);
     //     }
     // }
+
 
 
 }

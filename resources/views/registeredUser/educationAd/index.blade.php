@@ -169,6 +169,7 @@
                                 </thead>
                                 <tbody id="tab-content-body">
                                     <x-frontend.forms.table-component :headers="[]" :data="$educationCategory->educationLists">
+
                                         @foreach ($educationCategory->educationLists as $educationList)
                                             <tr>
                                                 <td

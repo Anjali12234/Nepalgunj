@@ -2,7 +2,7 @@
 @extends('registeredUser.layout.master')
 
 @section('content')
-    <div class="content px-5 md:px-7 col-span-3 md:mt-0">
+    <div class="content px-5 md:px-7 col-span-3 md:mt-0 font-manrope">
         <h1 class="font-semibold text-3xl mt-6">Health Care List</h1>
         <div class="border-b border-gray-200 dark:border-neutral-700">
 

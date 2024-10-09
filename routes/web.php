@@ -35,6 +35,9 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('consultancyDetail','consultancyDetailPage')->name('education.consultancyDetailPage');
     Route::get('instituteList','instituteListPage')->name('education.instituteListPage');
     Route::get('instituteDetail','instituteDetailPage')->name('education.instituteDetailPage');
+    Route::get('hospitality','hospitalityIndex')->name('hospitality.hospitalityIndex');
+    Route::get('hospitalityList','hospitalityList')->name('hospitality.hospitalityList');
+    Route::get('hospitalityDetail','hospitalityDetail')->name('hospitality.hospitalityDetail');
 
 });
 // Route::get('detail/{slug}', [FrontendController::class, 'staticMenus'])->name('static');
