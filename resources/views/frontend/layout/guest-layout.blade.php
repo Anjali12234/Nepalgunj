@@ -19,6 +19,7 @@
 
     {{ $slot }}
 
+    @include('frontend.layout.footer')
 
 </body>
 

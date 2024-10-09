@@ -11,8 +11,9 @@
                             @if (is_array($registeredUser->category) &&
                                     in_array(propertyCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                                 <button type="button"
-                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 
-                                    px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 
+                                    class=" hs-tab-active:font-semibold
+                                     hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4
+                                    px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2
                                     border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active"
                                     id="tabs-with-underline-item-1" aria-selected="true"
                                     data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1"
@@ -39,8 +40,8 @@
                             @if (is_array($registeredUser->category) &&
                                     in_array(healthCareCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                                 <button type="button"
-                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 
-                               px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 
+                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4
+                               px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2
                                border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active"
                                     id="tabs-with-underline-item-2" aria-selected="true"
                                     data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2"
@@ -61,18 +62,74 @@
                                 </button>
                             @endif
                         </div>
-                        <button type="button"
-                            class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                            id="tabs-with-underline-item-3" aria-selected="false" data-hs-tab="#tabs-with-underline-3"
-                            aria-controls="tabs-with-underline-3" role="tab">
-                            Tab 3
-                        </button>
-                        <button type="button"
-                            class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                            id="tabs-with-underline-item-4" aria-selected="false" data-hs-tab="#tabs-with-underline-4"
-                            aria-controls="tabs-with-underline-4" role="tab">
-                            Tab 3
-                        </button>
+                        <div>
+                            @if (is_array($registeredUser->category) &&
+                                in_array(educationCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                                <button type="button"
+                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4
+                               px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2
+                               border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active"
+                                    id="tabs-with-underline-item-3" aria-selected="true"
+                                    data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3"
+                                    role="tab">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-school"
+                                    width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="#7f1d1d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+                                    <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+                                </svg>
+                                    {{ educationCategories()->first()?->mainCategory?->title_en }}
+                                </button>
+                            @endif
+                        </div>
+                        <div>
+                            @if (is_array($registeredUser->category) &&
+                                in_array(hospitalityCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                                <button type="button"
+                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4
+                               px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2
+                               border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active"
+                                    id="tabs-with-underline-item-4" aria-selected="true"
+                                    data-hs-tab="#tabs-with-underline-4" aria-controls="tabs-with-underline-4"
+                                    role="tab">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-school"
+                                    width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+                                    <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+                                </svg>
+                                    {{ hospitalityCategories()->first()?->mainCategory?->title_en }}
+                                </button>
+                            @endif
+                        </div>
+                        <div>
+                            @if (is_array($registeredUser->category) &&
+                                in_array(jobCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                                <button type="button"
+                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4
+                               px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2
+                               border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 active"
+                                    id="tabs-with-underline-item-5" aria-selected="true"
+                                    data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-5"
+                                    role="tab">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#6b21a8" fill="none"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase-2">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M3 9a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9z" />
+                                    <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                                </svg>
+                                    {{ jobCategories()->first()?->mainCategory?->title_en }}
+                                </button>
+                            @endif
+                        </div>
+
                     </nav>
                 </div>
 
@@ -95,12 +152,12 @@
                         </div>
                     @endif
                     @if (is_array($registeredUser->category) &&
-                            in_array(hospitalityCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                                in_array(healthCareCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                         <div id="tabs-with-underline-2" class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}"
                             role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
                             <ul>
                                 @foreach ($sharedCategory as $mainCategory)
-                                    @foreach ($mainCategory->hospitalityCategories as $healthCareCategory)
+                                    @foreach ($mainCategory->healthCareCategories as $healthCareCategory)
                                         <a
                                             href="{{ route('registeredUser.healthCareCategory.create', $healthCareCategory) }}">
                                             <li class="text-blue-900 text-base lg:text-xl font-semibold">
@@ -113,31 +170,76 @@
                             </ul>
                         </div>
                     @endif
-                    <div id="tabs-with-underline-3" class="hidden" role="tabpanel"
-                        aria-labelledby="tabs-with-underline-item-3">
-                        <p class="text-gray-500 dark:text-neutral-400">
-                            This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">third</em> item's
-                            tab body.
-                        </p>
-                    </div>
-                    <div id="tabs-with-underline-4" class="hidden" role="tabpanel"
-                        aria-labelledby="tabs-with-underline-item-4">
-                        <p class="text-gray-500 dark:text-neutral-400">
-                            Helloe <em class="font-semibold text-gray-800 dark:text-neutral-200">third</em> item's
-                            tab body.
-                        </p>
-                    </div>
+                    @if (is_array($registeredUser->category) &&
+                                in_array(educationCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                        <div id="tabs-with-underline-3" class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}"
+                            role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                            <ul>
+                                @foreach ($sharedCategory as $mainCategory)
+                                    @foreach ($mainCategory->educationCategories as $educationCategory)
+                                        <a
+                                            href="{{ route('registeredUser.educationCategory.create', $educationCategory) }}">
+                                            <li class="text-blue-900 text-base lg:text-xl font-semibold">
+                                                {{-- @dd(hospitalityCategories()->first()?->mainCategory); --}}
+                                                {{ $educationCategory->title_en }}</li>
+                                        </a>
+                                    @endforeach
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    @endif
+                    @if (is_array($registeredUser->category) &&
+                                in_array(hospitalityCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                        <div id="tabs-with-underline-4" class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}"
+                            role="tabpanel" aria-labelledby="tabs-with-underline-item-4">
+                            <ul>
+                                @foreach ($sharedCategory as $mainCategory)
+                                    @foreach ($mainCategory->hospitalityCategories as $hospitalityCategory)
+                                        <a
+                                            href="{{ route('registeredUser.hospitalityCategory.create', $hospitalityCategory) }}">
+                                            <li class="text-blue-900 text-base lg:text-xl font-semibold">
+                                                {{-- @dd(hospitalityCategories()->first()?->mainCategory); --}}
+                                                {{ $hospitalityCategory->title_en }}</li>
+                                        </a>
+                                    @endforeach
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    @endif
+                    @if (is_array($registeredUser->category) &&
+                                in_array(jobCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                        <div id="tabs-with-underline-5" class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}"
+                            role="tabpanel" aria-labelledby="tabs-with-underline-item-5">
+                            <ul>
+                                @foreach ($sharedCategory as $mainCategory)
+                                    @foreach ($mainCategory->jobCategories as $jobCategory)
+                                        <a
+                                            href="{{ route('registeredUser.jobCategory.create', $jobCategory) }}">
+                                            <li class="text-blue-900 text-base lg:text-xl font-semibold">
+                                                {{-- @dd(hospitalityCategories()->first()?->mainCategory); --}}
+                                                {{ $jobCategory->title }}</li>
+                                        </a>
+                                    @endforeach
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    @endif
+
+
                 </div>
             </div>
         </div>
         <!-- Right Content: Rules Section -->
         <div class="mt-8 ">
-            <div class="bg-gray-500 p-4 mb-4">
-                <h1 class="text-xl lg:text-2xl font-semibold text-white leading-5">Important rules for creating ads
+            <div class="bg-gray-500 p-4">
+                <h1 class="text-lg  font-semibold text-white leading-5">Here are some important rules for creating classified ads.
                 </h1>
             </div>
             <div class="bg-gray-100 p-4">
-                <ul class="list-disc pl-4 space-y-2 text-base lg:text-lg">
+                <ul class="list-disc pl-4 space-y-2 text-base ">
                     <li>Provide accurate information for all fields.</li>
                     <li>Avoid any misleading content in your ad.</li>
                     <li>Ensure your contact details are correct for easy communication.</li>

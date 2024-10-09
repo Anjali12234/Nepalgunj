@@ -3,7 +3,7 @@
     <div class="font-manrope">
         {{-- hero section --}}
         <div class="mx-4 md:mx-24 overflow-hidden">
-            <div class="container mx-auto p-4">
+            <div class="container mx-auto ">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <!-- Main Article -->
                     <div class="md:col-span-2">
@@ -15,21 +15,23 @@
                             </p>
                         </div>
                         @foreach ($newsLists->skip(1)->take(2) as $newsList)
-                            <a href="{{ route('newsDetail', $newsList) }}">
-                                <div class="flex items-center space-x-4 mb-4 mt-8">
-                                    <img src="{{ $newsList->image ?? '' }}" alt="Scam websites" class="w-44 h-32 object-fit">
-                                    <div>
-                                        <p class="text-fuchsia-600 text-xs font-bold">NEWS</p>
-                                        <h3 class="text-[18px] font-semibold">
-                                            {{ Str::words($newsList->title, 15) }}</h3>
-                                        <p class="text-[16px]">
-                                            {!! Str::words(strip_tags($newsList->details ?? ''), 50, '...') !!}
-                                        </p>
-                                    </div>
+                        <a href="{{ route('newsDetail', $newsList) }}">
+                            <div class="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 mb-4 mt-8">
+                                <img src="{{ $newsList->image ?? '' }}" alt="Scam websites" class="w-full h-32 object-cover md:w-44 md:h-32">
+                                <div class="mt-4 md:mt-0">
+                                    <p class="text-fuchsia-600 text-xs font-bold">NEWS</p>
+                                    <h3 class="text-[18px] font-semibold">
+                                        {{ Str::words($newsList->title, 15) }}
+                                    </h3>
+                                    <p class="text-[16px]">
+                                        {!! Str::words(strip_tags($newsList->details ?? ''), 50, '...') !!}
+                                    </p>
                                 </div>
-                            </a>
-                            <hr>
-                        @endforeach
+                            </div>
+                        </a>
+                        <hr>
+                    @endforeach
+                    
                     </div>
 
                     <!-- Horizontal Line -->
@@ -87,7 +89,7 @@
                         <h1 class="text-2xl font-bold mb-4">{{ $newsCategory->title }}</h1>
                     </div>
 
-                    <div class="col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="col-span-7 grid grid-cols-1 sm:grid-cols-2 sm:block gap-4">
                         <div class="col-span-1">
                             @foreach ($newsCategory->newsLists->take(2) as $newsList)
                                 @if ($newsList->status == 1)

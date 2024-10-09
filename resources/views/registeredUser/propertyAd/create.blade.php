@@ -87,7 +87,7 @@
                     </div>
 
                 </form>
-            @elseif ($propertyCategory->slug == 'house' || $propertyCategory->slug == 'flat' || $propertyCategory->slug == 'room') 
+            @elseif ($propertyCategory->slug == 'house' || $propertyCategory->slug == 'flat' || $propertyCategory->slug == 'room')
                 <form class="mt-8" action="{{ route('registeredUser.propertyList.store', $propertyCategory) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
