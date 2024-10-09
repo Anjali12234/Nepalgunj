@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="mx-4 lg:mx-24 mt-4 font-mono">
+    <div class="mx-4 lg:mx-24 mt-4 font-manrope">
 
         <!-- Navigation -->
         <nav class="py-4">

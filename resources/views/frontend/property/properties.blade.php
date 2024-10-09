@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="bg-slate-100">
+    <div class="font-manrope bg-slate-100">
         <div class="bg-sky-700 mx-16 font-mono">
             <!-- Toggle for For Rent and For Sale -->
             <div class="flex justify-center mb-4">
@@ -94,7 +94,7 @@
 
 
 
-    <div class="overflow-hidden mx-16 mt-4 mb-4 grid grid-cols-1 lg:grid-cols-3 gap-4 font-mono">
+    <div class="overflow-hidden mx-16 mt-4 mb-4 grid grid-cols-1 lg:grid-cols-3 gap-4 font-manrope">
         <!-- News & Articles Section -->
         <div class="col-span-1 mt-64">
             <h2 class="text-xl font-semibold mb-4">News & Articles</h2>
