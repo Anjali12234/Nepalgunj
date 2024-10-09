@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="mx-4 lg:mx-24 mt-4 font-manrope">
+    <div class=" mt-4 font-manrope">
 
         <!-- Navigation -->
         <nav class="py-4">
@@ -150,8 +150,7 @@
             </div> --}}
 
         </div>
-
-        <x-frontend.propertiesFooter.properties-footer />
+        <div class='min-h-20'></div>
 
     </div>
 

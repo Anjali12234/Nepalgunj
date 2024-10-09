@@ -33,6 +33,6 @@
         </div>
 
     </div>
-
-
+<div class='min-h-20'></div>
+    @include('frontend.layout.footer')
 </x-guest-layout>

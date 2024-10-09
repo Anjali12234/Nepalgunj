@@ -47,7 +47,7 @@ class FrontendController extends BaseController
         $propertyCategories = PropertyCategory::with('propertyLists')
             ->paginate(15);
 
-        $properties = PropertyList::with('propertyCategory', 'registeredUser')
+        $properties = PropertyList::with('propertyCategory', 'registeredUser','registeredUser.registeredUserDetail')
             ->when($search, function ($query, $search) {
                 $query->where('reference_no', 'like', "%{$search}%")
                     ->orWhere('title', 'like', "%{$search}%")
