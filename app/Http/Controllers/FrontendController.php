@@ -74,6 +74,7 @@ class FrontendController extends BaseController
 
     public function propertyDetails(PropertyList $propertyList)
     {
+        $propertyList->load('registeredUser.registeredUserDetail');
         $propertyCategoryId = $propertyList->propertyCategory->id;
         $propertyRegisteredUserId = $propertyList->registeredUser->id;
 

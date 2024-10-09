@@ -31,7 +31,7 @@
                         </a>
                         <hr>
                     @endforeach
-                    
+
                     </div>
 
                     <!-- Horizontal Line -->
@@ -122,7 +122,7 @@
         @endforeach
 
         {{-- Must Read Section --}}
-        <div class="bg-gray-100 p-4 mx-4 md:mx-24 mb-4">
+        {{-- <div class="bg-gray-100 p-4 mx-4 md:mx-24 mb-4">
             <div class="flex items-center space-x-6">
                 <!-- Left section with the heading and line -->
                 <div class="flex items-center space-x-2">
@@ -137,8 +137,7 @@
                     <p class="text-sm font-semibold">6 Tips to Care for your Skin this Summer</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        @include('frontend.layout.footer')
     </div>
 </x-guest-layout>
