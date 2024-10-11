@@ -11,6 +11,7 @@ use App\Models\Menu;
 use App\Models\News;
 use App\Models\NewsCategory;
 use App\Models\PropertyCategory;
+use App\Models\HospitalityCategory;
 use App\Models\PropertyList;
 use App\Models\RegisteredUser;
 use Illuminate\Http\Request;
@@ -19,8 +20,8 @@ class FrontendController extends BaseController
 {
     public function index()
     {
-        $newsLists = News::with('newsCategory')->where('status',1)->latest()->get();
-        $newsCategories = NewsCategory::with('newsLists')->where('status',1)->latest()->get();
+        $newsLists = News::with('newsCategory')->where('status', 1)->latest()->get();
+        $newsCategories = NewsCategory::with('newsLists')->where('status', 1)->latest()->get();
         return view('frontend.index', compact('newsLists', 'newsCategories'));
     }
 
@@ -47,7 +48,7 @@ class FrontendController extends BaseController
         $propertyCategories = PropertyCategory::with('propertyLists')
             ->paginate(15);
 
-        $properties = PropertyList::with('propertyCategory', 'registeredUser','registeredUser.registeredUserDetail')
+        $properties = PropertyList::with('propertyCategory', 'registeredUser', 'registeredUser.registeredUserDetail')
             ->when($search, function ($query, $search) {
                 $query->where('reference_no', 'like', "%{$search}%")
                     ->orWhere('title', 'like', "%{$search}%")
@@ -139,17 +140,18 @@ class FrontendController extends BaseController
         return view('frontend.education.listPage', compact('educationCategory'));
     }
     public function hospitalityIndex()
-     {
-        return view ('frontend.hospitality.index');
-     }
+    {
+        $hospitalityCategories = HospitalityCategory::with('hospitalityLists')->get();
+        return view('frontend.hospitality.index', compact('hospitalityCategories'));
+    }
     public function hospitalityList()
-     {
-        return view ('frontend.hospitality.listPage');
-     }
+    {
+        return view('frontend.hospitality.listPage');
+    }
     public function hospitalityDetail()
-     {
-        return view ('frontend.hospitality.detailPage');
-     }
+    {
+        return view('frontend.hospitality.detailPage');
+    }
 
     // public function staticMenus($slug)
     // {

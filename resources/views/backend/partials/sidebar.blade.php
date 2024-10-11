@@ -43,6 +43,19 @@
                         <li><a href="{{ route('admin.jobCategory.index') }}">Job Category</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-table"></span><span class="mtext">All Ad List</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('admin.healthCare.index') }}">Health List </a>
+                        </li>
+                        <li><a href="{{ route('admin.propertyCategory.index') }}">Property List</a></li>
+                        <li><a href="{{ route('admin.educationCategory.index') }}">Education List</a></li>
+                        <li><a href="{{ route('admin.hospitalityList.index') }}">Hospitality List</a></li>
+                        <li><a href="{{ route('admin.jobCategory.index') }}">Job List</a></li>
+                    </ul>
+                </li>
 
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">

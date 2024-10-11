@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationCategoryController;
 use App\Http\Controllers\Admin\HealthCareCategoryController;
 use App\Http\Controllers\Admin\HospitalityCategoryController;
+use App\Http\Controllers\Admin\HospitalityListController;
 use App\Http\Controllers\Admin\JobCategoryController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\MenuController;
@@ -36,6 +37,12 @@ Route::prefix('subCategory')->group(
         Route::resource('educationCategory', EducationCategoryController::class);
         Route::resource('hospitalityCategory', HospitalityCategoryController::class);
         Route::resource('jobCategory', JobCategoryController::class);
+    }
+);
+Route::prefix('hospitalityCategory')->group(
+    function () {
+        Route::resource('hospitalityList', HospitalityListController::class);
+       
     }
 );
 
