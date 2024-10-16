@@ -16,7 +16,7 @@
             </div>
         </nav>
 
-        <x-frontend.hospitality.hospitality-listPage />
+        <x-frontend.hospitality.hospitality-listPage :hospitalityCategory="$hospitalityCategory"/>
 
     </div>
 </x-guest-layout>

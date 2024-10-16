@@ -6,11 +6,13 @@ use App\Models\EducationCategory;
 use App\Models\EducationList;
 use App\Models\HealthCareCategory;
 use App\Models\HealthCareList;
+use App\Models\HospitalityList;
 use App\Models\MainCategory;
 use App\Models\Menu;
 use App\Models\News;
 use App\Models\NewsCategory;
 use App\Models\PropertyCategory;
+use App\Models\HospitalityCategory;
 use App\Models\PropertyList;
 use App\Models\RegisteredUser;
 use Illuminate\Http\Request;
@@ -19,14 +21,13 @@ class FrontendController extends BaseController
 {
     public function index()
     {
-        $newsLists = News::with('newsCategory')->where('status',1)->latest()->get();
-        $newsCategories = NewsCategory::with('newsLists')->where('status',1)->latest()->get();
+        $newsLists = News::with('newsCategory')->where('status', 1)->latest()->get();
+        $newsCategories = NewsCategory::with('newsLists')->where('status', 1)->latest()->get();
         return view('frontend.index', compact('newsLists', 'newsCategories'));
     }
 
     public function postAd()
     {
-
         $registeredUser = auth('registered-user')->user();
         if (auth('registered-user')->check()) {
             if ($registeredUser->is_active == 1) {
@@ -47,7 +48,7 @@ class FrontendController extends BaseController
         $propertyCategories = PropertyCategory::with('propertyLists')
             ->paginate(15);
 
-        $properties = PropertyList::with('propertyCategory', 'registeredUser','registeredUser.registeredUserDetail')
+        $properties = PropertyList::with('propertyCategory', 'registeredUser', 'registeredUser.registeredUserDetail')
             ->when($search, function ($query, $search) {
                 $query->where('reference_no', 'like', "%{$search}%")
                     ->orWhere('title', 'like', "%{$search}%")
@@ -74,10 +75,11 @@ class FrontendController extends BaseController
 
     public function propertyDetails(PropertyList $propertyList)
     {
+        $propertyList->load('registeredUser.registeredUserDetail');
         $propertyCategoryId = $propertyList->propertyCategory->id;
         $propertyRegisteredUserId = $propertyList->registeredUser->id;
 
-        $relatedProperties = PropertyList::where('property_category_id', $propertyCategoryId,)
+        $relatedProperties = PropertyList::where('property_category_id', $propertyCategoryId)
             ->where('id', '!=', $propertyList->id)
             ->get();
         $relatedPropertiesList = PropertyList::where('registered_user_id', $propertyRegisteredUserId)
@@ -86,16 +88,11 @@ class FrontendController extends BaseController
         return view('frontend.property.propertyDetail', compact('propertyList', 'relatedProperties', 'relatedPropertiesList'));
     }
 
-    // public function registeredUser(RegisteredUser $registeredUser)
-    // {
-    //     return "Hello " . $registeredUser->name;
-    // }
-
     public function newsDetail(News $newsList)
     {
         $newsCategoryId = $newsList->newsCategory->id;
 
-        $relatedNews = News::where('news_category_id', $newsCategoryId,)
+        $relatedNews = News::where('news_category_id', $newsCategoryId)
             ->where('id', '!=', $newsList->id)
             ->get();
         return view('frontend.news.detail', compact('newsList', 'relatedNews'));
@@ -137,18 +134,23 @@ class FrontendController extends BaseController
         $educationCategory->load('educationLists');
         return view('frontend.education.listPage', compact('educationCategory'));
     }
+
     public function hospitalityIndex()
-     {
-        return view ('frontend.hospitality.index');
-     }
-    public function hospitalityList()
-     {
-        return view ('frontend.hospitality.listPage');
-     }
-    public function hospitalityDetail()
-     {
-        return view ('frontend.hospitality.detailPage');
-     }
+    {
+        $hospitalityCategories = HospitalityCategory::with('hospitalityLists')->get();
+        return view('frontend.hospitality.index', compact('hospitalityCategories'));
+    }
+
+    public function hospitalityListPage(HospitalityCategory $hospitalityCategory)
+    {
+        $hospitalityCategory->load('hospitalityLists');
+        return view('frontend.hospitality.listPage', compact('hospitalityCategory'));
+    }
+
+    public function hospitalityDetail(HospitalityList $hospitalityList)
+    {
+        return view('frontend.hospitality.detailPage', compact('hospitalityList'));
+    }
 
     // public function staticMenus($slug)
     // {
@@ -178,7 +180,6 @@ class FrontendController extends BaseController
     //             return response(view('errors.404'), 404);
     //     }
     // }
-
 
 
 }

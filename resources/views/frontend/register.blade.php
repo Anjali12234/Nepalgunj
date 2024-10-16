@@ -1,7 +1,7 @@
 <x-guest-layout>
 
 
-    <div class="grid grid-cols-4 gap-4 sm:pl-20 sm:pr-30 ">
+    <div class="grid grid-cols-4 gap-4 sm:pl-20 sm:pr-30 min-h-screen ">
 
         <div class="hidden lg:block my-5 mr-11">
             <h1 class="text-gray-800 font-medium text-2xl">About</h1>
@@ -33,6 +33,4 @@
         </div>
 
     </div>
-<div class='min-h-20'></div>
-    @include('frontend.layout.footer')
 </x-guest-layout>

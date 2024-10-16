@@ -28,19 +28,21 @@
                             <p>None</p>
                         </div>
                     </div>
-                    <div class="p-4 flex items-center">
-                        <div class="w-10 h-10 bg-gray-300 rounded-full mr-3">
-                            <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->image }}" alt="">
-                        </div>
+                    <div class="p-4 flex items-center justify-start">
+                        <span>by</span> <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->avatar }}"
+                                             class="rounded-full w-16 h-16 mr-4 ml-3" alt="User Avatar">
                         <p class="font-semibold">{{ $propertyList?->registeredUser?->username }}</p>
                     </div>
+
 
                     <div class="p-4 space-y-2">
                         <button id="callNowBtn" class="w-full bg-blue-500 text-white py-2 rounded">Call Now</button>
                         <p id="phoneNumber" class="text-center font-bold text-blue-600 hidden">
                             {{ $propertyList->registeredUser->phone_no }}</p>
-                        <a href="https://wa.me/{{ $propertyList->registeredUser->phone_no }}" class="w-full bg-green-500 text-white py-2 rounded block text-center">WhatsApp Now</a>
-                        <a href="mailto:{{ $propertyList?->registeredUser?->email }}" class="w-full bg-red-500 text-white py-2 rounded block text-center">Email Now</a>
+                        <a href="https://wa.me/{{ $propertyList->registeredUser->phone_no }}"
+                           class="w-full bg-green-500 text-white py-2 rounded block text-center">WhatsApp Now</a>
+                        <a href="mailto:{{ $propertyList?->registeredUser?->email }}"
+                           class="w-full bg-red-500 text-white py-2 rounded block text-center">Email Now</a>
                     </div>
                 </div>
             </div>
@@ -62,18 +64,28 @@
                 <div class="max-w-4xl mx-auto">
                     <div class="relative bg-white shadow-lg overflow-hidden">
                         @foreach ($propertyList->files as $index => $file)
-                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">
-                                <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}" class="w-full h-[30rem] object-cover">
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
+                                 data-index="{{ $index }}">
+                                <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
+                                     class="w-full h-[30rem] object-cover">
                             </div>
                         @endforeach
-                        <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r" onclick="changeSlide(-1)">❮</button>
-                        <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l" onclick="changeSlide(1)">❯</button>
+                        <button
+                            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r"
+                            onclick="changeSlide(-1)">❮
+                        </button>
+                        <button
+                            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l"
+                            onclick="changeSlide(1)">❯
+                        </button>
                         <div class="absolute top-0 right-0 bg-teal-500 text-white px-2 py-1 m-2 text-xs">FEATURED</div>
                     </div>
 
                     <div class="flex space-x-2 mt-4 overflow-x-auto pb-2">
                         @foreach ($propertyList->files as $index => $file)
-                            <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}" class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}" onclick="setSlide({{ $index }})">
+                            <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
+                                 class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
+                                 onclick="setSlide({{ $index }})">
                         @endforeach
                     </div>
                 </div>
@@ -116,7 +128,8 @@
                                     @if (!empty($propertyList->kitchen_type))
                                         <div>
                                             <p class="text-gray-500">KITCHEN TYPE:</p>
-                                            <p class="font-semibold text-blue-800">{{ $propertyList->kitchen_type }}</p>
+                                            <p class="font-semibold text-blue-800">{{ $propertyList->kitchen_type }}
+                                            </p>
                                         </div>
                                     @endif
                                     @if (!empty($propertyList->parking))
@@ -150,27 +163,17 @@
                 </div>
             </div>
 
-            <div class="col-span-12 md:col-span-3">
-                <div class="mt-8">
+            <div class="col-span-12 ">
+
+                <div class="mt-10 lg:mt-8">
                     <p class="text-sm text-gray-500">LOCATION</p>
                     <p class="font-semibold">{{ $propertyList->address }}</p>
-                </div>
-                <div class="bg-gray-200 flex items-center mb-2 mt-4 justify-center">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.875836914233!2d84.41745987442619!3d27.69023217619228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb35beab27a5%3A0x92de245797a63af!2sBITS%20-Bitmap%20IT%20Solution%20Pvt.%20Ltd.!5e0!3m2!1sne!2snp!4v1727422787446!5m2!1sne!2snp"
-                        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div class="mt-4">
-                    <div class="bg-red-100 p-4 ">
-                        <h3 class="text-red-700 font-bold mb-2">Fraud Warning</h3>
-                        <p class="text-sm">
-                            Read our <a href="#" class="text-blue-500">safety guidelines</a>
-                            to protect against scams or fraud. If this ad looks suspicious, please
-                            report it.
-                        </p>
-                        <button class="mt-2 border border-blue-600 text-green-500 px-4 py-1 rounded text-sm">Login to Report</button>
+                    <div class="w-full h-64 lg:h-96">
+                        <iframe class="w-full h-full rounded-lg" src="{{ $propertyList->map_url }}" allowfullscreen=""
+                                loading="lazy"></iframe>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -180,14 +183,18 @@
                 @forelse ($relatedProperties as $propertyList)
                     <a href="{{ route('propertyDetails', $propertyList) }}">
                         <div class="border overflow-hidden bg-white relative">
-                            <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}" class="w-full h-48 object-cover" alt="Property 1">
+                            <img
+                                src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
+                                class="w-full h-48 object-cover" alt="Property 1">
                             @if ($propertyList->is_featured == 1)
-                                <span class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
+                                <span
+                                    class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
                             @endif
                             <div class="p-4">
                                 <p class="text-sm text-blue-600">{{ $propertyList->propertyCategory->title_en }}</p>
                                 <h3 class="text-xl font-bold">{{ Str::words($propertyList->title, 5) }}</h3>
-                                <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }} <span class="text-sm font-light">Rs/Month</span></p>
+                                <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }} <span
+                                        class="text-sm font-light">Rs/Month</span></p>
                             </div>
                             <div class="px-4 pb-4 flex justify-between text-gray-500">
                                 <p class="text-xs"><i class="ti ti-location"></i>{{ $propertyList->address }}</p>
@@ -202,19 +209,24 @@
         </div>
 
         <div class="mb-4 mt-4">
-            <h3 class="text-xl">More ads from <span class="font-bold text-2xl">{{ $propertyList?->registeredUser?->username }} PROPERTIES</span></h3>
+            <h3 class="text-xl">More ads from <span
+                    class="font-bold text-2xl">{{ $propertyList?->registeredUser?->username }} PROPERTIES</span></h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 mb-4">
                 @forelse ($relatedPropertiesList as $propertyList)
                     <a href="{{ route('propertyDetails', $propertyList) }}">
                         <div class="border overflow-hidden bg-white relative">
-                            <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}" class="w-full h-48 object-cover" alt="Property 1">
+                            <img
+                                src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
+                                class="w-full h-48 object-cover" alt="Property 1">
                             @if ($propertyList->is_featured == 1)
-                                <span class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
+                                <span
+                                    class="absolute top-0 right-0 bg-teal-500 text-white text-xs font-semibold px-2 py-1">FEATURED</span>
                             @endif
                             <div class="p-4">
                                 <p class="text-sm text-blue-600">{{ $propertyList->propertyCategory->title_en }}</p>
                                 <h3 class="text-xl font-bold">{{ Str::words($propertyList->title, 5) }}</h3>
-                                <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }}<span class="text-xs font-light"> Rs/Month</span></p>
+                                <p class="text-lg font-bold text-gray-900">{{ $propertyList->rate }}<span
+                                        class="text-xs font-light"> Rs/Month</span></p>
                             </div>
                             <div class="px-4 pb-4 flex justify-between text-gray-500">
                                 <p class="text-xs"><i class="ti ti-location"></i> {{ $propertyList->address }}</p>
@@ -230,7 +242,7 @@
     </div>
 
     <script>
-        document.getElementById('callNowBtn').addEventListener('click', function() {
+        document.getElementById('callNowBtn').addEventListener('click', function () {
             var phoneNumber = document.getElementById('phoneNumber');
             if (phoneNumber.classList.contains('hidden')) {
                 phoneNumber.classList.remove('hidden');

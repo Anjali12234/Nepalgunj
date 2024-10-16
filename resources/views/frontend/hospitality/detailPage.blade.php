@@ -21,7 +21,7 @@
         <div class="container p-4 md:p-6">
             <header class="py-3">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 class="text-3xl font-bold text-black">Lakeside Paradise Hotel</h1>
+                    <h1 class="text-3xl font-bold text-black">{{$hospitalityList->name}}</h1>
                     <p class="mt-2 text-zinc-600">Your luxury escape by the lake</p>
                 </div>
             </header>
@@ -30,8 +30,52 @@
             <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
 
                 <!-- Hotel Image -->
+                {{--                <div class="mb-8">--}}
+                {{--                    <img src="https://media.istockphoto.com/id/146765403/photo/a-luxurious-florida-beach-hotel-during-sunrise.jpg?s=2048x2048&w=is&k=20&c=IvfMrAT6rGuIQ5sKj41ovSRdmhvs6WGRpV3VLle6EhA=" alt="Hotel Image" class="w-full h-96 object-cover rounded-lg shadow-md">--}}
+                {{--                --}}
+                {{--                --}}
+                {{--                --}}
+                {{--                </div>--}}
+
+                <style>
+                    .carousel-item {
+                        display: none;
+                    }
+
+                    .carousel-item.active {
+                        display: block;
+                    }
+
+                    .thumbnail.active {
+                        border: 2px solid teal;
+                    }
+                </style>
                 <div class="mb-8">
-                    <img src="https://media.istockphoto.com/id/146765403/photo/a-luxurious-florida-beach-hotel-during-sunrise.jpg?s=2048x2048&w=is&k=20&c=IvfMrAT6rGuIQ5sKj41ovSRdmhvs6WGRpV3VLle6EhA=" alt="Hotel Image" class="w-full h-96 object-cover rounded-lg shadow-md">
+                    <div class="relative bg-white shadow-lg overflow-hidden">
+                        @foreach ($hospitalityList->files as $index => $file)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
+                                 data-index="{{ $index }}">
+                                <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
+                                     class="w-full h-[30rem] object-cover">
+                            </div>
+                        @endforeach
+                        <button
+                            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r"
+                            onclick="changeSlide(-1)">❮
+                        </button>
+                        <button
+                            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l"
+                            onclick="changeSlide(1)">❯
+                        </button>
+                    </div>
+
+                    <div class="flex space-x-2 mt-4 overflow-x-auto pb-2">
+                        @foreach($hospitalityList->files as $index => $file)
+                            <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
+                                 class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
+                                 onclick="setSlide({{ $index }})">
+                        @endforeach
+                    </div>
                 </div>
 
                 <!-- Overview and Amenities Section -->
@@ -39,54 +83,105 @@
                     <div>
                         <h2 class="text-2xl font-bold text-gray-800 mb-4">About Our Hotel</h2>
                         <p class="text-gray-700 leading-relaxed">
-                            Located by the serene waters of the lake, Lakeside Paradise Hotel offers guests an unforgettable stay in luxury and comfort. Whether you're here for relaxation or adventure, our stunning surroundings, modern amenities, and top-tier service ensure a memorable experience.
+                            {!! $hospitalityList->details!!}
                         </p>
                     </div>
-
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Amenities</h2>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                            <li>Infinity Pool with Lake View</li>
-                            <li>Spa & Wellness Center</li>
-                            <li>In-house Fine Dining Restaurant</li>
-                            <li>Complimentary Wi-Fi</li>
-                            <li>Room Service Available 24/7</li>
-                            <li>Free Parking</li>
-                        </ul>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Facilities</h2>
+                        <p>
+                            {{$hospitalityList->facilities}}
+                        </p>
                     </div>
+                    @if(!empty($hospitalityList->total_rooms))
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Total Room</h2>
+                            <p>
+                                {{$hospitalityList->total_rooms}}
+                            </p>
+                        </div>
+                    @endif
+                    @if(!empty($hospitalityList->room_types))
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Room Types</h2>
+                            <p>
+                                {{$hospitalityList->room_types}}
+                            </p>
+                        </div>
+                    @endif
+                    @if(!empty($hospitalityList->price_per_night))
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Price Per Night</h2>
+                            <p>
+                                {{$hospitalityList->price_per_night}}
+                            </p>
+                        </div>
+                    @endif
+                    @if(!empty($hospitalityList->average_meal_price))
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Average Meal Price</h2>
+                            <p>
+                                {{$hospitalityList->average_meal_price}}
+                            </p>
+                        </div>
+                    @endif
+                    @if(!empty($hospitalityList->menu))
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Menu</h2>
+                            <p>
+                                {{$hospitalityList->menu}}
+                            </p>
+                        </div>
+                    @endif
+                    @if(!empty($hospitalityList->parking_available))
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Parking Available</h2>
+                            <p>
+                                {{$hospitalityList->parking_available}}
+                            </p>
+                        </div>
+                    @endif
+                    @if(!empty($hospitalityList->delivery_available))
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Delivery Available</h2>
+                            <p>
+                                {{$hospitalityList->delivery_available}}
+                            </p>
+                        </div>
+                    @endif
                 </div>
-
-
-
 
                 <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
                         <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
                         <div class="space-y-2">
-                            <p class="text-gray-700"><strong>Address:</strong> 789 Lakeside Road, Mountain View, USA</p>
-                            <p class="text-gray-700"><strong>Phone:</strong> (555) 987-6543</p>
-                            <p class="text-gray-700"><strong>Email:</strong> reservations@lakesideparadise.com</p>
+                            <p class="text-gray-700"><strong>Opening Time:</strong> {{$hospitalityList->opening_time}}
+                            </p>
+                            <p class="text-gray-700"><strong>Address:</strong> {{$hospitalityList->address}}</p>
+                            <p class="text-gray-700"><strong>Phone:</strong> {{$hospitalityList->contact_number}}</p>
+                            <p class="text-gray-700"><strong>Email:</strong> {{$hospitalityList->email}}</p>
+                            <p class="text-gray-700"><strong>Website:</strong> {{$hospitalityList->website_url}}</p>
                         </div>
                     </div>
 
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-in / Check-out</h2>
-                        <ul class="list-none space-y-2 text-gray-700">
-                            <li><strong>Check-in:</strong> 3:00 PM</li>
-                            <li><strong>Check-out:</strong> 11:00 AM</li>
-                        </ul>
-                    </div>
+                    {{--                    <div>--}}
+                    {{--                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-in / Check-out</h2>--}}
+                    {{--                        <ul class="list-none space-y-2 text-gray-700">--}}
+                    {{--                            <li><strong>Check-in:</strong> 3:00 PM</li>--}}
+                    {{--                            <li><strong>Check-out:</strong> 11:00 AM</li>--}}
+                    {{--                        </ul>--}}
+                    {{--                    </div>--}}
                 </div>
-
-
 
 
                 <!-- Google Maps Section -->
                 <div class="mt-12">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">Location</h2>
-                    <iframe class="w-full h-96 rounded-lg shadow-md"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508133!2d144.9537363156749!3d-37.81627974202108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727d08dfe9cc0!2sMelbourne%20Central!5e0!3m2!1sen!2sau!4v1633772851707!5m2!1sen!2sau"
-                        allowfullscreen="" loading="lazy"></iframe>
+                    {{--                    <iframe class="w-full h-96 rounded-lg shadow-md"--}}
+                    {{--                        src="{{$hospitalityList->map_url}}"--}}
+                    {{--                        allowfullscreen="" loading="lazy"></iframe>--}}
+                    <div>
+                        {!!  $hospitalityList->map_url !!}
+                    </div>
                 </div>
 
             </div>
@@ -96,4 +191,28 @@
 
 
     </div>
+    <script>
+        let currentSlide = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        function updateSlides() {
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide);
+            });
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + items.length) % items.length;
+            updateSlides();
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+    </script>
 </x-guest-layout>

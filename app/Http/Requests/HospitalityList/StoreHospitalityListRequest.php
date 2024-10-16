@@ -32,7 +32,7 @@ class StoreHospitalityListRequest extends FormRequest
             'average_meal_price' => ['nullable','string'],
             'menu' => ['required','string'],
             'parking_available' => ['nullable','string'],
-            'delivery_available' => ['required'],
+            'delivery_available' => ['nullable'],
             'whats_app_no' => ['required','numeric'],
             'files' => ['required', 'array'],
             'files.*' => ['mimes:png,jpg,jpeg,jfif,webp'],

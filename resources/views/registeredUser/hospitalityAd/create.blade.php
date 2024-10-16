@@ -95,21 +95,21 @@
                     </div>
                     <div class="col-span-2">
 
-                        <x-frontend.forms.input-type-field :value="old('facilities')" label="Facilities" id="facilities" spanClass="text-gray-400" 
+                        <x-frontend.forms.input-type-field :value="old('facilities')" label="Facilities" id="facilities" spanClass="text-gray-400"
                             name="facilities" labelClass="w-36" type="text" class="text-sm font-semibold"
                             {{-- placeholder="Per Month" --}} />
 
                         <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url" spanClass="text-gray-400"
                             name="map_url" labelClass="w-36" class="text-sm font-semibold" />
                         <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url" id="website_url" spanClass="text-gray-400"
-                            name="website_url" type="text" labelClass="w-36" class="text-sm font-semibold"
+                            name="website_url" type="url" labelClass="w-36" class="text-sm font-semibold"
                             {{-- placeholder="Per Month" --}} />
 
                         <x-frontend.forms.input-type-field :value="old('facebook_url')" label="Facebook Url" id="facebook_url" spanClass="text-gray-400"
-                            name="facebook_url" labelClass="w-36" type="text" class="text-sm font-semibold" />
-                    
+                            name="facebook_url" labelClass="w-36" type="url" class="text-sm font-semibold" />
+
                         <x-frontend.forms.input-type-field :value="old('youtube_link')" label="Youtube Url" id="youtube_link" spanClass="text-gray-400"
-                            name="youtube_link" labelClass="w-36" type="text" class="text-sm font-semibold" />
+                            name="youtube_link" labelClass="w-36" type="url" class="text-sm font-semibold" />
                         <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no" spanClass="text-gray-400"
                             name="whats_app_no" labelClass="w-36" type="number" class="text-sm font-semibold" />
 

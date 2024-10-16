@@ -1,8 +1,8 @@
 <x-guest-layout>
     <x-frontend.navbar />
-    <div class="font-manrope">
+    <div class="font-manrope ">
         {{-- hero section --}}
-        <div class="mx-4 md:mx-24 overflow-hidden">
+        <div class="mx-4 md:mx-24 overflow-hidden ">
             <div class="container mx-auto ">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <!-- Main Article -->
@@ -31,7 +31,7 @@
                         </a>
                         <hr>
                     @endforeach
-                    
+
                     </div>
 
                     <!-- Horizontal Line -->
@@ -122,7 +122,7 @@
         @endforeach
 
         {{-- Must Read Section --}}
-        <div class="bg-gray-100 p-4 mx-4 md:mx-24 mb-4">
+        {{-- <div class="bg-gray-100 p-4 mx-4 md:mx-24 mb-4">
             <div class="flex items-center space-x-6">
                 <!-- Left section with the heading and line -->
                 <div class="flex items-center space-x-2">
@@ -137,8 +137,10 @@
                     <p class="text-sm font-semibold">6 Tips to Care for your Skin this Summer</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        @include('frontend.layout.footer')
+    </div>
+    <div class="h-72">
+
     </div>
 </x-guest-layout>
