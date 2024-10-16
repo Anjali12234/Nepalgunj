@@ -80,24 +80,25 @@
 
                     </ul>
                 @endif
-                <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'>
-                    <a href="{{ route('properties') }}"
-                        class='hover:text-[#007bff] text-[#007bff] block font-semibold text-[15px]'>Properties</a>
-                </li>
+
+
+                <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('properties') }}'
+                    class='{{ request()->routeIs('properties')?'text-green-500':'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Properties</a>
+            </li>
 
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('healthcareIndex') }}'
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health</a>
+                        class='{{ request()->routeIs('healthcareIndex')?'text-green-500':'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a
                         href='{{ route('education.IndexPage') }}'
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Educations</a>
+                        class='{{ request()->routeIs('education.IndexPage')?'text-green-500':'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Educations</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href="{{ route('hospitality.hospitalityIndex') }}"
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Hospitality</a>
+                        class='{{ request()->routeIs('hospitality.hospitalityIndex')? 'text-green-500': 'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Hospitality</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a
                         href="
-                {{-- {{ route('vehicles') }} --}}
+
                  "
                         class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Jobs</a>
                 </li>
