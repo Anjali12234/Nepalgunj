@@ -1,8 +1,8 @@
 <x-guest-layout>
     <x-frontend.navbar />
-    <div class="font-manrope">
+    <div class="font-manrope ">
         {{-- hero section --}}
-        <div class="mx-4 md:mx-24 overflow-hidden">
+        <div class="mx-4 md:mx-24 overflow-hidden ">
             <div class="container mx-auto ">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <!-- Main Article -->
@@ -138,6 +138,9 @@
                 </div>
             </div>
         </div> --}}
+
+    </div>
+    <div class="h-72">
 
     </div>
 </x-guest-layout>

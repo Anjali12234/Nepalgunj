@@ -25,19 +25,10 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('educationList/{educationList:slug}','educationDetailPage')->name('education.detailPage');
     Route::get('educationCategory/{educationCategory:slug}','educationlistPage')->name('educationCategory');
 
-    Route::get('schoolDetail','schoolDetailPage')->name('education.schoolDetailPage');
-    Route::get('campusList','campusListPage')->name('education.campusListpage');
-    Route::get('campusDetail','campusDetailPage')->name('education.campusDetailPage');
-    Route::get('collegeList','collegeListPage')->name('education.collegeListPage');
-    Route::get('collegeDetail','collegeDetailPage')->name('education.collegeDetailPage');
-    Route::get('schoolList','schoolListPage')->name('education.schoolListPage');
-    Route::get('consultancyList','consultancyListPage')->name('education.consultancyListPage');
-    Route::get('consultancyDetail','consultancyDetailPage')->name('education.consultancyDetailPage');
-    Route::get('instituteList','instituteListPage')->name('education.instituteListPage');
-    Route::get('instituteDetail','instituteDetailPage')->name('education.instituteDetailPage');
+
     Route::get('hospitality','hospitalityIndex')->name('hospitality.hospitalityIndex');
-    Route::get('hospitalityList','hospitalityList')->name('hospitality.hospitalityList');
-    Route::get('hospitalityDetail','hospitalityDetail')->name('hospitality.hospitalityDetail');
+    Route::get('hospitalityCategory/{hospitalityCategory:slug}','hospitalityListPage')->name('hospitalityCategory');
+    Route::get('hospitalityList/{hospitalityList:slug}','hospitalityDetail')->name('hospitality.hospitalityDetail');
 
 });
 // Route::get('detail/{slug}', [FrontendController::class, 'staticMenus'])->name('static');

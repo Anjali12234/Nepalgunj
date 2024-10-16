@@ -120,7 +120,7 @@
                             </span>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="logo2">Flag</label>
+                        <label for="logo2">Thumbnail</label>
                         <img src="{{ $setting?->logo2 }}" height="100" width="100" alt="">
 
                         <input class="form-control" id="logo2" name="logo2" type="file"

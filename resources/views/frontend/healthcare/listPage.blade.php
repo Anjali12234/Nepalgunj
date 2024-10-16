@@ -18,8 +18,6 @@
 
         <x-frontend.healthcare.list-page :healthCare="$healthCare" />
 
-      
-
 
 
     </div>

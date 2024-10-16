@@ -1,12 +1,12 @@
 @extends('registeredUser.layout.master')
 @section('content')
-    <div class="content px-5  md:px-7 col-span-3">
+    <div class="content px-5  md:px-7 col-span-3 min-h-screen">
         <h1 class="font-semibold text-3xl">Profile Setting</h1>
         <h1 class="font-semibold text-2xl mt-5">General </h1>
         @if (session('status'))
             <div class="mt-2 flex items-center justify-between p-1 leading-normal text-red-600 bg-red-100 rounded-lg"
                 role="alert">
-                <p>{{ session('status') }}</p> 
+                <p>{{ session('status') }}</p>
                 <svg onclick="return this.parentNode.remove();"
                     class="inline w-4 h-4 fill-current ml-2 hover:opacity-80 cursor-pointer"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

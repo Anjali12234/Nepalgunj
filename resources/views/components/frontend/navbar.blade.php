@@ -31,7 +31,7 @@
         <div class="text-black font-medium text-left px-2 py-4">
             @foreach ($sharedCategory as $mainCategory)
                 @foreach ($mainCategory->hospitalityCategories->take(4) as $hospitalityCategory)
-                    <a href="">
+                    <a href="{{route('hospitalityCategory', $hospitalityCategory)}}">
                         <p class="text-xs  lg:text-sm whitespace-nowrap">{{ $hospitalityCategory->title_en }}</p>
                     </a>
                 @endforeach

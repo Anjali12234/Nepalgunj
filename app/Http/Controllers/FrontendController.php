@@ -6,6 +6,7 @@ use App\Models\EducationCategory;
 use App\Models\EducationList;
 use App\Models\HealthCareCategory;
 use App\Models\HealthCareList;
+use App\Models\HospitalityList;
 use App\Models\MainCategory;
 use App\Models\Menu;
 use App\Models\News;
@@ -27,7 +28,6 @@ class FrontendController extends BaseController
 
     public function postAd()
     {
-
         $registeredUser = auth('registered-user')->user();
         if (auth('registered-user')->check()) {
             if ($registeredUser->is_active == 1) {
@@ -79,7 +79,7 @@ class FrontendController extends BaseController
         $propertyCategoryId = $propertyList->propertyCategory->id;
         $propertyRegisteredUserId = $propertyList->registeredUser->id;
 
-        $relatedProperties = PropertyList::where('property_category_id', $propertyCategoryId,)
+        $relatedProperties = PropertyList::where('property_category_id', $propertyCategoryId)
             ->where('id', '!=', $propertyList->id)
             ->get();
         $relatedPropertiesList = PropertyList::where('registered_user_id', $propertyRegisteredUserId)
@@ -88,16 +88,11 @@ class FrontendController extends BaseController
         return view('frontend.property.propertyDetail', compact('propertyList', 'relatedProperties', 'relatedPropertiesList'));
     }
 
-    // public function registeredUser(RegisteredUser $registeredUser)
-    // {
-    //     return "Hello " . $registeredUser->name;
-    // }
-
     public function newsDetail(News $newsList)
     {
         $newsCategoryId = $newsList->newsCategory->id;
 
-        $relatedNews = News::where('news_category_id', $newsCategoryId,)
+        $relatedNews = News::where('news_category_id', $newsCategoryId)
             ->where('id', '!=', $newsList->id)
             ->get();
         return view('frontend.news.detail', compact('newsList', 'relatedNews'));
@@ -139,18 +134,22 @@ class FrontendController extends BaseController
         $educationCategory->load('educationLists');
         return view('frontend.education.listPage', compact('educationCategory'));
     }
+
     public function hospitalityIndex()
     {
         $hospitalityCategories = HospitalityCategory::with('hospitalityLists')->get();
         return view('frontend.hospitality.index', compact('hospitalityCategories'));
     }
-    public function hospitalityList()
+
+    public function hospitalityListPage(HospitalityCategory $hospitalityCategory)
     {
-        return view('frontend.hospitality.listPage');
+        $hospitalityCategory->load('hospitalityLists');
+        return view('frontend.hospitality.listPage', compact('hospitalityCategory'));
     }
-    public function hospitalityDetail()
+
+    public function hospitalityDetail(HospitalityList $hospitalityList)
     {
-        return view('frontend.hospitality.detailPage');
+        return view('frontend.hospitality.detailPage', compact('hospitalityList'));
     }
 
     // public function staticMenus($slug)
@@ -181,7 +180,6 @@ class FrontendController extends BaseController
     //             return response(view('errors.404'), 404);
     //     }
     // }
-
 
 
 }

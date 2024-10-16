@@ -29,20 +29,20 @@
                         </div>
                     </div>
                     <div class="p-4 flex items-center justify-start">
-                       <span >by</span> <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->avatar }}"
-                             class="rounded-full w-16 h-16 mr-4 ml-3" alt="User Avatar">
+                        <span>by</span> <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->avatar }}"
+                                             class="rounded-full w-16 h-16 mr-4 ml-3" alt="User Avatar">
                         <p class="font-semibold">{{ $propertyList?->registeredUser?->username }}</p>
                     </div>
-                    
+
 
                     <div class="p-4 space-y-2">
                         <button id="callNowBtn" class="w-full bg-blue-500 text-white py-2 rounded">Call Now</button>
                         <p id="phoneNumber" class="text-center font-bold text-blue-600 hidden">
                             {{ $propertyList->registeredUser->phone_no }}</p>
                         <a href="https://wa.me/{{ $propertyList->registeredUser->phone_no }}"
-                            class="w-full bg-green-500 text-white py-2 rounded block text-center">WhatsApp Now</a>
+                           class="w-full bg-green-500 text-white py-2 rounded block text-center">WhatsApp Now</a>
                         <a href="mailto:{{ $propertyList?->registeredUser?->email }}"
-                            class="w-full bg-red-500 text-white py-2 rounded block text-center">Email Now</a>
+                           class="w-full bg-red-500 text-white py-2 rounded block text-center">Email Now</a>
                     </div>
                 </div>
             </div>
@@ -65,25 +65,27 @@
                     <div class="relative bg-white shadow-lg overflow-hidden">
                         @foreach ($propertyList->files as $index => $file)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
-                                data-index="{{ $index }}">
+                                 data-index="{{ $index }}">
                                 <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
-                                    class="w-full h-[30rem] object-cover">
+                                     class="w-full h-[30rem] object-cover">
                             </div>
                         @endforeach
                         <button
                             class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r"
-                            onclick="changeSlide(-1)">❮</button>
+                            onclick="changeSlide(-1)">❮
+                        </button>
                         <button
                             class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l"
-                            onclick="changeSlide(1)">❯</button>
+                            onclick="changeSlide(1)">❯
+                        </button>
                         <div class="absolute top-0 right-0 bg-teal-500 text-white px-2 py-1 m-2 text-xs">FEATURED</div>
                     </div>
 
                     <div class="flex space-x-2 mt-4 overflow-x-auto pb-2">
                         @foreach ($propertyList->files as $index => $file)
                             <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
-                                class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
-                                onclick="setSlide({{ $index }})">
+                                 class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
+                                 onclick="setSlide({{ $index }})">
                         @endforeach
                     </div>
                 </div>
@@ -168,7 +170,7 @@
                     <p class="font-semibold">{{ $propertyList->address }}</p>
                     <div class="w-full h-64 lg:h-96">
                         <iframe class="w-full h-full rounded-lg" src="{{ $propertyList->map_url }}" allowfullscreen=""
-                            loading="lazy"></iframe>
+                                loading="lazy"></iframe>
                     </div>
                 </div>
 
@@ -181,7 +183,8 @@
                 @forelse ($relatedProperties as $propertyList)
                     <a href="{{ route('propertyDetails', $propertyList) }}">
                         <div class="border overflow-hidden bg-white relative">
-                            <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
+                            <img
+                                src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
                                 class="w-full h-48 object-cover" alt="Property 1">
                             @if ($propertyList->is_featured == 1)
                                 <span
@@ -212,7 +215,8 @@
                 @forelse ($relatedPropertiesList as $propertyList)
                     <a href="{{ route('propertyDetails', $propertyList) }}">
                         <div class="border overflow-hidden bg-white relative">
-                            <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
+                            <img
+                                src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
                                 class="w-full h-48 object-cover" alt="Property 1">
                             @if ($propertyList->is_featured == 1)
                                 <span
@@ -238,7 +242,7 @@
     </div>
 
     <script>
-        document.getElementById('callNowBtn').addEventListener('click', function() {
+        document.getElementById('callNowBtn').addEventListener('click', function () {
             var phoneNumber = document.getElementById('phoneNumber');
             if (phoneNumber.classList.contains('hidden')) {
                 phoneNumber.classList.remove('hidden');
