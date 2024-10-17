@@ -24,7 +24,7 @@
                     <!-- Doctor Image -->
                     <div class="w-full md:w-1/2 mb-6 md:mb-0">
                         <img src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
-                            alt="Doctor's Image" class="rounded-lg shadow-md w-full">
+                             alt="Doctor's Image" class="rounded-lg shadow-md w-full">
                     </div>
 
                     <!-- Doctor Info -->
@@ -40,12 +40,12 @@
                         @if (!empty($healthCareList->n_m_c_no))
                             <p class="text-sm text-gray-500 mt-1">N.M.C No: {{ $healthCareList->n_m_c_no }}</p>
                         @endif
-                        <p class="text-[14px] text-gray-500 mt-1">OPD Schedule: {{ $healthCareList->o_p_d_schedule }}</p>
-                        <p class="mt-4 text-gray-600">
-                            Dr. John Doe is a highly experienced cardiologist with over 15 years of experience
-                            in treating complex heart conditions. He specializes in interventional cardiology
-                            and is committed to providing personalized care to his patients.
-                        </p>
+                        <p class="text-[14px] text-gray-500 mt-1"><span class="text-blue-900 font-bold text-xl">OPD Schedule</span>: {{ $healthCareList->o_p_d_schedule }}</p>
+                        <!-- <p class="mt-4 text-gray-600">
+                       Dr. John Doe is a highly experienced cardiologist with over 15 years of experience
+                       in treating complex heart conditions. He specializes in interventional cardiology
+                       and is committed to providing personalized care to his patients.
+                   </p> -->
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                         <p class="mt-4 text-gray-600">Phone: {{ $healthCareList->contact_number }}</p>
                         <p class="text-gray-600">Email: {{ $healthCareList->email }}</p>
                         <p class="text-gray-600">Address: {{ $healthCareList->address }}</p>
-                      <a target="_blank" href="{{ $healthCareList->website_url }}">  <p  class="text-gray-600">Website Url: {{ $healthCareList->website_url }}</p></a>
+                        <p  class="text-gray-600">Website Url: <a class="hover:text-blue-600" target="_blank" href="{{ $healthCareList->website_url }}"> {{ $healthCareList->website_url }}</p></a>
                         <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mt-8">Social Media Links</h2>
                         <div class="flex gap-2 mt-4">
 
@@ -72,11 +72,11 @@
                                 <i class="ti ti-brand-instagram text-2xl text-white"></i>
                             </a>
                             <a href="{{ $healthCareList->facebook_url }}" class="p-2 rounded bg-neutral-700"
-                                target="_blank">
+                               target="_blank">
                                 <i class="ti ti-brand-facebook text-2xl text-white"></i>
                             </a>
                             <a href="{{ $healthCareList->twitter_url }}" class="p-2 rounded bg-neutral-700"
-                                target="_blank">
+                               target="_blank">
                                 <i class="ti ti-brand-x text-2xl text-white"></i>
                             </a>
                             <a href="{{ $healthCareList->youtube_link }}" class="p-2 rounded bg-neutral-700" target="_blank">
@@ -88,7 +88,7 @@
                             </a>
 
                             <a href="https://wa.me/{{ $healthCareList->whats_app_no }}"
-                                class="p-2 rounded bg-neutral-700" target="_blank">
+                               class="p-2 rounded bg-neutral-700" target="_blank">
                                 <i class="ti ti-brand-whatsapp text-2xl text-white"></i>
                             </a>
                         </div>
@@ -98,13 +98,13 @@
                     <div class="w-full md:w-1/2">
                         <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mt-8">Map</h2>
                         <iframe src="{{ $healthCareList->map_url ?? '' }}" width="100%" height="350"
-                            style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </div>
 
-      
+
     </div>
 </x-guest-layout>

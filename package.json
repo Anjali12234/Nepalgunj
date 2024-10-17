@@ -16,6 +16,7 @@
     "dependencies": {
         "@fontsource/manrope": "^5.1.0",
         "aos": "^3.0.0-beta.6",
+        "dependencies": "^0.0.1",
         "preline": "^2.4.1"
     }
 }

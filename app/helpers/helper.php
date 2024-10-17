@@ -3,7 +3,9 @@
 use App\Models\EducationCategory;
 use App\Models\EducationList;
 use App\Models\HealthCareCategory;
+use App\Models\HealthCareList;
 use App\Models\HospitalityCategory;
+use App\Models\HospitalityList;
 use App\Models\JobCategory;
 use App\Models\PropertyCategory;
 use App\Models\PropertyList;
@@ -64,8 +66,8 @@ if (!function_exists('getCounts')) {
     {
         $propertyCount = PropertyList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
         $educationCount = EducationList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
-        $hospitalityCount = EducationList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
-        $healthCount = EducationList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
+        $hospitalityCount = HospitalityList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
+        $healthCount = HealthCareList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
 
         return [
             'propertyCount' => $propertyCount,

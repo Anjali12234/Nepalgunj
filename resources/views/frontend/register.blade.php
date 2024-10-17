@@ -6,7 +6,7 @@
         <div class="hidden lg:block my-5 mr-11">
             <h1 class="text-gray-800 font-medium text-2xl">About</h1>
             <div class="text-gray-800 font-medium text-base my-3 font-serif text-justify">
-                <p class="leading-5 mb-2">To post classified ads on Qatar Living, you need to verify your account. Here’s
+                <p class="leading-5 mb-2">To post classified ads on Nepalgunj AtoZ, you need to verify your account. Here’s
                     how it works:</p>
                 <p class="leading-5 mb-2">
                     Register with your correct mobile number and email address, and login to the site add the complete
