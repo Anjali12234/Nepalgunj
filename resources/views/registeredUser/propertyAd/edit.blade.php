@@ -102,8 +102,8 @@
                 </form>
             @elseif (
                 $propertyList->propertyCategory->slug == 'house' ||
-                    $propertyCategory->slug == 'flat' ||
-                    $propertyCategory->slug == 'room')
+                   $propertyList->propertyCategory->slug == 'flat' ||
+                   $propertyList->propertyCategory->slug == 'room')
                 <form class="mt-8" action="{{ route('registeredUser.propertyList.update', $propertyList) }}"
                     method="POST" enctype="multipart/form-data">
                     @method('PUT')

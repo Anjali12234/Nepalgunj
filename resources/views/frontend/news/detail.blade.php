@@ -26,10 +26,10 @@
                                 <div class="flex items-center mb-4">
                                     <div class="bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center">
                                         <img src="https://www.qatarliving.com/sites/all/themes/qatarliving_v3/images/avatar.jpeg"
-                                            alt="author avatar" class="rounded-full w-full h-full">
+                                             alt="author avatar" class="rounded-full w-full h-full">
                                     </div>
                                     <div class="ml-3">
-                                        <p class="text-gray-500 text-sm">By QLNews • 24 Sep 2024 10:09</p>
+                                        <p class="text-gray-500 text-sm">By {{ $newsList->publisher }} • {{ $newsList->publish_date }}</p>
                                     </div>
                                 </div>
 
@@ -45,12 +45,13 @@
                                 </p>
 
                                 <!-- Social Media Links -->
-                                <ul class="list-none space-y-1 font-bold">
+
+                                <!--   <ul class="list-none space-y-1 font-bold">
                                     <li>Instagram - <a href="#" class="hover:text-blue-600 text-blue-300">@qatarliving</a></li>
                                     <li>X - <a href="#" class="hover:text-blue-600 text-blue-300">@qatarliving</a></li>
                                     <li>Facebook - <a href="#" class="hover:text-blue-600 text-blue-300">Nepalganj living</a></li>
                                     <li>YouTube - <a href="#" class="hover:text-blue-600 text-blue-300">Nepalganj living</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
 
                             <!-- Share Buttons -->
@@ -76,7 +77,7 @@
                         </div>
 
                         <div class="mt-12">
-                            <h2 class="text-xl font-semibold mb-4">More from Nepalgunj Living</h2>
+                            <h2 class="text-xl font-semibold mb-4">More from Nepalgunj AtoZ</h2>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                                 <!-- Article 1 -->
                                 @forelse ($relatedNews as $relatedNewsList)
@@ -100,13 +101,13 @@
                     <div class="space-y-6">
                         <div class="flex items-center space-x-4 mb-4">
                             <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/08/29/Qatar_reads_Qatar_Living_News%20(1).jpg?itok=sLDR35Ms"
-                                alt="Mahmoud Trezeguet" class="w-44 h-24">
+                                 alt="Mahmoud Trezeguet" class="w-44 h-24">
                             <h3 class="text-sm font-semibold">Egyptian Mahmoud Trezeguet set for Al Rayyan move, says
                                 reports</h3>
                         </div>
                         <div class="flex items-center space-x-4 mb-4">
                             <img src="https://files.qatarliving.com/styles/image_h_small_300x169/s3/post/2024/08/29/Qatar_reads_Qatar_Living_News%20(1).jpg?itok=sLDR35Ms"
-                                alt="Mahmoud Trezeguet" class="w-44 h-24">
+                                 alt="Mahmoud Trezeguet" class="w-44 h-24">
                             <h3 class="text-sm font-semibold">Egyptian Mahmoud Trezeguet set for Al Rayyan move, says
                                 reports</h3>
                         </div>

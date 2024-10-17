@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="title">
-                        <h4>Property Category</h4>
+                        <h4>Main Category</h4>
                     </div>
                     <nav aria-label="breadcrumb" role="navigation">
                         <ol class="breadcrumb">
@@ -13,7 +13,7 @@
                                 <a href="{{ route('admin.dashboard') }}">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Category List
+                                Main Category List
                             </li>
                         </ol>
                     </nav>
@@ -46,10 +46,10 @@
                     <div class="form-group col-md-6">
                         <label for="title_en">English Title</label>
                         <input class="form-control" id="title_en" name="title_en" value="{{ old('title_en') }}"
-                            type="text" />
+                               type="text" />
                         <span class="text-warning">
                             @error('title_en')
-                                {{ $message }}
+                            {{ $message }}
                             @enderror
                         </span>
                     </div>
