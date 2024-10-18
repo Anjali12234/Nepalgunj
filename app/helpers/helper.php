@@ -46,6 +46,7 @@ if (!function_exists('educationCategories')) {
     function educationCategories()
     {
         return EducationCategory::all();
+
     }
 }
 if (!function_exists('hospitalityCategories')) {
@@ -64,10 +65,10 @@ if (!function_exists('jobCategories')) {
 if (!function_exists('getCounts')) {
     function getCounts()
     {
-        $propertyCount = PropertyList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
-        $educationCount = EducationList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
-        $hospitalityCount = HospitalityList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
-        $healthCount = HealthCareList::where('deleted_at',NULL)->count(); // Count the number of records in the propertyList table
+        $propertyCount = PropertyList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
+        $educationCount = EducationList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
+        $hospitalityCount = HospitalityList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
+        $healthCount = HealthCareList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
 
         return [
             'propertyCount' => $propertyCount,

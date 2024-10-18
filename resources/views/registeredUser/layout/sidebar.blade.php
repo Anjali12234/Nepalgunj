@@ -13,8 +13,9 @@
             <p class="ml-auto"></p>
         </li>
     </a>
-    {{-- @dd(registeredUser()->category); --}}
-    @if (is_array(registeredUser()->category) && in_array(propertyCategories()?->first()?->mainCategory?->title_en, registeredUser()->category))
+
+
+    @if (is_array($registeredUser->category) && in_array(propertyCategories()?->first()?->mainCategory?->title_en, $registeredUser->category))
         <a href="{{ route('registeredUser.propertyList.index') }}">
             <li
                 class="mt-2 mb-2 block {{ request()->routeIs('registeredUser.propertyList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
@@ -25,7 +26,7 @@
     @endif
 
 
-    @if (is_array(registeredUser()->category) && in_array(healthCareCategories()?->first()?->mainCategory?->title_en, registeredUser()->category))
+    @if (is_array($registeredUser->category) && in_array(healthCareCategories()?->first()?->mainCategory?->title_en, $registeredUser->category))
 
         <a href="{{ route('registeredUser.healthCareList.index') }}">
             <li
@@ -35,7 +36,8 @@
             </li>
         </a>
     @endif
-    @if (is_array(registeredUser()->category) && in_array(educationCategories()?->first()?->mainCategory?->title_en, registeredUser()->category))
+
+    @if (is_array($registeredUser?->category) && in_array(educationCategories()?->first()?->mainCategory?->title_en, $registeredUser?->category))
         <a href="{{ route('registeredUser.educationList.index') }}">
             <li
                 class="mt-2 mb-2 block {{ request()->routeIs('registeredUser.educationList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
@@ -45,7 +47,7 @@
         </a>
     @endif
 
-    @if (is_array(registeredUser()->category) && in_array(hospitalityCategories()?->first()?->mainCategory?->title_en, registeredUser()->category))
+    @if (is_array($registeredUser->category) && in_array(hospitalityCategories()?->first()?->mainCategory?->title_en, $registeredUser->category))
 
         <a href="{{ route('registeredUser.hospitalityList.index') }}">
             <li
