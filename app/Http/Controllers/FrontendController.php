@@ -97,6 +97,11 @@ class FrontendController extends BaseController
             ->get();
         return view('frontend.news.detail', compact('newsList', 'relatedNews'));
     }
+    public function newsList()
+    {
+        $news = News::orderBy('publish_date')->get();
+        return view('frontend.news.newsList', compact('news'));
+    }
 
     public function healthcareIndex()
     {

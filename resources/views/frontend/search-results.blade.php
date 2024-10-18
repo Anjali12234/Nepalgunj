@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <div class=" sm:pl-20 sm:pr-30 min-h-screen m-10">
+    <div class=" sm:pl-20 sm:pr-30 min-h-screen mt-10">
         <div>
             @if (isset($message))
                 <p>{{ $message }}</p>
@@ -37,17 +37,48 @@
 
                             <!-- Dynamically display the category title if it exists for various categories -->
                             @if($result->propertyCategory)
-                                <p class="text-gray-800 text-lg font-bold">{{ $result->propertyCategory->title_en }}</p>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb flex text-green-900 text-sm gap-1">
+                                        <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a>></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('propertyDetails', $result->slug) }}">propertyCategory</a>></li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{ $result->propertyCategory->title_en }}</li>
+                                    </ol>
+                                </nav>
                             @elseif($result->healthCareCategory)
-                                <p class="text-gray-800 text-lg font-bold">{{ $result->healthCareCategory->title_en }}</p>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb flex text-green-900 text-sm gap-1">
+                                        <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a>></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('healthcare.detailPage', $result->slug) }}">educationCategory</a>></li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{ $result->healthCareCategory->title_en }}</li>
+                                    </ol>
+                                </nav>
                             @elseif($result->educationCategory)
-                                <p class="text-gray-800 text-lg font-bold">{{ $result->educationCategory->title_en }}</p>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb flex text-green-900 text-sm gap-1">
+                                        <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a>></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('education.detailPage',$result->slug) }}">educationCategory</a>></li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{ $result->educationCategory->title_en }}</li>
+                                    </ol>
+                                </nav>
                             @elseif($result->hospitalityCategory)
-                                <p class="text-gray-800 text-lg font-bold">{{ $result->hospitalityCategory->title_en }}</p>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb flex text-green-900 text-sm gap-1">
+                                        <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a>></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('hospitality.hospitalityDetail',$result->slug) }}">hospitalityCategory</a>></li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{ $result->hospitalityCategory->title_en }}</li>
+                                    </ol>
+                                </nav>
                             @elseif($result->newsCategory)
-                                <p class="text-gray-800 text-lg font-bold">{{ $result->newsCategory->title }}</p>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb flex text-green-900 text-sm gap-1">
+                                        <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a>></li>
+                                        <li class="breadcrumb-item"><a href="{{route('newsList')}}">News</a>></li>
+                                        <li class="breadcrumb-item active" aria-current="page">{{ $result->newsCategory->title }}</li>
+                                    </ol>
+                                </nav>
                             @else
-                                <p class="text-gray-600 text-sm">No category available</p>
+
+                            <p class="text-gray-600 text-sm">No category available</p>
                             @endif
 
                             <!-- Display image and description -->

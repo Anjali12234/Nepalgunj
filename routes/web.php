@@ -17,6 +17,8 @@ Route::controller(FrontendController::class)->group(function () {
     // Route::get('propertyList/{propertyList->registeredUser:name}', 'registeredUser')->name('registeredUser');
     // Route::get('propertyList/{registeredUser:name}', 'registeredUser')->name('registeredUsers');
 
+    Route::get('newsList','newsList')->name('newsList');
+
     Route::get('newsList/{newsList:slug}', 'newsDetail')->name('newsDetail');
     Route::get('healthCare','healthcareIndex')->name('healthcareIndex');
     Route::get('healthCareList/{healthCareList:slug}','detailPage')->name('healthcare.detailPage');
