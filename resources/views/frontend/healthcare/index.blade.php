@@ -11,26 +11,24 @@
                         <!-- Item 1 -->
                         @foreach ($healthCares as $healthCare)
                             @foreach ( $healthCare->healthCareLists as $healthCareList )
-                                
-                        
-                        
-                        <div class="hs-carousel-slide">
-                            <div class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
-                                style="background-image: url('{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}">
-                                <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
-                                    <span class="block text-white">{{ $healthCareList->name }}</span>
-                                    <span class="block text-white text-lg md:text-3xl">Rewriting sport's playbook for
+                                <div class="hs-carousel-slide">
+                                    <div
+                                        class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
+                                        style="background-image: url('{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}">
+                                        <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
+                                            <span class="block text-white">{{ $healthCareList->name }}</span>
+                                            <span class="block text-white text-lg md:text-3xl">Rewriting sport's playbook for
                                         billions of athletes</span>
-                                    <div class="mt-5">
-                                        <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-white text-black hover:bg-gray-100 focus:outline-none"
-                                            href="#">
-                                            Read Case Studies
-                                        </a>
+                                            <div class="mt-5">
+                                                <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-white text-black hover:bg-gray-100 focus:outline-none"
+                                                   href="#">
+                                                    Read Case Studies
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        @endforeach
+                            @endforeach
                         @endforeach
                         <!-- End Item 1 -->
 
@@ -75,25 +73,25 @@
 
                 <!-- Arrows -->
                 <button type="button"
-                    class="hs-carousel-prev absolute inset-y-0 left-0 flex justify-center items-center w-12 h-full text-black hover:bg-white/20 rounded-l-2xl focus:outline-none">
+                        class="hs-carousel-prev absolute inset-y-0 left-0 flex justify-center items-center w-12 h-full text-black hover:bg-white/20 rounded-l-2xl focus:outline-none">
                     <span class="text-2xl" aria-hidden="true">
                         <!-- Left Arrow SVG -->
                         <svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
                     </span>
                     <span class="sr-only">Previous</span>
                 </button>
 
                 <button type="button"
-                    class="hs-carousel-next absolute inset-y-0 right-0 flex justify-center items-center w-12 h-full text-black hover:bg-white/20 rounded-r-2xl focus:outline-none">
+                        class="hs-carousel-next absolute inset-y-0 right-0 flex justify-center items-center w-12 h-full text-black hover:bg-white/20 rounded-r-2xl focus:outline-none">
                     <span class="sr-only">Next</span>
                     <span class="text-2xl" aria-hidden="true">
                         <!-- Right Arrow SVG -->
                         <svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
                     </span>
                 </button>
@@ -104,7 +102,7 @@
 
         @forelse ($healthCares as $healthCare)
             <div class="px-4 py-4 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-                <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+                <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14" data-aos="fade-down" data-aos-duration="2000">
                     <h2 class="text-2xl font-bold md:text-4xl md:leading-tight"> Featured {{ $healthCare->title_en }}
                     </h2>
                     @if ($healthCare->type == 'Doctor')
@@ -123,14 +121,16 @@
                 </div>
 
                 <!-- Grid Container -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-down"
+                     data-aos-duration="2000">
                     @if ($healthCare->type == 'Doctor')
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                                href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                    <img
+                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -139,10 +139,10 @@
                                 <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 ">
                                     Learn more
                                     <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
+                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
                                         <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" />
+                                              stroke-width="2"/>
                                     </svg>
                                 </p>
                             </a>
@@ -152,14 +152,16 @@
                         @endforelse
                     @endif
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-down"
+                     data-aos-duration="2000">
                     @if ($healthCare->type == 'Hospital')
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                                href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                    <img
+                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -168,10 +170,10 @@
                                 <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 ">
                                     Learn more
                                     <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
+                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
                                         <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" />
+                                              stroke-width="2"/>
                                     </svg>
                                 </p>
                             </a>
@@ -181,14 +183,16 @@
                         @endforelse
                     @endif
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-down"
+                     data-aos-duration="2000">
                     @if ($healthCare->type == 'Medical')
                         @forelse ($healthCare->healthCareLists as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                                href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                    <img
+                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -197,10 +201,10 @@
                                 <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 ">
                                     Learn more
                                     <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
+                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
                                         <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" />
+                                              stroke-width="2"/>
                                     </svg>
                                 </p>
                             </a>
@@ -210,14 +214,16 @@
                         @endforelse
                     @endif
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-down"
+                     data-aos-duration="2000">
                     @if ($healthCare->type == 'Pharmacy')
                         @forelse ($healthCare->healthCareLists as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                                href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                    <img
+                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -226,10 +232,10 @@
                                 <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 ">
                                     Learn more
                                     <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
+                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor">
                                         <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" />
+                                              stroke-width="2"/>
                                     </svg>
                                 </p>
                             </a>
@@ -243,14 +249,14 @@
                 <!-- View More Button -->
                 <div class="flex justify-center items-center text-center mt-4">
                     <a href="{{ route('healthCare', $healthCare) }}"
-                        class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View
+                       class="text-center bg-black text-white px-8 py-3 rounded-full hover:text-orange-300">View
                         More</a>
                 </div>
             </div>
-            @empty
+        @empty
             <p>No data found!!</p>
         @endforelse
-        
+
     </div>
 
 </x-guest-layout>

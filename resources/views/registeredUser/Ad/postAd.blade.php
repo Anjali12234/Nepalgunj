@@ -7,70 +7,79 @@
                 <div class="border-b border-gray-200 dark:border-neutral-700">
                     <nav class="flex flex-wrap gap-x-8 lg:gap-x-14 ml-0 " aria-label="Tabs" role="tablist">
 
-                        <div>
-                            @if (is_array($registeredUser->category) &&
-                                    in_array(propertyCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
-                             <button type="button"
-                             class="tab-button hs-tab-active:font-semibold hs-tab-active:border-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                             id="tabs-with-underline-item-1" aria-selected="true"
-                             data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1"
-                             role="tab">
-                             <i class="ti ti-building text-4xl"></i>
-                             <span class="block">{{ propertyCategories()->first()?->mainCategory?->title_en }}</span>
-                         </button>
-
-
-                            @endif
-                        </div>
-                        <div>
-                            @if (is_array($registeredUser->category) &&
-                                    in_array(healthCareCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                        @if (is_array($registeredUser->category) &&
+                                in_array(propertyCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                            <div>
                                 <button type="button"
-                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                                    id="tabs-with-underline-item-1" aria-selected="true"
-                                    data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2"
-                                    role="tab">
+                                        class="tab-button hs-tab-active:font-semibold hs-tab-active:border-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                                        id="tabs-with-underline-item-1" aria-selected="true"
+                                        data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1"
+                                        role="tab">
+                                    <i class="ti ti-building text-4xl"></i>
+                                    <span
+                                        class="block">{{ propertyCategories()->first()?->mainCategory?->title_en }}</span>
+                                </button>
+
+
+                            </div>
+                        @endif
+                        @if (is_array($registeredUser->category) &&
+                                in_array(healthCareCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                            <div>
+                                <button type="button"
+                                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                                        id="tabs-with-underline-item-1" aria-selected="true"
+                                        data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2"
+                                        role="tab">
                                     <i class="ti ti-first-aid-kit text-4xl"></i>
                                     <span
                                         class="block">{{ healthCareCategories()->first()?->mainCategory?->title_en }}</span>
                                 </button>
-                            @endif
-                        </div>
-                        <div>
-                            @if (is_array($registeredUser->category) &&
-                                    in_array(educationCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                            </div>
+                        @endif
+                        @if (is_array($registeredUser->category) &&
+                                in_array(educationCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                            <div>
 
                                 <button type="button"
-                                class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                                id="tabs-with-underline-item-3" aria-selected="true" data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3" role="tab">
-                                <i class="ti ti-school text-4xl"></i>
-                                <span class="block">{{ educationCategories()->first()?->mainCategory?->title_en }}</span>
-                            </button>
-                            @endif
-                        </div>
-                        <div>
-                            @if (is_array($registeredUser->category) &&
-                                    in_array(hospitalityCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                                        id="tabs-with-underline-item-3" aria-selected="true"
+                                        data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3"
+                                        role="tab">
+                                    <i class="ti ti-school text-4xl"></i>
+                                    <span
+                                        class="block">{{ educationCategories()->first()?->mainCategory?->title_en }}</span>
+                                </button>
+                            </div>
+                        @endif
+                        @if (is_array($registeredUser->category) &&
+                                in_array(hospitalityCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                            <div>
                                 <button type="button"
-                                class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                                id="tabs-with-underline-item-4" aria-selected="true" data-hs-tab="#tabs-with-underline-4" aria-controls="tabs-with-underline-4" role="tab">
-                                <i class="ti ti-hotel-service text-4xl"></i>
-                                <span class="block">{{ hospitalityCategories()->first()?->mainCategory?->title_en }}</span>
-                            </button>
-                            @endif
-                        </div>
-                        <div>
-                            @if (is_array($registeredUser->category) &&
-                                    in_array(jobCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                                        id="tabs-with-underline-item-4" aria-selected="true"
+                                        data-hs-tab="#tabs-with-underline-4" aria-controls="tabs-with-underline-4"
+                                        role="tab">
+                                    <i class="ti ti-hotel-service text-4xl"></i>
+                                    <span
+                                        class="block">{{ hospitalityCategories()->first()?->mainCategory?->title_en }}</span>
+                                </button>
+                            </div>
+                        @endif
+                        @if (is_array($registeredUser->category) &&
+                                in_array(jobCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                            <div>
 
                                 <button type="button"
-                                class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                                id="tabs-with-underline-item-5" aria-selected="true" data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-5" role="tab">
-                                <i class="ti ti-hotel-service text-4xl"></i>
-                                <span class="block">{{ jobCategories()->first()?->mainCategory?->title_en }}</span>
-                            </button>
-                            @endif
-                        </div>
+                                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                                        id="tabs-with-underline-item-5" aria-selected="true"
+                                        data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-5"
+                                        role="tab">
+                                    <i class="ti ti-hotel-service text-4xl"></i>
+                                    <span class="block">{{ jobCategories()->first()?->mainCategory?->title_en }}</span>
+                                </button>
+                            </div>
+                        @endif
 
                     </nav>
                 </div>
@@ -96,7 +105,7 @@
                     @if (is_array($registeredUser->category) &&
                             in_array(healthCareCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                         <div id="tabs-with-underline-2" class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}"
-                            role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
+                             role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
                             <ul>
                                 @foreach ($sharedCategory as $mainCategory)
                                     @foreach ($mainCategory->healthCareCategories as $healthCareCategory)
@@ -116,7 +125,7 @@
                     @if (is_array($registeredUser->category) &&
                             in_array(educationCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                         <div id="tabs-with-underline-3" class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}"
-                            role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                             role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
                             <ul>
                                 @foreach ($sharedCategory as $mainCategory)
                                     @foreach ($mainCategory->educationCategories as $educationCategory)
@@ -135,8 +144,8 @@
                     @if (is_array($registeredUser->category) &&
                             in_array(hospitalityCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                         <div id="tabs-with-underline-4"
-                            class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}" role="tabpanel"
-                            aria-labelledby="tabs-with-underline-item-4">
+                             class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}" role="tabpanel"
+                             aria-labelledby="tabs-with-underline-item-4">
                             <ul>
                                 @foreach ($sharedCategory as $mainCategory)
                                     @foreach ($mainCategory->hospitalityCategories as $hospitalityCategory)
@@ -155,8 +164,8 @@
                     @if (is_array($registeredUser->category) &&
                             in_array(jobCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                         <div id="tabs-with-underline-5"
-                            class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}" role="tabpanel"
-                            aria-labelledby="tabs-with-underline-item-5">
+                             class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}" role="tabpanel"
+                             aria-labelledby="tabs-with-underline-item-5">
                             <ul>
                                 @foreach ($sharedCategory as $mainCategory)
                                     @foreach ($mainCategory->jobCategories as $jobCategory)
@@ -197,16 +206,16 @@
     @include('frontend.layout.footer')
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Function to handle tab switching
             function switchTab(tabId) {
                 // Hide all tab content
-                document.querySelectorAll('[role="tabpanel"]').forEach(function(tabPanel) {
+                document.querySelectorAll('[role="tabpanel"]').forEach(function (tabPanel) {
                     tabPanel.classList.add('hidden');
                 });
 
                 // Set all tabs as unselected
-                document.querySelectorAll('[role="tab"]').forEach(function(tab) {
+                document.querySelectorAll('[role="tab"]').forEach(function (tab) {
                     tab.setAttribute('aria-selected', 'false');
                 });
 
@@ -215,8 +224,8 @@
             }
 
             // Add click event listeners to each tab button
-            document.querySelectorAll('[role="tab"]').forEach(function(tabButton) {
-                tabButton.addEventListener('click', function() {
+            document.querySelectorAll('[role="tab"]').forEach(function (tabButton) {
+                tabButton.addEventListener('click', function () {
                     const targetTab = tabButton.getAttribute('data-hs-tab');
                     switchTab(targetTab);
 

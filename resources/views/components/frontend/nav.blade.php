@@ -114,22 +114,22 @@
                     </a>
                     <ul
                         class='absolute shadow-lg bg-white space-y-3 lg:top-12 max-lg:top-8 -left-6 min-w-[250px] z-50 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500'>
-                        <li class='border-b py-2 '><a href='javascript:void(0)'
+                        <li class='border-b py-2 '><a href='{{ route('newsList') }}'
                                 class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>News</a>
                         </li>
-                        <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Organizations</a>
-                        </li>
-                        <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Showrooms</a>
-                        </li>
-                        <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Constructions</a>
-                        </li>
-                        <li class='border-b py-2 '><a href='javascript:void(0)'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Other
-                                Business</a>
-                        </li>
+{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
+{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Organizations</a>--}}
+{{--                        </li>--}}
+{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
+{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Showrooms</a>--}}
+{{--                        </li>--}}
+{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
+{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Constructions</a>--}}
+{{--                        </li>--}}
+{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
+{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Other--}}
+{{--                                Business</a>--}}
+{{--                        </li>--}}
 
                     </ul>
                 </li>
