@@ -11,7 +11,7 @@
 
             <x-frontend.forms.input-type-field :value="old('username')" label="Username" id="username" name="username" labelClass="w-48"
                 type="text" />
-            <x-frontend.forms.input-type-field :value="old('email')" label="Email Address" id="email" name="email" labelClass="w-48"
+            <x-frontend.forms.input-type-field :value="old('email')"   label="Email Address" id="email" name="email" labelClass="w-48"
                 type="email" />
 
             <x-frontend.forms.input-type-field :value="old('phone_no')" label="Phone No" id="phone_no" name="phone_no" labelClass="w-48"

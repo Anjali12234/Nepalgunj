@@ -11,7 +11,8 @@ class DashboardController extends BaseController
 {
     public function __invoke()
     {
-        return view('registeredUser.dashboard');
+        $registeredUser = auth('registered-user')->user();
+        return view('registeredUser.dashboard',compact('registeredUser'));
 
     }
 

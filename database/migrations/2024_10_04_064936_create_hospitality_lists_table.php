@@ -19,13 +19,13 @@ return new class extends Migration
             $table->string('slug');
             $table->string('position');
             $table->longText('details');
-            $table->string('youtube_link');
-            $table->text('map_url');
-            $table->string('facebook_url');
+            $table->string('youtube_link')->nullable();
+            $table->text('map_url')->nullable();
+            $table->string('facebook_url')->nullable();
             $table->string('whats_app_no');
             $table->string('image')->nullable();
             $table->boolean('status')->default(0);
-            $table->string('website_url');
+            $table->string('website_url')->nullable();
             $table->text('opening_time')->nullable();
             $table->string('address');
             $table->string('name');
@@ -38,7 +38,7 @@ return new class extends Migration
             $table->decimal('price_per_night', 8, 2)->nullable();  // Price per night for hotels
             $table->decimal('average_meal_price', 8, 2)->nullable();  // Avg meal price for restaurants
             $table->string('menu')->nullable();  // Store restaurant/cafe menu
-            $table->string('parking_available');
+            $table->string('parking_available')->nullable();
             $table->string('delivery_available');  // For restaurants
             $table->timestamps();
         });

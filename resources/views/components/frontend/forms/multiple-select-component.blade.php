@@ -1,9 +1,9 @@
-@props(['label', 'name', 'id' => '', 'value' => [], 'options' => [], 'class' => '', 'labelClass' => ''])
+@props(['label', 'name', 'id' => '', 'value' => [], 'options' => [], 'class' => '', 'labelClass' => '', 'spanClass' => '',])
 
 <div class="block lg:flex items-center mb-3">
     <label for="{{ $id }}" class="text-gray-900 {{ $labelClass }} flex items-center">
         <span>{{ $label }}</span>
-        <span class="text-xl text-gray-400 ml-1">*</span>
+        <span class="text-xl {{$spanClass}} ml-1">*</span>
     </label>
     <select multiple name="{{ $name }}"
         data-hs-select='{
