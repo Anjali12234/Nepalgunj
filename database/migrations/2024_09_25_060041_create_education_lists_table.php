@@ -20,13 +20,13 @@ return new class extends Migration
             $table->longText('description');
             $table->string('program');
             $table->string('email');
-            $table->string('facebook_url');
-            $table->string('website_url');
-            $table->string('tiktok_url');
+            $table->string('facebook_url')->nullable();
+            $table->string('website_url')->nullable();
+            $table->string('tiktok_url')->nullable();
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
-            $table->string('youtube_url');
-            $table->longText('map_url');
+            $table->string('youtube_url')->nullable();
+            $table->longText('map_url')->nullable();
             $table->string('whats_app_no');
             $table->string('reference_no')->nullable();
             $table->string('slug');
