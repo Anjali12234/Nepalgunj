@@ -97,9 +97,11 @@
 
                     <div class="w-full md:w-1/2">
                         <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mt-8">Map</h2>
-                        <iframe src="{{ $healthCareList->map_url ?? '' }}" width="100%" height="350"
-                                style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <p class="font-semibold">{{ $healthCareList->address }}</p>
+
+                        <div>
+                            {!!  $healthCareList->map_url !!}
+                        </div>
                     </div>
                 </div>
             </div>

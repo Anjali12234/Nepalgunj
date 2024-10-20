@@ -159,7 +159,7 @@
                             <p class="text-gray-700"><strong>Address:</strong> {{$hospitalityList->address}}</p>
                             <p class="text-gray-700"><strong>Phone:</strong> {{$hospitalityList->contact_number}}</p>
                             <p class="text-gray-700"><strong>Email:</strong> {{$hospitalityList->email}}</p>
-                            <p class="text-gray-700"><strong>Website:</strong> {{$hospitalityList->website_url}}</p>
+                            <p class="text-gray-700"><strong>Website:</strong><a class="hover:text-blue-600" target="_blank" href="{{ $hospitalityList->website_url }}"> {{ $hospitalityList->website_url }}</a></p>
                         </div>
                     </div>
 
@@ -176,9 +176,8 @@
                 <!-- Google Maps Section -->
                 <div class="mt-12">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">Location</h2>
-                    {{--                    <iframe class="w-full h-96 rounded-lg shadow-md"--}}
-                    {{--                        src="{{$hospitalityList->map_url}}"--}}
-                    {{--                        allowfullscreen="" loading="lazy"></iframe>--}}
+                    <p class="font-semibold">{{ $hospitalityList->address }}</p>
+
                     <div>
                         {!!  $hospitalityList->map_url !!}
                     </div>

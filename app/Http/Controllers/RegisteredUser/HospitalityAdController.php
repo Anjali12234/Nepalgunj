@@ -22,7 +22,7 @@ class HospitalityAdController extends BaseController
         $mainCategories = MainCategory::with(['hospitalityCategories.hospitalityLists' => function ($query) use ($registeredUser) {
             $query->where('registered_user_id', $registeredUser->id);
         }])->get();
-        return view('registeredUser.hospitalityAd.index', compact('mainCategories'));
+        return view('registeredUser.hospitalityAd.index', compact('mainCategories','registeredUser'));
     }
 
     public function create(HospitalityCategory $hospitalityCategory)
@@ -32,12 +32,12 @@ class HospitalityAdController extends BaseController
 
     public function store(StoreHospitalityListRequest $request, HospitalityCategory $hospitalityCategory)
     {
-        
+
         $hospitalityList = HospitalityList::create(
             $request->validated() + [
                 'hospitality_category_id' => $hospitalityCategory->id,
                 'registered_user_id' => Auth::guard('registered-user')->user()->id,
-               
+
             ]
         );
 
@@ -91,5 +91,5 @@ class HospitalityAdController extends BaseController
         return back();
     }
 
-  
+
 }

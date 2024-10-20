@@ -59,44 +59,44 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Hospital Name" id="name"
+                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" labelClass="w-36" label="Hospital Name" id="name"
                                 name="name" type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" labelClass="w-36" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" labelClass="w-36" label="Email" id="email"
                                 name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="OPD Schedules"
+                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" labelClass="w-36" label="OPD Schedules"
                                 id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Hospital Address" id="address"
+                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" labelClass="w-36" label="Hospital Address" id="address"
                                 name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
+                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" labelClass="w-36" label="Details" id="editor"
                                 name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
+                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" labelClass="w-36" label="YouTube Link" spanClass="text-white" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" labelClass="w-36" label="Map Url" spanClass="text-white" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
+                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" labelClass="w-36" label="Twitter Url" spanClass="text-white" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" labelClass="w-36" label="Website Url" spanClass="text-white" id="website_url"
                                 name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
+                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" labelClass="w-36" label="Facebook Url" spanClass="text-white" id="facebook_url"
                                 name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36" label="Whats App Number" id="whats_app_no"
                                 name="whats_app_no" type="number" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.file-component label="Hospital Image Of All Side" id="files"
+                            <x-frontend.forms.file-component labelClass="w-36" label="Hospital Image Of All Side" id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
                         </div>
@@ -115,47 +115,47 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Doctor Name" id="name"
+                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" labelClass="w-36" label="Doctor Name" id="name"
                                 name="name" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('department', $healthCareList->department)" label="Department" id="department"
+                            <x-frontend.forms.input-type-field :value="old('department', $healthCareList->department)" labelClass="w-36" label="Department" id="department"
                                 name="department" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" labelClass="w-36" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" labelClass="w-36" label="Email" id="email"
                                 name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('n_m_c_no', $healthCareList->n_m_c_no)" label="NMC No" id="n_m_c_no"
+                            <x-frontend.forms.input-type-field :value="old('n_m_c_no', $healthCareList->n_m_c_no)" labelClass="w-36" label="NMC No" id="n_m_c_no"
                                 name="n_m_c_no" type="number" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('qualification', $healthCareList->qualification)" label="Qualification" id="qualification"
+                            <x-frontend.forms.input-type-field :value="old('qualification', $healthCareList->qualification)" labelClass="w-36" label="Qualification" id="qualification"
                                 name="qualification" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="OPD Schedule" id="o_p_d_schedule"
+                            <x-frontend.forms.input-type-field :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" labelClass="w-36" label="OPD Schedule" id="o_p_d_schedule"
                                 name="o_p_d_schedule" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Clinic Address" id="address"
+                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" labelClass="w-36" label="Clinic Address" id="address"
                                 name="address" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
+                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" labelClass="w-36" label="Details" id="editor"
                                 name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
+                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" labelClass="w-36" label="YouTube Link" spanClass="text-white" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" labelClass="w-36" label="Map Url" spanClass="text-white" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
+                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" labelClass="w-36" label="Twitter Url" spanClass="text-white" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" labelClass="w-36" label="Website Url" spanClass="text-white" id="website_url"
                                 name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
+                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" labelClass="w-36" label="Facebook Url" spanClass="text-white" id="facebook_url"
                                 name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36" label="Whats App Number" id="whats_app_no"
                                 name="whats_app_no" type="number" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.file-component label="Image Of Doctor" id="files" name="files[]"
+                            <x-frontend.forms.file-component labelClass="w-36" label="Image Of Doctor" id="files" name="files[]"
                                 type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
                         </div>
@@ -174,45 +174,45 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Medical Name" id="name"
+                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" labelClass="w-36" label="Medical Name" id="name"
                                 name="name" type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" labelClass="w-36" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" labelClass="w-36" label="Email" id="email"
                                 name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="Opening Time"
+                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" labelClass="w-36" label="Opening Time"
                                 id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Medical Address" id="address"
+                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" labelClass="w-36" label="Medical Address" id="address"
                                 name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
+                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" labelClass="w-36" label="Details" id="editor"
                                 name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
+                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" labelClass="w-36" label="YouTube Link" spanClass="text-white" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" labelClass="w-36" label="Map Url" spanClass="text-white" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
+                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" labelClass="w-36" label="Twitter Url" spanClass="text-white" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" labelClass="w-36" label="Website Url" spanClass="text-white"  id="website_url"
                                 name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
+                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" labelClass="w-36" label="Facebook Url" spanClass="text-white" id="facebook_url"
                                 name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36" label="Whats App Number" id="whats_app_no"
                                 name="whats_app_no" type="number" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.file-component label="Medical Image Of All Side" id="files"
+                            <x-frontend.forms.file-component labelClass="w-36" label="Medical Image Of All Side" id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
                         </div>
@@ -231,45 +231,45 @@
                     <div class="block md:grid grid-cols-4 pr-16">
                         <div class="col-span-2 mr-6">
 
-                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" label="Pharmacy Name" id="name"
+                            <x-frontend.forms.input-type-field :value="old('name', $healthCareList->name)" labelClass="w-36" label="Pharmacy Name" id="name"
                                 name="name" type="text" class="text-sm font-semibold" />
 
 
-                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" label="Contact No" id="contact_number"
+                            <x-frontend.forms.input-type-field :value="old('contact_number', $healthCareList->contact_number)" labelClass="w-36" label="Contact No" id="contact_number"
                                 name="contact_number" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" label="Email" id="email"
+                            <x-frontend.forms.input-type-field :value="old('email', $healthCareList->email)" labelClass="w-36" label="Email" id="email"
                                 name="email" type="email" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" label="Opening Time"
+                            <x-frontend.forms.text-area-component :value="old('o_p_d_schedule', $healthCareList->o_p_d_schedule)" labelClass="w-36" label="Opening Time"
                                 id="o_p_d_schedule" name="o_p_d_schedule" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" label="Pharmacy Address" id="address"
+                            <x-frontend.forms.input-type-field :value="old('address', $healthCareList->address)" labelClass="w-36" label="Pharmacy Address" id="address"
                                 name="address" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" label="Details" id="editor"
+                            <x-frontend.forms.text-area-component :value="old('details', $healthCareList->details)" labelClass="w-36" label="Details" id="editor"
                                 name="details" class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-2">
 
-                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" label="YouTub Link" id="youtube_link"
+                            <x-frontend.forms.input-type-field :value="old('youtube_link', $healthCareList->youtube_link)" labelClass="w-36" label="YouTube Link" spanClass="text-white" id="youtube_link"
                                 name="youtube_link" type="text" class="text-sm font-semibold"
                                 {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" label="Map Url" id="map_url"
+                            <x-frontend.forms.text-area-component :value="old('map_url', $healthCareList->map_url)" labelClass="w-36" label="Map Url" spanClass="text-white" id="map_url"
                                 name="map_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" label="Twitter Url" id="twitter_url"
+                            <x-frontend.forms.input-type-field :value="old('twitter_url', $healthCareList->twitter_url)" labelClass="w-36" label="Twitter Url" spanClass="text-white" id="twitter_url"
                                 name="twitter_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" label="Website Url" id="website_url"
+                            <x-frontend.forms.input-type-field :value="old('website_url', $healthCareList->website_url)" labelClass="w-36" label="Website Url" spanClass="text-white" id="website_url"
                                 name="website_url" type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
-                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" label="Facebook Url" id="facebook_url"
+                            <x-frontend.forms.input-type-field :value="old('facebook_url', $healthCareList->facebook_url)" labelClass="w-36" label="Facebook Url" spanClass="text-white" id="facebook_url"
                                 name="facebook_url" type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" label="Whats App" id="whats_app_no"
+                            <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36" label="Whats App Number" id="whats_app_no"
                                 name="whats_app_no" type="number" class="text-sm font-semibold" />
 
-                            <x-frontend.forms.file-component label="Pharmacy Image Of All Side" id="files"
+                            <x-frontend.forms.file-component labelClass="w-36" label="Pharmacy Image Of All Side" id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
                         </div>

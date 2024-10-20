@@ -20,7 +20,7 @@ class EducationAdController extends BaseController
         $mainCategories = MainCategory::with(['educationCategories.educationLists' => function ($query) use ($registeredUser) {
             $query->where('registered_user_id', $registeredUser->id);
         }])->get();
-        return view('registeredUser.educationAd.index', compact('mainCategories'));
+        return view('registeredUser.educationAd.index', compact('mainCategories','registeredUser'));
     }
 
     public function create(EducationCategory $educationCategory)
