@@ -19,7 +19,7 @@ class PropertyAdController extends BaseController
         $mainCategories = MainCategory::with(['propertyCategories.propertyLists' => function ($query) use ($registeredUser) {
             $query->where('registered_user_id', $registeredUser->id);
         }])->get();
-        return view('registeredUser.propertyAd.index', compact('mainCategories'));
+        return view('registeredUser.propertyAd.index', compact('mainCategories','registeredUser'));
     }
 
     public function create(PropertyCategory $propertyCategory)

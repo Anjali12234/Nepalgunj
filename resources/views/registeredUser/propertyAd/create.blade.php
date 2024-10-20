@@ -168,7 +168,6 @@
                         </div>
                         <div class="col-span-2">
 
-
                             <x-frontend.forms.input-type-field label="Square Feet" id="area" name="area" labelClass="w-36"
                                                                type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field label="Address" id="address" name="address" type="text" labelClass="w-36"
