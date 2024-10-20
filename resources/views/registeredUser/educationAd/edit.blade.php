@@ -81,15 +81,16 @@
                             <x-frontend.forms.input-type-field :value="old('program', $educationList->program)" labelClass="w-36" label="Program" id="program" name="program"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
-                            <x-frontend.forms.input-type-field :value="old('map_url', $educationList->map_url)" labelClass="w-36" label="Map Url" id="map_url" name="map_url" type="text"
-                                class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.text-area-component :value="old('map_url', $educationList->map_url)" label="Map Url" id="map_url"
+                                                                  name="map_url" labelClass="w-36"
+                                                                  class="text-sm font-semibold"/>
                                 <x-frontend.forms.input-type-field :value="old('tiktok_url', $educationList->tiktok_url)" labelClass="w-36" label="TikTok Url" id="tiktok_url" name="tiktok_url"
                                 type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('youtube_url', $educationList->youtube_url)" labelClass="w-36" label="Youtube Url" id="youtube_url" name="youtube_url"
+                            <x-frontend.forms.input-type-field :value="old('youtube_url', $educationList->youtube_url)" labelClass="w-36" label="Youtube Url" spanClass="text-white" id="youtube_url" name="youtube_url"
                                 type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('facebook_url', $educationList->facebook_url)" labelClass="w-36" label="Facebook Url" id="facebook_url" name="facebook_url"
                                 type="text" class="text-sm font-semibold" />
-                            <x-frontend.forms.input-type-field :value="old('website_url', $educationList->website_url)" labelClass="w-36" label="Website Url" id="website_url" name="website_url"
+                            <x-frontend.forms.input-type-field :value="old('website_url', $educationList->website_url)" labelClass="w-36" label="Website Url" spanClass="text-white" id="website_url" name="website_url"
                                 type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('whats_app_no', $educationList->whats_app_no)" labelClass="w-36" label="Whats App" id="whats_app_no" name="whats_app_no"
                                 type="number" class="text-sm font-semibold" />

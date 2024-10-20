@@ -20,7 +20,7 @@ class HeatlthAdController extends BaseController
         $mainCategories = MainCategory::with(['healthCareCategories.healthCareLists' => function ($query) use ($registeredUser) {
             $query->where('registered_user_id', $registeredUser->id);
         }])->get();
-        return view('registeredUser.healthCareAd.index', compact('mainCategories'));
+        return view('registeredUser.healthCareAd.index', compact('mainCategories','registeredUser'));
     }
 
     public function create(HealthCareCategory $healthCareCategory)
@@ -82,5 +82,5 @@ class HeatlthAdController extends BaseController
         return back();
     }
 
-  
+
 }

@@ -168,16 +168,15 @@
                 <div class="mt-10 lg:mt-8">
                     <p class="text-sm text-gray-500">LOCATION</p>
                     <p class="font-semibold">{{ $propertyList->address }}</p>
-                    <div class="w-full h-64 lg:h-96">
-                        <iframe class="w-full h-full rounded-lg" src="{{ $propertyList->map_url }}" allowfullscreen=""
-                                loading="lazy"></iframe>
-                    </div>
+                        <div>
+                            {!!  $propertyList->map_url !!}
+                        </div>
                 </div>
 
             </div>
         </div>
 
-        <div class="mb-4 mt-4">
+        <div class="mb-4 mt-15">
             <h3 class="text-xl">Similar Properties</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 mb-4">
                 @forelse ($relatedProperties as $propertyList)
