@@ -11,6 +11,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "realrashid/sweet-alert": "^7.2",
+        "remotemerge/esewa-php-sdk": "^3.1",
         "spatie/laravel-permission": "^6.9"
     },
     "require-dev": {

@@ -1,7 +1,26 @@
 @extends('registeredUser.layout.master')
 @section('content')
+
+
     <div class="content px-5  md:px-7 col-span-3 min-h-screen">
-        <h1 class="font-semibold text-3xl">Profile Setting</h1>
+        <h1 class="font-semibold text-2xl">Profile Setting</h1>
+         <!-- Payment Section -->
+         @if ($registeredUser->is_paid)
+         <!-- User has paid, allow them to post an ad -->
+         <h2 class="font-semibold text-2xl mt-5">Post an Ad</h2>
+         <form class="ml-0 md:ml-4 font-[sans-serif] my-3" action="{{ route('registeredUser.ad.post') }}" method="POST">
+             @csrf
+             <!-- Ad Post Form Fields -->
+             <x-frontend.forms.input-type-field label="Ad Title" id="ad_title" name="ad_title" type="text" />
+             <x-frontend.forms.input-type-field label="Ad Description" id="ad_description" name="ad_description" type="textarea" />
+             <button type="submit" class="mt-4 px-6 py-2 bg-[#333] hover:bg-[#444] text-white">Post Ad</button>
+         </form>
+         <a href="{{ route('registeredUser.payment.index') }}">payment</a>
+
+
+     @endif
+
+
         <h1 class="font-semibold text-2xl mt-5">General </h1>
         @if (session('status'))
             <div class="mt-2 flex items-center justify-between p-1 leading-normal text-red-600 bg-red-100 rounded-lg"
