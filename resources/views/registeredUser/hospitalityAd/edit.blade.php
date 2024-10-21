@@ -59,11 +59,11 @@
                     <div class="col-span-2 mr-6">
                         <x-frontend.forms.input-type-field :value="old('name', $hospitalityList->name)"
                             label="{{ $hospitalityList->hospitalityCategory->title_en }} Name" id="name" name="name"
-                            spanClass="text-gray-400" labelClass="w-36" type="text" class="text-sm font-semibold" />
+                             labelClass="w-36" type="text" class="text-sm font-semibold" />
 
 
                         <x-frontend.forms.input-type-field :value="old('contact_number', $hospitalityList->contact_number)" label="Contact No" id="contact_number"
-                            spanClass="text-gray-400" name="contact_number" labelClass="w-36" type="text"
+                             name="contact_number" labelClass="w-36" type="text"
                             class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                         @if ($hospitalityList->hospitalityCategory->type == 'Star Hotels')
@@ -91,31 +91,31 @@
                         @endif
 
                         <x-frontend.forms.input-type-field :value="old('menu', $hospitalityList->menu)" label="Best Menu" id="menu" type="text"
-                            spanClass="text-gray-400" labelClass="w-36" name="menu" class="text-sm font-semibold" />
+                             labelClass="w-36" name="menu" class="text-sm font-semibold" />
                         {{-- <x-frontend.forms.select-type-field :value="old('parking_available', $hospitalityList->parking_available)" label="Parking" id="parking_available"
                             name="parking_available" labelClass="w-36" class="text-sm font-semibold"
                             :options="['include' => 'Include', 'exclude' => 'Exclude']" /> --}}
-                            <x-frontend.forms.select-type-field 
-                            :value="$hospitalityList->parking_available" 
-                            label="Parking" 
+                            <x-frontend.forms.select-type-field
+                            :value="$hospitalityList->parking_available"
+                            label="Parking"
                             id="parking_available"
-                            labelClass="w-36" 
-                            name="parking_available" 
+                            labelClass="w-36"
+                            name="parking_available"
                             class="text-sm font-semibold"
-                            :options="['include' => 'Include', 'exclude' => 'Exclude']" 
+                            :options="['include' => 'Include', 'exclude' => 'Exclude']"
                         />
-                        
+
 
                         <x-frontend.forms.input-type-field :value="old('email', $hospitalityList->email)" label="Email" id="email"
-                            type="text" spanClass="text-gray-400" labelClass="w-36" name="email"
+                            type="text"  labelClass="w-36" name="email"
                             class="text-sm font-semibold" />
 
                         <x-frontend.forms.input-type-field :value="old('address', $hospitalityList->address)"
                             label="{{ $hospitalityList->hospitalityCategory->title_en }} Address" labelClass="w-36"
-                            id="address" spanClass="text-gray-400" name="address" type="text"
+                            id="address"  name="address" type="text"
                             class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                         <x-frontend.forms.input-type-field :value="old('opening_time', $hospitalityList->opening_time)" label=" Opening Time" labelClass="w-36"
-                            spanClass="text-gray-400" id="opening_time" name="opening_time" type="text"
+                             id="opening_time" name="opening_time" type="text"
                             class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
 
@@ -123,24 +123,24 @@
                     <div class="col-span-2">
 
                         <x-frontend.forms.input-type-field :value="old('facilities', $hospitalityList->facilities)" label="Facilities" id="facilities"
-                            spanClass="text-gray-400" name="facilities" labelClass="w-36" type="text"
+                             name="facilities" labelClass="w-36" type="text"
                             class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                         <x-frontend.forms.text-area-component :value="old('map_url', $hospitalityList->map_url)" label="Map Url" id="map_url"
-                            spanClass="text-gray-400" name="map_url" labelClass="w-36" class="text-sm font-semibold" />
+                             name="map_url" labelClass="w-36" class="text-sm font-semibold" />
                         <x-frontend.forms.input-type-field :value="old('website_url', $hospitalityList->website_url)" label="Website Url" id="website_url"
-                            spanClass="text-gray-400" name="website_url" type="text" labelClass="w-36"
+                            spanClass="text-white" name="website_url" type="text" labelClass="w-36"
                             class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                         <x-frontend.forms.input-type-field :value="old('facebook_url', $hospitalityList->facebook_url)" label="Facebook Url" id="facebook_url"
-                            spanClass="text-gray-400" name="facebook_url" labelClass="w-36" type="text"
+                             name="facebook_url" labelClass="w-36" type="text"
                             class="text-sm font-semibold" />
 
                         <x-frontend.forms.input-type-field :value="old('youtube_link', $hospitalityList->youtube_link)" label="Youtube Url" id="youtube_link"
-                            spanClass="text-gray-400" name="youtube_link" labelClass="w-36" type="text"
+                            spanClass="text-white" name="youtube_link" labelClass="w-36" type="text"
                             class="text-sm font-semibold" />
                         <x-frontend.forms.input-type-field :value="old('whats_app_no', $hospitalityList->whats_app_no)" label="Whats App" id="whats_app_no"
-                            spanClass="text-gray-400" name="whats_app_no" labelClass="w-36" type="number"
+                             name="whats_app_no" labelClass="w-36" type="number"
                             class="text-sm font-semibold" />
 
                         <x-frontend.forms.file-component

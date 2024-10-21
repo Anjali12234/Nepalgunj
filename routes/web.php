@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthController;
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
 use App\Http\Controllers\RegisteredUser\PropertyAdController;
@@ -54,3 +55,8 @@ Route::prefix('file')->as('file.')->controller(FileController::class)->group(fun
 });
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/location', function () {
+    return view('welcome');
+});
+
+Route::post('/location', [LocationController::class, 'store'])->name('location.store');
