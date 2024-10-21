@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('payment_method')->nullable();
             $table->boolean('payment_status')->default(1)->nullable();
             $table->string('payment_date')->nullable();
+            
             $table->timestamps();
         });
     }

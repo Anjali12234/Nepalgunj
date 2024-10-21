@@ -24,8 +24,11 @@ Route::resource('profile', RegisteredUserDetailController::class);
 
 Route::get('paymentIndex',[PaymentController::class, 'paymentIndex'])->name('payment.index');
 Route::post('/payment',[PaymentController::class, 'storepayment'])->name('payment');
-Route::get('/sucess',[PaymentController::class, 'success'])->name('payment.success');
+Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+
 Route::get('/failed',[PaymentController::class, 'failed'])->name('payment.failed');
+
+
 
 Route::prefix('properties')->group(function () {
     Route::resource('/propertyList', PropertyAdController::class)->except('store','create');

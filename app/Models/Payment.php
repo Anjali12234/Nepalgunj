@@ -19,4 +19,9 @@ class Payment extends Model
         'payment_status',
         'payment_date',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
