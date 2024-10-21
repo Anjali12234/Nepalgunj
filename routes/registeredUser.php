@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisteredUser\EducationAdController;
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
 use App\Http\Controllers\RegisteredUser\HospitalityAdController;
 use App\Http\Controllers\RegisteredUser\JobAdController;
+use App\Http\Controllers\RegisteredUser\PaymentController;
 use App\Http\Controllers\RegisteredUser\PropertyAdController;
 use App\Http\Controllers\RegisteredUser\RegisteredUserDetailController;
 use App\Http\Controllers\RegisteredUser\TestimonialController;
@@ -20,6 +21,14 @@ Route::put('registeredUser/{registeredUser}/deleteNotification', [RegisteredUser
 Route::get('readAllNotification', [RegisteredUserAuthController::class, 'readAllNotification'])->name('registeredUser.readAllNotification');
 
 Route::resource('profile', RegisteredUserDetailController::class);
+
+Route::get('paymentIndex',[PaymentController::class, 'paymentIndex'])->name('payment.index');
+Route::post('/payment',[PaymentController::class, 'storepayment'])->name('payment');
+Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+
+Route::get('/failed',[PaymentController::class, 'failed'])->name('payment.failed');
+
+
 
 Route::prefix('properties')->group(function () {
     Route::resource('/propertyList', PropertyAdController::class)->except('store','create');
