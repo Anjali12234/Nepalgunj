@@ -24,7 +24,6 @@ class StorePaymentRequest extends FormRequest
         return [
             'amount' => ['required', 'integer'],
             'payment_method' => ['required', 'string'],
-            'payment_date'=>now(),
 
         ];
     }

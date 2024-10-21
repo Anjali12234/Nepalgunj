@@ -22,15 +22,11 @@ class PaymentController extends Controller
     }
     public function storepayment(StorePaymentRequest $request)
     {
-        Payment::create($request->validated() + [
-            'user_id' => Auth::user()->id,
-            'transaction_id' => Str::uuid(),
-        ]);
-
+        $amount = $request->amount;
 
         // Set success and failure callback URLs.
-        $successUrl = 'https://example.com/success.php';
-        $failureUrl = 'https://example.com/failed.php';
+        $successUrl = route('registeredUser.payment.success');
+        $failureUrl = route('registeredUser.payment.failed');
 
         // Initialize eSewa client for development.
         $esewa = new Client([
@@ -39,14 +35,25 @@ class PaymentController extends Controller
             'failure_url' => $failureUrl,
         ]);
 
-        // Initialize eSewa client for production.
-        $esewa = new Client([
-            'merchant_code' => 'b4e...e8c753...2c6e8b',
-            'success_url' => $successUrl,
-            'failure_url' => $failureUrl,
-        ]);
-        return back();
+        // Attempt to process payment
+        $paymentResponse = $esewa->payment(0, $amount, 0, 0, 0);
+
+        if ($paymentResponse->isSuccess()) {
+            // Payment succeeded, now store the data in the database
+            Payment::create($request->validated() + [
+                'user_id' => Auth::id(),
+                'transaction_id' => Str::uuid(),
+                'payment_date' => now(),
+                'payment_status' => 'success' // Mark payment as successful
+            ]);
+
+            return redirect()->route('registeredUser.payment.success');
+        } else {
+            // Payment failed, do not save to the database
+            return redirect()->route('registeredUser.payment.failed')->withErrors(['message' => 'Payment failed. Please try again.']);
+        }
     }
+
 
     public function success()
     {
