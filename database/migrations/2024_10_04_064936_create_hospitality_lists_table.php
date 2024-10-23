@@ -32,6 +32,8 @@ return new class extends Migration
             $table->string('contact_number');
             $table->string('email');
             $table->softDeletes();
+            $table->boolean('is_featured')->default(0);
+
             $table->integer('total_rooms')->nullable();  // For hotels or star hotels
             $table->string('room_types')->nullable();  // Room types
             $table->string('facilities')->nullable();  // Facilities like free Wi-Fi, pool

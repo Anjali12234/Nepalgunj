@@ -4,7 +4,7 @@
         <nav class="py-4">
             <div class="container mx-auto px-4 lg:px-6">
                 <div class="flex justify-between sticky top-0 items-center">
-                    <h1 class="text-lg md:text-xl font-bold text-gray-800">city Hotel</h1>
+                    <h1 class="text-lg md:text-xl font-bold text-gray-800">{{ $hospitalityList->hospitalityCategory->title_en }}</h1>
                     <div class="flex gap-2 md:gap-4">
                         <a href="#" class="text-gray-60 bg-orange-300 rounded-full px-3 py-2 flex justify-center">
                             <i class="ti ti-arrow-left text-lg md:text-xl"></i>
@@ -28,15 +28,6 @@
 
             <!-- Main Content -->
             <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-
-                <!-- Hotel Image -->
-                {{--                <div class="mb-8">--}}
-                {{--                    <img src="https://media.istockphoto.com/id/146765403/photo/a-luxurious-florida-beach-hotel-during-sunrise.jpg?s=2048x2048&w=is&k=20&c=IvfMrAT6rGuIQ5sKj41ovSRdmhvs6WGRpV3VLle6EhA=" alt="Hotel Image" class="w-full h-96 object-cover rounded-lg shadow-md">--}}
-                {{--                --}}
-                {{--                --}}
-                {{--                --}}
-                {{--                </div>--}}
-
                 <style>
                     .carousel-item {
                         display: none;

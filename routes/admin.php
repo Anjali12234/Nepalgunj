@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HealthCareListController;
 use App\Http\Controllers\Admin\HospitalityCategoryController;
 use App\Http\Controllers\Admin\HospitalityListController;
 use App\Http\Controllers\Admin\JobCategoryController;
+use App\Http\Controllers\Admin\JobListController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\NewsCategoryController;
@@ -44,8 +45,8 @@ Route::prefix('subCategory')->group(
 );
 Route::prefix('hospitalityCategory')->group(function () {
     Route::get('hospitalityList', [HospitalityListController::class, 'index'])->name('hospitalityList');
+    Route::put('hospitalityList/{hospitalityList}/isFeatured', [HospitalityListController::class, 'isFeatured'])->name('hospitalityList.isFeatured');
 
-    // Ensure you have the correct model binding and parameter name
     Route::put('hospitalityList/{hospitalityList}/updateStatus', [HospitalityListController::class, 'updateStatus'])
         ->name('hospitalityList.updateStatus');
 });
@@ -53,26 +54,28 @@ Route::prefix('hospitalityCategory')->group(function () {
 Route::prefix('educationCategory')->group(
     function () {
         Route::get('educationList', [EducationListController::class, 'index'])->name('educationList');
-
+        Route::put('educationList/{educationList}/isFeatured', [EducationListController::class, 'isFeatured'])->name('educationList.isFeatured');
         Route::put('educationList/{educationList}/updateStatus', [EducationListController::class, 'updateStatus'])->name('educationList.updateStatus');
-
     }
 );
 Route::prefix('propertyCategory')->group(
     function () {
         Route::get('propertyList', [PropertyListController::class, 'index'])->name('propertyList');
-
         Route::put('propertyList/{propertyList}/updateStatus', [PropertyListController::class, 'updateStatus'])->name('propertyList.updateStatus');
         Route::put('propertyList/{propertyList}/isFeatured', [PropertyListController::class, 'isFeatured'])->name('propertyList.isFeatured');
-
     }
 );
 Route::prefix('healthCareCategory')->group(
     function () {
         Route::get('healthCareList', [HealthCareListController::class, 'index'])->name('healthCareList');
-
+        Route::put('healthCareList/{healthCareList}/isFeatured', [HealthCareListController::class, 'isFeatured'])->name('healthCareList.isFeatured');
         Route::put('healthCareList/{healthCareList}/updateStatus', [HealthCareListController::class, 'updateStatus'])->name('healthCareList.updateStatus');
-
+    }
+);
+Route::prefix('jobCategory')->group(
+    function () {
+        Route::get('jobList', [JobListController::class, 'index'])->name('jobList');
+        Route::put('jobList/{jobList}/updateStatus', [JobListController::class, 'updateStatus'])->name('jobList.updateStatus');
     }
 );
 
@@ -81,7 +84,6 @@ Route::prefix('registerdUser')->group(function () {
     Route::resource('registeredUser', RegisteredUserController::class);
     Route::put('registeredUser/{registeredUser}/updateStatus', [RegisteredUserController::class, 'updateStatus'])->name('registeredUser.updateStatus');
 });
-
 
 Route::resource('permission', PermissionController::class);
 Route::resource('role', RoleController::class);

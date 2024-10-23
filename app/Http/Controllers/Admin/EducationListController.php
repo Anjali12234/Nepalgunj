@@ -27,4 +27,12 @@ class EducationListController extends Controller
         toast( __('Status updated successfully'), 'success');
         return back();
     }
+    public function isFeatured(EducationList $educationList)
+    {
+        $educationList->update([
+            'is_featured' => !$educationList->is_featured
+        ]);
+        toast( __('Status updated successfully'), 'success');
+        return back();
+    }
 }

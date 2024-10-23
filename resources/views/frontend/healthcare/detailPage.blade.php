@@ -24,7 +24,7 @@
                     <!-- Doctor Image -->
                     <div class="w-full md:w-1/2 mb-6 md:mb-0">
                         <img src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
-                             alt="Doctor's Image" class="rounded-lg shadow-md w-full">
+                             alt="Doctor's Image" class="rounded-lg shadow-md w-full h-60 lg:h-[23rem] ">
                     </div>
 
                     <!-- Doctor Info -->

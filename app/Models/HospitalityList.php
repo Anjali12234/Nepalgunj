@@ -34,6 +34,7 @@ class HospitalityList extends Model
         'address',
         'name',
         'contact_number',
+        'is_featured',
         'email',
         'total_rooms',
         'room_types',
@@ -41,7 +42,7 @@ class HospitalityList extends Model
         'price_per_night',
         'average_meal_price',
         'menu',
-        'parking_available',       
+        'parking_available',
         'delivery_available',
     ];
 

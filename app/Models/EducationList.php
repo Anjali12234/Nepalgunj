@@ -30,6 +30,7 @@ class EducationList extends Model
         'youtube_url',
         'latitude',
         'longitude',
+        'is_featured',
         'tiktok_url',
         'website_url',
         'map_url',

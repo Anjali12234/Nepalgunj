@@ -24,4 +24,12 @@ class HospitalityListController extends Controller
         toast( __('Status updated successfully'), 'success');
         return back();
     }
+    public function isFeatured(HospitalityList $hospitalityList)
+    {
+        $hospitalityList->update([
+            'is_featured' => !$hospitalityList->is_featured
+        ]);
+        toast( __('Status updated successfully'), 'success');
+        return back();
+    }
 }

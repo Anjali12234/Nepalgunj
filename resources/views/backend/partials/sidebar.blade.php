@@ -53,7 +53,7 @@
                         <li><a href="{{ route('admin.propertyList') }}">Property List</a></li>
                         <li><a href="{{ route('admin.educationList') }}">Education List</a></li>
                         <li><a href="{{ route('admin.hospitalityList') }}">Hospitality List</a></li>
-                        <li><a href="">Job List</a></li>
+                        <li><a href="{{ route('admin.jobList') }}">Job List</a></li>
                     </ul>
                 </li>
 

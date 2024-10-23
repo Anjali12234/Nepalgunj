@@ -19,8 +19,11 @@ Route::controller(FrontendController::class)->group(function () {
     // Route::get('propertyList/{registeredUser:name}', 'registeredUser')->name('registeredUsers');
 
     Route::get('newsList','newsList')->name('newsList');
-
     Route::get('newsList/{newsList:slug}', 'newsDetail')->name('newsDetail');
+
+    Route::get('jobList','jobList')->name('jobList');
+    Route::get('jobList/{jobList:slug}', 'jobDetail')->name('jobDetail');
+
     Route::get('healthCare','healthcareIndex')->name('healthcareIndex');
     Route::get('healthCareList/{healthCareList:slug}','detailPage')->name('healthcare.detailPage');
     Route::get('healthCare/{healthCare:slug}','listPage')->name('healthCare');

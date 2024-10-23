@@ -68,7 +68,7 @@
                                     </button>
                                 </a>
 
-                                <a href="https://wa.me/?text={{ urlencode(request()->fullUrl()) }}" target="_blank">
+                                <a href="https://wa.me/{{ $newsList->whats_app_no }}?text={{ urlencode(request()->fullUrl()) }}" target="_blank">
                                     <button class="bg-green-600 text-white px-8 py-2 rounded shadow hover:bg-green-500">
                                         <i class="ti ti-brand-whatsapp text-xl"></i> WhatsApp
                                     </button>

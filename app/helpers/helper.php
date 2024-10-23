@@ -7,6 +7,7 @@ use App\Models\HealthCareList;
 use App\Models\HospitalityCategory;
 use App\Models\HospitalityList;
 use App\Models\JobCategory;
+use App\Models\JobList;
 use App\Models\PropertyCategory;
 use App\Models\PropertyList;
 use App\Models\RegisteredUser;
@@ -82,12 +83,16 @@ if (!function_exists('getCounts')) {
         $healthCount = HealthCareList::where('deleted_at', NULL)
             ->where('registered_user_id', $authUserId)
             ->count();
+ $jobCount = JobList::where('deleted_at', NULL)
+            ->where('registered_user_id', $authUserId)
+            ->count();
 
         return [
             'propertyCount' => $propertyCount,
             'educationCount' => $educationCount,
             'hospitalityCount' => $hospitalityCount,
             'healthCount' => $healthCount,
+            'jobCount' => $jobCount,
         ];
     }
 }

@@ -7,6 +7,8 @@ use App\Models\EducationList;
 use App\Models\HealthCareCategory;
 use App\Models\HealthCareList;
 use App\Models\HospitalityList;
+use App\Models\JobCategory;
+use App\Models\JobList;
 use App\Models\MainCategory;
 use App\Models\Menu;
 use App\Models\News;
@@ -16,22 +18,36 @@ use App\Models\HospitalityCategory;
 use App\Models\PropertyList;
 use App\Models\RegisteredUser;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Collection;
 class FrontendController extends BaseController
 {
     public function index()
     {
-        $newsLists = News::with('newsCategory')->where('status', 1)->latest()->get();
+        $newsLists = News::with('newsCategory')->where('status', 1)->orderByDesc('publish_date')->latest()->get();
         $newsCategories = NewsCategory::with('newsLists')->where('status', 1)->latest()->get();
-        return view('frontend.index', compact('newsLists', 'newsCategories'));
+        $properties = PropertyList::with('files')->where('is_featured', 1)->get();
+        $jobLists = JobList::with('jobCategory')->where('status', 1)->latest()->get();
+
+        $healthCareLists = HealthCareList::with('files')->where('is_featured', 1)->get();
+        $educations = EducationList::with('files')->where('is_featured', 1)->get();
+        $hospitalityLists = HospitalityList::with('files')->where('is_featured', 1)->get();
+
+        // Merge all records into one collection
+        $carouselItems = new Collection();
+        $carouselItems = $carouselItems->merge($properties);
+        $carouselItems = $carouselItems->merge($healthCareLists);
+        $carouselItems = $carouselItems->merge($educations);
+        $carouselItems = $carouselItems->merge($hospitalityLists);
+        return view('frontend.index', compact('newsLists', 'newsCategories','properties','carouselItems','jobLists'));
     }
 
     public function postAd()
     {
+        $jobCategories = JobCategory::latest()->get();
         $registeredUser = auth('registered-user')->user();
         if (auth('registered-user')->check()) {
             if ($registeredUser->is_active == 1) {
-                return view('registeredUser.Ad.postAd', compact('registeredUser'));
+                return view('registeredUser.Ad.postAd', compact('registeredUser','jobCategories'));
             } else {
                 return view('authentication');
             }
@@ -101,6 +117,23 @@ class FrontendController extends BaseController
     {
         $news = News::orderBy('publish_date')->get();
         return view('frontend.news.newsList', compact('news'));
+    }
+    public function jobDetail(JobList $jobList)
+    {
+        $jobCategoryId = $jobList->jobCategory->id;
+        $jobList->load('registeredUser.registeredUserDetail');
+        $jobRegisteredUserId = $jobList->registeredUser->id;
+        $relatedjobs = JobList::where('job_category_id', $jobCategoryId)
+            ->where('id', '!=', $jobList->id)
+            ->get();
+        $relatedjobLists = JobList::where('registered_user_id', $jobRegisteredUserId)
+            ->where('id', '!=', $jobList->id)->get();
+        return view('frontend.job.detail', compact('jobList', 'relatedjobs','relatedjobLists'));
+    }
+    public function jobList()
+    {
+        $jobLists = JobList::get();
+        return view('frontend.job.jobList', compact('jobLists'));
     }
 
     public function healthcareIndex()

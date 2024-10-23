@@ -43,23 +43,7 @@
                 @csrf
 
                 <div class="col-md-12 row">
-                    <div class="form-group col-md-6">
-                        <label>Main Category</label>
-                        <select class="custom-select2 form-control" name="main_category_id"
-                            style="width: 100%; height: 38px">
-                            <option value="">Choose Main Category</option>
-                            @foreach ($mainCategories as $mainCategory)
-                                <option value="{{ $mainCategory->id }}">{{ $mainCategory->title_en }}</option>
-                            @endforeach
 
-
-                        </select>
-                        <span class="text-warning">
-                            @error('main_category_id')
-                                {{ $message }}
-                            @enderror
-                        </span>
-                    </div>
                     <div class="form-group col-md-6">
                         <label for="title">Job Category</label>
                         <input class="form-control" id="title" name="title"
@@ -70,8 +54,6 @@
                             @enderror
                         </span>
                     </div>
-
-
 
                 </div>
 
