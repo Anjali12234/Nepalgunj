@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthCont
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
 use App\Http\Controllers\RegisteredUser\PropertyAdController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(FrontendController::class)->group(function () {
@@ -63,3 +64,4 @@ Route::get('/location', function () {
 });
 
 Route::post('/location', [LocationController::class, 'store'])->name('location.store');
+Route::post('upload', [UploadController::class, 'store'])->name('upload');
