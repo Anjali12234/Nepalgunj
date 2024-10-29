@@ -27,7 +27,7 @@
             <ul
                 class='lg:flex gap-x-8 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-full max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-3 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
                 <li class='mb-6 hidden max-lg:block'>
-                    <a href="javascript:void(0)"><img src="{{ setting()->logo2 ?? '' }}" alt="logo"
+                    <a href="{{ route('welcome') }}"><img src="{{ setting()->logo2 ?? '' }}" alt="logo"
                             class='w-12' />
                     </a>
                 </li>
@@ -140,16 +140,16 @@
                 extraClasses="px-5 py-2.5 h-10 mt-2 rounded-lg hidden lg:flex text-white text-sm tracking-wider border border-current gap-3 mr-8"
                 title="Post Ad" />
 
-            <a href="#" class=" py-2  transition-all ease-in-out duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24"
-                    fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                </svg>
-            </a>
+{{--            <a href="#" class=" py-2  transition-all ease-in-out duration-300">--}}
+{{--                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24"--}}
+{{--                    fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                    class="icon icon-tabler icons-tabler-outline icon-tabler-heart">--}}
+{{--                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />--}}
+{{--                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />--}}
+{{--                </svg>--}}
+{{--            </a>--}}
             <x-frontend.post-ad-component
-                extraClasses="w-7 h-7 mt-3 inline-flex items-center justify-center rounded-full border-none lg:hidden"
+                extraClasses="w-7 h-7 mt-[0.05rem] inline-flex items-center justify-center rounded-full border-none lg:hidden"
                 title="" />
             <div class="relative font-[sans-serif] w-max mx-auto">
                 <button
@@ -191,7 +191,7 @@
         <div
             class="flex flex-col bg-white border shadow-sm pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70 h-full">
             <div class="flex justify-between items-center py-3 px-4 ">
-                <a href="javascript:void(0)" id="hs-slide-down-animation-modal-label"><img
+                <a href="{{ route('welcome') }}" id="hs-slide-down-animation-modal-label"><img
                         src="{{ setting()->logo2 ?? '' }}" alt="logo" class='w-12' />
                 </a>
                 <button type="button"

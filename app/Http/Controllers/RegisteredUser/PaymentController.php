@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
-require  '../vendor/autoload.php';
+
 
 
 class PaymentController extends Controller
@@ -19,7 +19,7 @@ class PaymentController extends Controller
     {
         return view('registeredUser.payment');
     }
-    
+
 
     public function storepayment(StorePaymentRequest $request)
 {

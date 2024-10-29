@@ -70,7 +70,7 @@ class FrontendController extends BaseController
                     ->orWhere('title', 'like', "%{$search}%")
                     ->orWhere('rate', 'like', "%{$search}%");
             })
-            ->where('status', 1);
+            ->where('status', 1)->latest();
 
         if (!empty($propertyCategorySlug)) {
             $propertyCategory = PropertyCategory::where('slug', $propertyCategorySlug)->first();
@@ -150,7 +150,7 @@ class FrontendController extends BaseController
 
     public function detailPage(HealthCareList $healthCareList)
     {
-        return view('frontend.healthcare.detailpage', compact('healthCareList'));
+        return view('frontend.healthcare.detailPage', compact('healthCareList'));
     }
 
 

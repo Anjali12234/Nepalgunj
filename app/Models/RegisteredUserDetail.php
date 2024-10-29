@@ -17,6 +17,7 @@ class RegisteredUserDetail extends Model
         'registered_user_id',
         'address',
         'full_name',
+        'd_o_b',
         'whats_app_number',
         'citizenship_no',
         'citizenship_image_front',

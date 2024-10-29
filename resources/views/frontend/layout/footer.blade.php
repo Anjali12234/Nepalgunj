@@ -27,9 +27,7 @@
                 <a href="{{ setting()->youtube_url ?? '' }}" class="bg-white p-2 rounded hover:bg-neutral-800 hover:text-white">
                     <i class="ti ti-brand-youtube text-2xl"></i>
                 </a>
-{{--                <a href="https://linkedin.com/yourLinkedInPage" class="bg-white p-2 rounded hover:bg-neutral-800 hover:text-white">--}}
-{{--                    <i class="ti ti-brand-linkedin text-2xl"></i>--}}
-{{--                </a>--}}
+
                 <a href="https://tiktok.com/@yourTiktokPage" class="bg-white p-2 rounded hover:bg-neutral-800 hover:text-white">
                     <i class="ti ti-brand-tiktok text-2xl"></i>
                 </a>
@@ -43,7 +41,7 @@
         <!-- App Download Section -->
         <div class="flex flex-col items-start text-center md:text-left">
             <h2 class="text-lg font-semibold text-gray-700 mt-7">{{ setting()->name_en ?? '' }}</h2>
-            <a href="#" class="block">
+            <a href="{{route('welcome')}}" class="block">
                 <img src="{{ setting()->logo1 ?? '' }}" alt="{{ setting()->name_en ?? '' }}" class="h-20 mx-auto md:mx-0">
             </a>
         </div>

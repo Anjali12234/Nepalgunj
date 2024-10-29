@@ -70,7 +70,7 @@
 
                         @foreach ($newsLists->take(2) as $newsList)
                             <a href="{{ route('newsDetail', $newsList) }}">
-                                <div class="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 mb-4 mt-8">
+                                <div class="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 mb-4 mt-8" data-aos="fade-down" data-aos-duration="2000">
                                     <img src="{{ $newsList->image ?? '' }}" alt="Scam websites"
                                          class="w-full h-32 object-cover md:w-44 md:h-32">
                                     <div class="mt-4 md:mt-0">
@@ -93,19 +93,21 @@
                     <hr class="col-span-full border-t border-gray-300 my-6 md:hidden">
 
                     <!-- Sidebar News Items -->
-                    <div class="space-y-6">
+                    <div class="space-y-6" data-aos="fade-down" data-aos-duration="2000">
                         <!-- Assuming sidebar items are in an array -->
                         <h3 class="text-[18px] font-semibold">
                             Latest Jobs
                         </h3>
                         @foreach($jobLists as $jobList)
-                        <div class="flex items-center space-x-4 mb-4">
-                            <img
-                                src="{{$jobList->image}}"
-                                alt="Events this week September 1-7" class="w-44 h-24 object-cover">
-                            <h3 class="text-sm font-semibold">{{$jobList->job_name}}</h3>
-                        </div>
-                        <hr>
+                            <a href="{{ route('jobDetail', $jobList) }}">
+                                <div class="flex items-center space-x-4  mt-2">
+                                    <img
+                                        src="{{$jobList->image}}"
+                                        alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                    <h3 class="text-sm font-semibold">{{$jobList->job_name}}</h3>
+                                </div>
+                            </a>
+                            <hr>
                         @endforeach
 
                     </div>
@@ -116,13 +118,13 @@
         @foreach ($newsCategories as $newsCategory)
             @if ($newsCategory->status == 1)
 
-                <div class="grid grid-cols-12 gap-4 mx-4 md:mx-24 mb-4 overflow-hidden">
-                    <div class="col-span-2 relative">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mx-4 md:mx-24 mb-4 overflow-hidden" data-aos="fade-down" data-aos-duration="2000">
+                    <div class="col-span-2 relative" >
                         <h1 class="mt-8 text-2xl font-bold before:content-[''] before:block before:w-16 before:h-[2px] before:bg-black before:mb-2"></h1>
                         <h1 class="text-2xl font-bold mb-4">{{ $newsCategory->title }}</h1>
                     </div>
 
-                    <div class="col-span-6 flex gap-4">
+                    <div class="col-span-6 sm:block lg:flex gap-4 " >
                         <!-- First div with smaller fixed width -->
                         <div class="flex-1 max-w-sm">
                             @foreach ($newsCategory->newsLists->take(2) as $newsList)
@@ -147,7 +149,7 @@
                                     <a href="{{ route('newsDetail', $newsList) }}">
                                         <div class="mt-4 ">
                                             <img src="{{ $newsList->image ?? '' }}" alt=""
-                                                 class="w-36 h-12 object-cover"> <!-- Increased image size -->
+                                                 class="sm:w-36 lg:w-full sm:h-12 lg:h-32 object-cover"> <!-- Increased image size -->
                                             <div class="">
                                                 <h1 class="text-sm font-bold mt-1 truncate">{{ Str::words($newsList->title, 3) }}</h1>
                                                 <!-- Increased font size -->

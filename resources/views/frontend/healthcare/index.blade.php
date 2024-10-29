@@ -90,7 +90,7 @@
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthcare.detailPage',$healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"

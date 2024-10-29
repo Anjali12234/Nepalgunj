@@ -11,19 +11,18 @@ class StoreRegisteredUserDetailRequest extends FormRequest
     {
         return true;
     }
-
-
     public function rules(): array
     {
         return [
-            'full_name' => ['nullable', 'string'],
-            'address' => ['nullable', 'string'],
+            'full_name' => ['required', 'string'],
+            'address' => ['required', 'string'],
             'map_url' => ['nullable'],
-            'whats_app_number' => ['nullable', 'integer'],
+            'whats_app_number' => ['required', 'integer'],
+            'd_o_b' => ['required', 'date'],
             'citizenship_no' => ['nullable', 'string'],
             'citizenship_image_front' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
             'citizenship_image_back' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
-            'ward_no' => ['nullable', 'integer'],
+            'ward_no' => ['required', 'integer'],
             'avatar' => ['nullable', 'image'],
 
             // 'registeredUser.avatar' => ['required', 'image', 'mimes:png,jpg,jpeg'], // Fixed the assignment operator

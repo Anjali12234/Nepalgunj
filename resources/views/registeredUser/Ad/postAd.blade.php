@@ -73,7 +73,7 @@
                                     id="tabs-with-underline-item-5" aria-selected="true"
                                     data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-5"
                                     role="tab">
-                                <i class="ti ti-hotel-service text-4xl"></i>
+                                <i class="ti ti-briefcase text-4xl"></i>
                                 <span class="block">Job</span>
                             </button>
                         </div>

@@ -13,25 +13,28 @@
                     <!-- Main Article -->
                     <div class="md:col-span-2">
                         @forelse($news as $newslist)
-                            <div class="flex items-start p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-4">
-                                <img
-                                    src="{{ $newslist->image }}"
-                                    alt="{{ $newslist->title }}"
-                                    class="w-44 h-24 object-cover rounded-lg">
-
-                                <div class="ml-4 flex-1">
+                            <div class="flex flex-col md:flex-row items-start p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-4">
+                                <a href="{{ route('newsDetail', $newslist) }}">
+                                    <img
+                                        src="{{ $newslist->image }}"
+                                        alt="{{ $newslist->title }}"
+                                        class="w-full h-64 md:w-44 md:h-32 object-cover rounded-lg mb-4 md:mb-0">
+                                </a>
+                                <div class="md:ml-4 flex-1">
                                     <a href="{{ route('newsDetail', $newslist) }}">
                                         <h3 class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200">
                                             {{ Str::words($newslist->title, 20) }}
                                         </h3>
                                     </a>
-                                    <div class="flex space-x-2 text-sm text-gray-500 mt-1">
-                                        <p>By {{ $newslist->publisher }}</p>
-                                        <p> | {{ \Carbon\Carbon::parse($newslist->publish_date)->format('F j, Y') }}</p>
+                                    <div class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-1 text-sm text-gray-500 mt-1">
+                                        <p>By {{ $newslist->publisher }}
+                                            | {{ \Carbon\Carbon::parse($newslist->publish_date)->format('F j, Y') }}</p>
+
                                     </div>
-                                    <p class="text-sm text-gray-600 mt-2 truncate" style="max-width: 200px;">
-                                        {!! Str::words(strip_tags($newslist->details), 14) !!}
+                                    <p class="text-sm text-neutral-900 mt-2 line-clamp-2">
+                                        {!! Str::words(strip_tags($newslist->details), 25) !!}
                                     </p>
+
                                 </div>
                             </div>
                             <hr class="mt-2 border-gray-300">
