@@ -23,10 +23,8 @@ class RegisteredUser extends Authenticatable
         'password',
         'phone_no',
         'category',
-        'gender',
         'remarks',
         'avatar',
-        'd_o_b',
         'is_active',
 
     ];

@@ -17,10 +17,10 @@ class StoreJobListRequest extends FormRequest
         return [
             'details' => ['required'],
             'map_url' => ['required','string'],
-            'facebook_url' => ['required','string'],
+            'facebook_url' => ['nullable','string'],
             'whats_app_no' => ['required','numeric'],
             'website_url' => ['nullable','string'],
-            'image' => ['required','image'],
+            'image' => ['nullable','image'],
             'address' => ['required','string'],
             'job_name' => ['nullable','string'],
             'contact_number' => ['required','string'],
@@ -29,8 +29,6 @@ class StoreJobListRequest extends FormRequest
             'gender' => ['required','string'],
             'salary_range' => ['required','string'],
             'desired_skills_experience' => ['required','string'],
-            'files' => ['required', 'array'],
-            'files.*' => ['mimes:png,jpg,jpeg,jfif,webp'],
 
         ];
     }

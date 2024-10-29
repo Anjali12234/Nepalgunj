@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('job_lists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_category_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('registered_user_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('job_category_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('reference_no')->nullable();
             $table->string('slug');
             $table->string('position');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('map_url');
             $table->string('facebook_url');
             $table->string('whats_app_no');
-            $table->string('website_url');
+            $table->string('website_url')->nullable();
             $table->string('image')->nullable();
             $table->boolean('status')->default(0);
             $table->string('address');

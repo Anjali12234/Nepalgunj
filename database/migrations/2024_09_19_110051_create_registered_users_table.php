@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('phone_no');
             $table->string('is_active')->nullable()->default(0);
             $table->string('avatar')->nullable();
-            $table->string('gender');
-            $table->string('d_o_b');
             $table->longText('remarks')->nullable();
             $table->softDeletes();
             $table->timestamps();

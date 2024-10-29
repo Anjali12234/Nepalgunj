@@ -17,62 +17,47 @@ class JobAdController extends BaseController
     public function index()
     {
         $registeredUser = Auth::guard('registered-user')->user();
-        $mainCategories = MainCategory::with(['jobCategories.jobLists' => function ($query) use ($registeredUser) {
+
+        // Retrieve all JobCategories with jobLists filtered by the registered user's ID
+        $jobCategories = JobCategory::with(['jobLists' => function ($query) use ($registeredUser) {
             $query->where('registered_user_id', $registeredUser->id);
         }])->get();
-        return view('registeredUser.jobAd.index', compact('mainCategories'));
+
+
+
+        return view('registeredUser.jobAd.index', compact('jobCategories', 'registeredUser'));
     }
+
 
     public function create(JobCategory $jobCategory)
     {
-        return view('registeredUser.jobAd.create', compact('jobCategory'));
+        $registeredUser = auth('registered-user')->user();
+
+        return view('registeredUser.jobAd.create', compact('jobCategory','registeredUser'));
     }
 
     public function store(StoreJobListRequest $request, JobCategory $jobCategory)
     {
-        
-        $jobList = JobList::create(
+        JobList::create(
             $request->validated() + [
                 'job_category_id' => $jobCategory->id,
                 'registered_user_id' => Auth::guard('registered-user')->user()->id,
-               
             ]
         );
-
-        if ($request->hasFile('files')) {
-            foreach ($request->file('files') as $file) {
-                $jobList->files()->create([
-                    'file_name' => $file->getClientOriginalName(),
-                    'file' => $file->store('$jobLists/' . Str::slug($request->input('job_name'), '_'), 'public'),
-                    'size' => $file->getSize(),
-                    'extension' => $file->getClientOriginalExtension()
-                ]);
-            }
-        }
-
         alert("Form submitted successfully");
-
         return back();
     }
 
     public function edit(JobList $jobList)
     {
-        return view('registeredUser.jobAd.edit', compact('JobList'));
+        $registeredUser = auth('registered-user')->user();
+
+        return view('registeredUser.jobAd.edit', compact('jobList','registeredUser'));
     }
 
 
     public function update(UpdateJobListRequest $request, JobList $jobList)
     {
-        if ($request->hasFile('files')) {
-            foreach ($request->file('files') as $file) {
-                $jobList->files()->create([
-                    'file_name' => $file->getClientOriginalName(),
-                    'file' => $file->store('JobLists/' . Str::slug($request->input('job_name'), '_'), 'public'),
-                    'size' => $file->getSize(),
-                    'extension' => $file->getClientOriginalExtension()
-                ]);
-            }
-        }
         $jobList->update($request->validated());
         alert("form updated");
 

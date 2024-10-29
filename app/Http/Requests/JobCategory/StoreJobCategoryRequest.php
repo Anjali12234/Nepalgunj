@@ -14,7 +14,6 @@ class StoreJobCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => ['required'],
             'title' => ['required'],
         ];
     }

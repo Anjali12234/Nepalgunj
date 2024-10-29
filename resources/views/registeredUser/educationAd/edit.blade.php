@@ -72,18 +72,17 @@
 
                             <x-frontend.forms.input-type-field :value="old('address', $educationList->address)" labelClass="w-36" label="{{ $educationList->educationCategory->title_en }} Address" id="address" name="address"
                                 type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
-
-                            <x-frontend.forms.text-area-component :value="old('description', $educationList->description)" labelClass="w-36" label="Description" id="editor" name="description"
-                                class="text-sm font-semibold" />
-                        </div>
-                        <div class="col-span-2">
-
                             <x-frontend.forms.input-type-field :value="old('program', $educationList->program)" labelClass="w-36" label="Program" id="program" name="program"
-                                type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                                                               type="text" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
 
                             <x-frontend.forms.text-area-component :value="old('map_url', $educationList->map_url)" label="Map Url" id="map_url"
                                                                   name="map_url" labelClass="w-36"
                                                                   class="text-sm font-semibold"/>
+
+                        </div>
+                        <div class="col-span-2">
+
+
                                 <x-frontend.forms.input-type-field :value="old('tiktok_url', $educationList->tiktok_url)" labelClass="w-36" label="TikTok Url" id="tiktok_url" name="tiktok_url"
                                 type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('youtube_url', $educationList->youtube_url)" labelClass="w-36" label="Youtube Url" spanClass="text-white" id="youtube_url" name="youtube_url"
@@ -98,6 +97,10 @@
                             <x-frontend.forms.file-component :value="old('name', $educationList->name)" label="{{ $educationList->educationCategory->title_en }} Image " id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
+                        </div>
+                        <div class="col-span-4">
+                            <x-frontend.forms.text-area-component :value="old('description', $educationList->description)" labelClass="w-36" label="Description" id="editor" name="description"
+                                                                  class="text-sm font-semibold" />
                         </div>
                         <div class="col-span-4 flex justify-center mt-8">
                             <button type="submit"

@@ -30,44 +30,7 @@
                                 </div>
                             @endforeach
                         @endforeach
-                        <!-- End Item 1 -->
 
-                        <!-- Item 2 -->
-                        {{-- <div class="hs-carousel-slide">
-                            <div class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
-                                style="background-image: url('https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=1920&auto=format&fit=crop');">
-                                <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
-                                    <span class="block text-white">CoolApps</span>
-                                    <span class="block text-white text-lg md:text-3xl">From mobile apps to gaming
-                                        consoles</span>
-                                    <div class="mt-5">
-                                        <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-white text-black hover:bg-gray-100 focus:outline-none"
-                                            href="#">
-                                            Read Case Studies
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        <!-- End Item 2 -->
-
-                        <!-- Item 3 -->
-                        {{-- <div class="hs-carousel-slide">
-                            <div class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
-                                style="background-image: url('https://images.unsplash.com/photo-1629666451094-8908989cae90?q=80&w=1920&auto=format&fit=crop');">
-                                <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
-                                    <span class="block text-white">Grumpy</span>
-                                    <span class="block text-white text-lg md:text-3xl">Bringing Art to everything</span>
-                                    <div class="mt-5">
-                                        <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-white text-black hover:bg-gray-100 focus:outline-none"
-                                            href="#">
-                                            Read Case Studies
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        <!-- End Item 3 -->
                     </div>
                 </div>
 
@@ -127,10 +90,10 @@
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthcare.detailPage',$healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
-                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -161,7 +124,7 @@
                                href="{{ route('healthcare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
-                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -179,7 +142,7 @@
                             </a>
                             <!-- End Card -->
                         @empty
-                            <p>No doctors found!</p>
+                            <p>No Hospital found!</p>
                         @endforelse
                     @endif
                 </div>
@@ -192,7 +155,7 @@
                                href="{{ route('healthcare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
-                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -210,7 +173,7 @@
                             </a>
                             <!-- End Card -->
                         @empty
-                            <p>No doctors found!</p>
+                            <p>No Medical found!</p>
                         @endforelse
                     @endif
                 </div>
@@ -223,7 +186,7 @@
                                href="{{ route('healthcare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
-                                        class="w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                        class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
                                         alt="Blog Image">
                                 </div>
@@ -241,7 +204,7 @@
                             </a>
                             <!-- End Card -->
                         @empty
-                            <p>No doctors found!</p>
+                            <p>No Pharmacy found!</p>
                         @endforelse
                     @endif
                 </div>

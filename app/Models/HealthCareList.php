@@ -29,6 +29,7 @@ class HealthCareList extends Model
         'details',
         'youtube_link',
         'address',
+        'is_featured',
         'map_url',
         'twitter_url',
         'facebook_url',

@@ -57,4 +57,11 @@
             </li>
         </a>
     @endif
+    <a href="{{ route('registeredUser.jobList.index') }}">
+        <li
+            class="mt-2 mb-2 block {{ request()->routeIs('registeredUser.jobList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
+         Job
+            <p class="ml-auto">{{ getCounts()['jobCount'] }}</p>
+        </li>
+    </a>
 </ul>

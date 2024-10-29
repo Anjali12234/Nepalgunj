@@ -7,6 +7,7 @@ use App\Models\HealthCareList;
 use App\Models\HospitalityCategory;
 use App\Models\HospitalityList;
 use App\Models\JobCategory;
+use App\Models\JobList;
 use App\Models\PropertyCategory;
 use App\Models\PropertyList;
 use App\Models\RegisteredUser;
@@ -65,16 +66,33 @@ if (!function_exists('jobCategories')) {
 if (!function_exists('getCounts')) {
     function getCounts()
     {
-        $propertyCount = PropertyList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
-        $educationCount = EducationList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
-        $hospitalityCount = HospitalityList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
-        $healthCount = HealthCareList::where('deleted_at', NULL)->count(); // Count the number of records in the propertyList table
+        $authUserId = auth('registered-user')->user()->id;
+        // Count the records where deleted_at is null and the registered_user_id matches the authenticated user
+        $propertyCount = PropertyList::where('deleted_at', NULL)
+            ->where('registered_user_id', $authUserId)
+            ->count();
+
+        $educationCount = EducationList::where('deleted_at', NULL)
+            ->where('registered_user_id', $authUserId)
+            ->count();
+
+        $hospitalityCount = HospitalityList::where('deleted_at', NULL)
+            ->where('registered_user_id', $authUserId)
+            ->count();
+
+        $healthCount = HealthCareList::where('deleted_at', NULL)
+            ->where('registered_user_id', $authUserId)
+            ->count();
+ $jobCount = JobList::where('deleted_at', NULL)
+            ->where('registered_user_id', $authUserId)
+            ->count();
 
         return [
             'propertyCount' => $propertyCount,
             'educationCount' => $educationCount,
             'hospitalityCount' => $hospitalityCount,
             'healthCount' => $healthCount,
+            'jobCount' => $jobCount,
         ];
     }
 }

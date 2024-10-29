@@ -35,6 +35,8 @@
                         <th> User </th>
                         <th>Title</th>
                         <th>Slug</th>
+                        <th>Status</th>
+                        <th>isFeatured</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,6 +53,16 @@
                                     @method('put')
                                     <button type="submit" style="border: none; background: none;">
                                         <i class="fa fa-{{ $hospitalityList->status == 1 ? 'toggle-on text-success' : 'toggle-off text-danger' }} fa-2x"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.hospitalityList.isFeatured', $hospitalityList->id) }}" method="POST" style="display: inline">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="toggle" value="is_featured">
+                                    <button type="submit" style="border: none; background: none;">
+                                        <i class="fa fa-{{ $hospitalityList->is_featured == 1 ? 'toggle-on text-success' : 'toggle-off text-danger' }} fa-2x"></i>
                                     </button>
                                 </form>
                             </td>

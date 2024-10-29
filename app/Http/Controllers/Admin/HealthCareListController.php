@@ -23,4 +23,12 @@ class HealthCareListController extends Controller
         toast( __('Status updated successfully'), 'success');
         return back();
     }
+    public function isFeatured(HealthCareList $healthCareList)
+    {
+        $healthCareList->update([
+            'is_featured' => !$healthCareList->is_featured
+        ]);
+        toast( __('Status updated successfully'), 'success');
+        return back();
+    }
 }

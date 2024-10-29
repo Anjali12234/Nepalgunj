@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('whats_app_number')->nullable();
             $table->string('citizenship_no')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('d_o_b');
             $table->string('citizenship_image_front')->nullable();
             $table->string('citizenship_image_back')->nullable();
             $table->string('ward_no')->nullable();

@@ -62,6 +62,5 @@ Route::prefix('job')->group(function () {
     Route::get('jobCategory/{jobCategory:slug}', [JobAdController::class, 'create'])->name('jobCategory.create');
     Route::post('jobList/{jobCategory:slug}', [JobAdController::class, 'store'])->name('jobList.store');
     Route::resource('/jobList', JobAdController::class)->except('store','create');
-    // Route::resource('education-list/{jobList:slug}/testimonials', TestimonialController::class)->names('jobList.testimonials');
 
 });

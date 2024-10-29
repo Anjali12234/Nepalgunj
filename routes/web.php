@@ -3,10 +3,12 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthController;
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
 use App\Http\Controllers\RegisteredUser\PropertyAdController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(FrontendController::class)->group(function () {
@@ -18,8 +20,11 @@ Route::controller(FrontendController::class)->group(function () {
     // Route::get('propertyList/{registeredUser:name}', 'registeredUser')->name('registeredUsers');
 
     Route::get('newsList','newsList')->name('newsList');
-
     Route::get('newsList/{newsList:slug}', 'newsDetail')->name('newsDetail');
+
+    Route::get('jobList','jobList')->name('jobList');
+    Route::get('jobList/{jobList:slug}', 'jobDetail')->name('jobDetail');
+
     Route::get('healthCare','healthcareIndex')->name('healthcareIndex');
     Route::get('healthCareList/{healthCareList:slug}','detailPage')->name('healthcare.detailPage');
     Route::get('healthCare/{healthCare:slug}','listPage')->name('healthCare');
@@ -54,3 +59,9 @@ Route::prefix('file')->as('file.')->controller(FileController::class)->group(fun
 });
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/location', function () {
+    return view('welcome');
+});
+
+Route::post('/location', [LocationController::class, 'store'])->name('location.store');
+Route::post('upload', [UploadController::class, 'store'])->name('upload');

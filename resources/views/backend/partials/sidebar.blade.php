@@ -13,7 +13,7 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle no-arrow">
+                    <a href="{{route('admin.dashboard')}}" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-house"></span><span class="mtext">Dashboard</span>
                     </a>
 
@@ -53,7 +53,7 @@
                         <li><a href="{{ route('admin.propertyList') }}">Property List</a></li>
                         <li><a href="{{ route('admin.educationList') }}">Education List</a></li>
                         <li><a href="{{ route('admin.hospitalityList') }}">Hospitality List</a></li>
-                        <li><a href="">Job List</a></li>
+                        <li><a href="{{ route('admin.jobList') }}">Job List</a></li>
                     </ul>
                 </li>
 
@@ -86,20 +86,20 @@
                     </a>
                 </li>
 
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon bi bi-archive"></span><span class="mtext"> Role and Permission </span>
-                    </a>
-                    <ul class="submenu">
-                        {{-- <li><a href="{{ route('admin.permission.index') }}">Premission</a></li> --}}
-                        <li><a href="{{ route('admin.role.index') }}">Role</a></li>
+{{--                <li class="dropdown">--}}
+{{--                    <a href="javascript:;" class="dropdown-toggle">--}}
+{{--                        <span class="micon bi bi-archive"></span><span class="mtext"> Role and Permission </span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="submenu">--}}
+{{--                        --}}{{-- <li><a href="{{ route('admin.permission.index') }}">Premission</a></li> --}}
+{{--                        <li><a href="{{ route('admin.role.index') }}">Role</a></li>--}}
 
-                        <li><a href=" {{ route('admin.user.index') }}">User</a></li>
+{{--                        <li><a href=" {{ route('admin.user.index') }}">User</a></li>--}}
 
 
 
-                    </ul>
-                </li>
+{{--                    </ul>--}}
+{{--                </li>--}}
 
 
             </ul>

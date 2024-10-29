@@ -66,21 +66,17 @@
                                 </button>
                             </div>
                         @endif
-                        @if (is_array($registeredUser->category) &&
-                                in_array(jobCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
-                            <div>
 
-                                <button type="button"
-                                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
-                                        id="tabs-with-underline-item-5" aria-selected="true"
-                                        data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-5"
-                                        role="tab">
-                                    <i class="ti ti-hotel-service text-4xl"></i>
-                                    <span class="block">{{ jobCategories()->first()?->mainCategory?->title_en }}</span>
-                                </button>
-                            </div>
-                        @endif
-
+                        <div>
+                            <button type="button"
+                                    class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                                    id="tabs-with-underline-item-5" aria-selected="true"
+                                    data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-5"
+                                    role="tab">
+                                <i class="ti ti-briefcase text-4xl"></i>
+                                <span class="block">Job</span>
+                            </button>
+                        </div>
                     </nav>
                 </div>
 
@@ -161,27 +157,20 @@
                             </ul>
                         </div>
                     @endif
-                    @if (is_array($registeredUser->category) &&
-                            in_array(jobCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
-                        <div id="tabs-with-underline-5"
-                             class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}" role="tabpanel"
-                             aria-labelledby="tabs-with-underline-item-5">
-                            <ul>
-                                @foreach ($sharedCategory as $mainCategory)
-                                    @foreach ($mainCategory->jobCategories as $jobCategory)
-                                        <a href="{{ route('registeredUser.jobCategory.create', $jobCategory) }}">
-                                            <li class="text-blue-900 text-base lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200 p-4 rounded-md mb-2">
-                                                {{-- @dd(hospitalityCategories()->first()?->mainCategory); --}}
-                                                {{ $jobCategory->title }}</li>
-                                        </a>
-                                    @endforeach
-                                @endforeach
 
-                            </ul>
-                        </div>
-                    @endif
-
-
+                    <div id="tabs-with-underline-5"
+                         class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}" role="tabpanel"
+                         aria-labelledby="tabs-with-underline-item-5">
+                        <ul>
+                            @foreach ($jobCategories as $jobCategory)
+                                <a href="{{ route('registeredUser.jobCategory.create', $jobCategory) }}">
+                                    <li class="text-blue-900 text-base lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200 p-4 rounded-md mb-2">
+                                        {{-- @dd(hospitalityCategories()->first()?->mainCategory); --}}
+                                        {{ $jobCategory->title }}</li>
+                                </a>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

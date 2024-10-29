@@ -1,12 +1,9 @@
 @extends('registeredUser.layout.master')
 @section('content')
-
-
     <div class="content px-5  md:px-7 col-span-3 min-h-screen">
-        <h1 class="font-semibold text-2xl">Profile Setting</h1>
-        <h1 class="font-semibold text-2xl mt-5">General </h1>
+        <h1 class="font-bold text-2xl">Profile Setting</h1>
+        <h1 class="font-semibold text-lg mt-5">Detail Information </h1>
         <a href="{{ route('registeredUser.payment.index') }}">payment</a>
-
         @if (session('status'))
             <div class="mt-2 flex items-center justify-between p-1 leading-normal text-red-600 bg-red-100 rounded-lg"
                 role="alert">
@@ -26,19 +23,20 @@
 
             <x-frontend.forms.input-type-field :value="old('username', $registeredUser?->username)" label="Username" id="username" name="username"
                 labelClass="w-60" type="text" />
-            <x-frontend.forms.input-type-field :value="old('full_name', $registeredUser?->registeredUserDetail?->full_name)" label="Full Name" id="full_name" name="full_name"
+            <x-frontend.forms.input-type-field :value="old('full_name', $registeredUser?->registeredUserDetail?->full_name)" label="Organization Name" id="full_name" name="full_name"
                 labelClass="w-60" type="text" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->email" label="Email Address" id="email" name="email"
-                labelClass="w-60" type="email" />
-            <x-frontend.forms.input-type-field :value="$registeredUser?->phone_no" label="Phone No" id="phone_no" name="phone_no"
+            <x-frontend.forms.input-type-field :value="$registeredUser?->email" label="Email Address" id="email" name="email" placeholder="Enter your organization's email address"
+                                               labelClass="w-60" type="email" />
+            <x-frontend.forms.input-type-field :value="$registeredUser?->phone_no" label="Phone No" id="phone_no" name="phone_no" placeholder="Enter your organization's contact number"
                 labelClass="w-60" type="text" />
-            <x-frontend.forms.select-type-field :value="$registeredUser?->gender" label="Gender" id="gender" name="gender"
-                :options="['male' => 'Male', 'female' => 'Female', 'other' => 'Other']" labelClass="w-60" />
+{{--            <x-frontend.forms.select-type-field :value="$registeredUser?->gender" label="Gender" id="gender" name="gender"--}}
+{{--                :options="['male' => 'Male', 'female' => 'Female', 'other' => 'Other']" labelClass="w-60" />--}}
+
             <x-frontend.forms.multiple-select-component :value="old('category', $registeredUser ?? [])" label="Choose Your Ad Category" id="category"
                 labelClass="w-60" name="category[]" :options="$categories" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->d_o_b" label="Date of Birth" id="d_o_b" name="d_o_b"
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->d_o_b" label="Organization Established Date" id="d_o_b" name="d_o_b"
                 labelClass="w-60" type="date" />
             <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->address" label="Address" id="address" name="address"
                 labelClass="w-60" type="text" />
@@ -46,24 +44,24 @@
                 labelClass="w-60" type="number" />
             <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->whats_app_number" label="Whats App Number" id="whats_app_number"
                 labelClass="w-60" name="whats_app_number" type="number" />
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->map_url" label="Map Url" id="map_url" name="map_url"
-                labelClass="w-60" type="text" />
+{{--            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->map_url" label="Map Url" id="map_url" name="map_url"--}}
+{{--                labelClass="w-60" type="text" />--}}
 
             <x-frontend.remove-button :value="$registeredUser?->registeredUserDetail?->avatar" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->avatar" label="Image" id="avatar" name="avatar"
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->avatar" label="Logo" id="avatar" name="avatar"
                 labelClass="w-60" type="file" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_no" label="Citizenship No" id="citizenship_no"
-                labelClass="w-60" name="citizenship_no" type="text" />
-            <x-frontend.remove-button :value="$registeredUser?->registeredUserDetail?->citizenship_image_front" />
+{{--            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_no" label="Citizenship No" id="citizenship_no"--}}
+{{--                labelClass="w-60" name="citizenship_no" type="text" />--}}
+{{--            <x-frontend.remove-button :value="$registeredUser?->registeredUserDetail?->citizenship_image_front" />--}}
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_image_front" label="Citizenship Image Front" labelClass="w-60"
-                id="citizenship_image_front" name="citizenship_image_front" type="file" />
-            <x-frontend.remove-button :value="$registeredUser?->registeredUserDetail?->citizenship_image_back" />
+{{--            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_image_front" label="Citizenship Image Front" labelClass="w-60"--}}
+{{--                id="citizenship_image_front" name="citizenship_image_front" type="file" />--}}
+{{--            <x-frontend.remove-button :value="$registeredUser?->registeredUserDetail?->citizenship_image_back" />--}}
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_image_back" label="Citizenship Image Back" id="citizenship_image_back"
-                name="citizenship_image_back" type="file" labelClass="w-60" />
+{{--            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->citizenship_image_back" label="Citizenship Image Back" id="citizenship_image_back"--}}
+{{--                name="citizenship_image_back" type="file" labelClass="w-60" />--}}
 
             <button type="button submit"
                 class="!mt-8 px-6 pt-1 pb-2  bg-[#333] hover:bg-[#444] text-xs text-white mx-auto block">Submit</button>

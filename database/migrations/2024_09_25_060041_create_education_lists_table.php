@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('youtube_url')->nullable();
             $table->longText('map_url')->nullable();
             $table->string('whats_app_no');
+            $table->boolean('is_featured')->default(0);
+
             $table->string('reference_no')->nullable();
             $table->string('slug');
             $table->string('position');

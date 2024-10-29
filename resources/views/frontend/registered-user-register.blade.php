@@ -16,12 +16,8 @@
 
             <x-frontend.forms.input-type-field :value="old('phone_no')" label="Phone No" id="phone_no" name="phone_no" labelClass="w-48"
                 type="text" />
-            <x-frontend.forms.select-type-field :value="old('gender')" label="Gender" id="gender" name="gender"
-                :options="['male' => 'Male', 'female' => 'Female', 'other' => 'Other']" labelClass="w-48" />
-
-
-            <x-frontend.forms.input-type-field :value="old('d_o_b')" label="Date of Birth" id="d_o_b" name="d_o_b" labelClass="w-48"
-                type="date" />
+{{--            <x-frontend.forms.select-type-field :value="old('gender')" label="Gender" id="gender" name="gender"--}}
+{{--                :options="['male' => 'Male', 'female' => 'Female', 'other' => 'Other']" labelClass="w-48" />--}}
 
             <x-frontend.forms.input-type-field label="Password" id="password" name="password" type="password" labelClass="w-48" />
             <x-frontend.forms.input-type-field label="Confirm Password" id="password_confirmation" labelClass="w-48"

@@ -50,7 +50,7 @@
                             <option value="">Choose Main Category</option>
                             @foreach ($mainCategories as $maincategory)
                                 <option value="{{ $maincategory->id }}"
-                                    {{ old('mian_category_id', $healthCare->main_category_id) == $maincategory->id ? 'selected' : '' }}>
+                                    {{ old('main_category_id', $healthCare->main_category_id) == $maincategory->id ? 'selected' : '' }}>
                                     {{ $maincategory->title_en }}
 
                                 </option>

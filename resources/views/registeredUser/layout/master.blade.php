@@ -10,31 +10,16 @@
             @yield('content')
         </div>
     </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script>
-        // Select all tab buttons
-        const tabButtons = document.querySelectorAll('.tab-button');
-
-        // Add click event listener to each button
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                tabButtons.forEach(btn => {
-                    btn.style.backgroundColor = '';  // Reset background color
-                    btn.style.color = '';  // Reset text color
-                    btn.setAttribute('aria-selected', 'false');  // Update aria-selected
-                });
-
-                // Set active class for the clicked button
-                button.style.backgroundColor = '#374151';  // bg-neutral-600
-                button.style.color = '#2563EB';  // text-blue-600
-                button.setAttribute('aria-selected', 'true');  // Update aria-selected
-
-                // Show the corresponding tab content and hide others
-                const tabContentId = button.getAttribute('data-tab-content');
-                const allTabContents = document.querySelectorAll('[id^="tab-content-"]');
-                allTabContents.forEach(content => content.classList.add('hidden'));  // Hide all contents
-                document.querySelector(tabContentId).classList.remove('hidden');  // Show active content
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                ckfinder: {
+                    uploadUrl: '{{ route("upload") }}?_token={{ csrf_token() }}'
+                }
+            })
+            .catch(error => {
+                console.error(error);
             });
-        });
     </script>
 </x-guest-layout>
