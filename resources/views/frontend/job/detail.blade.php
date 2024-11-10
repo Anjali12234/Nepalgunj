@@ -33,18 +33,23 @@
                             </div>
 
                             <div class="space-y-2 mb-4">
-                                <p class="text-sm font-semibold text-neutral-700"><span class="text-neutral-800">Job Type:</span> {{ $jobList->job_type }}
+                                <p class="text-sm font-semibold  text-neutral-800">Job Type:<span class="text-neutral-700 ml-24"> {{ $jobList->job_type }}</span>
                                 </p>
-                                <p class="text-sm font-semibold text-neutral-700"><span class="text-neutral-800">Address:</span>{{ $jobList->address }}
+                                <p class="text-sm font-semibold text-neutral-800">Address:<span class=" text-neutral-700 ml-[6.5rem]">{{ $jobList->address }}</span>
                                 </p>
-                                <p class="text-sm font-semibold text-neutral-700"><span class="text-neutral-800">Years of experience:</span>{{ $jobList->years_of_experience }}
+                                <p class="text-sm font-semibold text-neutral-800">Years of experience:<span class=" text-neutral-700 ml-7">{{ $jobList->years_of_experience }}</span>
                                 </p>
-                                <p class="text-sm font-semibold text-neutral-700"><span class="text-neutral-800">Salary Range:</span>{{ $jobList->salary_range }}
+                                <p class="text-sm font-semibold text-neutral-800">Salary Range:<span class=" text-neutral-700 ml-[4.5rem]">{{ $jobList->salary_range }}</span>
                                 </p>
-                                <p class="text-sm font-semibold text-neutral-700"><span class="text-neutral-800">Our Website Url:</span><a
+                                <p class="text-sm font-semibold text-neutral-800">Vacancy Publish Date:<span class=" text-neutral-700 ml-4">{{ $jobList->publish_date }}</span>
+                                </p>
+                                <p class="text-sm font-semibold text-neutral-800">Vacancy Deadline:<span class=" text-neutral-700 ml-10">{{ $jobList->deadline_date }}</span>
+                                </p>
+
+                                <p class="text-sm font-semibold text-neutral-800 ">Our Website Url:<a
                                         class="hover:text-blue-700"
-                                        href="{{$jobList->website_url}}"> {{ $jobList?->website_url }}</a></p>
-                                <p class="text-sm font-semibold text-neutral-700">{{ $jobList->gender }} can apply</p>
+                                        href="{{$jobList->website_url}}"> <span class=" text-neutral-700 ml-[3.25rem]"> {{ $jobList?->website_url }}</span></a></p>
+                                <p class="text-sm font-semibold ">{{ $jobList->gender }} can apply</p>
                             </div>
 
                             <h1 class="text-xl font-bold text-purple-700 mt-2 mb-2">
