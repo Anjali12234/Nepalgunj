@@ -20,19 +20,19 @@
                                 {{ $jobList->job_name }}
                             </h1>
 
-                            <div class="flex items-center mb-4">
+                            <div class="flex flex-col sm:flex-row items-center mb-4 space-y-4 sm:space-y-0">
                                 <div class="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center">
                                     <img
                                         src="https://www.qatarliving.com/sites/all/themes/qatarliving_v3/images/avatar.jpeg"
                                         alt="Author Avatar" class="rounded-full w-full h-full">
                                 </div>
-                                <div class="ml-3">
+                                <div class="ml-0 sm:ml-3 text-center sm:text-left">
                                     <p class="text-gray-500 text-sm">By {{ $jobList->registeredUser->username }}
                                         • {{ $jobList->updated_at->diffForHumans() }}</p>
                                 </div>
                             </div>
 
-                            <div class="space-y-2 mb-4 ">
+                            <div class="space-y-2 mb-4">
                                 <p class="text-sm font-semibold text-neutral-700"><span class="text-neutral-800">Job Type:</span> {{ $jobList->job_type }}
                                 </p>
                                 <p class="text-sm font-semibold text-neutral-700"><span class="text-neutral-800">Address:</span>{{ $jobList->address }}
@@ -66,7 +66,7 @@
                             </div>
 
                             <!-- Share Buttons -->
-                            <div class="flex space-x-2 mt-4">
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-2 mt-4">
                                 <a href="{{$jobList->facebook_url}}" target="_blank">
                                     <button
                                         class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-500 transition duration-300">
@@ -98,7 +98,7 @@
                                         <div
                                             class="bg-white overflow-hidden rounded-lg shadow-md transition-transform transform hover:scale-105 mb-4">
                                             <img src="{{ $relatedJobList->image }}" alt="Job Image"
-                                                 class="w-full h-32 object-cover rounded-t-md">
+                                                 class="w-full lg:w-40 h-52 lg:h-24 object-cover rounded-t-md">
                                             <div class="p-4">
                                                 <p class="text-gray-700 font-bold text-base">{{ $relatedJobList->job_name }}</p>
                                             </div>
@@ -112,15 +112,15 @@
                     </div>
 
                     <!-- Sidebar News Items -->
-                    <div class="space-y-6">
+                    <div class="space-y-6 hidden lg:block">
                         <h2 class="text-xl font-semibold mb-4">Vacancy from {{$jobList->registeredUser->username}}</h2>
                         <div class="bg-white shadow-md rounded-lg p-4">
                             @forelse($relatedjobLists as $relatedJobList)
                                 <a href="{{ route('jobDetail', $relatedJobList) }}">
 
-                                    <div class="flex items-center space-x-4 mb-4">
+                                    <div class="flex flex-col sm:flex-row items-center space-x-4 mb-4">
                                         <img src="{{ $relatedJobList->image }}" alt="News Image"
-                                             class="w-24 h-24 rounded-md">
+                                             class="w-full lg:w-40 h-52 lg:h-24 rounded-md">
                                         <h3 class="text-sm font-semibold">{{ $relatedJobList->job_name }}</h3>
                                     </div>
                                 </a>

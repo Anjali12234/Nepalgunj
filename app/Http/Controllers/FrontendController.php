@@ -106,15 +106,18 @@ class FrontendController extends BaseController
 
     public function newsDetail(News $newsList)
     {
+        $jobLists = JobList::latest()->get();
+
         $newsCategoryId = $newsList->newsCategory->id;
 
         $relatedNews = News::where('news_category_id', $newsCategoryId)
             ->where('id', '!=', $newsList->id)
             ->get();
-        return view('frontend.news.detail', compact('newsList', 'relatedNews'));
+        return view('frontend.news.detail', compact('newsList', 'relatedNews','jobLists'));
     }
     public function newsList()
     {
+
         $news = News::orderBy('publish_date')->get();
         return view('frontend.news.newsList', compact('news'));
     }

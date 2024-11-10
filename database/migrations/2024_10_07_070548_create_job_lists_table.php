@@ -31,8 +31,10 @@ return new class extends Migration
             $table->string('job_type');
             $table->string('years_of_experience');
             $table->string('gender');
-            $table->string('salary_range');
             $table->string('desired_skills_experience');
+            $table->string('salary_range');
+            $table->string('publish_date');
+            $table->string('deadline_date');
             $table->softDeletes();
             $table->timestamps();
         });

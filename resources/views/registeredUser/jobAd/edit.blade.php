@@ -122,6 +122,10 @@
                                                            class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
                     </div>
                     <div class="col-span-2">
+                        <x-frontend.forms.input-type-field :value="old('publish_date',$jobList->publish_date)" label="Publish Date" id="publish_date" name="publish_date"
+                                                           labelClass="w-36" type="date" class="text-sm font-semibold"/>
+                        <x-frontend.forms.input-type-field :value="old('deadline_date',$jobList->deadline_date)" label="Deadline" id="deadline_date" name="deadline_date"
+                                                           labelClass="w-36" type="date" class="text-sm font-semibold"/>
                         <x-frontend.forms.text-area-component :value="old('map_url',$jobList->map_url)" label="Map Url"
                                                               id="map_url"
                                                               name="map_url" labelClass="w-36"

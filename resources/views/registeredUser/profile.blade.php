@@ -36,7 +36,7 @@
             <x-frontend.forms.multiple-select-component :value="old('category', $registeredUser ?? [])" label="Choose Your Ad Category" id="category"
                 labelClass="w-60" name="category[]" :options="$categories" />
 
-            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->d_o_b" label="Organization Established Date" id="d_o_b" name="d_o_b"
+            <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->establish_date" label="Organization Established Date" id="establish_date" name="establish_date"
                 labelClass="w-60" type="date" />
             <x-frontend.forms.input-type-field :value="$registeredUser?->registeredUserDetail?->address" label="Address" id="address" name="address"
                 labelClass="w-60" type="text" />
