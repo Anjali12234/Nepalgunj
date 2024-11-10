@@ -19,8 +19,6 @@
                                     <span
                                         class="block">{{ propertyCategories()->first()?->mainCategory?->title_en }}</span>
                                 </button>
-
-
                             </div>
                         @endif
                         @if (is_array($registeredUser->category) &&

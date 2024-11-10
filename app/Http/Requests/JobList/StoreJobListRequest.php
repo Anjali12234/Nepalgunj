@@ -27,8 +27,10 @@ class StoreJobListRequest extends FormRequest
             'job_type' => ['required','string'],
             'years_of_experience' => ['required','string'],
             'gender' => ['required','string'],
-            'salary_range' => ['required','string'],
             'desired_skills_experience' => ['required','string'],
+            'salary_range' => ['required','string'],
+            'publish_date' => ['required','date'],
+            'deadline_date' => ['required','date'],
 
         ];
     }

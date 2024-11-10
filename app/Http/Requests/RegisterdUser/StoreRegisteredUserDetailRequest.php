@@ -18,7 +18,7 @@ class StoreRegisteredUserDetailRequest extends FormRequest
             'address' => ['required', 'string'],
             'map_url' => ['nullable'],
             'whats_app_number' => ['required', 'integer'],
-            'd_o_b' => ['required', 'date'],
+            'establish_date' => ['required', 'date'],
             'citizenship_no' => ['nullable', 'string'],
             'citizenship_image_front' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
             'citizenship_image_back' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],

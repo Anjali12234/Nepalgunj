@@ -36,6 +36,8 @@ class JobList extends Model
         'years_of_experience',
         'gender',
         'salary_range',
+        'deadline_date',
+        'publish_date',
         'desired_skills_experience',
     ];
 
