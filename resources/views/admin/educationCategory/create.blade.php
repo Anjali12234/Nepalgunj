@@ -29,15 +29,7 @@
             </div>
         </div>
         <div class="pd-20 card-box mb-30">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+           
             <form method="post" action="{{ route('admin.educationCategory.store') }}" enctype="multipart/form-data">
                 @csrf
 
