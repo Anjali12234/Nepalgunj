@@ -89,12 +89,9 @@
 
                     </div>
 
-                    <!-- Horizontal Line -->
                     <hr class="col-span-full border-t border-gray-300 my-6 md:hidden">
 
-                    <!-- Sidebar News Items -->
                     <div class="space-y-6" data-aos="fade-down" data-aos-duration="2000">
-                        <!-- Assuming sidebar items are in an array -->
                         <h3 class="text-[18px] font-semibold">
                             Latest Jobs
                         </h3>
