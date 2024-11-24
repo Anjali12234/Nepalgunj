@@ -57,8 +57,8 @@ class AuthSeeder extends Seeder
 
             $user = User::factory()->create([
                 'name' => 'Super Admin',
-                'email' => 'admin@admin.com',
-                'password' => bcrypt('password'),
+                'email' => 'nepalgunjliving@gmail.com',
+                'password' => bcrypt('Living23422@$#@'),
             ]);
 
 
