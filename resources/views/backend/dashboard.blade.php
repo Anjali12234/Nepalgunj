@@ -10,12 +10,7 @@
                     Welcome back {{ auth()->user()->name }}
                     <div class="weight-600 font-30 text-blue">Johnny Brown!</div>
                 </h4>
-                <p class="font-18 max-width-600">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde
-                    hic non repellendus debitis iure, doloremque assumenda. Autem
-                    modi, corrupti, nobis ea iure fugiat, veniam non quaerat
-                    mollitia animi error corporis.
-                </p>
+                
             </div>
         </div>
     </div>
