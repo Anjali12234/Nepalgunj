@@ -97,8 +97,8 @@
                         class='{{ request()->routeIs('hospitality.hospitalityIndex')? 'text-green-500': 'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Hospitality</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a
-                        href="{{ route('jobList') }}"
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Jobs</a>
+                        href="{{ route('newsList') }}"
+                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'> News</a>
                 </li>
                 <li class='group max-lg:border-b max-lg:py-3 relative'>
                     <a href='javascript:void(0)'
@@ -112,22 +112,10 @@
                     </a>
                     <ul
                         class='absolute shadow-lg bg-white space-y-3 lg:top-12 max-lg:top-8 -left-6 min-w-[250px] z-50 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500'>
-                        <li class='border-b py-2 '><a href='{{ route('newsList') }}'
-                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>News</a>
+                        <li class='border-b py-2 '><a href='{{ route('jobList') }}'
+                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'> Jobs</a>
                         </li>
-{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
-{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Organizations</a>--}}
-{{--                        </li>--}}
-{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
-{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Showrooms</a>--}}
-{{--                        </li>--}}
-{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
-{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Constructions</a>--}}
-{{--                        </li>--}}
-{{--                        <li class='border-b py-2 '><a href='javascript:void(0)'--}}
-{{--                                class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Other--}}
-{{--                                Business</a>--}}
-{{--                        </li>--}}
+
 
                     </ul>
                 </li>
@@ -140,14 +128,7 @@
                 extraClasses="px-5 py-2.5 h-10 mt-2 rounded-lg hidden lg:flex text-white text-sm tracking-wider border border-current gap-3 mr-8"
                 title="Post Ad" />
 
-{{--            <a href="#" class=" py-2  transition-all ease-in-out duration-300">--}}
-{{--                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24"--}}
-{{--                    fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"--}}
-{{--                    class="icon icon-tabler icons-tabler-outline icon-tabler-heart">--}}
-{{--                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />--}}
-{{--                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />--}}
-{{--                </svg>--}}
-{{--            </a>--}}
+
             <x-frontend.post-ad-component
                 extraClasses="w-7 h-7 mt-[0.05rem] inline-flex items-center justify-center rounded-full border-none lg:hidden"
                 title="" />
