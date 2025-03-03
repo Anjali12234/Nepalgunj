@@ -46,7 +46,7 @@
                                 </a>
                                 <div class="text-neutral-800">
                                     <p class="font-popins">
-                                        {{ Auth::guard('registered-user')?->user()?->registeredUserDetail?->full_name }}
+                                        {{ Auth::guard('registered-user')?->user()?->registeredUserDetail?->organization_name }}
                                     </p>
                                     <p>{{ Auth::guard('registered-user')?->user()?->email }}</p>
                                 </div>
@@ -200,7 +200,7 @@
                         </a>
                         <div class="text-neutral-800">
                             <p class="font-popins">
-                                {{ Auth::guard('registered-user')?->user()?->registeredUserDetail?->full_name }}
+                                {{ Auth::guard('registered-user')?->user()?->registeredUserDetail?->organization_name }}
                             </p>
                             <p>{{ Auth::guard('registered-user')?->user()?->email }}</p>
                         </div>

@@ -23,7 +23,7 @@
 
             <x-frontend.forms.input-type-field :value="old('username', $registeredUser?->username)" label="Username" id="username" name="username"
                 labelClass="w-60" type="text" />
-            <x-frontend.forms.input-type-field :value="old('full_name', $registeredUser?->registeredUserDetail?->full_name)" label="Organization Name" id="full_name" name="full_name"
+            <x-frontend.forms.input-type-field :value="old('organization_name', $registeredUser?->registeredUserDetail?->organization_name)" label="Organization Name" id="organization_name" name="organization_name"
                 labelClass="w-60" type="text" />
 
             <x-frontend.forms.input-type-field :value="$registeredUser?->email" label="Email Address" id="email" name="email" placeholder="Enter your organization's email address"

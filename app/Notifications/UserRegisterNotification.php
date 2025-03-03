@@ -45,6 +45,7 @@ class UserRegisterNotification extends Notification
     {
         return [
             'username' => $this->registeredUser->username ??'',
+            'id' => $this->registeredUser->id ??'',
             'avatar' => $this->registeredUser->avatar ??'',
         ];
     }

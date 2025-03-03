@@ -14,7 +14,7 @@ class StoreRegisteredUserDetailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'full_name' => ['required', 'string'],
+            'organization_name' => ['required', 'string'],
             'address' => ['required', 'string'],
             'map_url' => ['nullable'],
             'whats_app_number' => ['required', 'integer'],

@@ -93,7 +93,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="notification-list mx-h-350 customscroll">
-                        <ul>
+                        <ul class="px-2">
                            @forelse (auth()->user()->unreadNotifications as $notification)
 
                             <li class="row flex">

@@ -117,7 +117,7 @@
                                     <p class="text-gray-600">
                                      <span class="text-green-800">
                                      By:
-                                     </span>   {{$result->registeredUser->registeredUserDetail->full_name}}
+                                     </span>   {{$result->registeredUser->registeredUserDetail->organization_name}}
                                     </p>
 
                                 </div>

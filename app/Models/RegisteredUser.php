@@ -47,7 +47,13 @@ class RegisteredUser extends Authenticatable
         ];
     }
 
-
+    protected function avatar(): Attribute
+    {
+        return Attribute::make(
+            get: fn(?string $value) => $value ? Storage::disk('public')->url($value) : null,
+            set: fn($value) => $value ? $value->store('registeredUser', 'public') : null,
+        );
+    }
 
     public function registeredUserDetail(): HasOne
     {

@@ -16,7 +16,7 @@ class RegisteredUserDetail extends Model
     protected $fillable = [
         'registered_user_id',
         'address',
-        'full_name',
+        'organization_name',
         'establish_date',
         'whats_app_number',
         'citizenship_no',

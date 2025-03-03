@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('registered_user_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('registered_user_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->string('full_name')->nullable();
+            $table->string('organization_name')->nullable();
             $table->string('address')->nullable();
             $table->string('map_url')->nullable();
             $table->string('whats_app_number')->nullable();
