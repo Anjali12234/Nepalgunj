@@ -79,6 +79,7 @@
                         <x-frontend.forms.text-area-component :value="old('map_url')" label="Map Url" id="map_url"
                                                               name="map_url" labelClass="w-36"
                                                               class="text-sm font-semibold"/>
+                        {{-- <x-frontend.forms.multiselect-program-component /> --}}
                     </div>
                     <div class="col-span-2">
                         <x-frontend.forms.input-type-field :value="old('website_url')" label="Website Url"

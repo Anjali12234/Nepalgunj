@@ -31,14 +31,36 @@
 
             <!-- Campus Details Section -->
             <div class="grid lg:grid-cols-2 gap-10 items-start mb-10 lg:mb-14">
-                <!-- Campus Image -->
-                <div class="w-full group">
-                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                        <img
-                            class="w-full h-full object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
-                            src="{{ count($educationList->files) > 0 ? $educationList->files?->first()->file_url : '' }}"
-                            alt="{{ $educationList->name }}">
-                    </div>
+               
+                <style>
+                    .carousel-item {
+                        display: none;
+                    }
+
+                    .carousel-item.active {
+                        display: block;
+                    }
+
+                    .thumbnail.active {
+                        border: 2px solid teal;
+                    }
+                </style>
+                <div class="relative bg-white shadow-lg overflow-hidden">
+                    @foreach ($educationList->files as $index => $file)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
+                             data-index="{{ $index }}">
+                            <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
+                                 class="w-full h-[30rem] object-cover">
+                        </div>
+                    @endforeach
+                    <button
+                        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r"
+                        onclick="changeSlide(-1)">❮
+                    </button>
+                    <button
+                        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l"
+                        onclick="changeSlide(1)">❯
+                    </button>
                 </div>
 
 
@@ -46,6 +68,14 @@
                 <div>
                     <h2 class="text-2xl font-semibold text-gray-900 mb-4">About</h2>
                     {!! $educationList->description !!}
+                </div>
+            </div>
+            <div class="max-w-4xl   mb-10 lg:mb-14 flex gap-20">
+                <div class="row">
+                    <h1 class="font-bold text-lg">Affiliated by : <span class="font-semibold text-red-700">{{ $educationList->affiliated }}</span> </h1>
+                </div>
+                <div class="row">
+                    <h1 class="font-bold text-lg">Program : <span class="font-semibold text-red-700">{{ $educationList->program }}</span> </h1>
                 </div>
             </div>
 
@@ -208,6 +238,30 @@
                 slidePrev();
             });
         });
+    </script>
+    <script>
+        let currentSlide = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        function updateSlides() {
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide);
+            });
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + items.length) % items.length;
+            updateSlides();
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
     </script>
 
 </x-guest-layout>

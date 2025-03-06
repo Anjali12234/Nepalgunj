@@ -22,7 +22,7 @@
             <x-frontend.forms.input-type-field label="Password" id="password" name="password" type="password" labelClass="w-48" />
             <x-frontend.forms.input-type-field label="Confirm Password" id="password_confirmation" labelClass="w-48"
                 name="password_confirmation" type="password" />
-            <x-frontend.forms.multiple-select-component :value="old('category[]')" label="Choose Your Ad Category" id="category" labelClass="w-48"
+            <x-frontend.forms.multiple-select-component :value="old('category[]')" label="Choose Your Ad Category" id="category" labelClass="w-[13rem]"
                 name="category[]" :options="$categories" />
 
             <button type="button submit"
