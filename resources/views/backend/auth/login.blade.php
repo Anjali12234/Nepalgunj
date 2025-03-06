@@ -53,7 +53,9 @@
                         <div class="login-title">
                             <h2 class="text-center text-primary">Login To Admin Dashboard</h2>
                         </div>
-                        @if ($errors->any())
+                       
+                        <form action="{{ route('login') }}" method="POST">
+                            @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -62,7 +64,6 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('login') }}" method="POST">
                             @csrf
 
                             <div class="input-group custom">

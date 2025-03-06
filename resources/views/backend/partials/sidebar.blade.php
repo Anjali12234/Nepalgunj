@@ -85,6 +85,16 @@
                         <span class="micon bi bi-calendar4-week"></span><span class="mtext">Menu</span>
                     </a>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-table"></span><span class="mtext">Setting</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('admin.program.index') }}">Program</a>
+                        </li>
+                       
+                    </ul>
+                </li>
 
 {{--                <li class="dropdown">--}}
 {{--                    <a href="javascript:;" class="dropdown-toggle">--}}

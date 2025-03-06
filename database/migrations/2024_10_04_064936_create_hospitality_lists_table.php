@@ -41,7 +41,7 @@ return new class extends Migration
             $table->decimal('average_meal_price', 8, 2)->nullable();  // Avg meal price for restaurants
             $table->string('menu')->nullable();  // Store restaurant/cafe menu
             $table->string('parking_available')->nullable();
-            $table->string('delivery_available');  // For restaurants
+            $table->string('delivery_available')->nullable();  // For restaurants
             $table->timestamps();
         });
     }

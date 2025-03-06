@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('contact_number');
             $table->string('affiliated')->nullable();
             $table->longText('description');
-            $table->string('program');
+            $table->longText('program');
             $table->string('email');
             $table->string('facebook_url')->nullable();
             $table->string('website_url')->nullable();

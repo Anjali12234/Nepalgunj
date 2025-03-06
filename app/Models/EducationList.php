@@ -40,7 +40,9 @@ class EducationList extends Model
         'position',
         'status',
     ];
-
+    protected $casts = [
+        'program' => 'array',
+    ];
     public function educationCategory()
     {
         return $this->belongsTo(EducationCategory::class);

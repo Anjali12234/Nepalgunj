@@ -9,6 +9,7 @@ use App\Http\Requests\EducationList\UpdateEducationListRequest;
 use App\Models\EducationCategory;
 use App\Models\EducationList;
 use App\Models\MainCategory;
+use App\Models\Program;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -25,7 +26,8 @@ class EducationAdController extends BaseController
 
     public function create(EducationCategory $educationCategory)
     {
-        return view('registeredUser.educationAd.create', compact('educationCategory'));
+        $programs = Program::pluck('title', 'id')->toArray();
+        return view('registeredUser.educationAd.create', compact('educationCategory','programs'));
     }
 
     public function store(StoreEducationListRequest $request, EducationCategory $educationCategory)
