@@ -61,7 +61,7 @@ class JobAdController extends BaseController
         $jobList->update($request->validated());
         alert("form updated");
 
-        return back();
+        return redirect(route('registeredUser.jobList.index'));
     }
 
     public function destroy(JobList $jobList)

@@ -44,7 +44,7 @@
                             <td class="table-plus">{{ $loop->iteration }}</td>
                             <td>{{ $jobList->jobCategory?->title }}</td>
                             <td>{{ $jobList->registeredUser?->username }}</td>
-                            <td>{{ $jobList->jobname }}</td>
+                            <td>{{ $jobList->job_name }}</td>
                             <td>{{ $jobList->slug }}</td>
                             <td>
                                 <form action="{{ route('admin.jobList.updateStatus', $jobList) }}" method="post" style="display: inline">
