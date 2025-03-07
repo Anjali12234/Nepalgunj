@@ -1,37 +1,40 @@
 @extends('registeredUser.layout.master')
 
 @section('content')
-    <div class="content px-5 md:px-7 col-span-3 mt-8 md:mt-0 font-manrope min-h-screen">
+    <div class="content px-5  md:px-7 col-span-3 mt-8 md:mt-0 font-manrope min-h-screen">
         <h1 class="font-semibold text-3xl">Job List</h1>
-        <div class="border-b border-gray-200 dark:border-neutral-600">
-            <nav class="flex gap-x-1 bg-neutral-200 hover:bg-neutral-400 mt-3" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
-                    @foreach ($jobCategories as $index => $jobCategory)
-                        <button type="button"
-                            class="py-4  px-4 inline-flex items-center gap-x-2 border-b-2 text-base font-bold whitespace-nowrap focus:outline-none
-                             disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+        <div class="border-b border-gray-200 dark:border-neutral-700 mt-5">
+            <nav class="flex gap-x-1 bg-neutral-800 rounded-md" aria-label="Tabs" role="tablist"
+                 aria-orientation="horizontal">
+                @foreach ($jobCategories as $jobCategory)
+                    <button type="button"
+                            class="tab-button text-lg py-4 px-6 inline-flex items-center gap-x-2
+                    text-white hover:text-blue-600 focus:outline-none
+                    focus:text-blue-600 focus:bg-neutral-600 disabled:opacity-50 disabled:pointer-events-none
+                    dark:text-neutral-400 dark:hover:text-blue-500"
                             id="tab-{{ $jobCategory->id }}"
-                            data-hs-tab="#tab-content-{{ $jobCategory->id }}"
-                            aria-controls="tab-content-{{ $jobCategory->id }}"
+                            data-tab-content="#tab-content-{{ $jobCategory->id }}"
                             role="tab"
-                            style="border-color: {{ $index == 0 ? 'black' : 'transparent' }}; color: {{ $index == 0 ? 'black' : '#6b7280' }}">
-                            {{ $jobCategory->title }}
-                        </button>
-                    @endforeach
+                            aria-selected="{{ $loop->first ? 'true' : 'false' }}"
+                            aria-controls="tab-content-{{ $jobCategory->id }}"
+                            style="{{ $loop->first ? 'background-color: #374151; color: #2563EB;' : '' }}">
+                        {{ $jobCategory->title }}
+                    </button>
+                @endforeach
             </nav>
         </div>
-
         <div class="mt-3">
-                @foreach ($jobCategories as $index => $jobCategory)
-                    <div id="tab-content-{{ $jobCategory->id }}" class="tab-content" role="tabpanel"
-                        aria-labelledby="tab-{{ $jobCategory->id }}" style="display: {{ $index == 0 ? 'block' : 'none' }};">
-                        <div class="flex flex-col">
-                            <div class="-m-1.5 overflow-x-auto">
-                                <div class="p-1.5 min-w-full inline-block align-middle">
-                                    <div class="overflow-hidden">
-                                        <x-frontend.forms.table-component
-                                            :headers="['Reference No', 'Title', 'Category', 'Contact Number', 'Action']"
-                                            :data="$jobCategory->jobList">
-                                            @forelse ($jobCategory->jobLists as $jobList)
+            @foreach ($jobCategories as $jobCategory)
+                <div id="tab-content-{{ $jobCategory->id }}" role="tabpanel"
+                     aria-labelledby="tab-{{ $jobCategory->id }}" class="{{ $loop->first ? '' : 'hidden' }}">
+                    <div class="flex flex-col">
+                        <div class="-m-1.5 overflow-x-auto">
+                            <div class="p-1.5 min-w-full inline-block align-middle">
+                                <div class="overflow-hidden">
+                                    <x-frontend.forms.table-component
+                                        :headers="['Reference No', 'Title', 'Category', 'Contact Number', 'Action']"
+                                        :data="$jobCategory->jobList">
+                                        @forelse ($jobCategory->jobLists as $jobList)
                                             <tr>
                                                 <td
                                                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
@@ -73,44 +76,21 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                            @empty
-                                                <tr>
-                                                    <td colspan="5"
-                                                        class="px-6 py-4 text-center text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                                        No Data Found!!
-                                                    </td>
-                                                </tr>
-                                            @endforelse
-                                        </x-frontend.forms.table-component>
-                                    </div>
+                                        @empty
+                                            <tr>
+                                                <td colspan="5"
+                                                    class="px-6 py-4 text-center text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                                    No Data Found!!
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    </x-frontend.forms.table-component>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const tabs = document.querySelectorAll("[data-hs-tab]");
-            const tabContents = document.querySelectorAll(".tab-content");
-            
-            tabs.forEach(tab => {
-                tab.addEventListener("click", function () {
-                    const target = document.querySelector(this.dataset.hsTab);
-                    
-                    tabContents.forEach(content => content.style.display = "none");
-                    tabs.forEach(t => {
-                        t.style.borderColor = "transparent";
-                        t.style.color = "#6b7280";
-                    });
-                    
-                    target.style.display = "block";
-                    this.style.borderColor = "black";
-                    this.style.color = "black";
-                });
-            });
-        });
-    </script>
 @endsection
