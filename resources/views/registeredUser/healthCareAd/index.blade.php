@@ -4,11 +4,11 @@
     <div class="content px-5 md:px-7 col-span-3 mt-8 md:mt-0 font-manrope min-h-screen">
         <h1 class="font-semibold text-3xl">HealthCare List</h1>
         <div class="border-b border-gray-200 dark:border-neutral-700">
-            <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+            <nav class="flex gap-x-1 bg-neutral-200 hover:bg-neutral-400 mt-3" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
                 @foreach ($mainCategories as $mainCategory)
                     @foreach ($mainCategory->healthCareCategories as $index => $healthCareCategory)
                         <button type="button"
-                            class="py-4 px-1 inline-flex items-center gap-x-2 border-b-2 text-base font-bold whitespace-nowrap focus:outline-none
+                            class="py-4  px-4  inline-flex items-center gap-x-2 border-b-2 text-base font-bold whitespace-nowrap focus:outline-none
                              disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
                             id="tab-{{ $healthCareCategory->id }}"
                             data-hs-tab="#tab-content-{{ $healthCareCategory->id }}"
