@@ -78,7 +78,7 @@ class HospitalityAdController extends BaseController
         $hospitalityList->update($request->validated());
         alert("form updated");
 
-        return back();
+        return redirect(route('registeredUser.hospitalityList.index'));
     }
 
     public function destroy(HospitalityList $hospitalityList)

@@ -69,7 +69,7 @@ class HeatlthAdController extends BaseController
         $healthCareList->update($request->validated());
         alert("form updated");
 
-        return back();
+        return redirect(route('registeredUser.healthCareList.index'));
     }
 
     public function destroy(HealthCareList $healthCareList)

@@ -85,7 +85,7 @@ class EducationAdController extends BaseController
         $educationList->update($request->validated());
         alert("form updated");
 
-        return back();
+        return redirect(route('registeredUser.educationList.index'));
     }
 
     public function destroy(EducationList $educationList)
