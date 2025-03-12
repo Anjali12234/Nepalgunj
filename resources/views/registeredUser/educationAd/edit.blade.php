@@ -93,10 +93,13 @@
                                 type="text" class="text-sm font-semibold" />
                             <x-frontend.forms.input-type-field :value="old('whats_app_no', $educationList->whats_app_no)" labelClass="w-36" label="Whats App" id="whats_app_no" name="whats_app_no"
                                 type="number" class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component :value="old('name', $educationList->name)" label="{{ $educationList->educationCategory->title_en }} Image " id="files"
+                                <x-frontend.remove-button :value="$educationList?->thumbnail" />
+                            <x-frontend.forms.file-component : label="{{ $educationList->educationCategory->title_en }} Thumbnail " id="thumbnail"
+                                name="thumbnail" type="file" class="text-sm font-semibold" 
+                                 />
+                            <x-frontend.forms.file-component : label="{{ $educationList->educationCategory->title_en }} Image " id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
-                                {{-- placeholder="Per Month" --}} />
+                                 />
                         </div>
                         <div class="col-span-4">
                             <x-frontend.forms.text-area-component :value="old('description', $educationList->description)" labelClass="w-36" label="Description" id="editor" name="description"

@@ -102,7 +102,9 @@
 
                         <x-frontend.forms.file-component label="{{ $educationCategory->title_en }} Image " id="files"
                                                          name="files[]" type="file" class="text-sm font-semibold"
-                                                         multiple="multiple"
+                                                         multiple="multiple" />
+                        <x-frontend.forms.file-component label="{{ $educationCategory->title_en }} Thumbnail " id="thumbnail"
+                                                         name="thumbnail" type="file" class="text-sm font-semibold"
                             {{-- placeholder="Per Month" --}} />
                     </div>
                     <div class="col-span-4">

@@ -66,17 +66,20 @@
 
                 <!-- Campus Description -->
                 <div>
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">About</h2>
-                    {!! $educationList->description !!}
+                    @if(!empty($educationList->affiliated))
+                    <div class="row">
+                        <h1 class="font-bold text-lg">Affiliated by : <span class="font-semibold text-red-700">{{ $educationList->affiliated }}</span> </h1>
+                    </div>
+                    @endif
+                    <div class="row">
+                        <h1 class="font-bold text-lg">Program : <span class="font-semibold text-red-700">{{ $educationList->program }}</span> </h1>
+                    </div>
+                 
                 </div>
             </div>
-            <div class="max-w-4xl   mb-10 lg:mb-14 flex gap-20">
-                <div class="row">
-                    <h1 class="font-bold text-lg">Affiliated by : <span class="font-semibold text-red-700">{{ $educationList->affiliated }}</span> </h1>
-                </div>
-                <div class="row">
-                    <h1 class="font-bold text-lg">Program : <span class="font-semibold text-red-700">{{ $educationList->program }}</span> </h1>
-                </div>
+            <div class="max-w-4xl   mb-10 lg:mb-14 ">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Description</h2>
+                {!! $educationList->description !!}
             </div>
 
             <!-- Testimonials Section -->

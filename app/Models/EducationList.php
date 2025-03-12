@@ -39,6 +39,7 @@ class EducationList extends Model
         'slug',
         'position',
         'status',
+        'thumbnail',
     ];
     protected $casts = [
         'program' => 'array',
@@ -47,7 +48,13 @@ class EducationList extends Model
     {
         return $this->belongsTo(EducationCategory::class);
     }
-
+    protected function thumbnail(): Attribute
+    {
+        return Attribute::make(
+            get: fn(?string $value) => $value ? Storage::disk('public')->url($value) : null,
+            set: fn($value) => $value ? $value->store('educations', 'public') : null,
+        );
+    }
     public function registeredUser()
     {
         return $this->belongsTo(RegisteredUser::class);
