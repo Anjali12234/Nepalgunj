@@ -95,7 +95,7 @@
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
-                                        alt="Blog Image">
+                                        alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">
                                     {{ $healthCareList->name }}</h3>
@@ -126,7 +126,7 @@
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
-                                        alt="Blog Image">
+                                        alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">
                                     {{ $healthCareList->name }}</h3>
@@ -157,7 +157,7 @@
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
-                                        alt="Blog Image">
+                                        alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">
                                     {{ $healthCareList->name }}</h3>
@@ -188,7 +188,7 @@
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
-                                        alt="Blog Image">
+                                        alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">
                                     {{ $healthCareList->name }}</h3>
