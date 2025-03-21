@@ -19,7 +19,8 @@
         </nav>
 
 
-        <x-frontend.entertainment.list-page: entertainmentCategory="$entertainmentCategory"/>
+        <x-frontend.entertainment.list-page :entertainmentCategory="$entertainmentCategory" />
+
 
    
 </div>
