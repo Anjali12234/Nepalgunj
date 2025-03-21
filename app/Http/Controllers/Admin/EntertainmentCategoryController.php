@@ -14,6 +14,7 @@ class EntertainmentCategoryController extends Controller
 {
     public function index()
     {
+       
         $mainCategories = MainCategory::all();
         $entertainmentCategories = EntertainmentCategory::paginate(10);
         return view('admin.entertainmentCategory.index',compact('mainCategories','entertainmentCategories'));
