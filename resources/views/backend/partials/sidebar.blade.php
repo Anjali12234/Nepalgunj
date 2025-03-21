@@ -41,6 +41,7 @@
                         <li><a href="{{ route('admin.educationCategory.index') }}">Education Category</a></li>
                         <li><a href="{{ route('admin.hospitalityCategory.index') }}">Hospitality Category</a></li>
                         <li><a href="{{ route('admin.jobCategory.index') }}">Job Category</a></li>
+                        <li><a href="{{ route('admin.entertainmentCategory.index') }}">Entertainment Category</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -96,20 +97,6 @@
                     </ul>
                 </li>
 
-{{--                <li class="dropdown">--}}
-{{--                    <a href="javascript:;" class="dropdown-toggle">--}}
-{{--                        <span class="micon bi bi-archive"></span><span class="mtext"> Role and Permission </span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="submenu">--}}
-{{--                        --}}{{-- <li><a href="{{ route('admin.permission.index') }}">Premission</a></li> --}}
-{{--                        <li><a href="{{ route('admin.role.index') }}">Role</a></li>--}}
-
-{{--                        <li><a href=" {{ route('admin.user.index') }}">User</a></li>--}}
-
-
-
-{{--                    </ul>--}}
-{{--                </li>--}}
 
 
             </ul>

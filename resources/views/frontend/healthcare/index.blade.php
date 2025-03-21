@@ -16,13 +16,11 @@
                                         class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
                                         style="background-image: url('{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}">
                                         <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
-                                            <span class="block text-white">{{ $healthCareList->name }}</span>
-                                            <span class="block text-white text-lg md:text-3xl">Rewriting sport's playbook for
-                                        billions of athletes</span>
+                                            <span class="block text-lg md:text-3xl">{{ $healthCareList->name }}</span>
                                             <div class="mt-5">
                                                 <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-white text-black hover:bg-gray-100 focus:outline-none"
-                                                   href="#">
-                                                    Read Case Studies
+                                                   href="{{ route('healthCare.detailPage',$healthCareList) }}">
+                                                    Read More
                                                 </a>
                                             </div>
                                         </div>
@@ -90,7 +88,7 @@
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                               href="{{ route('healthcare.detailPage',$healthCareList) }}">
+                               href="{{ route('healthCare.detailPage',$healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
@@ -121,7 +119,7 @@
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthCare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
@@ -152,7 +150,7 @@
                         @forelse ($healthCare->healthCareLists as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthCare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
@@ -183,7 +181,7 @@
                         @forelse ($healthCare->healthCareLists as $healthCareList)
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
-                               href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                               href="{{ route('healthCare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"

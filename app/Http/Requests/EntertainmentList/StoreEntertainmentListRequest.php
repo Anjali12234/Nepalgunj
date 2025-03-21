@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\HospitalityList;
+namespace App\Http\Requests\EntertainmentList;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-class StoreHospitalityListRequest extends FormRequest
+
+class StoreEntertainmentListRequest extends FormRequest
 {
+   
     public function authorize(): bool
     {
         return true;
@@ -18,21 +19,14 @@ class StoreHospitalityListRequest extends FormRequest
             'name' => ['required','string'],
             'address' => ['required','string'],
             'contact_number' => ['required','string'],
-            'details' => ['required'],
+            'description' => ['required','string'],
             'website_url' => ['nullable','string'],
             'email' => ['nullable','string'],
             'facebook_url' => ['required','string'],
-            'youtube_link' => ['nullable','string'],
+            'youtube_url' => ['nullable','string'],
+            'tiktok_url' => ['required','string'],
+            'thumbnail' => ['required','image'],
             'map_url' => ['required','string'],
-            'opening_time' => ['required','string'],
-            'total_rooms' => ['nullable','string'],
-            'room_types' => ['nullable','string'],
-            'facilities' => ['required','string'],
-            'price_per_night' => ['nullable','numeric'],
-            'average_meal_price' => ['nullable','string'],
-            'menu' => ['required','string'],
-            'parking_available' => ['nullable','string'],
-            'delivery_available' => ['nullable'],
             'whats_app_no' => ['required','numeric'],
             'files' => ['required', 'array'],
             'files.*' => ['mimes:png,jpg,jpeg,jfif,webp'],

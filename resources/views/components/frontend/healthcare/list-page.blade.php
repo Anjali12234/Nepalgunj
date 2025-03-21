@@ -23,7 +23,7 @@
         @if ($healthCare->type == 'Doctor')
             @foreach ($healthCare->healthCareLists as $healthCareList)
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
-                   href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                   href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
@@ -49,7 +49,7 @@
         @elseif ($healthCare->type == 'Hospital')
             @foreach ($healthCare->healthCareLists as $healthCareList)
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
-                   href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                   href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
@@ -75,7 +75,7 @@
         @elseif ($healthCare->type == 'Pharmacy')
             @foreach ($healthCare->healthCareLists as $healthCareList)
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
-                   href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                   href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
@@ -101,7 +101,7 @@
         @elseif ($healthCare->type == 'Medical')
             @foreach ($healthCare->healthCareLists as $healthCareList)
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
-                   href="{{ route('healthcare.detailPage', $healthCareList) }}">
+                   href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"

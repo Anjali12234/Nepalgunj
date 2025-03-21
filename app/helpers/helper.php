@@ -2,6 +2,8 @@
 
 use App\Models\EducationCategory;
 use App\Models\EducationList;
+use App\Models\EntertainmentCategory;
+use App\Models\EntertainmentList;
 use App\Models\HealthCareCategory;
 use App\Models\HealthCareList;
 use App\Models\HospitalityCategory;
@@ -47,13 +49,18 @@ if (!function_exists('educationCategories')) {
     function educationCategories()
     {
         return EducationCategory::all();
-
     }
 }
 if (!function_exists('hospitalityCategories')) {
     function hospitalityCategories()
     {
         return HospitalityCategory::all();
+    }
+}
+if (!function_exists('entertainmentCategories')) {
+    function entertainmentCategories()
+    {
+        return EntertainmentCategory::all();
     }
 }
 if (!function_exists('jobCategories')) {
@@ -76,6 +83,10 @@ if (!function_exists('getCounts')) {
             ->where('registered_user_id', $authUserId)
             ->count();
 
+        $entertainmentCount = EntertainmentList::where('deleted_at', NULL)
+            ->where('registered_user_id', $authUserId)
+            ->count();
+
         $hospitalityCount = HospitalityList::where('deleted_at', NULL)
             ->where('registered_user_id', $authUserId)
             ->count();
@@ -83,13 +94,14 @@ if (!function_exists('getCounts')) {
         $healthCount = HealthCareList::where('deleted_at', NULL)
             ->where('registered_user_id', $authUserId)
             ->count();
- $jobCount = JobList::where('deleted_at', NULL)
+        $jobCount = JobList::where('deleted_at', NULL)
             ->where('registered_user_id', $authUserId)
             ->count();
 
         return [
             'propertyCount' => $propertyCount,
             'educationCount' => $educationCount,
+            'entertainmentCount' => $entertainmentCount,
             'hospitalityCount' => $hospitalityCount,
             'healthCount' => $healthCount,
             'jobCount' => $jobCount,

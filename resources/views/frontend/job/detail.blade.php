@@ -104,8 +104,8 @@
                                             class="bg-white overflow-hidden rounded-lg shadow-md transition-transform transform hover:scale-105 mb-4">
                                             <img src="{{ $relatedJobList->image }}" alt="Job Image"
                                                  class="w-full lg:w-40 h-52 lg:h-24 object-cover rounded-t-md">
-                                            <div class="p-4">
-                                                <p class="text-gray-700 font-bold text-base">{{ $relatedJobList->job_name }}</p>
+                                            <div class="p-2">
+                                                <p class="text-gray-700 font-bold text-sm">{{ Str::words($relatedJobList->job_name, 20) }}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -126,7 +126,7 @@
                                     <div class="flex flex-col sm:flex-row items-center space-x-4 mb-4">
                                         <img src="{{ $relatedJobList->image }}" alt="News Image"
                                              class="w-full lg:w-40 h-52 lg:h-24 rounded-md">
-                                        <h3 class="text-sm font-semibold">{{ $relatedJobList->job_name }}</h3>
+                                        <h3 class="text-sm font-semibold">{{ Str::words($relatedJobList->job_name, 10) }}</h3>
                                     </div>
                                 </a>
                             @empty

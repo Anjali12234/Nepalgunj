@@ -51,6 +51,21 @@
                             </div>
                         @endif
                         @if (is_array($registeredUser->category) &&
+                                in_array(entertainmentCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                            <div>
+
+                                <button type="button"
+                                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex flex-col items-center gap-x-2 gap-y-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500"
+                                        id="tabs-with-underline-item-6" aria-selected="true"
+                                        data-hs-tab="#tabs-with-underline-6" aria-controls="tabs-with-underline-3"
+                                        role="tab">
+                                    <i class="ti ti-heart-plus text-4xl"></i>
+                                    <span
+                                        class="block">{{ entertainmentCategories()->first()?->mainCategory?->title_en }}</span>
+                                </button>
+                            </div>
+                        @endif
+                        @if (is_array($registeredUser->category) &&
                                 in_array(hospitalityCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
                             <div>
                                 <button type="button"
@@ -59,6 +74,7 @@
                                         data-hs-tab="#tabs-with-underline-4" aria-controls="tabs-with-underline-4"
                                         role="tab">
                                     <i class="ti ti-hotel-service text-4xl"></i>
+                                    
                                     <span
                                         class="block">{{ hospitalityCategories()->first()?->mainCategory?->title_en }}</span>
                                 </button>
@@ -128,6 +144,25 @@
                                             <li class="text-blue-900 text-base lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200 p-4 rounded-md mb-2">
                                                 {{-- @dd(hospitalityCategories()->first()?->mainCategory); --}}
                                                 {{ $educationCategory->title_en }}</li>
+                                        </a>
+                                    @endforeach
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    @endif
+                    @if (is_array($registeredUser->category) &&
+                            in_array(entertainmentCategories()->first()?->mainCategory?->title_en, $registeredUser->category))
+                        <div id="tabs-with-underline-6" class="{{ !isset($registeredUser->category) ? '' : 'hidden' }}"
+                             role="tabpanel" aria-labelledby="tabs-with-underline-item-6">
+                            <ul>
+                                @foreach ($sharedCategory as $mainCategory)
+                                    @foreach ($mainCategory->entertainmentCategories as $entertainmentCategory)
+                                        <a
+                                            href="{{ route('registeredUser.entertainmentCategory.create', $entertainmentCategory) }}">
+                                            <li class="text-blue-900 text-base lg:text-lg font-semibold bg-gray-100 hover:bg-gray-200 p-4 rounded-md mb-2">
+                                                {{-- @dd(hospitalityCategories()->first()?->mainCategory); --}}
+                                                {{ $entertainmentCategory->title }}</li>
                                         </a>
                                     @endforeach
                                 @endforeach

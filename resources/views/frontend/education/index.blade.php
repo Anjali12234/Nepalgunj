@@ -163,7 +163,7 @@
                 </div>
 
                 <div class="flex justify-center items-center text-center mt-8">
-                    <a href="{{ route('educationCategory', $educationCategory) }}"
+                    <a href="{{ route('education', $educationCategory) }}"
                        class="text-center bg-neutral-700 hover:bg-neutral-800 text-white px-8 py-3 rounded-full">View
                         More</a>
                 </div>
