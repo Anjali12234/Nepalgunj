@@ -83,23 +83,39 @@
 
 
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('properties') }}'
-                    class='{{ request()->routeIs('properties')?'text-green-500':'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Properties</a>
-            </li>
+                        class='{{ Str::startsWith(request()->route()->getName(), 'properties.') ? 'text-green-500' : 'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Properties</a>
+                </li>
 
-                <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('healthcareIndex') }}'
-                        class='{{ request()->routeIs('healthcareIndex')?'text-green-500':'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health</a>
+                <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href='{{ route('healthCare.IndexPage') }}'
+                        class='{{ Str::startsWith(request()->route()->getName(), 'healthCare.') ? 'text-green-500' : 'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Health</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a
                         href='{{ route('education.IndexPage') }}'
-                        class='{{ request()->routeIs('education.IndexPage')?'text-green-500':'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Educations</a>
-                </li>
-                <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a href="{{ route('hospitality.hospitalityIndex') }}"
-                        class='{{ request()->routeIs('hospitality.hospitalityIndex')? 'text-green-500': 'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Hospitality</a>
+                        class='{{ Str::startsWith(request()->route()->getName(), 'education.') ? 'text-green-500' : 'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Educations</a>
                 </li>
                 <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'><a
-                        href="{{ route('newsList') }}"
-                        class='hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'> News</a>
+                        href="{{ route('hospitality.hospitalityIndex') }}"
+                        class='{{ Str::startsWith(request()->route()->getName(), 'hospitality.') ? 'text-green-500' : 'text-gray-500 ' }} hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]'>Hospitality</a>
                 </li>
+
+                {{-- {{ request()->is("programme/".$prog->slug) ? 'bg-[#FFC315]' : 'bg-gray-300 hover:bg-[#FFC315]' }} --}}
+                @if (Str::startsWith(request()->route()->getName(), 'entertainment.'))
+                    <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'>
+                        <a href="{{ route('entertainment.IndexPage') }}"
+                            class='{{ Str::startsWith(request()->route()->getName(), 'entertainment.') ? 'text-green-500' : 'text-gray-500' }} hover:text-[#007bff] block font-semibold text-[15px]'>
+                            Entertainment
+                        </a>
+                    </li>
+                @else
+                    <li class='max-lg:border-b border-gray-300 max-lg:py-3 px-3'>
+                        <a href="{{ route('newsList') }}"
+                            class='{{ request()->routeIs('newsList') ? 'text-green-500' : 'text-gray-500' }} hover:text-[#007bff] block font-semibold text-[15px]'>
+                            News
+                        </a>
+                    </li>
+                @endif
+
+
                 <li class='group max-lg:border-b max-lg:py-3 relative'>
                     <a href='javascript:void(0)'
                         class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold lg:hover:fill-[#007bff] block'>More<svg
@@ -110,13 +126,21 @@
                                 data-name="16" data-original="#000000" />
                         </svg>
                     </a>
+
                     <ul
                         class='absolute shadow-lg bg-white space-y-3 lg:top-12 max-lg:top-8 -left-6 min-w-[250px] z-50 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500'>
                         <li class='border-b py-2 '><a href='{{ route('jobList') }}'
                                 class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'> Jobs</a>
                         </li>
-
-
+                        @if (Str::startsWith(request()->route()->getName(), 'entertainment.'))
+                            <li class='border-b py-2 '><a href='{{ route('newsList') }}'
+                                    class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>News</a>
+                            </li>
+                        @else
+                            <li class='border-b py-2 '><a href='{{ route('entertainment.IndexPage') }}'
+                                    class='hover:text-[#007bff] text-gray-600 text-[15px] font-bold block'>Entertainment</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
 
@@ -164,8 +188,7 @@
 </header>
 {{-- model --}}
 
-<div id="hs-slide-down-animation-modal"
-    class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-hidden"
+<div id="hs-slide-down-animation-modal" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-hidden"
     role="dialog" tabindex="-1" aria-labelledby="hs-slide-down-animation-modal-label">
     <div
         class="h-fuhs-overlay-animation-target hs-overlay-open:mt-0 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full sm:mx-auto h-screen">

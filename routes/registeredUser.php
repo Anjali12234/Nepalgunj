@@ -7,6 +7,7 @@ use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthController;
 use App\Http\Controllers\RegisteredUser\EducationAdController;
+use App\Http\Controllers\RegisteredUser\EntertainmentAdController;
 use App\Http\Controllers\RegisteredUser\HeatlthAdController;
 use App\Http\Controllers\RegisteredUser\HospitalityAdController;
 use App\Http\Controllers\RegisteredUser\JobAdController;
@@ -48,6 +49,12 @@ Route::prefix('education')->group(function () {
     Route::post('educationList/{educationCategory:slug}', [EducationAdController::class, 'store'])->name('educationList.store');
     Route::resource('/educationList', EducationAdController::class)->except('store','create');
     Route::resource('education-list/{educationList:slug}/testimonials', TestimonialController::class)->names('educationList.testimonials');
+
+});
+Route::prefix('entertainment')->group(function () {
+    Route::get('entertainmentCategory/{entertainmentCategory:slug}', [EntertainmentAdController::class, 'create'])->name('entertainmentCategory.create');
+    Route::post('entertainmentList/{entertainmentCategory:slug}', [EntertainmentAdController::class, 'store'])->name('entertainmentList.store');
+    Route::resource('/entertainmentList', EntertainmentAdController::class)->except('store','create');
 
 });
 

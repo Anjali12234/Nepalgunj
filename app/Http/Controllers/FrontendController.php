@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\EducationCategory;
 use App\Models\EducationList;
+use App\Models\EntertainmentCategory;
+use App\Models\EntertainmentList;
 use App\Models\HealthCareCategory;
 use App\Models\HealthCareList;
 use App\Models\HospitalityList;
@@ -193,34 +195,23 @@ class FrontendController extends BaseController
         return view('frontend.hospitality.detailPage', compact('hospitalityList'));
     }
 
-    // public function staticMenus($slug)
-    // {
-    //     switch ($slug) {
-    //         case 'properties':
+    public function entertainmentIndexPage()
+    {
+        $entertainmentCategories = EntertainmentCategory::with('entertainmentLists')->get();
 
-    //             $search = request('search');
+        return view('frontend.entertainment.index', compact('entertainmentCategories'));
+    }
 
-    //             $propertyCategories = PropertyCategory::with('propertyLists')->get();
+    public function entertainmentDetailPage(EntertainmentList $entertainmentList)
+    {
+        return view('frontend.entertainment.detailPage',compact('entertainmentList'));
+    }
 
-    //             $properties = PropertyList::with('propertyCategory', 'registeredUser')
-    //             ->when($search, function ($query, $search) {
-    //                 $query->where('reference_no', 'like', "%{$search}%")
-    //                     ->orWhere('title', 'like', "%{$search}%")
-    //                     ->orWhere('rate', 'like', "%{$search}%");
-    //             })
-    //             ->where('status', 1)->paginate(15);
-
-    //             return view('frontend.property.properties', compact('properties','propertyCategories','search'));
-    //             break;
-    //         case 'healthCare':
-    //         return "hello";
-    //             return view('frontend.healthcare.index');
-    //             break;
-
-    //         default:
-    //             return response(view('errors.404'), 404);
-    //     }
-    // }
+    public function entertainmentlistPage(EntertainmentCategory $entertainmentCategory)
+    {
+        $entertainmentCategory->load('entertainmentLists');
+        return view('frontend.entertainment.listPage', compact('entertainmentCategory'));
+    }
 
 
 }

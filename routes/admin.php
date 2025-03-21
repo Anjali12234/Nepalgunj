@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\RolePermisson\PermissionController;
 use App\Http\Controllers\Admin\RolePermisson\RoleController;
 use App\Http\Controllers\Admin\RolePermisson\UserController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\EntertainmentCategoryController;
 use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,7 @@ Route::prefix('subCategory')->group(
         Route::resource('educationCategory', EducationCategoryController::class);
         Route::resource('hospitalityCategory', HospitalityCategoryController::class);
         Route::resource('jobCategory', JobCategoryController::class);
+        Route::resource('entertainmentCategory', \App\Http\Controllers\Admin\EntertainmentCategoryController::class);
     }
 );
 Route::prefix('hospitalityCategory')->group(function () {

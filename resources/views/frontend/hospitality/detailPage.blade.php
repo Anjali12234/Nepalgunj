@@ -154,23 +154,44 @@
                         </div>
                     </div>
 
-                    {{--                    <div>--}}
-                    {{--                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-in / Check-out</h2>--}}
-                    {{--                        <ul class="list-none space-y-2 text-gray-700">--}}
-                    {{--                            <li><strong>Check-in:</strong> 3:00 PM</li>--}}
-                    {{--                            <li><strong>Check-out:</strong> 11:00 AM</li>--}}
-                    {{--                        </ul>--}}
-                    {{--                    </div>--}}
+                  
                 </div>
 
 
                 <!-- Google Maps Section -->
-                <div class="mt-12">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Location</h2>
-                    <p class="font-semibold">{{ $hospitalityList->address }}</p>
-
-                    <div>
-                        {!!  $hospitalityList->map_url !!}
+                <div class="flex flex-col lg:flex-row lg:justify-between gap-3 mt-10 lg:mt-16">
+                    <!-- Map Section -->
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">Find Us on the Map</h2>
+                        <p class="font-semibold">{{ $hospitalityList->address }}</p>
+                        <div>
+                            {!! $hospitalityList->map_url !!}
+                        </div>
+                    </div>
+    
+                    <!-- Social Media Links Section -->
+                    <div class="w-full lg:w-1/2 mt-10 lg:mt-0 flex flex-col items-center">
+                        <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">Also Connect in</h2>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.instagram.com" class="p-2 rounded bg-neutral-700" target="_blank">
+                                <i class="ti ti-brand-instagram text-2xl text-white"></i>
+                            </a>
+                            <a href="{{ $hospitalityList->facebook_url }}" class="p-2 rounded bg-neutral-700" target="_blank">
+                                <i class="ti ti-brand-facebook text-2xl text-white"></i>
+                            </a>
+                            <a href="{{ $hospitalityList->twitter_url }}" class="p-2 rounded bg-neutral-700" target="_blank">
+                                <i class="ti ti-brand-x text-2xl text-white"></i>
+                            </a>
+                            <a href="{{ $hospitalityList->youtube_link }}" class="p-2 rounded bg-neutral-700" target="_blank">
+                                <i class="ti ti-brand-youtube text-2xl text-white"></i>
+                            </a>
+                            <a href="https://www.tiktok.com" class="p-2 rounded bg-neutral-700" target="_blank">
+                                <i class="ti ti-brand-tiktok text-2xl text-white"></i>
+                            </a>
+                            <a href="https://wa.me/{{ $hospitalityList->whats_app_no }}" class="p-2 rounded bg-neutral-700" target="_blank">
+                                <i class="ti ti-brand-whatsapp text-2xl text-white"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -185,7 +206,7 @@
         let currentSlide = 0;
         const items = document.querySelectorAll('.carousel-item');
         const thumbnails = document.querySelectorAll('.thumbnail');
-
+    
         function updateSlides() {
             items.forEach((item, index) => {
                 item.classList.toggle('active', index === currentSlide);
@@ -194,15 +215,23 @@
                 thumbnail.classList.toggle('active', index === currentSlide);
             });
         }
-
+    
         function changeSlide(direction) {
             currentSlide = (currentSlide + direction + items.length) % items.length;
             updateSlides();
         }
-
+    
         function setSlide(index) {
             currentSlide = index;
             updateSlides();
         }
+    
+        // 👇 Automatically change slide every 5 seconds (5000 milliseconds)
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    
+        // ✅ Initial load
+        updateSlides();
     </script>
 </x-guest-layout>

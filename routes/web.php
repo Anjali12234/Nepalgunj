@@ -25,13 +25,17 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('jobList','jobList')->name('jobList');
     Route::get('jobList/{jobList:slug}', 'jobDetail')->name('jobDetail');
 
-    Route::get('healthCare','healthcareIndex')->name('healthcareIndex');
-    Route::get('healthCareList/{healthCareList:slug}','detailPage')->name('healthcare.detailPage');
+    Route::get('healthCare','healthcareIndex')->name('healthCare.IndexPage');
+    Route::get('healthCareList/{healthCareList:slug}','detailPage')->name('healthCare.detailPage');
     Route::get('healthCare/{healthCare:slug}','listPage')->name('healthCare');
 
     Route::get('education','educationIndexPage')->name('education.IndexPage');
     Route::get('educationList/{educationList:slug}','educationDetailPage')->name('education.detailPage');
-    Route::get('educationCategory/{educationCategory:slug}','educationlistPage')->name('educationCategory');
+    Route::get('education/{educationCategory:slug}','educationlistPage')->name('education');
+   
+    Route::get('entertainment','entertainmentIndexPage')->name('entertainment.IndexPage');
+    Route::get('entertainmentList/{entertainmentList:slug}','entertainmentDetailPage')->name('entertainment.detailPage');
+    Route::get('entertainmentCategory/{entertainmentCategory:slug}','entertainmentlistPage')->name('entertainmentCategory');
 
 
     Route::get('hospitality','hospitalityIndex')->name('hospitality.hospitalityIndex');

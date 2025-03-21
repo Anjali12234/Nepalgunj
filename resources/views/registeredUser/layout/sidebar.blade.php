@@ -57,6 +57,16 @@
             </li>
         </a>
     @endif
+    @if (is_array($registeredUser->category) && in_array(entertainmentCategories()?->first()?->mainCategory?->title_en, $registeredUser->category))
+
+        <a href="{{ route('registeredUser.entertainmentList.index') }}">
+            <li
+                class="mt-2 mb-2 block {{ request()->routeIs('registeredUser.entertainmentList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
+                Entertainment
+                <p class="ml-auto">{{ getCounts()['entertainmentCount'] }}</p>
+            </li>
+        </a>
+    @endif
     <a href="{{ route('registeredUser.jobList.index') }}">
         <li
             class="mt-2 mb-2 block {{ request()->routeIs('registeredUser.jobList.index') ? 'bg-neutral-500 text-white' : ' hover:bg-neutral-800 hover:text-white' }} py-2 px-4 flex justify-center items-center gap-28 rounded-md">
