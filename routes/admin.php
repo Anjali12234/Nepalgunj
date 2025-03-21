@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationCategoryController;
 use App\Http\Controllers\Admin\EducationListController;
+use App\Http\Controllers\Admin\EntertainmentCategoryController;
+use App\Http\Controllers\Admin\EntertainmentListController;
 use App\Http\Controllers\Admin\HealthCareCategoryController;
 use App\Http\Controllers\Admin\HealthCareListController;
 use App\Http\Controllers\Admin\HospitalityCategoryController;
@@ -22,8 +24,6 @@ use App\Http\Controllers\Admin\RolePermisson\PermissionController;
 use App\Http\Controllers\Admin\RolePermisson\RoleController;
 use App\Http\Controllers\Admin\RolePermisson\UserController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\EntertainmentCategoryController;
-use App\Http\Controllers\RegisteredUser\AuthController as RegisteredUserAuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', DashboardController::class)->name('dashboard');
@@ -44,7 +44,7 @@ Route::prefix('subCategory')->group(
         Route::resource('educationCategory', EducationCategoryController::class);
         Route::resource('hospitalityCategory', HospitalityCategoryController::class);
         Route::resource('jobCategory', JobCategoryController::class);
-        Route::resource('entertainmentCategory', \App\Http\Controllers\Admin\EntertainmentCategoryController::class);
+        Route::resource('entertainmentCategory', EntertainmentCategoryController::class);
     }
 );
 Route::prefix('hospitalityCategory')->group(function () {
@@ -60,6 +60,13 @@ Route::prefix('educationCategory')->group(
         Route::get('educationList', [EducationListController::class, 'index'])->name('educationList');
         Route::put('educationList/{educationList}/isFeatured', [EducationListController::class, 'isFeatured'])->name('educationList.isFeatured');
         Route::put('educationList/{educationList}/updateStatus', [EducationListController::class, 'updateStatus'])->name('educationList.updateStatus');
+    }
+);
+Route::prefix('entertainmentCategory')->group(
+    function () {
+        Route::get('entertainmentList', [EntertainmentListController::class, 'index'])->name('entertainmentList');
+        Route::put('entertainmentList/{entertainmentList}/isFeatured', [EntertainmentListController::class, 'isFeatured'])->name('entertainmentList.isFeatured');
+        Route::put('entertainmentList/{entertainmentList}/updateStatus', [EntertainmentListController::class, 'updateStatus'])->name('entertainmentList.updateStatus');
     }
 );
 Route::prefix('propertyCategory')->group(
