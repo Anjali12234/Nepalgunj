@@ -30,8 +30,7 @@
             </div>
 
             <!-- Campus Details Section -->
-            <div class="grid lg:grid-cols-2 gap-10 items-start mb-10 lg:mb-14">
-               
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <style>
                     .carousel-item {
                         display: none;
@@ -45,41 +44,55 @@
                         border: 2px solid teal;
                     }
                 </style>
-                <div class="relative bg-white shadow-lg overflow-hidden">
-                    @foreach ($educationList->files as $index => $file)
-                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
-                             data-index="{{ $index }}">
-                            <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
-                                 class="w-full h-[30rem] object-cover">
-                        </div>
-                    @endforeach
-                    <button
-                        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r"
-                        onclick="changeSlide(-1)">❮
-                    </button>
-                    <button
-                        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l"
-                        onclick="changeSlide(1)">❯
-                    </button>
-                </div>
+                <div class="mb-8">
+                    <div class="relative bg-white shadow-lg overflow-hidden">
+                        @foreach ($educationList->files as $index => $file)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
+                                 data-index="{{ $index }}">
+                                <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
+                                     class="w-full h-[30rem] object-cover">
+                            </div>
+                        @endforeach
+                        <button
+                            class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r"
+                            onclick="changeSlide(-1)">❮
+                        </button>
+                        <button
+                            class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l"
+                            onclick="changeSlide(1)">❯
+                        </button>
+                    </div>
 
+                    <div class="flex space-x-2 mt-4 overflow-x-auto pb-2">
+                        @foreach($educationList->files as $index => $file)
+                            <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
+                                 class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
+                                 onclick="setSlide({{ $index }})">
+                        @endforeach
+                    </div>
+                </div>
 
                 <!-- Campus Description -->
-                <div>
-                    @if(!empty($educationList->affiliated))
-                    <div class="row">
-                        <h1 class="font-bold text-lg">Affiliated by : <span class="font-semibold text-red-700">{{ $educationList->affiliated }}</span> </h1>
-                    </div>
-                    @endif
-                    <div class="row">
-                        <h1 class="font-bold text-lg">Program : <span class="font-semibold text-red-700">{{ $educationList->program }}</span> </h1>
-                    </div>
-                 
-                </div>
+              
             </div>
-            <div class="max-w-4xl   mb-10 lg:mb-14 ">
+           
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Description</h2>
+                <div class="mb-10 lg:mb-14 text-justify">
+                    <div>
+                        @if(!empty($educationList->affiliated))
+                        <div class="row">
+                            <h1 class="font-bold text-lg">Affiliated by : <span class="font-semibold text-red-700">{{ $educationList->affiliated }}</span> </h1>
+                        </div>
+                        @endif
+                        <div class="row mt-4">
+                            <h1 class="font-bold text-lg">Program &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="font-semibold text-red-700">{{ $educationList->program }}</span> </h1>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <h1 class="font-bold text-lg">Whats App No : <span class="font-semibold text-red-700">{{ $educationList->whats_app_no }}</span> </h1>
+                        </div>
                 {!! $educationList->description !!}
+                     
+                    </div>
             </div>
 
             <!-- Testimonials Section -->

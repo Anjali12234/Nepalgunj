@@ -18,8 +18,40 @@
 
 
     {{ $slot }}
-
+    <script>
+        let currentSlide = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+    
+        function updateSlides() {
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide);
+            });
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.classList.toggle('active', index === currentSlide);
+            });
+        }
+    
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + items.length) % items.length;
+            updateSlides();
+        }
+    
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+    
+        // 👇 Automatically change slide every 5 seconds (5000 milliseconds)
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    
+        // ✅ Initial load
+        updateSlides();
+    </script>
     @include('frontend.layout.footer')
+
 
 </body>
 
