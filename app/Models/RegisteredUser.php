@@ -60,4 +60,24 @@ class RegisteredUser extends Authenticatable
         return $this->hasOne(RegisteredUserDetail::class);
     }
 
+    public function educationLists()
+    {
+        return $this->hasMany(EducationList::class);
+    }
+    public function entertainmentLists()
+    {
+        return $this->hasMany(EntertainmentList::class);
+    }
+    public function propertyLists()
+    {
+        return $this->hasMany(EntertainmentList::class);
+    }
+    public function healthCareLists()
+    {
+        return $this->hasMany(HealthCareList::class);
+    }
+    public function hospitalityLists()
+    {
+        return $this->hasMany(HospitalityList::class);
+    }
 }

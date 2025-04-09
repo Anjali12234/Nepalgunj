@@ -25,12 +25,15 @@ class UpdateJobListRequest extends FormRequest
             'address' => ['required','string'],
             'job_name' => ['nullable','string'],
             'contact_number' => ['required','string'],
-            'job_type' => ['required','string'],
+            'job_type' => ['nullable','string'],
+            'category' => ['required','string'],
+            'post' => ['required','string'],
             'years_of_experience' => ['required','string'],
             'gender' => ['required','string'],
             'salary_range' => ['required','string'],
             'desired_skills_experience' => ['required','string'],
-
+            'publish_date' => ['required','date'],
+            'deadline_date' => ['required','date'],
         ];
     }
 }

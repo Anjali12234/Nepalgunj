@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('job_name');
             $table->string('contact_number');
-            $table->string('job_type');
+            $table->string('job_type')->nullable();
             $table->string('years_of_experience');
             $table->string('gender');
             $table->string('desired_skills_experience');

@@ -43,7 +43,7 @@
                 </li>
                 <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
                     aria-current="page">
-                    {{ $jobList->job_name }}
+                    {{ $jobList->post }}
 
                 </li>
             </ol>
@@ -59,7 +59,7 @@
                 <div class="block md:grid grid-cols-4 pr-16">
                     <div class="col-span-2 mr-6">
 
-                        <x-frontend.forms.select-type-field1
+                        {{-- <x-frontend.forms.select-type-field1
                             :value="$jobList?->job_type"
                             label="Choose Your Ad Category"
                             id="job_type"
@@ -67,13 +67,88 @@
                             name="job_type"
                             :options="is_array($registeredUser->category) ? array_combine($registeredUser->category,
                         $registeredUser->category) : []"
-                        />
-
+                        /> --}}
+                        <div class="block lg:flex items-center mb-3">
+                            <label for="category" class="text-gray-900 w-36 flex items-center">
+                                <span>Choose Your Ad Category</span>
+                                <span class="text-xl  ml-1">*</span>
+                            </label>
+                            <select name="category" id="category"
+                            class="px-2 pt-1 pb-2 w-80 md:w-96 border-b-2 focus:border-[#333] outline-none bg-white">
+                            <option value="">Choose</option>
+                        
+                            @foreach ($educationCategories as $educationCategory)
+                                @if ($educationCategory->educationLists->isNotEmpty())
+                                    <option disabled>{{ $educationCategory->title_en }}</option>
+                                    @foreach ($educationCategory->educationLists as $educationList)
+                                        <option value="{{ $educationList->name }}" {{ old('category',$jobList->category) == $educationList->name ? 'selected' : '' }}>
+                                            {{ $educationList->name }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        
+                            @foreach ($entertainmentCategories as $entertainmentCategory)
+                                @if ($entertainmentCategory->entertainmentLists->isNotEmpty())
+                                    <option disabled>{{ $entertainmentCategory->title }}</option>
+                                    @foreach ($entertainmentCategory->entertainmentLists as $entertainmentList)
+                                        <option value="{{ $entertainmentList->name }}" {{ old('category',$jobList->category) == $entertainmentList->name ? 'selected' : '' }}>
+                                            {{ $entertainmentList->name }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        
+                            @foreach ($propertyCategories as $propertyCategory)
+                                @if ($propertyCategory->propertyLists->isNotEmpty())
+                                    <option disabled>{{ $propertyCategory->title_en }}</option>
+                                    @foreach ($propertyCategory->propertyLists as $propertyList)
+                                        <option value="{{ $propertyList->title }}" {{ old('category',$jobList->category) == $propertyList->title ? 'selected' : '' }}>
+                                            {{ $propertyList->title }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        
+                            @foreach ($healthCareCategories as $healthCareCategory)
+                                @if ($healthCareCategory->healthCareLists->isNotEmpty())
+                                    <option disabled>{{ $healthCareCategory->title_en }}</option>
+                                    @foreach ($healthCareCategory->healthCareLists as $healthCareList)
+                                        <option value="{{ $healthCareList->name }}" {{ old('category',$jobList->category) == $healthCareList->name ? 'selected' : '' }}>
+                                            {{ $healthCareList->name }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        
+                            @foreach ($hospitalityCategories as $hospitalityCategory)
+                                @if ($hospitalityCategory->hospitalityLists->isNotEmpty())
+                                    <option disabled>{{ $hospitalityCategory->title_en }}</option>
+                                    @foreach ($hospitalityCategory->hospitalityLists as $hospitalityList)
+                                        <option value="{{ $hospitalityList->name }}" {{ old('category',$jobList->category) == $hospitalityList->name ? 'selected' : '' }}>
+                                            {{ $hospitalityList->name }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        </select>
+                        
+                        
+                        </div>
                         <x-frontend.forms.input-type-field
                             :value="old('job_name', $jobList->job_name)"
                             label="Job Title"
                             id="job_name"
                             name="job_name"
+                            labelClass="w-36"
+                            type="text"
+                            class="text-sm font-semibold"
+                        />
+                        <x-frontend.forms.input-type-field
+                            :value="old('post', $jobList->post)"
+                            label="Job Post"
+                            id="post"
+                            name="post"
                             labelClass="w-36"
                             type="text"
                             class="text-sm font-semibold"
