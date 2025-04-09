@@ -155,7 +155,9 @@ class FrontendController extends BaseController
 
     public function detailPage(HealthCareList $healthCareList)
     {
-        return view('frontend.healthcare.detailPage', compact('healthCareList'));
+        $jobLists = JobList::where('category',$healthCareList->name)->latest()->limit(4)->get();
+
+        return view('frontend.healthcare.detailPage', compact('healthCareList','jobLists'));
     }
 
 
@@ -168,8 +170,9 @@ class FrontendController extends BaseController
 
     public function educationDetailPage(EducationList $educationList)
     {
+        $jobLists = JobList::where('category',$educationList->name)->latest()->limit(4)->get();
         $educationList->load('testimonials');
-        return view('frontend.education.detailPage', compact('educationList'));
+        return view('frontend.education.detailPage', compact('educationList','jobLists'));
     }
 
     public function educationlistPage(EducationCategory $educationCategory)
@@ -192,7 +195,8 @@ class FrontendController extends BaseController
 
     public function hospitalityDetail(HospitalityList $hospitalityList)
     {
-        return view('frontend.hospitality.detailPage', compact('hospitalityList'));
+        $jobLists = JobList::where('category',$hospitalityList->name)->latest()->limit(4)->get();
+        return view('frontend.hospitality.detailPage', compact('hospitalityList','jobLists'));
     }
 
     public function entertainmentIndexPage()
@@ -204,7 +208,8 @@ class FrontendController extends BaseController
 
     public function entertainmentDetailPage(EntertainmentList $entertainmentList)
     {
-        return view('frontend.entertainment.detailPage',compact('entertainmentList'));
+        $jobLists = JobList::where('category',$entertainmentList->name)->latest()->limit(4)->get();
+        return view('frontend.entertainment.detailPage',compact('entertainmentList','jobLists'));
     }
 
     public function entertainmentlistPage(EntertainmentCategory $entertainmentCategory)

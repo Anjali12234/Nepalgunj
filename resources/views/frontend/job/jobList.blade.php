@@ -16,19 +16,44 @@
                             <div
                                 class="flex flex-col md:flex-row items-start p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-4">
                                 <a href="{{ route('jobDetail', $jobList) }}">
-                                    <img
-                                        src="{{ $jobList->image }}"
-                                        alt="{{ $jobList->job_name }}"
+                                    <img src="{{ $jobList->image }}" alt="{{ $jobList->job_name }}"
                                         class="w-full h-64 md:w-44 md:h-32 object-cover rounded-lg mb-4 md:mb-0">
                                 </a>
                                 <div class="md:ml-4 flex-1">
                                     <a href="{{ route('jobDetail', $jobList) }}">
-                                        <h3 class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                                        <h3
+                                            class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200">
                                             {{ Str::words($jobList->job_name, 20) }}
                                         </h3>
                                     </a>
-                                    <div class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-2 text-sm text-gray-500 mt-1">
-                                        <p>By {{ $jobList->registeredUser->username }}</p>
+                                    <div
+                                        class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-2 text-sm text-gray-500 mt-1">
+                                        @foreach ($jobList->registeredUser->educationLists ?? [] as $educationList)
+                                            @if ($jobList->category === $educationList->name)
+                                                <p>By {{ $educationList->name }}</p>
+                                            @endif
+                                        @endforeach
+                                        @foreach ($jobList->registeredUser->entertainmentLists ?? [] as $entertainmentList)
+                                            @if ($jobList->category === $entertainmentList->name)
+                                                <p>By {{ $entertainmentList->name }}</p>
+                                            @endif
+                                        @endforeach
+                                        @foreach ($jobList->registeredUser->propertyLists ?? [] as $propertyList)
+                                            @if ($jobList->category === $propertyList->title)
+                                                <p>By {{ $propertyList->title }}</p>
+                                            @endif
+                                        @endforeach
+                                        @foreach ($jobList->registeredUser->healthCareLists ?? [] as $healthCareList)
+                                            @if ($jobList->category === $healthCareList->name)
+                                                <p>By {{ $healthCareList->name }}</p>
+                                            @endif
+                                        @endforeach
+                                        @foreach ($jobList->registeredUser->hospitalityLists ?? [] as $hospitalityList)
+                                            @if ($jobList->category === $hospitalityList->name)
+                                                <p>By {{ $hospitalityList->name }}</p>
+                                            @endif
+                                        @endforeach
+
                                     </div>
                                     <p class="text-sm text-neutral-600 mt-1">for <span
                                             class="font-medium">{{ $jobList->jobCategory->title }}</span></p>

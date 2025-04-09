@@ -56,6 +56,40 @@
                         {!! $healthCareList->details !!}
                     </div>
                 </div>
+                <div class="mt-8">
+                    <h2 class="text-2xl font-semibold mb-4">Latest Job From {{ $healthCareList->name }} </h2>
+    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Related Job Listings -->
+                        @forelse ($jobLists as $jobList)
+                        @if ($jobList->created_at < $jobList->deadline_date)
+    
+                            <a href="{{ route('jobDetail', $jobList) }}">
+                                <div
+                                    class="bg-white  overflow-hidden rounded-lg shadow-md transition-transform transform hover:scale-105 mb-4">
+                                    <div class="items-center justify-center flex">
+    
+                                        <img src="{{ $jobList->image }}" alt="Job Image"
+                                            class="w-full lg:w-[15rem] h-52 lg:h-[12rem] object-cover rounded-t-md">
+                                    </div>
+                                    <div class="px-5 py-5 text-center">
+                                        <p class="text-gray-700 font-bold text-sm">
+                                            {{ Str::words($jobList->job_name, 20) }}</p>
+                                   
+                                            <p class="text-gray-700 font-bold text-sm">
+                                              Post : <span>{{ $jobList?->post }}</span> </p>
+                                        <p class="text-gray-700 font-bold text-sm">
+                                            {{ $jobList?->jobCategory?->title }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                            @endif
+                        @empty
+                            <p class="text-gray-500">No Data found!!</p>
+                        @endforelse
+                    </div>
+                </div>
+
 
                 <!-- Contact and Map Section -->
                 <div class="flex flex-col md:flex-row mt-8 gap-10 md:gap-20">

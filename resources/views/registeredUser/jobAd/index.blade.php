@@ -29,7 +29,7 @@
                                 <div class="p-1.5 min-w-full inline-block align-middle">
                                     <div class="overflow-hidden">
                                         <x-frontend.forms.table-component
-                                            :headers="['Reference No', 'Title', 'Category', 'Contact Number', 'Action']"
+                                            :headers="['Reference No', 'Post', 'Category', 'Contact Number', 'Action']"
                                             :data="$jobCategory->jobList">
                                             @forelse ($jobCategory->jobLists as $jobList)
                                             <tr>
@@ -39,11 +39,11 @@
                                                 </td>
                                                 <td
                                                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                                    {{ Str::words($jobList->job_name, 5) }}
+                                                   {{$jobList->post}}
                                                 </td>
                                                 <td
                                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                                    {{ $jobList->job_type }}
+                                                    {{ $jobList->category }}
                                                 </td>
                                                 <td
                                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
