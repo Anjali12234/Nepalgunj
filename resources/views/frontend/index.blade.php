@@ -1,4 +1,5 @@
-<x-guest-layout>
+<x-guest-layout :title="'Welcome to NepalgunjLiving'">
+
     <x-frontend.navbar/>
     <div class="font-manrope ">
         {{-- hero section --}}
@@ -97,10 +98,10 @@
                         </h3>
                         @foreach($jobLists as $jobList)
                             <a href="{{ route('jobDetail', $jobList) }}">
-                                <div class="flex items-center space-x-4  mt-2">
+                                <div class="flex space-x-4  mt-2">
                                     <img
                                         src="{{$jobList->image}}"
-                                        alt="Events this week September 1-7" class="w-44 h-24 object-cover">
+                                        alt="Events this week September 1-7" class="w-28">
                                     <h3 class="text-sm font-semibold">{{$jobList->job_name}}</h3>
                                 </div>
                             </a>
