@@ -1,4 +1,5 @@
-<x-guest-layout>
+<x-guest-layout :title="{{ $entertainmentList->entertainmentCategory->title }} ?? 'Welcome to NepalgunjLiving'">
+
     <div class=" mt-4 font-manrope">
 
         <!-- Navigation -->

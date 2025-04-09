@@ -1,4 +1,8 @@
-<x-guest-layout>
+
+
+<x-guest-layout :title="$educationCategory->title ?? 'Welcome to NepalgunjLiving'">
+
+
     <div class="mx-4 md:mx-12 lg:mx-24 mt-4 font-mono">
         @forelse ($educationCategories as $educationCategory)
             <div class="px-2 py-4 sm:px-6 lg:px-8 lg:py-14 mx-auto">
