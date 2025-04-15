@@ -106,7 +106,7 @@
                                         class="w-28 border border-gray-400 rounded">
                                     <div>
                                         <h3 class="text-sm font-semibold">{{ $jobList->job_name }}</h3>
-                                        <h3 class="text-sm font-semibold">{{ $jobList->jobCategory->title }}</h3>
+                                        <h3 class="text-sm font-semibold text-red-500">{{ $jobList->jobCategory->title }}</h3>
                                     </div>
                                 </div>
                             </a>
