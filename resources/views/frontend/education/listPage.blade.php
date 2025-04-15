@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title', $educationCategory->title_en)
     <div class="mx-4 sm:mx-12 lg:mx-24 mt-4 font-mono">
 
         {{-- Navbar --}}
