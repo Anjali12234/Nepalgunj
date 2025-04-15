@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title', 'Registered User|Login')
 
 
     <div class="grid grid-cols-4 gap-4 sm:pl-20 sm:pr-30 min-h-screen ">

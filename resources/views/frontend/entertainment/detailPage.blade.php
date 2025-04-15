@@ -1,4 +1,5 @@
-    <x-guest-layout :title="$entertainmentList->entertainmentCategory->title ?? 'Welcome to NepalgunjLiving'">
+    <x-guest-layout >
+        @section('title',  $entertainmentList->name )
 
         <div class=" mt-4 font-manrope">
 

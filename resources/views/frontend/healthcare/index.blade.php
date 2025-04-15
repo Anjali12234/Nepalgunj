@@ -1,4 +1,6 @@
 <x-guest-layout>
+    @section('title', 'Name of Health Field')
+    
     <div class="mx-4 md:mx-12 lg:mx-24 mt-4 font-mono">
 
         <!-- Carousel Section -->

@@ -1,4 +1,6 @@
 <x-guest-layout>
+    @section('title', 'Job in Nepalgunj')
+
     <div class="font-manrope">
         {{-- Hero Section --}}
         <div class="mx-4 md:mx-24 overflow-hidden">

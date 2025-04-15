@@ -1,6 +1,8 @@
-<x-guest-layout :title="$entertainmentCategory->title ?? 'Welcome to NepalgunjLiving'">
+<x-guest-layout>
+    @section('title', 'Name of Entertainment Field')
     <div class="mx-4 md:mx-12 lg:mx-24 mt-4 font-mono">
         @forelse ($entertainmentCategories as $entertainmentCategory)
+
             <div class="px-2 py-4 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14" data-aos="fade-down" data-aos-duration="2000">
                     <h2 class="text-2xl font-bold md:text-4xl md:leading-tight"> Featured
@@ -21,8 +23,7 @@
                             <h3 class="mt-5 text-xl  hover:text-gray-400">{{ $entertainmentList->name }}
                             </h3>
                             <p class="mt-2 text-gray-600">{!! Str::words($entertainmentList->description, 10) !!}</p>
-                            <p
-                                class="mt-3 bg-neutral-700 rounded-3xl px-3 py-2 hover:bg-neutral-800 text-white inline-flex items-center gap-x-1 text-sm font-semibold ">
+                            <p class="mt-3 bg-neutral-700 rounded-3xl px-3 py-2 hover:bg-neutral-800 text-white inline-flex items-center gap-x-1 text-sm font-semibold ">
                                 See more
                                 <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

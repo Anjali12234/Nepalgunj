@@ -1,5 +1,6 @@
 {{-- <x-guest-layout> --}}
 @extends('registeredUser.Ad.ad')
+@section('title', Auth::guard('registered-user')->user()->username . ' | Edit a Education Ad')
 
 @section('main-container')
     <div class="bg-neutral-800 ">

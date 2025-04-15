@@ -1,4 +1,6 @@
 <x-guest-layout>
+    @section('title', Auth::guard('registered-user')->user()->username . ' | Post Ad')
+
     <div class=" font-manrope block lg:grid grid-cols-1 lg:grid-cols-3 gap-3 mx-4 lg:mx-16 mb-40">
         <!-- Left Content: Categories and Tabs -->
         <div class="col-span-2 mt-8 lg:mt-14">
