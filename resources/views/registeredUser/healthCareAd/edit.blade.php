@@ -103,7 +103,10 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
+                                <x-frontend.remove-button :value="$healthCareList?->thumbnail" />
+                                    <x-frontend.forms.file-component : label=" Thumbnail " id="thumbnail"
+                                        name="thumbnail" type="file" class="text-sm font-semibold" 
+                                         />
                             <x-frontend.forms.file-component labelClass="w-36" label="Hospital Image Of All Side"
                                 id="files" name="files[]" type="file" class="text-sm font-semibold"
                                 multiple="multiple" {{-- placeholder="Per Month" --}} />
@@ -177,7 +180,10 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
+                                <x-frontend.remove-button :value="$healthCareList?->thumbnail" />
+                                    <x-frontend.forms.file-component : label=" Thumbnail " id="thumbnail"
+                                        name="thumbnail" type="file" class="text-sm font-semibold" 
+                                         />
                             <x-frontend.forms.file-component labelClass="w-36" label="Image Of Doctor" id="files"
                                 name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
@@ -244,7 +250,10 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
+                                <x-frontend.remove-button :value="$healthCareList?->thumbnail" />
+                                    <x-frontend.forms.file-component : label=" Thumbnail " id="thumbnail"
+                                        name="thumbnail" type="file" class="text-sm font-semibold" 
+                                         />
                             <x-frontend.forms.file-component labelClass="w-36" label="Medical Image Of All Side"
                                 id="files" name="files[]" type="file" class="text-sm font-semibold"
                                 multiple="multiple" {{-- placeholder="Per Month" --}} />
@@ -311,7 +320,10 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no', $healthCareList->whats_app_no)" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
+                                <x-frontend.remove-button :value="$healthCareList?->thumbnail" />
+                                    <x-frontend.forms.file-component : label=" Thumbnail " id="thumbnail"
+                                        name="thumbnail" type="file" class="text-sm font-semibold" 
+                                         />
                             <x-frontend.forms.file-component labelClass="w-36" label="Pharmacy Image Of All Side"
                                 id="files" name="files[]" type="file" class="text-sm font-semibold"
                                 multiple="multiple" {{-- placeholder="Per Month" --}} />

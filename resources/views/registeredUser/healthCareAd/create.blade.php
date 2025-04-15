@@ -88,8 +88,9 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no')" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component label="Hospital Image" id="files" name="files[]"
+                            <x-frontend.forms.file-component label="Thumbnail " id="thumbnail" name="thumbnail"
+                                type="file" class="text-sm font-semibold" {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.file-component label="Hospital Image (multiple photo)" id="files" name="files[]"
                                 type="file" class="text-sm font-semibold" multiple="multiple" {{-- placeholder="Per Month" --}} />
                         </div>
                         <div class="col-span-4">
@@ -154,7 +155,9 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no')" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
+                                <x-frontend.forms.file-component label="Thumbnail " id="thumbnail"
+                                name="thumbnail" type="file" class="text-sm font-semibold"
+   {{-- placeholder="Per Month" --}} />
                             <x-frontend.forms.file-component label="Image Of Doctor" id="files" name="files[]"
                                 type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
@@ -220,8 +223,10 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no')" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component label="Medical Image " id="files" name="files[]"
+                                <x-frontend.forms.file-component label="Thumbnail " id="thumbnail"
+                                name="thumbnail" type="file" class="text-sm font-semibold"
+   {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.file-component label="Medical Image (multiple photo)" id="files" name="files[]"
                                 type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
                         </div>
@@ -286,8 +291,10 @@
                             <x-frontend.forms.input-type-field :value="old('whats_app_no')" labelClass="w-36"
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
-
-                            <x-frontend.forms.file-component label="Pharmacy Image" id="files" name="files[]"
+                                <x-frontend.forms.file-component label="Thumbnail " id="thumbnail"
+                                name="thumbnail" type="file" class="text-sm font-semibold"
+   {{-- placeholder="Per Month" --}} />
+                            <x-frontend.forms.file-component label="Pharmacy Image(multiple photo)" id="files" name="files[]"
                                 type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
                         </div>

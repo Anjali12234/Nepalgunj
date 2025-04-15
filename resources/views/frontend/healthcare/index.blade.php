@@ -16,7 +16,7 @@
                                 <div class="hs-carousel-slide">
                                     <div
                                         class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
-                                        style="background-image: url('{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}">
+                                        style="background-image: url('{{ $healthCareList->thumbnail }}">
                                         <div class="mt-auto w-full md:w-2/3 md:max-w-lg pl-5 pb-5 md:pl-10 md:pb-10">
                                             <span class="block text-lg md:text-3xl">{{ $healthCareList->name }}</span>
                                             <div class="mt-5">
@@ -94,7 +94,7 @@
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                        src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                                        src="{{ $healthCareList->thumbnail }}"
                                         alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">
@@ -125,7 +125,7 @@
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                        src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                                        src="{{ $healthCareList->thumbnail }}"
                                         alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">
@@ -156,7 +156,7 @@
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                        src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                                        src="{{ $healthCareList->thumbnail }}"
                                         alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">
@@ -187,7 +187,7 @@
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
                                     <img
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                        src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                                        src="{{ $healthCareList->thumbnail }}"
                                         alt="{{$healthCareList->name}}">
                                 </div>
                                 <h3 class="mt-5 text-xl text-gray-800 group-hover:text-gray-600">

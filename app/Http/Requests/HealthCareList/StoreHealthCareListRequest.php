@@ -19,7 +19,7 @@ class StoreHealthCareListRequest extends FormRequest
             'n_m_c_no' => ['nullable','numeric'],
             'qualification' => ['nullable','string'],
             'email' => ['nullable','string'],
-
+            'thumbnail' => ['required','image'],
             'o_p_d_schedule' => ['nullable','string'],
             'details' => ['required','string'],
             'youtube_link' => ['required','string'],

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\HasReferenceNumber;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Container\Attributes\Storage;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,14 +39,22 @@ class HealthCareList extends Model
         'name',
         'contact_number',
         'email',
-        'website_url'
+        'website_url',
+        'thumbnail',
+
     ];
 
     public function healthCareCategory()
     {
         return $this->belongsTo(HealthCareCategory::class);
     }
-
+    protected function thumbnail(): Attribute
+    {
+        return Attribute::make(
+            get: fn(?string $value) => $value ? Storage::disk('public')->url($value) : null,
+            set: fn($value) => $value ? $value->store('healthCare', 'public') : null,
+        );
+    }
     public function registeredUser()
     {
         return $this->belongsTo(RegisteredUser::class);
