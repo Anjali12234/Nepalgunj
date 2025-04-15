@@ -19,10 +19,10 @@
                                 <div
                                     class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
                                     @foreach ($carouselItems as $carouselItem)
-                                        @foreach ($carouselItem->files as $index => $file)
+                                        @if ($carouselItem->thumbnail)
                                             <div class="hs-carousel-slide relative"
                                                 data-description="{{ $carouselItem->title ?? $carouselItem->name }}">
-                                                <img src="{{ $file->file_url }}"
+                                                <img src="{{ $carouselItem->thumbnail }}"
                                                     alt="{{ $carouselItem->title ?? $carouselItem->name }}"
                                                     class="w-full h-full object-cover">
 
@@ -32,8 +32,24 @@
                                                     Featured
                                                 </span>
                                             </div>
-                                        @endforeach
+                                        @else
+                                            @foreach ($carouselItem->files as $index => $file)
+                                                <div class="hs-carousel-slide relative"
+                                                    data-description="{{ $carouselItem->title ?? $carouselItem->name }}">
+                                                    <img src="{{ $file->file_url }}"
+                                                        alt="{{ $carouselItem->title ?? $carouselItem->name }}"
+                                                        class="w-full h-full object-cover">
+
+                                                    <!-- Featured tag -->
+                                                    <span
+                                                        class="absolute top-0 right-0 bg-neutral-800 text-white text-xs font-bold py-1 px-2 rounded-bl-md">
+                                                        Featured
+                                                    </span>
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     @endforeach
+
                                 </div>
                             </div>
 
@@ -106,7 +122,8 @@
                                         class="w-28 border border-gray-400 rounded">
                                     <div>
                                         <h3 class="text-sm font-semibold">{{ $jobList->job_name }}</h3>
-                                        <h3 class="text-sm font-semibold text-red-500">{{ $jobList->jobCategory->title }}</h3>
+                                        <h3 class="text-sm font-semibold text-red-500">
+                                            {{ $jobList->jobCategory->title }}</h3>
                                     </div>
                                 </div>
                             </a>

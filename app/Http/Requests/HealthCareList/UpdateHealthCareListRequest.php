@@ -26,6 +26,7 @@ class UpdateHealthCareListRequest extends FormRequest
             'twitter_url' => ['nullable','string'],
             'facebook_url' => ['nullable','string'],
             'whats_app_no' => ['required','numeric'],
+            'thumbnail' => ['nullable','image'],
             'image' => ['nullable','image'],
             'name' => ['required','string'],
             'email' => ['nullable','string'],

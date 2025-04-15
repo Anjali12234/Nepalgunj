@@ -17,7 +17,10 @@ class SearchController extends Controller
         $query = $request->input('search'); // Get search input
 
         $propertyLists = PropertyList::where('title', 'like', "%{$query}%")->get();
-        $healthCareLists = HealthCareList::where('name', 'like', "%{$query}%")->get();
+        $healthCareLists = HealthCareList::where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('name', 'like', "%{$query}%")
+                         ->orWhere('department', 'like', "%{$query}%");
+        })->get();
         $educationLists = EducationList::where('name', 'like', "%{$query}%")->get();
         $hospitalityLists = HospitalityList::where('name', 'like', "%{$query}%")->get();
         $news = News::where('title', 'like', "%{$query}%")->get();

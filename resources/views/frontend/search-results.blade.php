@@ -17,7 +17,7 @@
         @if($result->propertyCategory)
             {{ route('propertyDetails', $result->slug) }}
         @elseif($result->healthCareCategory)
-            {{ route('healthcare.detailPage', $result->slug) }}
+            {{ route('healthCare.detailPage', $result->slug) }}
         @elseif($result->educationCategory)
             {{ route('education.detailPage', $result->slug) }}
         @elseif($result->hospitalityCategory)
@@ -52,7 +52,7 @@
                                     <ol class="breadcrumb flex text-green-900 text-sm gap-1">
                                         <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Home</a>></li>
                                         <li class="breadcrumb-item"><a
-                                                href="{{ route('healthcare.detailPage', $result->slug) }}">educationCategory</a>>
+                                                href="{{ route('healthCare.detailPage', $result->slug) }}">healthCategory</a>>
                                         </li>
                                         <li class="breadcrumb-item active"
                                             aria-current="page">{{ $result->healthCareCategory->title_en }}</li>
@@ -112,12 +112,16 @@
                                     class="h-20 w-20 object-cover rounded-md mr-4">
                                 <div>
                                     <p class="text-gray-600">
+                                        {{$result->department}}
+                                    </p>
+                                    <p class="text-gray-600">
                                         {!! Str::words($result->details ?? $result->description, 10) !!}
                                     </p>
                                     <p class="text-gray-600">
                                      <span class="text-green-800">
                                      By:
-                                     </span>   {{$result->registeredUser->registeredUserDetail->organization_name}}
+                                     </span>   {{ $result->name ?? $result->title }}
+
                                     </p>
 
                                 </div>
