@@ -1,5 +1,8 @@
 
 <x-guest-layout>
+    @section('title', Auth::guard('registered-user')->user()->username . ' | Nepalgunj Living')
+
+
     <div class="px-0 pt-10 md:px-20 md:pt-[6px] ">
         @include('registeredUser.layout.header')
 

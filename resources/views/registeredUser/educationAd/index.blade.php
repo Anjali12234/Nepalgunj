@@ -1,4 +1,5 @@
 @extends('registeredUser.layout.master')
+@section('title', Auth::guard('registered-user')->user()->username . '|Education Ad')
 
 @section('content')
     <div class="content px-5 md:px-7 col-span-3 mt-8 md:mt-0 font-manrope min-h-screen">

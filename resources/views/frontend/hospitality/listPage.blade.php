@@ -1,4 +1,6 @@
 <x-guest-layout>
+    @section('title', $hospitalityCategory->title_en)
+
     <div class="mx-4 sm:mx-12 md:mx-16 lg:mx-24 mt-4 font-mono">
         <nav class="py-4">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,4 +1,6 @@
 <x-guest-layout>
+    @section('title', 'Name of Hospitlity Field')
+
     <div class="mx-4 md:mx-12 lg:mx-24 mt-1 font-manrope">
 
         <!-- Hero -->

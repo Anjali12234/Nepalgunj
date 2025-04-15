@@ -154,7 +154,7 @@
                                     <img src="{{ $jobList->image }}" alt="Job Image"
                                         class="w-full lg:w-[15rem] h-52 lg:h-[12rem] object-cover rounded-t-md">
                                 </div>
-                                <div class="px-5 py-5 text-center">
+                                <div class="px-5 py-5 text-center mt-3">
                                     <p class="text-gray-700 font-bold text-sm">
                                         {{ Str::words($jobList->job_name, 20) }}</p>
                                

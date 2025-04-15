@@ -1,4 +1,6 @@
 <x-guest-layout>
+    @section('title', $newsList->title)
+
     <div class="font-manrope">
         {{-- hero section --}}
         <div class="mx-4 md:mx-24 overflow-hidden">

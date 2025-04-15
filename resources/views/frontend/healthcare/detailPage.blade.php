@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title',  $healthCareList->name )
     <div class="mx-4 md:mx-12 lg:mx-24 mt-4 font-manrope">
         <!-- Navigation Bar -->
         <nav class="py-4">
