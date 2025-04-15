@@ -1,4 +1,6 @@
 <x-guest-layout>
+    @section('title',  $educationList->name )
+
     <div class=" mt-4 font-manrope">
 
         <!-- Navigation -->

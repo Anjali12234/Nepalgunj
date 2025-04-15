@@ -104,6 +104,9 @@
                                 <p class="text-sm font-semibold  text-neutral-800">Job Type:<span
                                         class="text-neutral-700 ml-24"> {{ $jobList?->jobCategory?->title }}</span>
                                 </p>
+                                <p class="text-sm font-semibold  text-neutral-800">Job Type:<span
+                                        class="text-neutral-700 ml-24"> {{ $jobList?->post }}</span>
+                                </p>
                                 <p class="text-sm font-semibold text-neutral-800">Address:<span
                                         class=" text-neutral-700 ml-[6.5rem]">{{ $jobList->address }}</span>
                                 </p>
