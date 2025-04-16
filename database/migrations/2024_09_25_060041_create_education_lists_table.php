@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('reference_no')->nullable();
             $table->string('slug');
             $table->string('position');
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
            $table->softDeletes();
             $table->timestamps();
         });

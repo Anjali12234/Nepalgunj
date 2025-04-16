@@ -22,6 +22,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         @if ($healthCare->type == 'Doctor')
             @foreach ($healthCare->healthCareLists as $healthCareList)
+            @if($healthCareList->status == 1)
+
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                    href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
@@ -45,9 +47,12 @@
                         </svg>
                     </button>
                 </a>
+                @endif
             @endforeach
         @elseif ($healthCare->type == 'Hospital')
             @foreach ($healthCare->healthCareLists as $healthCareList)
+            @if($healthCareList->status == 1)
+
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                    href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
@@ -71,9 +76,12 @@
                         </svg>
                     </button>
                 </a>
+                @endif
             @endforeach
         @elseif ($healthCare->type == 'Pharmacy')
             @foreach ($healthCare->healthCareLists as $healthCareList)
+            @if($healthCareList->status == 1)
+
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                    href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
@@ -97,9 +105,12 @@
                         </svg>
                     </button>
                 </a>
+                @endif
             @endforeach
         @elseif ($healthCare->type == 'Medical')
             @foreach ($healthCare->healthCareLists as $healthCareList)
+            @if($healthCareList->status == 1)
+
                 <a class="group border border-neutral-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-4 sm:p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                    href="{{ route('healthCare.detailPage', $healthCareList) }}">
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
@@ -123,6 +134,7 @@
                         </svg>
                     </button>
                 </a>
+                @endif
             @endforeach
         @endif
     </div>

@@ -60,13 +60,13 @@ class FrontendController extends BaseController
 
     public function properties(Request $request, $propertyCategorySlug = null)
     {
-        $newsLists = News::with('newsCategory')->latest()->get();
+        $newsLists = News::with('newsCategory')->where('status',1)->latest()->get();
         $search = request('search');
         $isRent = $request->input('is_rent'); // Added for rent or sale filtering
         $propertyCategories = PropertyCategory::with('propertyLists')
             ->paginate(15);
 
-        $properties = PropertyList::with('propertyCategory', 'registeredUser', 'registeredUser.registeredUserDetail')
+        $properties = PropertyList::with('propertyCategory', 'registeredUser', 'registeredUser.registeredUserDetail')->where('status',1)
             ->when($search, function ($query, $search) {
                 $query->where('reference_no', 'like', "%{$search}%")
                     ->orWhere('title', 'like', "%{$search}%")
@@ -120,7 +120,7 @@ class FrontendController extends BaseController
     public function newsList()
     {
 
-        $news = News::orderBy('publish_date')->get();
+        $news = News::orderBy('publish_date')->where('status',1)->get();
         return view('frontend.news.newsList', compact('news'));
     }
     public function jobDetail(JobList $jobList)
@@ -137,7 +137,7 @@ class FrontendController extends BaseController
     }
     public function jobList()
     {
-        $jobLists = JobList::get();
+        $jobLists = JobList::where('status',1)->get();
         return view('frontend.job.jobList', compact('jobLists'));
     }
 

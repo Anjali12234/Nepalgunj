@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('deposit');
             $table->string('features')->nullable();
             $table->boolean('is_featured')->default(0);
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

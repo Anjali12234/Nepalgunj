@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->integer('position')->nullable();
             $table->string('icon')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

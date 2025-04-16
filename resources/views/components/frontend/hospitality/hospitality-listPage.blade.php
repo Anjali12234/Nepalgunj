@@ -6,6 +6,8 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         @foreach($hospitalityCategory->hospitalityLists as $hospitalityList)
+        @if($hospitalityList->status == 1)
+
             <!-- Hotel 4 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                 <a href="{{ route('hospitality.hospitalityDetail',$hospitalityList) }}">
@@ -32,6 +34,7 @@
                 </a>
 
             </div>
+            @endif
         @endforeach
     </div>
 
