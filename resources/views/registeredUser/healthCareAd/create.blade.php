@@ -224,8 +224,7 @@
                                 label="Whats App Number" id="whats_app_no" name="whats_app_no" type="number"
                                 class="text-sm font-semibold" />
                                 <x-frontend.forms.file-component label="Thumbnail " id="thumbnail"
-                                name="thumbnail" type="file" class="text-sm font-semibold"
-   {{-- placeholder="Per Month" --}} />
+                                name="thumbnail" type="file" class="text-sm font-semibold"/>
                             <x-frontend.forms.file-component label="Medical Image (multiple photo)" id="files" name="files[]"
                                 type="file" class="text-sm font-semibold" multiple="multiple"
                                 {{-- placeholder="Per Month" --}} />
