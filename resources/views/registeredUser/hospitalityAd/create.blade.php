@@ -112,7 +112,8 @@
                             name="youtube_link" labelClass="w-36" type="url" class="text-sm font-semibold" />
                         <x-frontend.forms.input-type-field :value="old('whats_app_no')" label="Whats App" id="whats_app_no"
                             name="whats_app_no" labelClass="w-36" type="number" class="text-sm font-semibold" />
-
+                            <x-frontend.forms.file-component label="{{ $hospitalityCategory->title_en }} Thumbnail" id="thumbnail"
+                            name="thumbnail" type="file" class="text-sm font-semibold"/>
                         <x-frontend.forms.file-component label="{{ $hospitalityCategory->title_en }} Image "
                             id="files" name="files[]" type="file" class="text-sm font-semibold"
                             multiple="multiple" {{-- placeholder="Per Month" --}} />

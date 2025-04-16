@@ -10,7 +10,7 @@
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                 <a href="{{ route('hospitality.hospitalityDetail',$hospitalityList) }}">
                     <img class="w-full h-48 object-cover"
-                         src="{{ count($hospitalityList->files) > 0 ? $hospitalityList->files?->first()->file_url : '' }}"
+                         src="{{ $hospitalityList->thumbnail }}"
                          alt="Urban Comfort Hotel">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800">{{ $hospitalityList->name }}</h3>

@@ -27,7 +27,7 @@
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
-                            src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                            src="{{ $healthCareList->thumbnail }}"
                             alt="Blog Image">
                     </div>
                     <h3 class="mt-4 text-lg sm:text-xl text-gray-700 hover:text-neutral-800">
@@ -53,7 +53,7 @@
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
-                            src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                            src="{{ $healthCareList->thumbnail }}"
                             alt="Hospital Image">
                     </div>
                     <h3 class="mt-4 text-lg sm:text-xl text-gray-700 hover:text-neutral-800">
@@ -79,7 +79,7 @@
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
-                            src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                            src="{{ $healthCareList->thumbnail }}"
                             alt="Blog Image">
                     </div>
                     <h3 class="mt-4 text-lg sm:text-xl text-gray-700 hover:text-neutral-800">
@@ -105,7 +105,7 @@
                     <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-xl">
                         <img
                             class="w-full h-60 object-cover rounded-xl transition-transform duration-300 transform group-hover:scale-105"
-                            src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}"
+                            src="{{ $healthCareList->thumbnail }}"
                             alt="Blog Image">
                     </div>
                     <h3 class="mt-4 text-lg sm:text-xl text-gray-700 hover:text-neutral-800">
