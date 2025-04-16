@@ -27,6 +27,7 @@ class StoreHospitalityListRequest extends FormRequest
             'opening_time' => ['required','string'],
             'total_rooms' => ['nullable','string'],
             'room_types' => ['nullable','string'],
+            'thumbnail' => ['required','image'],
             'facilities' => ['required','string'],
             'price_per_night' => ['nullable','numeric'],
             'average_meal_price' => ['nullable','string'],

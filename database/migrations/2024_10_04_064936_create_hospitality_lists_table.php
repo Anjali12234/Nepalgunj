@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('map_url')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('whats_app_no');
-            $table->string('image')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->boolean('status')->default(0);
             $table->string('website_url')->nullable();
             $table->text('opening_time')->nullable();

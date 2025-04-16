@@ -22,6 +22,7 @@ class UpdateHospitalityListRequest extends FormRequest
             'contact_number' => ['required','string'],
             'details' => ['required'],
             'website_url' => ['nullable','string'],
+            'thumbnail' => ['nullable','image'],
             'email' => ['nullable','string'],
             'facebook_url' => ['required','string'],
             'youtube_link' => ['nullable','string'],

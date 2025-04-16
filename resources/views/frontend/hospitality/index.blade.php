@@ -26,9 +26,6 @@
                         seamless guest experiences to efficient management tools, all crafted with the latest technology
                         and attention to detail.</p>
                 </div>
-
-
-
             </div>
         </div>
         <!-- End Hero -->
@@ -45,7 +42,7 @@
                                 <div class="overflow-hidden">
                                     <img
                                         class="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
-                                        src="{{ count($hospitalityList->files) > 0 ? $hospitalityList->files?->first()->file_url : '' }}"
+                                        src="{{ $hospitalityList?->thumbnail }}"
                                         alt="Urban Comfort Hotel">
                                 </div>
                                 <div class="p-6">

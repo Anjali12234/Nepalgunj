@@ -27,7 +27,7 @@ class HospitalityList extends Model
         'map_url',
         'facebook_url',
         'whats_app_no',
-        'image',
+        'thumbnail',
         'status',
         'website_url',
         'opening_time',
@@ -79,7 +79,7 @@ class HospitalityList extends Model
         });
     }
 
-    protected function image(): Attribute
+    protected function thumbnail(): Attribute
     {
         return Attribute::make(
             get: fn(?string $value) => $value ? Storage::disk('public')->url($value) : null,

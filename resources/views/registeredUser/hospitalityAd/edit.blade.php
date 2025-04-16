@@ -92,9 +92,7 @@
 
                         <x-frontend.forms.input-type-field :value="old('menu', $hospitalityList->menu)" label="Best Menu" id="menu" type="text"
                              labelClass="w-36" name="menu" class="text-sm font-semibold" />
-                        {{-- <x-frontend.forms.select-type-field :value="old('parking_available', $hospitalityList->parking_available)" label="Parking" id="parking_available"
-                            name="parking_available" labelClass="w-36" class="text-sm font-semibold"
-                            :options="['include' => 'Include', 'exclude' => 'Exclude']" /> --}}
+                       
                             <x-frontend.forms.select-type-field
                             :value="$hospitalityList->parking_available"
                             label="Parking"
@@ -142,7 +140,9 @@
                         <x-frontend.forms.input-type-field :value="old('whats_app_no', $hospitalityList->whats_app_no)" label="Whats App" id="whats_app_no"
                              name="whats_app_no" labelClass="w-36" type="number"
                             class="text-sm font-semibold" />
-
+                            <x-frontend.remove-button :value="$hospitalityList?->thumbnail" />
+                                <x-frontend.forms.file-component : label=" Thumbnail " id="thumbnail" name="thumbnail"
+                                    type="file" class="text-sm font-semibold" />
                         <x-frontend.forms.file-component
                             label="{{ $hospitalityList->hospitalityCategory->title_en }} Image " id="files"
                             name="files[]" type="file" class="text-sm font-semibold" multiple="multiple"
