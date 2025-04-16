@@ -34,6 +34,7 @@
                 <h2 class="text-3xl font-bold text-gray-800 mb-8">Explore Our {{$hospitalityCategory->title_en}}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach ( $hospitalityCategory->hospitalityLists->take(3) as $hospitalityList )
+                    @if($hospitalityList->status == 1)
                         <!-- Hotel 4 -->
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-down"
                              data-aos-duration="2000">
@@ -65,6 +66,7 @@
 
 
                         </div>
+                        @endif
                     @endforeach
 
                 </div>

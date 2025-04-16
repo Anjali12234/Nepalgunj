@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('thumbnail')->nullable();
             $table->string('position');
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
            $table->softDeletes();
             $table->timestamps();
         });

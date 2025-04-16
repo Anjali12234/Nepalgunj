@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('whats_app_no');
             $table->string('website_url')->nullable();
             $table->string('image')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->string('address');
             $table->string('job_name');
             $table->string('contact_number');

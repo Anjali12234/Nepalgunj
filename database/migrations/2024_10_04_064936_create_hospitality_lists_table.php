@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('facebook_url')->nullable();
             $table->string('whats_app_no');
             $table->string('thumbnail')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->string('website_url')->nullable();
             $table->text('opening_time')->nullable();
             $table->string('address');

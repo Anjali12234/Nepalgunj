@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->integer('position')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

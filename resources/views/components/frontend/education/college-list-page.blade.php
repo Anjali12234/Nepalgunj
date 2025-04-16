@@ -17,6 +17,8 @@
     {{-- Grid of Education Lists --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-down" data-aos-duration="2000">
         @forelse ($educationCategory->educationLists as $educationList)
+        @if($educationList->status = 1)
+
             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition hover:bg-gray-50"
                href="{{ route('education.detailPage', $educationList) }}">
                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
@@ -40,6 +42,7 @@
                     </svg>
                 </p>
             </a>
+            @endif
         @empty
             <p class="col-span-1 sm:col-span-2 lg:col-span-3 text-center text-gray-600">No data found!</p>
         @endforelse

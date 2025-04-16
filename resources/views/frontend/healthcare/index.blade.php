@@ -13,6 +13,7 @@
                         <!-- Item 1 -->
                         @foreach ($healthCares as $healthCare)
                             @foreach ( $healthCare->healthCareLists as $healthCareList )
+                            @if($healthCareList->status == 1)
                                 <div class="hs-carousel-slide">
                                     <div
                                         class="h-64 md:h-[calc(80vh-106px)] flex flex-col bg-cover bg-center bg-no-repeat"
@@ -28,6 +29,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                             @endforeach
                         @endforeach
 
@@ -88,6 +90,8 @@
                      data-aos-duration="2000">
                     @if ($healthCare->type == 'Doctor')
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
+                        @if($healthCareList->status == 1)
+
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
                                href="{{ route('healthCare.detailPage',$healthCareList) }}">
@@ -109,6 +113,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                             <!-- End Card -->
                         @empty
                             <p>No doctors found!</p>
@@ -119,6 +124,8 @@
                      data-aos-duration="2000">
                     @if ($healthCare->type == 'Hospital')
                         @forelse ($healthCare->healthCareLists->take(3) as $healthCareList)
+                        @if($healthCareList->status == 1)
+
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
                                href="{{ route('healthCare.detailPage', $healthCareList) }}">
@@ -140,6 +147,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                             <!-- End Card -->
                         @empty
                             <p>No Hospital found!</p>
@@ -150,6 +158,8 @@
                      data-aos-duration="2000">
                     @if ($healthCare->type == 'Medical')
                         @forelse ($healthCare->healthCareLists as $healthCareList)
+                        @if($healthCareList->status == 1)
+
                             <!-- Card -->
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
                                href="{{ route('healthCare.detailPage', $healthCareList) }}">
@@ -171,6 +181,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                             <!-- End Card -->
                         @empty
                             <p>No Medical found!</p>
@@ -182,6 +193,8 @@
                     @if ($healthCare->type == 'Pharmacy')
                         @forelse ($healthCare->healthCareLists as $healthCareList)
                             <!-- Card -->
+                            @if($healthCareList->status == 1)
+
                             <a class="group hover:bg-gray-100 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition"
                                href="{{ route('healthCare.detailPage', $healthCareList) }}">
                                 <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
@@ -202,6 +215,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                             <!-- End Card -->
                         @empty
                             <p>No Pharmacy found!</p>

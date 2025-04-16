@@ -14,6 +14,8 @@
                     <!-- Card 1 -->
 
                     @forelse ($entertainmentCategory->entertainmentLists->take(3) as $entertainmentList)
+        @if($entertainmentList->status == 1)
+
                         <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                             href="{{ route('entertainment.detailPage', $entertainmentList) }}">
                             <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
@@ -33,6 +35,7 @@
                                 </svg>
                             </p>
                         </a>
+                        @endif
                     @empty
                         <p>No data found!</p>
                     @endforelse

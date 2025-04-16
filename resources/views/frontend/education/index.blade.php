@@ -36,6 +36,7 @@
                     <!-- Card 1 -->
                     @if ($educationCategory->type == 'School')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
+                        @if($educationList->status == 1)
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
@@ -59,6 +60,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                         @empty
                             <p>No data found!</p>
                         @endforelse
@@ -70,6 +72,8 @@
                     <!-- Card 1 -->
                     @if ($educationCategory->type == 'College')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
+                        @if($educationList->status == 1)
+
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
@@ -93,6 +97,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                         @empty
                             <p>No data found!</p>
                         @endforelse
@@ -104,6 +109,8 @@
                     <!-- Card 1 -->
                     @if ($educationCategory->type == 'Campus')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
+                        @if($educationList->status == 1)
+
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
@@ -127,6 +134,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                         @empty
                             <p>No data found!</p>
                         @endforelse
@@ -137,6 +145,8 @@
                     <!-- Card 1 -->
                     @if ($educationCategory->type == 'Institute')
                         @forelse ($educationCategory->educationLists->take(3) as $educationList)
+                        @if($educationList->status == 1)
+
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
@@ -160,6 +170,7 @@
                                     </svg>
                                 </p>
                             </a>
+                            @endif
                         @empty
                             <p>No data found!</p>
                         @endforelse
