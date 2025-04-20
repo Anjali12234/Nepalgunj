@@ -72,7 +72,7 @@
                                 @if ($jobList->category === $healthCareList->name)
                                         <div class="flex items-center space-x-3">
                                             <a href="{{ route('healthCare.detailPage',$healthCareList) }}" class="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
-                                                <img src="{{ count($healthCareList->files) > 0 ? $healthCareList->files?->first()->file_url : '' }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
+                                                <img src="{{ $healthCareList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
                                             </a>
                                             <div class="text-center sm:text-left">
                                                 <a href="{{ route('healthCare.detailPage',$healthCareList) }}" class="text-gray-500 text-sm">
