@@ -17,7 +17,7 @@
                     <!-- Main Article -->
                     <div class="md:col-span-2">
                         <div>
-                            <img src="{{ $newsList->image }}" alt="Qatar flags" class="w-full h-auto mb-4">
+                            <img loading="lazy" src="{{ $newsList->image }}" alt="Qatar flags" class="w-full h-auto mb-4">
 
                             <div>
                                 <h1 class="text-2xl font-bold text-purple-700 mt-2 mb-2">
@@ -26,7 +26,7 @@
 
                                 <div class="flex items-center mb-4">
                                     <div class="bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center">
-                                        <img src="https://www.qatarliving.com/sites/all/themes/qatarliving_v3/images/avatar.jpeg"
+                                        <img loading="lazy" src="https://www.qatarliving.com/sites/all/themes/qatarliving_v3/images/avatar.jpeg"
                                              alt="author avatar" class="rounded-full w-full h-full">
                                     </div>
                                     <div class="ml-3">
@@ -80,7 +80,7 @@
                                 @forelse ($relatedNews as $relatedNewsList)
                                     <a href="{{ route('newsDetail', $relatedNewsList) }}">
                                         <div class="bg-white overflow-hidden mb-8">
-                                            <img src="{{ $relatedNewsList->image }}" alt="News Image" class="w-full lg:w-40 h-52 lg:h-24 object-cover rounded-t-md">
+                                            <img loading="lazy" src="{{ $relatedNewsList->image }}" alt="News Image" class="w-full lg:w-40 h-52 lg:h-24 object-cover rounded-t-md">
                                             <p class="text-gray-700 font-bold text-sm">{{ Str::words($relatedNewsList->title, 5) }}</p>
                                     <hr class="col-span-full border-t border-gray-300 mt-4 md:hidden">
                                         </div>
@@ -101,7 +101,7 @@
                         @forelse($jobLists->take(5) as $jobList)
                             <div class="flex items-center space-x-4 mb-4">
                                 <a href="{{ route('jobDetail', $jobList) }}">
-                                    <img
+                                    <img loading="lazy"
                                         src="{{ $jobList->image }}"
                                         alt="{{ $jobList->job_name }}"
                                         class="w-full h-64 md:w-44 md:h-32 object-cover rounded-lg mb-4 md:mb-0">

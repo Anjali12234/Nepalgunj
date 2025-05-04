@@ -42,7 +42,7 @@
         <div class="flex flex-col items-start text-center md:text-left">
             <h2 class="text-lg font-semibold text-gray-700 mt-7">{{ setting()->name_en ?? '' }}</h2>
             <a href="{{route('welcome')}}" class="block">
-                <img src="{{ setting()->logo1 ?? '' }}" alt="{{ setting()->name_en ?? '' }}" class="h-20 mx-auto md:mx-0">
+                <img loading="lazy" src="{{ setting()->logo1 ?? '' }}" alt="{{ setting()->name_en ?? '' }}" class="h-20 mx-auto md:mx-0">
             </a>
         </div>
     </div>

@@ -17,7 +17,7 @@
                         @forelse($news as $newslist)
                             <div class="flex flex-col md:flex-row items-start p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-4">
                                 <a href="{{ route('newsDetail', $newslist) }}">
-                                    <img
+                                    <img loading="lazy"
                                         src="{{ $newslist->image }}"
                                         alt="{{ $newslist->title }}"
                                         class="w-full h-64 md:w-44 md:h-32 object-cover rounded-lg mb-4 md:mb-0">

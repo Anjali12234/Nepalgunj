@@ -22,7 +22,7 @@
                                         @if ($carouselItem->thumbnail)
                                             <div class="hs-carousel-slide relative"
                                                 data-description="{{ $carouselItem->title ?? $carouselItem->name }}">
-                                                <img src="{{ $carouselItem->thumbnail }}"
+                                                <img loading="lazy" src="{{ $carouselItem->thumbnail }}"
                                                     alt="{{ $carouselItem->title ?? $carouselItem->name }}"
                                                     class="w-full h-full object-cover">
 
@@ -36,7 +36,7 @@
                                             @foreach ($carouselItem->files as $index => $file)
                                                 <div class="hs-carousel-slide relative"
                                                     data-description="{{ $carouselItem->title ?? $carouselItem->name }}">
-                                                    <img src="{{ $file->file_url }}"
+                                                    <img loading="lazy" src="{{ $file->file_url }}"
                                                         alt="{{ $carouselItem->title ?? $carouselItem->name }}"
                                                         class="w-full h-full object-cover">
 
@@ -91,7 +91,7 @@
                             <a href="{{ route('newsDetail', $newsList) }}">
                                 <div class="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 mb-4 mt-8"
                                     data-aos="fade-down" data-aos-duration="2000">
-                                    <img src="{{ $newsList->image ?? '' }}" alt="Scam websites"
+                                    <img loading="lazy" src="{{ $newsList->image ?? '' }}" alt="Scam websites"
                                         class="w-full h-32 object-cover md:w-44 md:h-32">
                                     <div class="mt-4 md:mt-0">
                                         <p class="text-fuchsia-600 text-xs font-bold">NEWS</p>
@@ -118,7 +118,7 @@
                         @foreach ($jobLists as $jobList)
                             <a href="{{ route('jobDetail', $jobList) }}">
                                 <div class="flex space-x-4  mt-2">
-                                    <img src="{{ $jobList->image }}" alt="Events this week September 1-7"
+                                    <img loading="lazy" src="{{ $jobList->image }}" alt="Events this week September 1-7"
                                         class="w-28 border border-gray-400 rounded">
                                     <div>
                                         <h3 class="text-sm font-semibold">{{ $jobList->job_name }}</h3>
@@ -153,7 +153,7 @@
                                 @if ($newsList->status == 1)
                                     <a href="{{ route('newsDetail', $newsList) }}">
                                         <div class="mt-4">
-                                            <img src="{{ $newsList->image ?? '' }}" alt=""
+                                            <img loading="lazy" src="{{ $newsList->image ?? '' }}" alt=""
                                                 class="w-full h-48 object-cover">
                                             <div>
                                                 <h1 class="text-sm font-bold mt-3 "> {{ $newsList->title }}</h1>
@@ -170,7 +170,7 @@
                                 @if ($newsList->status == 1)
                                     <a href="{{ route('newsDetail', $newsList) }}">
                                         <div class="mt-4 ">
-                                            <img src="{{ $newsList->image ?? '' }}" alt=""
+                                            <img loading="lazy" src="{{ $newsList->image ?? '' }}" alt=""
                                                 class="sm:w-36 lg:w-full sm:h-12 lg:h-32 object-cover">
                                             <!-- Increased image size -->
                                             <div class="">

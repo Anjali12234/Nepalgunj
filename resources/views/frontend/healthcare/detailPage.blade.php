@@ -37,7 +37,7 @@
                 <div class="relative bg-white shadow-lg overflow-hidden">
                     @foreach ($healthCareList->files as $index => $file)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">
-                            <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
+                            <img loading="lazy" src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
                                 class="w-full h-[32rem] object-cover">
                         </div>
                     @endforeach
@@ -53,7 +53,7 @@
 
                 <div class="flex space-x-2 mt-4 overflow-x-auto pb-2">
                     @foreach ($healthCareList->files as $index => $file)
-                        <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
+                        <img loading="lazy" src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
                             class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
                             onclick="setSlide({{ $index }})">
                     @endforeach
@@ -107,7 +107,7 @@
                                         class="bg-white  overflow-hidden rounded-lg shadow-md transition-transform transform hover:scale-105 mb-4">
                                         <div class="items-center justify-center flex">
 
-                                            <img src="{{ $jobList->image }}" alt="Job Image"
+                                            <img loading="lazy" src="{{ $jobList->image }}" alt="Job Image"
                                                 class="w-full lg:w-[15rem] h-52 lg:h-[12rem] object-cover rounded-t-md">
                                         </div>
                                         <div class="px-5 py-5 text-center">
