@@ -80,7 +80,7 @@
                         <a href="{{ route('newsDetail', $newsList) }}">
                             <div class="bg-white shadow-md p-4 overflow-hidden">
                                 <div class="image-wrapper overflow-hidden">
-                                    <img src="{{ $newsList->image ?? '' }}" alt="News Image"
+                                    <img loading="lazy" src="{{ $newsList->image ?? '' }}" alt="News Image"
                                          class="w-full h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105">
                                 </div>
                                 <div class="p-4">
@@ -103,7 +103,7 @@
                                 <div class="bg-white shadow-md overflow-hidden">
                                     <a href="{{ route('propertyDetails', $propertyList) }}">
                                         <div class="relative">
-                                            <img
+                                            <img loading="lazy"
                                                 src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
                                                 alt="Property Image"
                                                 class="w-full h-40 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105">
@@ -141,7 +141,7 @@
                                class="w-full md:w-1/3 h-44 object-cover mb-2 md:mb-0 transition-transform duration-300 ease-in-out transform hover:scale-105">
 
                                 <div class="relative">
-                                    <img
+                                    <img loading="lazy"
                                         src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
                                         alt="Property Image"
                                         class="w-full h-44 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105">
@@ -208,11 +208,11 @@
                                     <div class="col-span-1  justify-end items-center mr-9 hidden lg:flex">
                                         <div class="text-center md:text-right ">
                                             @if (!empty($propertyList?->registeredUser?->registeredUserDetail?->avatar))
-                                                <img
+                                                <img loading="lazy"
                                                     src="{{ $propertyList->registeredUser->registeredUserDetail->avatar }}"
                                                     class="rounded-full w-16 h-16 mx-auto ml-[9rem] " alt="User Avatar">
                                             @else
-                                                <img src="{{ asset('assets/frontend/static/Missing-Avatar.png') }}"
+                                                <img loading="lazy" src="{{ asset('assets/frontend/static/Missing-Avatar.png') }}"
                                                      class="rounded-full w-16 h-16 mx-auto ml-[9rem] "
                                                      alt="Missing Avatar">
                                             @endif

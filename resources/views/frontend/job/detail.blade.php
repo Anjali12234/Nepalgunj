@@ -17,7 +17,7 @@
                     <!-- Main Article -->
                     <div class="md:col-span-2">
                         <div class="bg-white shadow-md rounded-lg p-6 mb-6">
-                            <img src="{{ $jobList->image }}" alt="Job Image" class="w-full h-auto rounded-md mb-4">
+                            <img loading="lazy" src="{{ $jobList->image }}" alt="Job Image" class="w-full h-auto rounded-md mb-4">
                             <h1 class="text-3xl font-bold text-purple-700 mt-2 mb-2">
                                 {{ $jobList->job_name }}
                             </h1>
@@ -27,7 +27,7 @@
                                     @if ($jobList->category === $educationList->name)
                                         <div class="flex items-center space-x-3">
                                             <a href="{{ route('education.detailPage', $educationList) }}" class="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
-                                                <img src="{{ $educationList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
+                                                <img loading="lazy" src="{{ $educationList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
                                             </a>
                                             <div class="text-center sm:text-left">
                                                 <a href="{{ route('education.detailPage', $educationList) }}" class="text-gray-500 text-sm">
@@ -42,7 +42,7 @@
                                 @if ($jobList->category === $entertainmentList->name)
                                         <div class="flex items-center space-x-3">
                                             <a href="{{ route('entertainment.detailPage', $entertainmentList) }}" class="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
-                                                <img src="{{ $entertainmentList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
+                                                <img loading="lazy" src="{{ $entertainmentList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
                                             </a>
                                             <div class="text-center sm:text-left">
                                                 <a href="{{ route('entertainment.detailPage', $entertainmentList) }}" class="text-gray-500 text-sm">
@@ -57,7 +57,7 @@
                                 @if ($jobList->category === $propertyList->title)
                                         <div class="flex items-center space-x-3">
                                             <a href="{{ route('propertyDetails', $propertyList) }}" class="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
-                                                <img src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
+                                                <img loading="lazy" src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
                                             </a>
                                             <div class="text-center sm:text-left">
                                                 <a href="{{ route('propertyDetails', $propertyList) }}" class="text-gray-500 text-sm">
@@ -72,7 +72,7 @@
                                 @if ($jobList->category === $healthCareList->name)
                                         <div class="flex items-center space-x-3">
                                             <a href="{{ route('healthCare.detailPage',$healthCareList) }}" class="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
-                                                <img src="{{ $healthCareList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
+                                                <img loading="lazy" src="{{ $healthCareList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
                                             </a>
                                             <div class="text-center sm:text-left">
                                                 <a href="{{ route('healthCare.detailPage',$healthCareList) }}" class="text-gray-500 text-sm">
@@ -87,7 +87,7 @@
                                             @if ($jobList->category === $hospitalityList->name)
                                         <div class="flex items-center space-x-3">
                                             <a href="{{ route('hospitality.hospitalityDetail',$hospitalityList) }}" class="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
-                                                <img src="{{ $hospitalityList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
+                                                <img loading="lazy" src="{{ $hospitalityList->thumbnail }}" alt="Author Avatar" class="rounded-full w-full h-full object-cover">
                                             </a>
                                             <div class="text-center sm:text-left">
                                                 <a href="{{ route('hospitality.hospitalityDetail',$hospitalityList) }}" class="text-gray-500 text-sm">
@@ -182,7 +182,7 @@
                                     <a href="{{ route('jobDetail', $relatedJobList) }}">
                                         <div
                                             class="bg-white overflow-hidden rounded-lg shadow-md transition-transform transform hover:scale-105 mb-4">
-                                            <img src="{{ $relatedJobList->image }}" alt="Job Image"
+                                            <img loading="lazy" src="{{ $relatedJobList->image }}" alt="Job Image"
                                                 class="w-full lg:w-40 h-52 lg:h-24 object-cover rounded-t-md">
                                             <div class="p-2">
                                                 <p class="text-gray-700 font-bold text-sm">
@@ -206,7 +206,7 @@
                                 <a href="{{ route('jobDetail', $relatedJobList) }}">
 
                                     <div class="flex flex-col sm:flex-row items-center space-x-4 mb-4">
-                                        <img src="{{ $relatedJobList->image }}" alt="News Image"
+                                        <img loading="lazy" src="{{ $relatedJobList->image }}" alt="News Image"
                                             class="w-full lg:w-40 h-52 lg:h-24 rounded-md">
                                         <h3 class="text-sm font-semibold">
                                             {{ Str::words($relatedJobList->job_name, 10) }}</h3>

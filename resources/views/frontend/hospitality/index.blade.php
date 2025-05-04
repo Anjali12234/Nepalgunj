@@ -41,7 +41,7 @@
 
                             <a href="{{ route('hospitality.hospitalityDetail',$hospitalityList) }}">
                                 <div class="overflow-hidden">
-                                    <img
+                                    <img loading="lazy"
                                         class="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
                                         src="{{ $hospitalityList?->thumbnail }}"
                                         alt="Urban Comfort Hotel">

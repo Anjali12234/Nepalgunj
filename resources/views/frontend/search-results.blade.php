@@ -106,7 +106,7 @@
                             <!-- Display image and description -->
                             <div class="flex mt-2">
                                 <!-- Image -->
-                                <img
+                                <img loading="lazy"
                                     src="{{ $result->files->isNotEmpty() ? $result->files->first()->file_url : $result->image }}"
                                     alt="Result Image"
                                     class="h-20 w-20 object-cover rounded-md mr-4">

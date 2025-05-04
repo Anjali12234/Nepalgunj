@@ -51,7 +51,7 @@
                         @foreach ($educationList->files as $index => $file)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
                                 data-index="{{ $index }}">
-                                <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
+                                <img src="{{ $file->file_url }}" loading="lazy" alt="Room {{ $index + 1 }}"
                                     class="w-full h-[30rem] object-cover">
                             </div>
                         @endforeach
@@ -67,7 +67,7 @@
 
                     <div class="flex space-x-2 mt-4 overflow-x-auto pb-2">
                         @foreach ($educationList->files as $index => $file)
-                            <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
+                            <img src="{{ $file->file_url }}" loading="lazy" alt="Thumbnail {{ $index + 1 }}"
                                 class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
                                 onclick="setSlide({{ $index }})">
                         @endforeach
@@ -114,7 +114,7 @@
                                     class="w-full lg:w-[48%] flex-shrink-0 bg-white border border-neutral-700 rounded-xl p-6 shadow-md">
                                     <div class="flex items-center mb-4">
                                         <img class="w-16 h-16 rounded-full object-cover"
-                                            src="{{ $testimonial->image }}" alt="Student Image">
+                                            src="{{ $testimonial->image }}" loading="lazy" alt="Student Image">
                                         <div class="ml-4">
                                             <h3 class="text-lg font-semibold text-gray-800">{{ $testimonial->name }}
                                             </h3>
@@ -151,7 +151,7 @@
                                 class="bg-white  overflow-hidden rounded-lg shadow-md transition-transform transform hover:scale-105 mb-4">
                                 <div class="items-center justify-center flex">
 
-                                    <img src="{{ $jobList->image }}" alt="Job Image"
+                                    <img src="{{ $jobList->image }}" alt="Job Image" loading="lazy"
                                         class="w-full lg:w-[15rem] h-52 lg:h-[12rem] object-cover rounded-t-md">
                                 </div>
                                 <div class="px-5 py-5 text-center mt-3">

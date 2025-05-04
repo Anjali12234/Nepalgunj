@@ -40,7 +40,7 @@
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img
+                                    <img loading="lazy"
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ $educationList->thumbnail }}"
                                         alt="Blog Image">
@@ -77,7 +77,7 @@
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img
+                                    <img loading="lazy"
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ $educationList->thumbnail }}"
                                         alt="Blog Image">
@@ -114,7 +114,7 @@
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img
+                                    <img loading="lazy"
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ $educationList->thumbnail }}"
                                         alt="Blog Image">
@@ -150,7 +150,7 @@
                             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition dark:hover:bg-white/10 dark:focus:bg-white/10"
                                href="{{ route('education.detailPage', $educationList) }}">
                                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                                    <img
+                                    <img loading="lazy"
                                         class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                                         src="{{ $educationList->thumbnail }}"
                                         alt="Blog Image">

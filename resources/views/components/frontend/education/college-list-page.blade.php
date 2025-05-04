@@ -22,7 +22,7 @@
             <a class="group border border-neutral-700 focus:outline-none focus:bg-gray-100 rounded-xl p-5 transition hover:bg-gray-50"
                href="{{ route('education.detailPage', $educationList) }}">
                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-xl">
-                <img
+                <img loading="lazy"
                     class="w-full h-60 object-cover transition-transform duration-300 transform group-hover:scale-105"
                     src="{{ $educationList->thumbnail }}"
                     alt="Blog Image">

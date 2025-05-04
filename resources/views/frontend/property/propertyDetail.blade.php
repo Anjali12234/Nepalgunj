@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="p-4 flex items-center justify-start">
-                        <span>by</span> <img src="{{ $propertyList?->registeredUser?->registeredUserDetail?->avatar }}"
+                        <span>by</span> <img loading="lazy" src="{{ $propertyList?->registeredUser?->registeredUserDetail?->avatar }}"
                                              class="rounded-full w-16 h-16 mr-4 ml-3" alt="User Avatar">
                         <p class="font-semibold">{{ $propertyList?->registeredUser?->username }}</p>
                     </div>
@@ -66,7 +66,7 @@
                         @foreach ($propertyList->files as $index => $file)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}"
                                  data-index="{{ $index }}">
-                                <img src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
+                                <img loading="lazy" src="{{ $file->file_url }}" alt="Room {{ $index + 1 }}"
                                      class="w-full h-[30rem] object-cover">
                             </div>
                         @endforeach
@@ -83,7 +83,7 @@
 
                     <div class="flex space-x-2 mt-4 overflow-x-auto pb-2">
                         @foreach ($propertyList->files as $index => $file)
-                            <img src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
+                            <img loading="lazy" src="{{ $file->file_url }}" alt="Thumbnail {{ $index + 1 }}"
                                  class="thumbnail w-24 h-16 object-cover cursor-pointer rounded {{ $index === 0 ? 'active' : '' }}"
                                  onclick="setSlide({{ $index }})">
                         @endforeach
@@ -182,7 +182,7 @@
                 @forelse ($relatedProperties as $propertyList)
                     <a href="{{ route('propertyDetails', $propertyList) }}">
                         <div class="border overflow-hidden bg-white relative">
-                            <img
+                            <img loading="lazy"
                                 src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
                                 class="w-full h-48 object-cover" alt="Property 1">
                             @if ($propertyList->is_featured == 1)
@@ -214,7 +214,7 @@
                 @forelse ($relatedPropertiesList as $propertyList)
                     <a href="{{ route('propertyDetails', $propertyList) }}">
                         <div class="border overflow-hidden bg-white relative">
-                            <img
+                            <img loading="lazy"
                                 src="{{ count($propertyList->files) > 0 ? $propertyList->files?->first()->file_url : '' }}"
                                 class="w-full h-48 object-cover" alt="Property 1">
                             @if ($propertyList->is_featured == 1)

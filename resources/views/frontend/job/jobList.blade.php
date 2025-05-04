@@ -18,7 +18,7 @@
                             <div
                                 class="flex flex-col md:flex-row items-start p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-4">
                                 <a href="{{ route('jobDetail', $jobList) }}">
-                                    <img src="{{ $jobList->image }}" alt="{{ $jobList->job_name }}"
+                                    <img loading="lazy" src="{{ $jobList->image }}" alt="{{ $jobList->job_name }}"
                                         class="w-full h-64 md:w-44 md:h-32 object-cover rounded-lg mb-4 md:mb-0">
                                 </a>
                                 <div class="md:ml-4 flex-1">
