@@ -22,10 +22,10 @@
                                 <span class="text-gray-800 font-bold">{{ round($hospitalityList->price_per_night) }} per/night</span>
                             @endif
 
-                            @if (!empty($hospitalityList->delivery_available))
+                            {{-- @if (!empty($hospitalityList?->delivery_available))
                                 <span
-                                    class="text-gray-800 font-bold">Delivery Charge: {{ round($hospitalityList->delivery_available) }} </span>
-                            @endif
+                                    class="text-gray-800 font-bold">Delivery Charge: {{ round($hospitalityList?->delivery_available) }} </span>
+                            @endif --}}
                             <a href="{{ route('hospitality.hospitalityDetail',$hospitalityList) }}"
                                class="text-white bg-zinc-700 px-3 py-1 hover:bg-black hover:text-lime-500 rounded-full  text-sm">View
                                 more</a>
