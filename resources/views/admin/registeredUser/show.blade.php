@@ -61,8 +61,8 @@
                                                     <p>{{ $registeredUser->username }}</p>
                                                 </div>
                                                 <div class="d-flex">
-                                                    <p class="me-2">Full Name:</p>
-                                                    <p>{{ $registeredUser->registeredUserDetail->organization_name }}</p>
+                                                    <p class="me-2">Organization Name:</p>
+                                                    <p>{{ $registeredUser->registeredUserDetail?->organization_name }}</p>
                                                 </div>
                                                 <div class="d-flex">
                                                     <p class="me-2">Email:</p>
