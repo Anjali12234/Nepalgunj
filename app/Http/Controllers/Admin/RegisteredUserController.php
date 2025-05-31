@@ -44,5 +44,11 @@ class RegisteredUserController extends Controller
 
         return back();
     }
+      public function destroy(RegisteredUser $registeredUser)
+    {
+        $registeredUser->delete();
+        Alert::success('Registered User deleted successfully');
+        return back();
+    }
 
 }
