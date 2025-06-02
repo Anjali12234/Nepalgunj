@@ -13,7 +13,7 @@ class HealthCareCategoryController extends Controller
 {
     public function index()
     {
-        $healthCares = HealthCareCategory::paginate(10);
+        $healthCares = HealthCareCategory::latest()->paginate(10);
         return view('admin.healthCare.index',compact('healthCares'));
     }
     public function create()

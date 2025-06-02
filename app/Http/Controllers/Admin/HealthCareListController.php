@@ -11,7 +11,7 @@ class HealthCareListController extends Controller
 {
     public function index()
     {
-        $healthCareLists = HealthCareList::paginate(10);
+        $healthCareLists = HealthCareList::latest()->paginate(10);
         return view('admin.healthCareList.index',compact('healthCareLists')); // Corrected 'veiw' to 'view'
     }
 

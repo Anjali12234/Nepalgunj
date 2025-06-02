@@ -16,7 +16,7 @@ class HospitalityCategoryController extends Controller
 
     public function index()
     {
-        $hospitalityCategories = HospitalityCategory::paginate(10);
+        $hospitalityCategories = HospitalityCategory::latest()->paginate(10);
         return view('admin.hospitality.index',compact('hospitalityCategories'));
     }
 

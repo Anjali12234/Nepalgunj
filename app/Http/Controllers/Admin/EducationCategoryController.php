@@ -14,7 +14,7 @@ class EducationCategoryController extends Controller
     public function index()
     {
         $mainCategories = MainCategory::all();
-        $educationCategories = EducationCategory::paginate(10);
+        $educationCategories = EducationCategory::latest()->paginate(10);
         return view('admin.educationCategory.index',compact('mainCategories','educationCategories'));
     }
     public function create()

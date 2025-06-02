@@ -15,7 +15,7 @@ class EducationListController extends Controller
 {
     public function index()
     {
-        $educationLists = EducationList::paginate(10);
+        $educationLists = EducationList::latest()->paginate(10);
         return view('admin.educationList.index',compact('educationLists')); // Corrected 'veiw' to 'view'
     }
 

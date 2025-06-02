@@ -13,7 +13,7 @@ class HospitalityListController extends Controller
 {
     public function index()
     {
-        $hospitalityLists = HospitalityList::paginate(10);
+        $hospitalityLists = HospitalityList::latest()->paginate(10);
         return view('admin.hospitalityList.index',compact('hospitalityLists')); // Corrected 'veiw' to 'view'
     }
     public function updateStatus(HospitalityList $hospitalityList)
