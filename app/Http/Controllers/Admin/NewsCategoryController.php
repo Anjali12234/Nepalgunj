@@ -12,7 +12,7 @@ class NewsCategoryController extends Controller
 {
     public function index()
     {
-        $newsCategories = NewsCategory::paginate(10);
+        $newsCategories = NewsCategory::latest()->paginate(10);
         return view('admin.newsCategory.index',compact('newsCategories'));
     }
 

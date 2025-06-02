@@ -11,7 +11,7 @@ class PropertyListController extends Controller
 {
     public function index()
     {
-        $propertyLists = PropertyList::paginate(10);
+        $propertyLists = PropertyList::latest()->paginate(10);
         return view('admin.propertyList.index',compact('propertyLists')); // Corrected 'veiw' to 'view'
     }
 

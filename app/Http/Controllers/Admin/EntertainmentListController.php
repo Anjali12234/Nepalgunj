@@ -11,7 +11,7 @@ class EntertainmentListController extends Controller
     public function index()
     {
         
-        $entertainmentLists = EntertainmentList::paginate(10);
+        $entertainmentLists = EntertainmentList::latest()->paginate(10);
         return view('admin.entertainmentList.index',compact('entertainmentLists')); // Corrected 'veiw' to 'view'
     }
 

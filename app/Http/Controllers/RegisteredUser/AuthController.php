@@ -60,7 +60,7 @@ class AuthController extends BaseController
             $request->session()->regenerate();
             Notification::send($user, new UserRegisterNotification($registeredUser) );
             toast('Thank you for registering...', 'success');
-            return redirect()->intended(route('registeredUser.dashboard', absolute: false));
+            return redirect()->intended(route('registeredUser.profile.index', absolute: false));
         }
         toast('Could not autologin...', 'error');
         return back();

@@ -9,7 +9,7 @@ class JobListController extends Controller
 {
     public function index()
     {
-        $jobLists = JobList::paginate(10);
+        $jobLists = JobList::latest()->paginate(10);
         return view('admin.jobList.index',compact('jobLists'));
     }
     public function updateStatus(JobList $jobList)

@@ -13,7 +13,7 @@ class ProgramController extends Controller
 {
     public function index()
     {
-        $programs = Program::paginate(10);
+        $programs = Program::latest()->paginate(10);
         return view('admin.setting.program.index',compact('programs'));
     }
     

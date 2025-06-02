@@ -16,7 +16,7 @@ class PropertyCategoryController extends Controller
     {
         $mainCategories = MainCategory::all();
 
-        $propertyCategories = PropertyCategory::paginate(10);
+        $propertyCategories = PropertyCategory::latest()->paginate(10);
         return view('admin.propertyCategory.index',compact('propertyCategories','mainCategories'));
     }
     public function create()

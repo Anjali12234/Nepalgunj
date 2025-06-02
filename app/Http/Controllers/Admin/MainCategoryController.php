@@ -13,7 +13,7 @@ class MainCategoryController extends Controller
 
     public function index()
     {
-        $mainCategories = MainCategory::paginate(10);
+        $mainCategories = MainCategory::latest()->paginate(10);
         return view('admin.mainCategory.index',compact('mainCategories'));
     }
     public function create()
