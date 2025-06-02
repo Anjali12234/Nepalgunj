@@ -32,7 +32,7 @@ class AuthController extends BaseController
         if (auth('registered-user')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('registeredUser.profile.index', absolute: false));
+            return redirect()->intended(route('registeredUser.dashboard', absolute: false));
 
         }
 
