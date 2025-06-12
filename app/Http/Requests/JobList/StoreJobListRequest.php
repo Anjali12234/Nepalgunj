@@ -25,7 +25,7 @@ class StoreJobListRequest extends FormRequest
             'job_name' => ['nullable','string'],
             'contact_number' => ['required','string'],
             'job_type' => ['nullable','string'],
-            'category' => ['required','string'],
+            'category' => ['nullable','string'],
             'post' => ['required','string'],
             'years_of_experience' => ['required','string'],
             'gender' => ['required','string'],
