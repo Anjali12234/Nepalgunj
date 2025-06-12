@@ -40,7 +40,6 @@
                         <tr>
                             <th class="table-plus datatable-nosort">S.No</th>
                             <th>Title</th>
-                            <th>Slug</th>
                             <th>Status</th>
                             <th class="datatable-nosort">Action</th>
                         </tr>
@@ -50,7 +49,6 @@
                             <tr>
                                 <td class="table-plus">{{ $loop->iteration }}</td>
                                 <td>{{ Str::words($newsList->title, 1) }}</td>
-                                <td>{{ Str::words($newsList->slug, 1) }}</td>
                                 <td>
 
                                     <form action="{{ route('admin.newsList.updateStatus',$newsList) }}" method="post" style="display: inline">
