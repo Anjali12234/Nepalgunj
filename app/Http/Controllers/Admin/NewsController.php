@@ -55,7 +55,7 @@ class NewsController extends Controller
 
         alert("form updated");
 
-        return redirect(route('admin.news.index'));
+        return redirect(route('admin.newsList.index'));
     }
 
 
